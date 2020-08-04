@@ -7,6 +7,7 @@ nnoremap <C-f> :Files<CR>
 nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <Leader>bs :Lines<CR>
 nnoremap <C-h> :History<CR>
+nnoremap <C-b> :Buffers<CR>
 nnoremap <leader>bl :BLines<CR>
 
 "repeat same mappings for new tab
