@@ -29,12 +29,12 @@ nnoremap <leader>w :w<CR>
 noremap <leader>fn :echo @%<CR>
 
 "shortcut to edit nvim config
-noremap <leader>evm : e ~/.config/nvim/init.vim<CR>
+noremap <leader>ev :vsplit $MYVIMRC<CR>
 
 "add a new line below with a breakpoint (python)
-nmap <leader>bp obreakpoint()<Esc>k
+nnoremap <leader>bp obreakpoint()<Esc>k
 
-noremap <leader>sf :source %<CR>
+noremap <leader>sv :source $MYVIMRC<CR>
 
 "create empty line(s) below/above
 nnoremap <silent> <leader>[ :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>

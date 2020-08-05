@@ -1,7 +1,7 @@
 "from https://www.youtube.com/watch?v=-I1b8BINyEw
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-references)
-nmap <leader>dt :call CocAction('jumpDefinition', 'tabe')<CR>
+nnoremap <leader>gd <Plug>(coc-definition)
+nnoremap <leader>gr <Plug>(coc-references)
+nnoremap <leader>dt :call CocAction('jumpDefinition', 'tabe')<CR>
 
 ""Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -14,7 +14,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-nmap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
