@@ -37,6 +37,7 @@ set wildignore+=**/node_modules/**
 set termguicolors
 set clipboard+=unnamedplus
 set inccommand=split                    " Show live highlighting during substitute in a split window
+set noshowmode
 
 "from How to do 90% of what plugins do
 "https://www.youtube.com/watch?v=XA2WjJbmmoM
@@ -66,3 +67,8 @@ augroup END
 " gf if file does not exist, relative to current dir
 noremap <leader>grf :tabe %:h/<cfile><CR>
 noremap <leader>gcf :tabe <cfile><CR>
+
+nnoremap <Up> :resize +2<CR>
+nnoremap <Down> :resize -2<CR>
+nnoremap <Left> :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
