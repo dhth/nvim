@@ -28,3 +28,12 @@ snippet pt "pytest test" b
 @pytest.fixture(scope="function")
 def ${1}(${2}):
 endsnippet
+
+snippet celeryb "Celery remote breakpoint" b
+from celery.contrib import rdb
+rdb.set_trace()
+endsnippet
+
+snippet pytestb "Pytest breakpoint" b
+import pytest; pytest.set_trace()
+endsnippet
