@@ -8,7 +8,7 @@ nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <Leader>bs :Lines<CR>
 nnoremap <C-h> :History<CR>
 nnoremap <C-b> :Buffers<CR>
-nnoremap <leader>bl :BLines<CR>
+nnoremap <C-s> :BLines<CR>
 
 "repeat same mappings for new tab
 nnoremap <Leader><C-p> :tabnew<CR>:GFiles<CR>
