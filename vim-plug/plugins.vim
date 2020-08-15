@@ -43,6 +43,7 @@ Plug 'ferrine/md-img-paste.vim'
 "Plug 'vimwiki/vimwiki'
 " Plug 'unblevable/quick-scope'
 " Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junkblocker/git-time-lapse'
 
 call plug#end()
 

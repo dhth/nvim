@@ -1,4 +1,5 @@
 nnoremap <leader>pv :NERDTreeToggle %<CR>
+nnoremap <C-e> :NERDTreeToggle %<CR>
 
 " enable line numbers in nerdtree
 let NERDTreeShowLineNumbers=1

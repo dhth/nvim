@@ -1,6 +1,6 @@
 inoremap jj <Esc>
-inoremap jk <Esc>
-inoremap kj <Esc>
+" inoremap jk <Esc>
+" inoremap kj <Esc>
 
 " Better indenting
 vnoremap < <gv

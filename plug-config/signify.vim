@@ -8,8 +8,8 @@ let g:signify_sign_show_text = 1
 
 
 " Jump though hunks
-nnoremap ]c <plug>(signify-next-hunk)
-nnoremap [c <plug>(signify-prev-hunk)
+" nnoremap ]c <plug>(signify-next-hunk)
+" nnoremap [c <plug>(signify-prev-hunk)
 
 nnoremap <leader>ggt :SignifyToggle<CR>
 nnoremap <leader>ggl :SignifyToggleHighlight<CR>
