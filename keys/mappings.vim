@@ -16,8 +16,8 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
 "resize splits -> increase/decrease height
-nnoremap <silent> <Leader>+ :resize +5<CR>
-nnoremap <silent> <Leader>- :resize -5<CR>
+" nnoremap <silent> <Leader>+ :resize +5<CR>
+" nnoremap <silent> <Leader>- :resize -5<CR>
 
 "resize splits -> increase/decrease width of left pane
 nnoremap <silent> <Leader>> :vertical resize +5<CR>
@@ -55,3 +55,9 @@ nnoremap <leader>u :UndotreeShow<CR>
 " more on this here
 " https://github.com/neoclide/coc.nvim/issues/1089
 nnoremap <C-j> <C-i>
+
+nnoremap <leader>y yyp
+
+" Movement to content of next braces
+" from https://learnvimscriptthehardway.stevelosh.com/chapters/15.html
+onoremap in( :<c-u>normal! f(vi(<cr>

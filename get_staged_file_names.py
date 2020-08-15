@@ -17,6 +17,8 @@ for f in staged_files:
     if len(f) > 0:
         f_name = f.strip()
         f_name_stripped = f_name.split("/")[-1]
+        if f_name_stripped.endswith(".vim"):
+            f_name_stripped = f_name_stripped.split(".vim")[0]
         res_files.append(f_name_stripped)
 
 res_files_unique = list(set(res_files))

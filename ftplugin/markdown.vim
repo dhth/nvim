@@ -1,5 +1,5 @@
 noremap <leader>ml f]gf
-noremap <leader>mL F]gf
+noremap <ENTER> 0f]<C-W>gf
 " augroup mdtoc
 "     autocmd BufRead * Toc
 " augroup END
@@ -7,3 +7,7 @@ noremap <leader>mL F]gf
 " Toc
 " wincmd h
 nnoremap <leader>/ :Toc<CR>
+nnoremap <leader>tf :TableFormat<CR>
+nnoremap <leader>- o<esc>I- 
+set tw=80
+" set foldmethod=syntax
