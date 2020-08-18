@@ -16,8 +16,7 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Plugins go here like this:
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
@@ -44,6 +43,9 @@ Plug 'ferrine/md-img-paste.vim'
 " Plug 'unblevable/quick-scope'
 " Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junkblocker/git-time-lapse'
+" Plug 'chriskempson/base16-vim'
+Plug 'vim-test/vim-test'
+" Plug 'jgdavey/tslime.vim', {'branch': 'main'}
 
 call plug#end()
 

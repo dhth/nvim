@@ -36,7 +36,7 @@ set wildmenu
 set wildignore+=**/node_modules/**
 set termguicolors
 set clipboard+=unnamedplus
-set inccommand=split                    " Show live highlighting during substitute in a split window
+set inccommand=nosplit                    " Show live highlighting during substitute in a split window
 set noshowmode
 
 "from How to do 90% of what plugins do
