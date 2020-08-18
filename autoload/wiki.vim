@@ -17,10 +17,13 @@ function! ReplaceSpacesWithDashes(str)
     return substitute(a:str, ' ', '-', 'g')
 endfunction
 
-function! wiki#WriteHeadingInFile(file_loc, str)
+function! wiki#WriteHeadingInFile(file_loc, str, create_subpages_heading)
     execute "normal! :tabe ".a:file_loc."\<cr>"
     execute "normal! i".a:str."\<esc>"
     execute "normal! o===\<cr>\<cr>\<esc>"
+    if a:create_subpages_heading
+        execute "normal! iModules\<cr>---\<cr>\<esc>"
+    endif
 endfunction
 
 function! wiki#CreateFileLink()
@@ -31,11 +34,14 @@ function! wiki#CreateFileLink()
     let file_name_in = input('Enter file name: ')
     call inputrestore()
 
-    let l:file_title = TwiddleCase(file_name_in)
-    let l:file_name = ReplaceSpacesWithDashes(file_name_in).".md"
+    " let l:file_title = TwiddleCase(file_name_in)
+    let l:file_title = file_name_in
+    let l:dir_loc = expand("%:h")
+    let l:file_name = ReplaceSpacesWithDashes(tolower(file_name_in)).".md"
+    let l:file_loc = l:dir_loc."/".ReplaceSpacesWithDashes(tolower(file_name_in)).".md"
 
     execute "normal! o\<esc>I- [:fontawesome-solid-file-alt: ".l:file_title."](".l:file_name.")"
-    call wiki#WriteHeadingInFile(l:file_name, l:file_title)
+    call wiki#WriteHeadingInFile(l:file_loc, l:file_title, 0)
 endfunction
 
 function! wiki#CreateFolderLink()
@@ -46,13 +52,14 @@ function! wiki#CreateFolderLink()
     let file_name_in = input('Enter folder name: ')
     call inputrestore()
 
-    let l:file_title = TwiddleCase(file_name_in)
-    let l:dir_name = ReplaceSpacesWithDashes(file_name_in)
+    " let l:file_title = TwiddleCase(file_name_in)
+    let l:file_title = file_name_in
+    let l:dir_name = ReplaceSpacesWithDashes(tolower(file_name_in))
 
     let l:dir_loc = expand("%:h")."/".l:dir_name
     let l:file_name = l:dir_loc."/index.md"
 
     execute "normal! o\<esc>I- [:fontawesome-solid-folder: ".l:file_title."](".l:dir_name."/index.md)"
     call wiki#CreateDirectory(l:dir_loc)
-    call wiki#WriteHeadingInFile(l:file_name, l:file_title)
+    call wiki#WriteHeadingInFile(l:file_name, l:file_title, 1)
 endfunction
