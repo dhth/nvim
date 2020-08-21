@@ -6,7 +6,7 @@ nnoremap <C-f> :Files<CR>
 
 nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <Leader>bs :Lines<CR>
-nnoremap <C-h> :History<CR>
+nnoremap <Leader>h :History<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-s> :BLines<CR>
 
@@ -31,4 +31,4 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-nnoremap <C-l> :RG<CR>
+nnoremap <Leader>l :RG<CR>

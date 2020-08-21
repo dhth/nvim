@@ -10,10 +10,11 @@ vnoremap > >gv
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
+" Using vim-tmux-navigator now
+" nnoremap <leader>h :wincmd h<CR>
+" nnoremap <leader>j :wincmd j<CR>
+" nnoremap <leader>k :wincmd k<CR>
+" nnoremap <leader>l :wincmd l<CR>
 
 "resize splits -> increase/decrease height
 " nnoremap <silent> <Leader>+ :resize +5<CR>
@@ -61,3 +62,9 @@ nnoremap <leader>y yyp
 " Movement to content of next braces
 " from https://learnvimscriptthehardway.stevelosh.com/chapters/15.html
 onoremap in( :<c-u>normal! f(vi(<cr>
+
+"terminal mappings
+tnoremap <C-w>h <C-\><C-n><C-w>h
+tnoremap <C-w>j <C-\><C-n><C-w>j
+tnoremap <C-w>k <C-\><C-n><C-w>k
+tnoremap <C-w>l <C-\><C-n><C-w>l

@@ -39,14 +39,12 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'vim-scripts/ReplaceWithRegister'
-" Plug 'mzlogin/vim-markdown-toc'
-"Plug 'vimwiki/vimwiki'
-" Plug 'unblevable/quick-scope'
-" Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'junkblocker/git-time-lapse'
 " Plug 'chriskempson/base16-vim'
 Plug 'vim-test/vim-test'
-" Plug 'jgdavey/tslime.vim', {'branch': 'main'}
+Plug 'Rigellute/shades-of-purple.vim'
 
 call plug#end()
 
