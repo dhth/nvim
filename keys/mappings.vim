@@ -55,7 +55,7 @@ nnoremap <leader>u :UndotreeShow<CR>
 " changing <C-i> to <C-j>
 " more on this here
 " https://github.com/neoclide/coc.nvim/issues/1089
-nnoremap <C-j> <C-i>
+" nnoremap <C-j> <C-i>
 
 nnoremap <leader>y yyp
 

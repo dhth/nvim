@@ -49,8 +49,8 @@ set noshowmode
 " autocmd! GUIEnter * set vb t_vb=
 
 "custom commands
-:command Light set background=light
-:command Dark set background=dark
+:command LT set background=light
+:command DT set background=dark
 
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv

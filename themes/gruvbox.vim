@@ -3,7 +3,11 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_contrast_light = 'medium'
 
-set background=dark
+if strftime("%H") < 20
+  set background=light
+else
+  set background=dark
+endif
 
 "from https://www.youtube.com/watch?v=q7gr6s8skt0
 if exists('+termguicolors')

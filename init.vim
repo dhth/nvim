@@ -14,4 +14,5 @@ source $HOME/.config/nvim/plug-config/vim-markdown.vim
 " source $HOME/.config/nvim/plug-config/quickscope.vim
 source $HOME/.config/nvim/plug-config/goyo.vim
 source $HOME/.config/nvim/plug-config/signify.vim
+source $HOME/.config/nvim/plug-config/vimux.vim
 source $HOME/.config/nvim/plug-config/vim-test.vim
