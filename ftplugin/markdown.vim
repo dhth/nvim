@@ -1,5 +1,6 @@
 nnoremap <buffer> <leader>ml f]gf
-nnoremap <buffer> <ENTER> 0f]<C-W>gf
+" nnoremap <buffer> <ENTER> 0f]<C-W>gf
+nnoremap <buffer> <silent> <ENTER> :call wiki#EnterKeyActions(getline('.'))<cr>
 " augroup mdtoc
 "     autocmd BufRead * Toc
 " augroup END

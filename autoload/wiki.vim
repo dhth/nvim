@@ -63,3 +63,18 @@ function! wiki#CreateFolderLink()
     call wiki#CreateDirectory(l:dir_loc)
     call wiki#WriteHeadingInFile(l:file_name, l:file_title, 1)
 endfunction
+
+function! wiki#EnterKeyActions(line_str)
+    " If current line contains a link to a markdown page, open that page in a new tab
+    " If current line contains a markdown checklist, toggle checkmark
+    let l:page_link_str = ']('
+    let l:checklist_ticked = '[x]'
+    let l:checklist_unticked = '[ ]'
+    if stridx(a:line_str, l:page_link_str) > -1
+        execute "normal! 0f]\<C-W>gf"
+    elseif stridx(a:line_str, l:checklist_ticked) > -1
+        s/\[x\]/\[ \]
+    elseif stridx(a:line_str, l:checklist_unticked) > -1
+        s/\[ \]/\[x\]
+    endif
+endfunction

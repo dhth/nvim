@@ -1,3 +1,17 @@
+" +-----------------------------------------------------------------------------+
+" | A | B |                     C                            X | Y | Z |  [...] |
+" +-----------------------------------------------------------------------------+
+
+" section # meaning (example)
+" A       # displays the mode + additional flags like crypt/spell/paste (INSERT)
+" B       # VCS information - branch, hunk summary (master)
+" C       # filename + read-only flag (~/.vim/vimrc RO)
+" X       # filetype (vim)
+" Y       # file encoding[fileformat] (utf-8[unix])
+" Z       # current position in the file
+" [...]   # additional sections (warning/errors/statistics) from external
+"         # plugins (e.g. YCM, syntastic, ...)
+
 "show airline tab line
 let g:airline#extensions#tabline#enabled = 1
 
@@ -12,3 +26,8 @@ let g:airline#extensions#tabline#show_tab_count = 0
 
 "show tab number
 let g:airline#extensions#tabline#tab_nr_type = 1
+
+let g:airline_section_x=''
+let g:airline_section_y=''
+
+let g:airline_skip_empty_sections = 1
