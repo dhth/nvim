@@ -11,10 +11,13 @@ inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
 " Using vim-tmux-navigator now
-" nnoremap <leader>h :wincmd h<CR>
-" nnoremap <leader>j :wincmd j<CR>
-" nnoremap <leader>k :wincmd k<CR>
-" nnoremap <leader>l :wincmd l<CR>
+nnoremap <C-h> :wincmd h<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-l> :wincmd l<CR>
+
+nnoremap <c-[> <c-o>
+nnoremap <c-]> <c-i>
 
 "resize splits -> increase/decrease height
 " nnoremap <silent> <Leader>+ :resize +5<CR>
@@ -68,3 +71,5 @@ tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
+
+nnoremap <leader>pgs :!python get_staged_file_names.py<cr>
