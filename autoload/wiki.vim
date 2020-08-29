@@ -14,7 +14,8 @@ function! TwiddleCase(str)
 endfunction
 
 function! ReplaceSpacesWithDashes(str)
-    return substitute(a:str, ' ', '-', 'g')
+    let l:stripped_str = substitute(a:str, ':', '', 'g')
+    return substitute(l:stripped_str, ' ', '-', 'g')
 endfunction
 
 function! wiki#WriteHeadingInFile(file_loc, str, create_subpages_heading)
@@ -77,4 +78,27 @@ function! wiki#EnterKeyActions(line_str)
     elseif stridx(a:line_str, l:checklist_unticked) > -1
         s/\[ \]/\[x\]
     endif
+endfunction
+
+function! wiki#CreateBookTrackerRow()
+    setl nowrap
+    setl textwidth=0
+    call inputsave()
+    let l:book_name = input('Book name: ')
+    call inputrestore()
+    call inputsave()
+    let l:book_link = input('Book link: ')
+    call inputrestore()
+    call inputsave()
+    let l:book_topic = input('Book topic: ')
+    call inputrestore()
+    let l:book_topic = trim(l:book_topic)
+    call inputsave()
+    let l:status = input('Book status (r, tr, ip): ')
+    call inputrestore()
+    let l:status_dict = {
+                \'r': ':fontawesome-solid-check-circle:',
+                \'tr': ':fontawesome-solid-calendar-minus:',
+                \'ip': ':fontawesome-solid-hourglass-half:'}
+    execute "normal! o|".l:book_name." | [:fontawesome-solid-link:](".l:book_link.")|`"l:book_topic."`| ".l:status_dict[l:status]."|"
 endfunction

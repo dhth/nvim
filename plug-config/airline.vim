@@ -31,3 +31,6 @@ let g:airline_section_x=''
 let g:airline_section_y=''
 
 let g:airline_skip_empty_sections = 1
+
+" don't show hunk status
+let g:airline#extensions#hunks#enabled=0
