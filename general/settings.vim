@@ -49,8 +49,8 @@ set noshowmode
 " autocmd! GUIEnter * set vb t_vb=
 
 "custom commands
-:command LT set background=light
-:command DT set background=dark
+:command! LT set background=light
+:command! DT set background=dark
 
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
@@ -78,3 +78,5 @@ autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownCli
 let g:mdip_imgdir = 'assets'
 let g:mdip_imgname = 'img'
 
+" https://salferrarello.com/vim-close-all-buffers-except-the-current-one/
+command! BufOnly execute '%bdelete|edit #|normal `"'
