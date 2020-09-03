@@ -11,6 +11,7 @@ nnoremap <buffer> <leader>/ :Toc<CR>
 nnoremap <buffer> <leader>tf :TableFormat<CR>
 " nnoremap <buffer> <leader>- o<esc>I- 
 nnoremap <buffer> <leader>- o---<esc>k0i
+nnoremap <buffer> <leader>x o<esc>I- [ ] 
 set tw=80
 " set foldmethod=syntax
 nnoremap <buffer> <silent> <leader>oo :call wiki#OpenFileAndEnterText(expand("%:h")."/".expand("<cfile>"), expand("<cfile>"))<cr>

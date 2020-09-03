@@ -4,4 +4,4 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
-let test#strategy = "vimux"
+let test#strategy = "neovim"

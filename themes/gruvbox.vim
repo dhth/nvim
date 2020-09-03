@@ -1,9 +1,10 @@
 colorscheme gruvbox
 
-let g:gruvbox_contrast_dark = 'medium'
+" let g:gruvbox_contrast_dark = 'medium'
+let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_contrast_light = 'medium'
 
-if strftime("%H") < 20
+if strftime("%H") < 18
   set background=light
 else
   set background=dark
