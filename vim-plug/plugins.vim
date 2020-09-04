@@ -51,6 +51,7 @@ Plug 'junkblocker/git-time-lapse'
 " Plug 'chriskempson/base16-vim'
 Plug 'vim-test/vim-test'
 " Plug 'Rigellute/shades-of-purple.vim'
+Plug 'KeitaNakamura/neodark.vim'
 
 call plug#end()
 
