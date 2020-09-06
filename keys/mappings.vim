@@ -44,15 +44,20 @@ noremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <silent> <leader>[ :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
 nnoremap <silent> <leader>] :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
 
-"move line/block down/up, ∆ is opt+j, ˚ is opt+k
-nnoremap ∆ :m .+1<CR>
-nnoremap ˚ :m .-2<CR>
-inoremap ∆ <Esc>:m .+1<CR>gi
-inoremap ˚ <Esc>:m .-2<CR>gi
-vnoremap ∆ :m '>+1<CR>gv
-vnoremap ˚ :m '<-2<CR>gv
+"move line/block down/up,
+"Ô is shift+opt+j 
+" is shift+opt+k 
+"alternative: ∆ is opt+j, ˚ is opt+k
+"using the shift-opt version
+"since opt+j is mapped in karabiner
+nnoremap Ô :m .+1<CR>
+nnoremap  :m .-2<CR>
+inoremap Ô <Esc>:m .+1<CR>gi
+inoremap  <Esc>:m .-2<CR>gi
+vnoremap Ô :m '>+1<CR>gv
+vnoremap  :m '<-2<CR>gv
 
-nnoremap <leader>u :UndotreeShow<CR>
+" nnoremap <leader>u :UndotreeShow<CR>
 
 " Due to the way <C-i> and <TAB> works in vim,
 " changing <C-i> to <C-j>
