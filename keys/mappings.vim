@@ -78,3 +78,7 @@ tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
 
 nnoremap <leader>pgs :!python get_staged_file_names.py<cr>
+
+" Move to end of line while in insert mode
+" <C-o> puts you in Normal mode for just one command
+inoremap aa <C-o>$
