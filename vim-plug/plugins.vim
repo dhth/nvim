@@ -48,6 +48,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
 Plug 'tpope/vim-dispatch'
 Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
+Plug 'junegunn/vim-emoji'
 
 call plug#end()
 

@@ -7,8 +7,8 @@ nnoremap <leader>tc :tabclose<CR>
 "set showtabline=1
 
 "move to next tab
-nnoremap <leader>m gt
-nnoremap <leader>n gT
+" nnoremap <leader>m gt
+" nnoremap <leader>n gT
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt

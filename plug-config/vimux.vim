@@ -1,3 +1,3 @@
 "run python file in an adjacent tmux pane
-nnoremap <leader>rp :VimuxRunCommand('python '.expand('%'))<CR>
+nnoremap <leader><cr> :VimuxRunCommand('python '.expand('%'))<CR>
 let g:VimuxHeight = "10"

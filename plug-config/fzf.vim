@@ -14,6 +14,7 @@ nnoremap <C-s> :BLines<CR>
 "repeat same mappings for new tab
 nnoremap <Leader><C-p> :tabnew<CR>:GFiles<CR>
 nnoremap <Leader><C-f> :tabnew<CR>:Files<CR>
+nnoremap <Leader>n<C-f> :vnew<CR>:Files<CR>
 
 if executable('rg')
     let g:rg_derive_root='true'

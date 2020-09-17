@@ -10,11 +10,10 @@ vnoremap > >gv
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
-" Using vim-tmux-navigator now
-nnoremap <C-h> :wincmd h<CR>
-nnoremap <C-j> :wincmd j<CR>
-nnoremap <C-k> :wincmd k<CR>
-nnoremap <C-l> :wincmd l<CR>
+nnoremap <C-h> <c-w>h
+nnoremap <C-j> <c-w>j
+nnoremap <C-k> <c-w>k
+nnoremap <C-l> <c-w>l
 
 nnoremap <c-[> <c-o>
 nnoremap <c-]> <c-i>
@@ -97,3 +96,9 @@ nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 
 nnoremap <C-e> :Vex<CR>
+inoremap <c-l> <C-o>$ 
+
+nnoremap <leader>\ :vnew<cr>
+nnoremap <leader>- :new<cr>
+
+nnoremap <leader>th :call themes#ChangeColorsPopUp()<cr>

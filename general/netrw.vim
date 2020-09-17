@@ -1,6 +1,3 @@
-"""""""""""""""""""
-"""""""netrw"""""""
-"""""""""""""""""""
 
 "file tree
 let g:netrw_banner=0       " disable annoying banner
