@@ -2,7 +2,7 @@
 nnoremap <leader>gd :call CocAction('jumpDefinition')<CR>
 nnoremap <leader>gr :call CocAction('jumpReferences')<CR>
 nnoremap <leader>dt :call CocAction('jumpDefinition', 'tabe')<CR>
-nnoremap <leader>gv :call CocAction('jumpDefinition', 'vnew')<CR>zz<C-W>h
+nnoremap <leader>gv :call CocAction('jumpDefinition', 'vnew')<CR>
 nmap <leader>rn <Plug>(coc-rename)
 
 ""Use K to show documentation in preview window.

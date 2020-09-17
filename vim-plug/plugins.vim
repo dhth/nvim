@@ -24,28 +24,30 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
-Plug 'preservim/nerdtree'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+" Plug 'preservim/nerdtree'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'tpope/vim-unimpaired'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/vim-easy-align'
-Plug 'plasticboy/vim-markdown'
-Plug 'ferrine/md-img-paste.vim'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'ferrine/md-img-paste.vim', { 'for': 'markdown' }
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'benmills/vimux'
+Plug 'benmills/vimux', { 'on': 'VimuxRunCommand' }
 " Plug 'christoomey/vim-tmux-navigator'
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'junkblocker/git-time-lapse'
-Plug 'vim-test/vim-test'
+" Plug 'stsewd/fzf-checkout.vim'
+Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }
+Plug 'vim-test/vim-test', { 'on': 'TestNearest' }
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
+Plug 'tpope/vim-dispatch'
+Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 
 call plug#end()
 

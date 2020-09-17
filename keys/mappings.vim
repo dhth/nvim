@@ -76,9 +76,24 @@ tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
+tnoremap <C-w>z <C-\><C-n><C-w>_
+tnoremap jj <C-\><C-n>
 
 nnoremap <leader>pgs :!python get_staged_file_names.py<cr>
 
 " Move to end of line while in insert mode
 " <C-o> puts you in Normal mode for just one command
 inoremap aa <C-o>$
+" gf if file does not exist, relative to current dir
+noremap <leader>grf :tabe %:h/<cfile><CR>
+noremap <leader>gcf :tabe <cfile><CR>
+nnoremap <leader>gf <c-w>gF
+nnoremap <leader><enter> <c-w>gF
+autocmd FileType qf nnoremap <leader><enter> <c-w>gF
+
+nnoremap <Up> :resize +2<CR>
+nnoremap <Down> :resize -2<CR>
+nnoremap <Left> :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+
+nnoremap <C-e> :Vex<CR>

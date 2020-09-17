@@ -48,10 +48,6 @@ set noshowmode
 
 " autocmd! GUIEnter * set vb t_vb=
 
-"custom commands
-:command! LT set background=light
-:command! DT set background=dark
-
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
 
@@ -64,15 +60,6 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 5000)
 augroup END
 
-" gf if file does not exist, relative to current dir
-noremap <leader>grf :tabe %:h/<cfile><CR>
-noremap <leader>gcf :tabe <cfile><CR>
-
-nnoremap <Up> :resize +2<CR>
-nnoremap <Down> :resize -2<CR>
-nnoremap <Left> :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
-
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 " there are some defaults for image directory and image name, you can change them
 let g:mdip_imgdir = 'assets'
@@ -81,14 +68,6 @@ let g:mdip_imgname = 'img'
 " https://salferrarello.com/vim-close-all-buffers-except-the-current-one/
 command! BufOnly execute '%bdelete|edit #|normal `"'
 
-if strftime("%H") > 8 && strftime("%H") < 18
-  set background=light
-else
-  set background=dark
-endif
-
-"from https://www.youtube.com/watch?v=q7gr6s8skt0
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
+" auto clean fugitive buffers
+" from http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+autocmd BufReadPost fugitive://* set bufhidden=delete
