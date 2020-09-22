@@ -38,7 +38,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'ferrine/md-img-paste.vim', { 'for': 'markdown' }
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'benmills/vimux', { 'on': 'VimuxRunCommand' }
+Plug 'benmills/vimux'
 " Plug 'christoomey/vim-tmux-navigator'
 " Plug 'stsewd/fzf-checkout.vim'
 Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }
@@ -49,6 +49,9 @@ Plug 'junegunn/vim-slash'
 Plug 'tpope/vim-dispatch'
 Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 Plug 'junegunn/vim-emoji'
+Plug 'cormacrelf/vim-colors-github'
+Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'farmergreg/vim-lastplace'
 
 call plug#end()
 

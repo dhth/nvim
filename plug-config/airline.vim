@@ -27,6 +27,7 @@ let g:airline#extensions#tabline#show_tab_count = 0
 "show tab number
 let g:airline#extensions#tabline#tab_nr_type = 1
 
+let g:airline_section_b=''
 let g:airline_section_x=''
 let g:airline_section_y=''
 
