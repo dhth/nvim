@@ -10,7 +10,7 @@ function! s:ChangeColors(theme)
         source ~/.config/nvim/themes/neodark.vim 
     elseif a:theme ==? "github"
         set background=light
-        source ~/.config/nvim/themes/github.vim 
+        colorscheme github
     elseif a:theme ==? "nightfly"
         set background=dark
         colorscheme nightfly

@@ -4,7 +4,7 @@ nnoremap <leader>gr :call CocAction('jumpReferences')<CR>
 nnoremap <leader>dt :call CocAction('jumpDefinition', 'tabe')<CR>
 nnoremap <leader>gv :call CocAction('jumpDefinition', 'vnew')<CR>
 nnoremap <leader>rn <Plug>(coc-rename)
-nnoremap <leader>cf :CocFix<cr>
+nnoremap <leader>qf  <Plug>(coc-fix-current)
 
 ""Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -27,3 +27,5 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
+nnoremap <silent> <c-e> :CocCommand explorer<CR>

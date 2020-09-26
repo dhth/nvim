@@ -98,6 +98,8 @@ nnoremap <Right> :vertical resize -2<CR>
 nnoremap <C-e> :Vex<CR>
 inoremap <c-l> <C-o>$ 
 
+nnoremap <leader>\ :vnew<cr>:Files<cr>
+
 nnoremap <leader>\ :vnew<cr>
 nnoremap <leader>- :new<cr>
 

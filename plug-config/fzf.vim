@@ -10,6 +10,7 @@ nnoremap <Leader>h :History<CR>
 nnoremap <Leader>ch :History:<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-s> :BLines<CR>
+nnoremap <leader><C-g> :GFiles?<CR>
 
 "repeat same mappings for new tab
 nnoremap <Leader><C-p> :tabnew<CR>:GFiles<CR>
