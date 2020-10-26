@@ -24,7 +24,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
-" Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'tpope/vim-unimpaired'
@@ -44,7 +44,7 @@ Plug 'benmills/vimux'
 Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }
 Plug 'vim-test/vim-test', { 'on': 'TestNearest' }
 Plug 'KeitaNakamura/neodark.vim'
-Plug 'junegunn/vim-peekaboo'
+" Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
 Plug 'tpope/vim-dispatch'
 Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
@@ -52,6 +52,7 @@ Plug 'junegunn/vim-emoji'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'farmergreg/vim-lastplace'
+Plug 'preservim/tagbar'
 
 call plug#end()
 

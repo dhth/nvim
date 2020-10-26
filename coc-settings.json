@@ -5,9 +5,9 @@
     //explorer
     "explorer.width": 30,
     "explorer.icon.enableNerdfont": false,
-    "explorer.previewAction.onHover": false,
-    "explorer.keyMappings": {
-        "<cr>": ["expandable?", "expand", "open"],
-        "v": "open:vsplit"
-    }
+    "explorer.previewAction.onHover": false
+ //   "explorer.keyMappings": {
+  //      "<cr>": ["expandable?", "expand", "open"],
+  //      "v": "open:vsplit"
+ //   }
 }

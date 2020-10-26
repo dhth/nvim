@@ -4,7 +4,8 @@ nnoremap <C-p> :GFiles<CR>
 "for FZF files
 nnoremap <C-f> :Files<CR>
 
-nnoremap <Leader>ps :Rg<SPACE>
+nnoremap <Leader>ps :Rg --hidden --iglob='!.git/'<SPACE>
+nnoremap <leader>sw :Rg --hidden --iglob='!.git/'<SPACE><c-r><c-w><cr>
 nnoremap <Leader>bs :Lines<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>ch :History:<CR>
@@ -26,7 +27,7 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 " from https://github.com/junegunn/fzf.vim#advanced-customization
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let command_fmt = 'rg --hidden --iglob="!.git/" --column --line-number --no-heading --color=always --smart-case -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
