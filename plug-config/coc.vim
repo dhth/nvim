@@ -29,3 +29,4 @@ else
 endif
 
 " nnoremap <silent> <c-e> :CocCommand explorer<CR>
+nnoremap <silent> <leader>si :call CocAction('runCommand', 'python.sortImports')<cr>

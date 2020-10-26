@@ -6,7 +6,6 @@ Inspired by https://www.youtube.com/watch?v=EJqnWXDJZr0
 
 Current Vim Goals
 ---
-get rid of nerdtree
 
 Annoyed With
 ---

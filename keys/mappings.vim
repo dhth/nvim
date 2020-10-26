@@ -78,7 +78,9 @@ tnoremap <C-w>l <C-\><C-n><C-w>l
 tnoremap <C-w>z <C-\><C-n><C-w>_
 tnoremap jj <C-\><C-n>
 
+" custom wiki stuff, need a way to not put in main config
 nnoremap <leader>pgs :!python get_staged_file_names.py<cr>
+nnoremap <leader>lm :!python add_recently_modified_links.py<cr>
 
 " Move to end of line while in insert mode
 " <C-o> puts you in Normal mode for just one command
@@ -104,3 +106,6 @@ nnoremap <leader>\ :vnew<cr>
 nnoremap <leader>- :new<cr>
 
 nnoremap <leader>th :call themes#ChangeColorsPopUp()<cr>
+
+" journal entry
+nnoremap <leader>je :e ~/.config/nvim/journal.md<cr>
