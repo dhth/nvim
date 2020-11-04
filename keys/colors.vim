@@ -2,7 +2,7 @@
 :command! LT set background=light
 :command! DT set background=dark
 
-if strftime("%H") > 8 && strftime("%H") < 18
+if strftime("%H") > 7 && strftime("%H") < 18
   set background=light
 else
   set background=dark

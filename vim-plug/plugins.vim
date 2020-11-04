@@ -17,6 +17,9 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'cormacrelf/vim-colors-github'
+Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -31,28 +34,23 @@ Plug 'tpope/vim-unimpaired'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'junegunn/gv.vim', { 'on': 'GV' }
+Plug 'junegunn/gv.vim', { 'on': 'GV' }                       " see commit history
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-signify'
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'                               " easy aligning around a character
+Plug 'godlygeek/tabular', { 'for': 'markdown' }              " dependency for vim-markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'ferrine/md-img-paste.vim', { 'for': 'markdown' }
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'benmills/vimux'
-" Plug 'christoomey/vim-tmux-navigator'
-" Plug 'stsewd/fzf-checkout.vim'
-Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }
+Plug 'benmills/vimux'                                        " send commands to tmux
+Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }  " see commit history for a file
 Plug 'vim-test/vim-test', { 'on': 'TestNearest' }
-Plug 'KeitaNakamura/neodark.vim'
-" Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
 Plug 'tpope/vim-dispatch'
-Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
-Plug 'junegunn/vim-emoji'
-Plug 'cormacrelf/vim-colors-github'
-Plug 'bluz71/vim-nightfly-guicolors'
-Plug 'farmergreg/vim-lastplace'
+Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' } " profiling tool
+Plug 'farmergreg/vim-lastplace'                              " remembers last editing place
 Plug 'preservim/tagbar'
+Plug 'junegunn/vader.vim'                                    " testing tool for vim files
 
 call plug#end()
 

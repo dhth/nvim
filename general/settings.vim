@@ -71,3 +71,5 @@ command! BufOnly execute '%bdelete|edit #|normal `"'
 " auto clean fugitive buffers
 " from http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+set rtp+=/usr/local/opt/fzf

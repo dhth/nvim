@@ -2,16 +2,16 @@
 nnoremap <C-p> :GFiles<CR>
 
 "for FZF files
-nnoremap <C-f> :Files<CR>
+nnoremap <silent> <C-f> :Files<CR>
 
 nnoremap <Leader>ps :Rg --hidden --iglob='!.git/'<SPACE>
 nnoremap <leader>sw :Rg --hidden --iglob='!.git/'<SPACE><c-r><c-w><cr>
-nnoremap <Leader>bs :Lines<CR>
-nnoremap <Leader>h :History<CR>
-nnoremap <Leader>ch :History:<CR>
-nnoremap <C-b> :Buffers<CR>
-nnoremap <C-s> :BLines<CR>
-nnoremap <leader><C-g> :GFiles?<CR>
+nnoremap <silent> <Leader>bs :Lines<CR>
+nnoremap <silent> <Leader>h :History<CR>
+nnoremap <silent> <Leader>ch :History:<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
+nnoremap <silent> <C-s> :BLines<CR>
+nnoremap <silent> <leader><C-g> :GFiles?<CR>
 
 "repeat same mappings for new tab
 nnoremap <Leader><C-p> :tabnew<CR>:GFiles<CR>
@@ -23,7 +23,8 @@ if executable('rg')
 endif
 
 let $FZF_DEFAULT_OPTS='--reverse'
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let g:fzf_layout = { 'down': '30%' }
 
 " from https://github.com/junegunn/fzf.vim#advanced-customization
 function! RipgrepFzf(query, fullscreen)

@@ -79,8 +79,8 @@ tnoremap <C-w>z <C-\><C-n><C-w>_
 tnoremap jj <C-\><C-n>
 
 " custom wiki stuff, need a way to not put in main config
-nnoremap <leader>pgs :!python get_staged_file_names.py<cr>
-nnoremap <leader>lm :!python add_recently_modified_links.py<cr>
+nnoremap <leader>pgs :!python -m utils.get_staged_file_names<cr>
+nnoremap <leader>lm :!python -m utils.add_recently_modified_links<cr>
 
 " Move to end of line while in insert mode
 " <C-o> puts you in Normal mode for just one command
