@@ -2,11 +2,15 @@
 :command! LT set background=light
 :command! DT set background=dark
 
-if strftime("%H") > 7 && strftime("%H") < 18
+if strftime("%H") > 8 && strftime("%H") < 14
   set background=light
+  colorscheme gruvbox
 else
   set background=dark
+  colorscheme nightfly
 endif
+" set background=dark
+" colorscheme gruvbox
 
 "from https://www.youtube.com/watch?v=q7gr6s8skt0
 if exists('+termguicolors')

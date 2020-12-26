@@ -17,9 +17,9 @@ else
 endif
 endfunction
 
-noremap <leader>za :call UnrolMe()<CR>
+noremap <silent> <leader>za :call UnrolMe()<CR>
 
 "leader op opens fold
-noremap <leader><space> zA
+noremap <silent> <leader><space> zA
 "leader cl closes folds
-noremap <leader>cl zC
+noremap <silent> <leader>cl zC

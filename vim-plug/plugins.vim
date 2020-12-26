@@ -20,6 +20,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'sainnhe/sonokai'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

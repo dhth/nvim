@@ -109,3 +109,5 @@ nnoremap <leader>th :call themes#ChangeColorsPopUp()<cr>
 
 " journal entry
 nnoremap <leader>je :e ~/.config/nvim/journal.md<cr>
+
+nnoremap <leader>bo :BufOnly<cr>

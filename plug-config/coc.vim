@@ -1,7 +1,7 @@
 "from https://www.youtube.com/watch?v=-I1b8BINyEw
-nnoremap <leader>gd :call CocAction('jumpDefinition')<CR>
+nnoremap <leader>ff :call CocAction('jumpDefinition')<CR>
 nnoremap <leader>gr :call CocAction('jumpReferences')<CR>
-nnoremap <leader>dt :call CocAction('jumpDefinition', 'tabe')<CR>
+nnoremap <leader>jj :call CocAction('jumpDefinition', 'tabe')<CR>
 nnoremap <leader>gv :call CocAction('jumpDefinition', 'vnew')<CR>
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>qf  <Plug>(coc-fix-current)
