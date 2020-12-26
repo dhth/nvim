@@ -9,8 +9,6 @@ else
   set background=dark
   colorscheme nightfly
 endif
-" set background=dark
-" colorscheme gruvbox
 
 "from https://www.youtube.com/watch?v=q7gr6s8skt0
 if exists('+termguicolors')

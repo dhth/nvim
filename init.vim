@@ -19,3 +19,4 @@ source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/vimux.vim
 source $HOME/.config/nvim/plug-config/vim-test.vim
 source $HOME/.config/nvim/plug-config/vim-easy-align.vim
+source $HOME/.config/nvim/plug-config/coc-bookmark.vim

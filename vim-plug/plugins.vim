@@ -24,6 +24,7 @@ Plug 'sainnhe/sonokai'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'wadackel/vim-dogrun'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
@@ -52,9 +53,11 @@ Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' } " profiling tool
 Plug 'farmergreg/vim-lastplace'                              " remembers last editing place
 Plug 'preservim/tagbar'
 Plug 'junegunn/vader.vim'                                    " testing tool for vim files
+Plug 'szw/vim-maximizer'
 
 call plug#end()
 
 let g:coc_global_extensions = ["coc-python",
             \ "coc-json",
-            \ "coc-snippets"]
+            \ "coc-snippets",
+            \ "coc-bookmark"]

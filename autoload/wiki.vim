@@ -80,6 +80,10 @@ function! wiki#EnterKeyActions(line_str)
     endif
 endfunction
 
+function! wiki#GoToFileInNewTab(line_str)
+    execute "normal! 0f(\<C-W>gf"
+endfunction
+
 function! wiki#CreateBookTrackerRow()
     setl nowrap
     setl textwidth=0

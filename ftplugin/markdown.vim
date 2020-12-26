@@ -2,6 +2,7 @@ setlocal colorcolumn=80
 nnoremap <buffer> <leader>ml f]gf
 " nnoremap <buffer> <ENTER> 0f]<C-W>gf
 nnoremap <buffer> <silent> <ENTER> :call wiki#EnterKeyActions(getline('.'))<cr>
+nnoremap <buffer> <silent> <leader><ENTER> :call wiki#GoToFileInNewTab(getline('.'))<cr>
 " augroup mdtoc
 "     autocmd BufRead * Toc
 " augroup END
