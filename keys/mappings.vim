@@ -113,3 +113,5 @@ nnoremap <leader>je :e ~/.config/nvim/journal.md<cr>
 nnoremap <silent> <leader>mm :MaximizerToggle<cr>
 
 nnoremap <silent> <leader>bo :BufOnly<cr>
+
+nnoremap t<c-t> :call pyhelpers#PyHelpers()<cr>

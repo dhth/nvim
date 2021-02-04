@@ -54,6 +54,7 @@ Plug 'farmergreg/vim-lastplace'                              " remembers last ed
 Plug 'preservim/tagbar'
 Plug 'junegunn/vader.vim'                                    " testing tool for vim files
 Plug 'szw/vim-maximizer'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 

@@ -13,14 +13,16 @@ function! TwiddleCase(str)
     return result
 endfunction
 
-function! ReplaceSpacesWithDashes(str)
+function! GetFileName(str)
     let l:stripped_str = substitute(a:str, ':', '', 'g')
+    let l:stripped_str = substitute(l:stripped_str, ',', '', 'g')
     return substitute(l:stripped_str, ' ', '-', 'g')
 endfunction
 
 function! wiki#WriteHeadingInFile(file_loc, str, create_subpages_heading)
     execute "normal! :tabe ".a:file_loc."\<cr>"
-    execute "normal! i".a:str."\<esc>"
+    execute "normal! i---\<cr>title: \"".a:str."\"\<cr>summary: \<cr>---\<cr>\<esc>"
+    execute "normal! o".a:str."\<esc>"
     execute "normal! o===\<cr>\<cr>\<esc>"
     if a:create_subpages_heading
         execute "normal! iModules\<cr>---\<cr>\<esc>"
@@ -34,12 +36,19 @@ function! wiki#CreateFileLink()
     call inputsave()
     let file_name_in = input('Enter file name: ')
     call inputrestore()
+    call inputsave()
+    let l:prefix = input('Prefix: ')
+    call inputrestore()
 
     " let l:file_title = TwiddleCase(file_name_in)
     let l:file_title = file_name_in
     let l:dir_loc = expand("%:h")
-    let l:file_name = ReplaceSpacesWithDashes(tolower(file_name_in)).".md"
-    let l:file_loc = l:dir_loc."/".ReplaceSpacesWithDashes(tolower(file_name_in)).".md"
+    if empty(l:prefix)
+        let l:file_name = GetFileName(tolower(file_name_in)).".md"
+    else
+        let l:file_name = l:prefix."_".GetFileName(tolower(file_name_in)).".md"
+    endif
+    let l:file_loc = l:dir_loc."/".l:file_name
 
     execute "normal! o\<esc>I- [:fontawesome-solid-file-alt: ".l:file_title."](".l:file_name.")"
     call wiki#WriteHeadingInFile(l:file_loc, l:file_title, 0)
@@ -55,7 +64,7 @@ function! wiki#CreateFolderLink()
 
     " let l:file_title = TwiddleCase(file_name_in)
     let l:file_title = file_name_in
-    let l:dir_name = ReplaceSpacesWithDashes(tolower(file_name_in))
+    let l:dir_name = GetFileName(tolower(file_name_in))
 
     let l:dir_loc = expand("%:h")."/".l:dir_name
     let l:file_name = l:dir_loc."/index.md"
