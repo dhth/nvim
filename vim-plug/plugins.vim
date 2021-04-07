@@ -55,10 +55,12 @@ Plug 'preservim/tagbar'
 Plug 'junegunn/vader.vim'                                    " testing tool for vim files
 Plug 'szw/vim-maximizer'
 Plug 'sheerun/vim-polyglot'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'puremourning/vimspector'
+Plug 'jupyter-vim/jupyter-vim'
 
 call plug#end()
 
-let g:coc_global_extensions = ["coc-python",
+let g:coc_global_extensions = ["coc-pyright",
             \ "coc-json",
-            \ "coc-snippets",
-            \ "coc-bookmark"]
+            \ "coc-snippets"]

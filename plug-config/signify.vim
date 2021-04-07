@@ -13,5 +13,5 @@ let g:signify_sign_show_text = 1
 
 nnoremap <leader>ggt :SignifyToggle<CR>
 nnoremap <leader>ggl :SignifyToggleHighlight<CR>
-nnoremap <leader>shu :SignifyHunkUndo<CR>
-nnoremap <leader>shd :SignifyHunkDiff<CR>
+nnoremap <leader>su :SignifyHunkUndo<CR>
+nnoremap <leader>sd :SignifyHunkDiff<CR>

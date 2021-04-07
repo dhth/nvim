@@ -78,10 +78,6 @@ tnoremap <C-w>l <C-\><C-n><C-w>l
 tnoremap <C-w>z <C-\><C-n><C-w>_
 tnoremap jj <C-\><C-n>
 
-" custom wiki stuff, need a way to not put in main config
-nnoremap <leader>pgs :!python -m utils.get_staged_file_names<cr>
-nnoremap <leader>lm :!python -m utils.add_recently_modified_links<cr>
-
 " Move to end of line while in insert mode
 " <C-o> puts you in Normal mode for just one command
 inoremap aa <C-o>$
@@ -114,4 +110,6 @@ nnoremap <silent> <leader>mm :MaximizerToggle<cr>
 
 nnoremap <silent> <leader>bo :BufOnly<cr>
 
-nnoremap t<c-t> :call pyhelpers#PyHelpers()<cr>
+nnoremap <silent> t<c-t> :call pyhelpers#PyHelpers()<cr>
+
+nnoremap <silent><leader>cc :!cat % \| pbcopy<cr>

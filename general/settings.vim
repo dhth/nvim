@@ -73,3 +73,5 @@ command! BufOnly execute '%bdelete|edit #|normal `"'
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 set rtp+=/usr/local/opt/fzf
+
+let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript']

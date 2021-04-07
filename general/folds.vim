@@ -20,6 +20,6 @@ endfunction
 noremap <silent> <leader>za :call UnrolMe()<CR>
 
 "leader op opens fold
-noremap <silent> <leader><space> zA
+" noremap <silent> <leader><space> zA
 "leader cl closes folds
 noremap <silent> <leader>cl zC

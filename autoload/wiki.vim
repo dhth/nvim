@@ -29,6 +29,17 @@ function! wiki#WriteHeadingInFile(file_loc, str, create_subpages_heading)
     endif
 endfunction
 
+function! wiki#AddMarkdownLink()
+    call inputsave()
+    let link_address = input('Enter link address: ')
+    call inputrestore()
+    call inputsave()
+    let link_title = input('Enter link title: ')
+    call inputrestore()
+    execute "normal! o\<esc>I- [:fontawesome-solid-link: ".link_title."](".link_address.")"
+    echon ''
+endfunction
+
 function! wiki#CreateFileLink()
     " Personal utility to quickly generate markdown link
     " to a new file
@@ -37,17 +48,37 @@ function! wiki#CreateFileLink()
     let file_name_in = input('Enter file name: ')
     call inputrestore()
     call inputsave()
-    let l:prefix = input('Prefix: ')
+    let l:prefix = input('File Prefix: ')
+    call inputrestore()
+    let l:title_prefix = input('Title Prefix: ')
     call inputrestore()
 
     " let l:file_title = TwiddleCase(file_name_in)
-    let l:file_title = file_name_in
+    if empty(l:title_prefix)
+        let l:file_title = file_name_in
+    else
+        let l:file_title = l:title_prefix.": ".file_name_in
+    endif
     let l:dir_loc = expand("%:h")
     if empty(l:prefix)
         let l:file_name = GetFileName(tolower(file_name_in)).".md"
     else
-        let l:file_name = l:prefix."_".GetFileName(tolower(file_name_in)).".md"
+        let l:file_name = l:prefix."-".GetFileName(tolower(file_name_in)).".md"
     endif
+    let l:file_loc = l:dir_loc."/".l:file_name
+
+    execute "normal! o\<esc>I- [:fontawesome-solid-file-alt: ".l:file_title."](".l:file_name.")"
+    call wiki#WriteHeadingInFile(l:file_loc, l:file_title, 0)
+endfunction
+
+function! wiki#CreateDateFileLink()
+    " Personal utility to quickly generate markdown link
+    " to a new file
+
+    " let l:file_title = TwiddleCase(file_name_in)
+    let l:file_name = tolower(strftime('%Y-%m-%d-%A-%B').'.md')
+    let l:file_title = strftime('%a, %b %d, %Y')
+    let l:dir_loc = expand("%:h")
     let l:file_loc = l:dir_loc."/".l:file_name
 
     execute "normal! o\<esc>I- [:fontawesome-solid-file-alt: ".l:file_title."](".l:file_name.")"
@@ -110,8 +141,12 @@ function! wiki#CreateBookTrackerRow()
     let l:status = input('Book status (r, tr, ip): ')
     call inputrestore()
     let l:status_dict = {
-                \'r': ':fontawesome-solid-check-circle:',
-                \'tr': ':fontawesome-solid-calendar-minus:',
-                \'ip': ':fontawesome-solid-hourglass-half:'}
-    execute "normal! o|".l:book_name." | [:fontawesome-solid-link:](".l:book_link.")|`"l:book_topic."`| ".l:status_dict[l:status]."|"
+                \'r': '`R`',
+                \'tr': '`TR`',
+                \'ip': '`IP`'}
+    if len(l:book_link) > 0
+        execute "normal! o|[".l:book_name."](".l:book_link.") | `"l:book_topic."`| ".l:status_dict[l:status]."|"
+    else
+        execute "normal! o|".l:book_name."| `"l:book_topic."` | ".l:status_dict[l:status]."|"
+    endif
 endfunction

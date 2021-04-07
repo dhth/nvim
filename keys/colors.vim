@@ -9,6 +9,8 @@ else
   set background=dark
   colorscheme nightfly
 endif
+" set background=dark
+" colorscheme sonokai
 
 "from https://www.youtube.com/watch?v=q7gr6s8skt0
 if exists('+termguicolors')

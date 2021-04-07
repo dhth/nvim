@@ -22,4 +22,6 @@ nnoremap <buffer> <silent> <leader>cdl :call wiki#CreateFolderLink()<cr>
 
 nnoremap <buffer> <leader>ctr :call wiki#CreateBookTrackerRow()<cr>
 
-nnoremap <buffer> <silent> <leader>cc :call ft#markdown#ToggleCocSuggestions()<cr>
+nnoremap <buffer> <silent> <leader>tc :call ft#markdown#ToggleCocSuggestions()<cr>
+nnoremap <buffer> <silent> <leader>al :call wiki#AddMarkdownLink()<cr>
+nnoremap <buffer> <silent> <leader>ce :call wiki#CreateDateFileLink()<cr>
