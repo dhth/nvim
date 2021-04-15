@@ -1,6 +1,3 @@
-nnoremap <silent> <leader>md :FZF ~/code/work-wiki<cr>
-
-
 " Function based on unmerged PR from here https://github.com/junegunn/fzf.vim/pull/628
 function! s:generate_relative_js(path)
   let target = getcwd() . '/' . (join(a:path))

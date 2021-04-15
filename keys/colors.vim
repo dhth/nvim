@@ -7,7 +7,7 @@ if strftime("%H") > 8 && strftime("%H") < 14
   colorscheme gruvbox
 else
   set background=dark
-  colorscheme nightfly
+  colorscheme gruvbox
 endif
 " set background=dark
 " colorscheme sonokai

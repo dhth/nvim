@@ -150,3 +150,28 @@ function! wiki#CreateBookTrackerRow()
         execute "normal! o|".l:book_name."| `"l:book_topic."` | ".l:status_dict[l:status]."|"
     endif
 endfunction
+
+function! wiki#AddQuestion()
+    execute "normal! o\rI- [ ] "
+endfunction
+
+function! wiki#AddAnswer()
+    execute "normal! o\r> "
+endfunction
+
+function! s:WikiHelperCommandToRun(command)
+    if a:command ==? "Add question"
+        call wiki#AddQuestion()
+    elseif a:command ==? "Add answer"
+        call wiki#AddAnswer()
+    elseif a:command ==? "Add link"
+        call wiki#AddMarkdownLink()
+    elseif a:command ==? "Add log"
+        call wiki#CreateDateFileLink()
+    endif
+endfunction
+
+function! wiki#Helpers()
+    let l:commands = ["Add question", "Add answer",  "Add link", "Add log"]
+    return fzf#run({'source': l:commands, 'sink': function('s:WikiHelperCommandToRun'),  'window': { 'width': 0.3, 'height': 0.3 } })
+endfunction

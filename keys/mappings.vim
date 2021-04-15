@@ -110,6 +110,6 @@ nnoremap <silent> <leader>mm :MaximizerToggle<cr>
 
 nnoremap <silent> <leader>bo :BufOnly<cr>
 
-nnoremap <silent> t<c-t> :call pyhelpers#PyHelpers()<cr>
+nnoremap <silent> t<c-t> :call helpers#Helpers()<cr>
 
-nnoremap <silent><leader>cc :!cat % \| pbcopy<cr>
+nnoremap <silent><leader>cc :silent !cat % \| pbcopy<cr>

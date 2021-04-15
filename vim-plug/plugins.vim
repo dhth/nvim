@@ -27,6 +27,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'wadackel/vim-dogrun'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neovim/nvim-lspconfig'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
@@ -58,6 +59,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'puremourning/vimspector'
 Plug 'jupyter-vim/jupyter-vim'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 

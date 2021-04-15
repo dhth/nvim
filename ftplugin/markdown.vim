@@ -25,3 +25,7 @@ nnoremap <buffer> <leader>ctr :call wiki#CreateBookTrackerRow()<cr>
 nnoremap <buffer> <silent> <leader>tc :call ft#markdown#ToggleCocSuggestions()<cr>
 nnoremap <buffer> <silent> <leader>al :call wiki#AddMarkdownLink()<cr>
 nnoremap <buffer> <silent> <leader>ce :call wiki#CreateDateFileLink()<cr>
+nnoremap <buffer> <silent> <leader>aq :call wiki#AddQuestion()<cr>
+nnoremap <buffer> <silent> <leader>aa :call wiki#AddAnswer()<cr>
+
+nnoremap <silent> f<c-f> :call wiki#Helpers()<cr>
