@@ -5,3 +5,4 @@ nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
 let test#strategy = "vimux"
+let test#python#runner = 'pytest'

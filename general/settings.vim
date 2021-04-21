@@ -34,7 +34,6 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set wildmenu
 set wildignore+=**/node_modules/**
-set termguicolors
 set clipboard+=unnamedplus
 set inccommand=nosplit                    " Show live highlighting during substitute in a split window
 set noshowmode

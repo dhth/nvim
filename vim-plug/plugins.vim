@@ -17,10 +17,12 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'cormacrelf/vim-colors-github'
-Plug 'bluz71/vim-nightfly-guicolors'
-Plug 'sainnhe/sonokai'
+" Plug 'KeitaNakamura/neodark.vim'
+" Plug 'cormacrelf/vim-colors-github'
+" Plug 'bluz71/vim-nightfly-guicolors'
+" Plug 'sainnhe/sonokai'
+" Plug 'ajmwagar/vim-deus'
+" Plug 'folke/tokyonight.nvim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -29,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neovim/nvim-lspconfig'
 Plug 'vim-airline/vim-airline'
+" Plug 'hoob3rt/lualine.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -53,13 +56,18 @@ Plug 'tpope/vim-dispatch'
 Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' } " profiling tool
 Plug 'farmergreg/vim-lastplace'                              " remembers last editing place
 Plug 'preservim/tagbar'
-Plug 'junegunn/vader.vim'                                    " testing tool for vim files
+" Plug 'junegunn/vader.vim'                                    " testing tool for vim files
 Plug 'szw/vim-maximizer'
 Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-Plug 'puremourning/vimspector'
-Plug 'jupyter-vim/jupyter-vim'
+" Plug 'puremourning/vimspector'
+" Plug 'jupyter-vim/jupyter-vim'
 Plug 'machakann/vim-highlightedyank'
+" Plug 'relastle/vim-nayvy'
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+
 
 call plug#end()
 

@@ -94,7 +94,7 @@ nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 
 nnoremap <C-e> :Vex<CR>
-inoremap <c-l> <C-o>$ 
+inoremap <c-l> <C-o>a
 
 nnoremap <leader>\ :vnew<cr>:Files<cr>
 
@@ -111,5 +111,8 @@ nnoremap <silent> <leader>mm :MaximizerToggle<cr>
 nnoremap <silent> <leader>bo :BufOnly<cr>
 
 nnoremap <silent> t<c-t> :call helpers#Helpers()<cr>
+
+" create new file using fzf
+nnoremap <silent> <leader>nn :call helpers#CreateFile()<cr>
 
 nnoremap <silent><leader>cc :silent !cat % \| pbcopy<cr>

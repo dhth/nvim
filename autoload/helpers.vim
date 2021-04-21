@@ -1,5 +1,13 @@
 function! s:HelperCommandToRun(command)
-    if a:command ==? "local:8000"
+    if a:command ==? "create file"
+        call fzf#run(fzf#wrap({'source': 'fd -H -t d', 'sink': function('s:CreateFileHelper')}))
+    elseif a:command ==? "e .zshrc"
+        tabnew $HOME/.zshrc
+    elseif a:command ==? "e journal"
+        tabnew $NVIM_DIR/journal.md
+    elseif a:command ==? "notes"
+        tabnew local_notes.md
+    elseif a:command ==? "local:8000"
         silent !open 'http://127.0.0.1:8000'
         echon ''
     elseif a:command ==? "local:8001"
@@ -25,20 +33,47 @@ function! s:HelperCommandToRun(command)
         lcd ~/.config/nvim
     elseif a:command == "lcd dotfiles"
         lcd $DOT_FILES_DIR
+    elseif a:command == "lcd wiki"
+        lcd $WIKI_DIR
     endif
 endfunction
 
 function! helpers#Helpers()
-    let l:commands = ["local:8000", 
+    let l:commands = [
+                \"create file",
+                \"e .zshrc",
+                \"e journal",
+                \"notes",
+                \"local:8000", 
                 \"local:8001",
                 \"local:8080",
                 \"get staged files",
                 \"add recently modified links",
                 \"lcd nvim",
-                \"lcd dotfiles"
+                \"lcd dotfiles",
+                \"lcd wiki"
                 \]
-    return fzf#run({'source': l:commands, 'sink': function('s:HelperCommandToRun'),  'window': { 'width': 0.4, 'height': 0.4 } })
+    return fzf#run({'source': l:commands, 'sink': function('s:HelperCommandToRun'),  'window': { 'width': 0.3, 'height': 0.5 } })
 endfunction
 
-" nnoremap t<c-t> :call Pytest()<cr>
+function! s:CreateFileHelper(command)
+    call inputsave()
+    let l:file_name_in = input('Enter file name: ')
+    call inputrestore()
+    if len(l:file_name_in) > 0
+        execute "tabnew ".a:command."/".l:file_name_in
+        write
+    endif
+endfunction
 
+function! helpers#CreateFile()
+    call fzf#run(fzf#wrap({'source': 'fd -H -t d', 'sink': function('s:CreateFileHelper')}))
+endfunction
+
+
+function! helpers#LocalNotes()
+    " let l:project_root = trim(system("git rev-parse --show-toplevel"))
+    " echo l:project_root."/local_wiki.md"
+    " execute "tabnew " . l:project_root ."/local_wiki.md"
+    tabnew local_wiki.md
+endfunction

@@ -6,8 +6,9 @@ Inspired by https://www.youtube.com/watch?v=EJqnWXDJZr0
 
 Current Vim Goals
 ---
-- Learn how to create a floating window (like COC) with some text already there,
-    that can be edited. For wiki.
+
+- Open up a bunch of links in Chrome (Select in visual, then open) (preferably
+    written in lua)
 
 Annoyed With
 ---

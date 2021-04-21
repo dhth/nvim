@@ -1,10 +1,10 @@
 "from https://www.youtube.com/watch?v=-I1b8BINyEw
-nnoremap <leader>ff :call CocAction('jumpDefinition')<CR>
-nnoremap <leader>gr :call CocAction('jumpReferences')<CR>
-nnoremap <leader>jj :call CocAction('jumpDefinition', 'tabe')<CR>
-nnoremap <leader>gv :call CocAction('jumpDefinition', 'vnew')<CR>
-nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>qf  <Plug>(coc-fix-current)
+nnoremap <silent> <leader>ff :call CocAction('jumpDefinition')<CR>
+nnoremap <silent> <leader>gr :call CocAction('jumpReferences')<CR>
+nnoremap <silent> <leader>jj :call CocAction('jumpDefinition', 'tabe')<CR>
+nnoremap <silent> <leader>gv :call CocAction('jumpDefinition', 'vnew')<CR>
+nmap <silent> <leader>rn <Plug>(coc-rename)
+nmap <silent> <leader>qf  <Plug>(coc-fix-current)
 
 ""Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>

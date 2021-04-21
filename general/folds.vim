@@ -18,6 +18,8 @@ endif
 endfunction
 
 noremap <silent> <leader>za :call UnrolMe()<CR>
+" nnoremap za zA
+" nnoremap zA za
 
 "leader op opens fold
 " noremap <silent> <leader><space> zA

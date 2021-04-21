@@ -29,14 +29,14 @@ function! wiki#WriteHeadingInFile(file_loc, str, create_subpages_heading)
     endif
 endfunction
 
-function! wiki#AddMarkdownLink()
+function! wiki#AddMarkdownLink(link_prefix)
     call inputsave()
     let link_address = input('Enter link address: ')
     call inputrestore()
     call inputsave()
     let link_title = input('Enter link title: ')
     call inputrestore()
-    execute "normal! o\<esc>I- [:fontawesome-solid-link: ".link_title."](".link_address.")"
+    execute "normal! o\<esc>I- [" . a:link_prefix . " " . link_title."](" . link_address.")"
     echon ''
 endfunction
 
@@ -160,18 +160,56 @@ function! wiki#AddAnswer()
 endfunction
 
 function! s:WikiHelperCommandToRun(command)
-    if a:command ==? "Add question"
+    if a:command ==? "Add file"
+        call wiki#CreateFileLink()
+    elseif a:command ==? "Add directory"
+        call wiki#CreateFolderLink()
+    elseif a:command ==? "Add question"
         call wiki#AddQuestion()
     elseif a:command ==? "Add answer"
         call wiki#AddAnswer()
     elseif a:command ==? "Add link"
-        call wiki#AddMarkdownLink()
+        call wiki#CreateLink()
     elseif a:command ==? "Add log"
         call wiki#CreateDateFileLink()
+    elseif a:command ==? "Code block"
+        call wiki#MakeLineCodeBlock()
     endif
 endfunction
 
+function! s:WikiCreateLinkHelperCommandToRun(link_type)
+    if a:link_type ==? "Regular"
+        let l:link_prefix = ":fontawesome-solid-link:"
+    elseif a:link_type ==? "Github"
+        let l:link_prefix = ":fontawesome-brands-github:"
+    elseif a:link_type ==? "Stack Overflow"
+        let l:link_prefix = ":fontawesome-brands-stack-overflow:"
+    endif
+    call wiki#AddMarkdownLink(l:link_prefix)
+endfunction
+
+function! wiki#CreateLink()
+    let l:commands = [
+                \"Regular",
+                \"Github",
+                \"Stack Overflow",
+                \]
+    return fzf#run({'source': l:commands, 'sink': function('s:WikiCreateLinkHelperCommandToRun'),  'window': { 'width': 0.2, 'height': 0.4 } })
+endfunction
+
 function! wiki#Helpers()
-    let l:commands = ["Add question", "Add answer",  "Add link", "Add log"]
-    return fzf#run({'source': l:commands, 'sink': function('s:WikiHelperCommandToRun'),  'window': { 'width': 0.3, 'height': 0.3 } })
+    let l:commands = [
+                \"Add file",
+                \"Add directory",
+                \"Add question",
+                \"Add answer",
+                \"Add link",
+                \"Add log",
+                \"Code block",
+                \]
+    return fzf#run({'source': l:commands, 'sink': function('s:WikiHelperCommandToRun'),  'window': { 'width': 0.3, 'height': 0.5 } })
+endfunction
+
+function! wiki#MakeLineCodeBlock()
+    execute "normal! O```jo```k"
 endfunction
