@@ -11,7 +11,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set number relativenumber
+set nonumber norelativenumber
 set wrap
 set linebreak
 set textwidth=0

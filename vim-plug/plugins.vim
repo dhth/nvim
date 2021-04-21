@@ -16,17 +16,18 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'gruvbox-community/gruvbox'
+" Plug 'gruvbox-community/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
 " Plug 'KeitaNakamura/neodark.vim'
 " Plug 'cormacrelf/vim-colors-github'
 " Plug 'bluz71/vim-nightfly-guicolors'
 " Plug 'sainnhe/sonokai'
 " Plug 'ajmwagar/vim-deus'
 " Plug 'folke/tokyonight.nvim'
+" Plug 'wadackel/vim-dogrun'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'wadackel/vim-dogrun'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neovim/nvim-lspconfig'
@@ -37,7 +38,7 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'tpope/vim-unimpaired'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }                       " see commit history
@@ -55,7 +56,7 @@ Plug 'junegunn/vim-slash'
 Plug 'tpope/vim-dispatch'
 Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' } " profiling tool
 Plug 'farmergreg/vim-lastplace'                              " remembers last editing place
-Plug 'preservim/tagbar'
+" Plug 'preservim/tagbar'                                      " class outline viewer
 " Plug 'junegunn/vader.vim'                                    " testing tool for vim files
 Plug 'szw/vim-maximizer'
 Plug 'sheerun/vim-polyglot'

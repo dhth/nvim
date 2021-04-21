@@ -2,13 +2,13 @@ set t_Co=256
 set termguicolors
 
 "custom commands
-:command! LT set background=light
-:command! DT set background=dark
+" :command! LT set background=light
+" :command! DT set background=dark
 
 " VIMCOLORSSTART
 
 set background=dark
-colorscheme gruvbox
+colorscheme gruvbox8_hard
 
 " colorscheme tokyonight
 " let g:tokyonight_style = "night"
