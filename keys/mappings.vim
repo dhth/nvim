@@ -30,6 +30,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 
 noremap <leader>fn :echo @%<CR>
+noremap <silent> <leader>cf :!echo -n % \| pbcopy<CR>
 
 "shortcut to edit nvim config
 noremap <leader>ev :vsplit $MYVIMRC<CR>

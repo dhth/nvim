@@ -4,8 +4,10 @@ function! s:PyHelperCommandToRun(command)
     if a:command ==? "__init__"
         let l:new_file = expand('%:p:h').'/__init__.py'
         silent execute '!touch ' . l:new_file
-    elseif a:command ==? "lint"
+    elseif a:command ==? "pylint"
         Dispatch $HOME/.virtualenvs/general/bin/pylint $(pwd)
+    elseif a:command ==? "flake8"
+        Dispatch $HOME/.virtualenvs/general/bin/flake8 $(pwd)
     elseif a:command ==? "black"
         Dispatch $HOME/.virtualenvs/general/bin/black $(pwd)
     elseif a:command ==? "isort"
@@ -17,6 +19,7 @@ function! ft#python#Helpers()
     let l:commands = [
                 \"black",
                 \"lint",
+                \"flake8",
                 \"isort",
                 \"__init__", 
                 \]

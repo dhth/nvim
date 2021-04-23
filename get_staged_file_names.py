@@ -28,9 +28,9 @@ res_files_unique_str = " ".join(res_files_unique)
 import platform
 
 if platform.system() == "Darwin":
-    copy_command = f'echo "{res_files_unique_str}" | pbcopy'
+    copy_command = f'echo -n "{res_files_unique_str}" | pbcopy'
 else:
-    copy_command = f'echo "{res_files_unique_str}"'
+    copy_command = f'echo -n "{res_files_unique_str}"'
 
 # https://stackoverflow.com/questions/41238273/execute-shell-command-with-pipes-in-python
 

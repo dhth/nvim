@@ -184,6 +184,8 @@ function! s:WikiCreateLinkHelperCommandToRun(link_type)
         let l:link_prefix = ":fontawesome-brands-github:"
     elseif a:link_type ==? "Stack Overflow"
         let l:link_prefix = ":fontawesome-brands-stack-overflow:"
+    elseif a:link_type ==? "Video"
+        let l:link_prefix = ":fontawesome-solid-play-circle:"
     endif
     call wiki#AddMarkdownLink(l:link_prefix)
 endfunction
@@ -193,6 +195,7 @@ function! wiki#CreateLink()
                 \"Regular",
                 \"Github",
                 \"Stack Overflow",
+                \"Video",
                 \]
     return fzf#run({'source': l:commands, 'sink': function('s:WikiCreateLinkHelperCommandToRun'),  'window': { 'width': 0.2, 'height': 0.4 } })
 endfunction

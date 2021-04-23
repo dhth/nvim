@@ -55,6 +55,7 @@ Plug 'vim-test/vim-test', { 'on': 'TestNearest' }
 Plug 'junegunn/vim-slash'
 Plug 'tpope/vim-dispatch'
 Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' } " profiling tool
+Plug 'MattesGroeger/vim-bookmarks'                           " bookmarks per line
 Plug 'farmergreg/vim-lastplace'                              " remembers last editing place
 " Plug 'preservim/tagbar'                                      " class outline viewer
 " Plug 'junegunn/vader.vim'                                    " testing tool for vim files
