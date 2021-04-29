@@ -117,3 +117,7 @@ nnoremap <silent> t<c-t> :call helpers#Helpers()<cr>
 nnoremap <silent> <leader>nn :call helpers#CreateFile()<cr>
 
 nnoremap <silent><leader>cc :silent !cat % \| pbcopy<cr>
+
+" directly open wiki page
+nnoremap <silent> <leader>, :call wiki#OpenWikiPageInBrowser()<cr>
+nnoremap <silent> <leader>. :call wiki#OpenWorkWikiPageInBrowser()<cr>

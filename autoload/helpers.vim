@@ -35,6 +35,10 @@ function! s:HelperCommandToRun(command)
         lcd $DOT_FILES_DIR
     elseif a:command == "lcd wiki"
         lcd $WIKI_DIR
+    elseif a:command == "lcd project"
+        echom 'fd -H -t d ' . $PROJECTS_DIR
+        call fzf#run(fzf#wrap({'source': 'fd -H -t d --max-depth 3 --base-directory ' . $PROJECTS_DIR, 'sink': function('s:LcdToProjectDirHelper')}))
+
     endif
 endfunction
 
@@ -51,10 +55,17 @@ function! helpers#Helpers()
                 \"add recently modified links",
                 \"lcd nvim",
                 \"lcd dotfiles",
-                \"lcd wiki"
+                \"lcd wiki",
+                \"lcd project",
                 \]
     return fzf#run({'source': l:commands, 'sink': function('s:HelperCommandToRun'),  'window': { 'width': 0.3, 'height': 0.5 } })
 endfunction
+
+function! s:LcdToProjectDirHelper(location)
+    let l:new_location = trim($PROJECTS_DIR . "/" . a:location)
+    execute "lcd " . l:new_location
+endfunction
+
 
 function! s:CreateFileHelper(command)
     call inputsave()
@@ -65,6 +76,7 @@ function! s:CreateFileHelper(command)
         write
     endif
 endfunction
+
 
 function! helpers#CreateFile()
     call fzf#run(fzf#wrap({'source': 'fd -H -t d', 'sink': function('s:CreateFileHelper')}))

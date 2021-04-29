@@ -8,6 +8,7 @@ source $HOME/.config/nvim/keys/colors.vim
 source $HOME/.config/nvim/plug-config/nerdtree.vim
 " source $HOME/.config/nvim/general/netrw.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
+source $HOME/.config/nvim/plug-config/fzf-checkout.vim
 " source $HOME/.config/nvim/plug-config/rg.vim
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/fugitive.vim

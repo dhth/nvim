@@ -21,7 +21,7 @@ endfunction
 
 function! wiki#WriteHeadingInFile(file_loc, str, create_subpages_heading)
     execute "normal! :tabe ".a:file_loc."\<cr>"
-    execute "normal! i---\<cr>title: \"".a:str."\"\<cr>summary: \<cr>---\<cr>\<esc>"
+    execute "normal! i---\<cr>title: \"".a:str."\"\<cr>summary:\<cr>---\<cr>\<esc>"
     execute "normal! o".a:str."\<esc>"
     execute "normal! o===\<cr>\<cr>\<esc>"
     if a:create_subpages_heading
@@ -155,6 +155,10 @@ function! wiki#AddQuestion()
     execute "normal! o\rI- [ ] "
 endfunction
 
+function! wiki#AddTodo()
+    execute "normal! oI- [ ] "
+endfunction
+
 function! wiki#AddAnswer()
     execute "normal! o\r> "
 endfunction
@@ -164,6 +168,8 @@ function! s:WikiHelperCommandToRun(command)
         call wiki#CreateFileLink()
     elseif a:command ==? "Add directory"
         call wiki#CreateFolderLink()
+    elseif a:command ==? "Add todo"
+        call wiki#AddTodo()
     elseif a:command ==? "Add question"
         call wiki#AddQuestion()
     elseif a:command ==? "Add answer"
@@ -186,6 +192,8 @@ function! s:WikiCreateLinkHelperCommandToRun(link_type)
         let l:link_prefix = ":fontawesome-brands-stack-overflow:"
     elseif a:link_type ==? "Video"
         let l:link_prefix = ":fontawesome-solid-play-circle:"
+    elseif a:link_type ==? "Book"
+        let l:link_prefix = ":fontawesome-solid-book:"
     endif
     call wiki#AddMarkdownLink(l:link_prefix)
 endfunction
@@ -196,6 +204,7 @@ function! wiki#CreateLink()
                 \"Github",
                 \"Stack Overflow",
                 \"Video",
+                \"Book",
                 \]
     return fzf#run({'source': l:commands, 'sink': function('s:WikiCreateLinkHelperCommandToRun'),  'window': { 'width': 0.2, 'height': 0.4 } })
 endfunction
@@ -204,6 +213,7 @@ function! wiki#Helpers()
     let l:commands = [
                 \"Add file",
                 \"Add directory",
+                \"Add todo",
                 \"Add question",
                 \"Add answer",
                 \"Add link",
@@ -215,4 +225,37 @@ endfunction
 
 function! wiki#MakeLineCodeBlock()
     execute "normal! O```jo```k"
+endfunction
+
+
+function! s:OpenWikiPageInBrowser(file)
+    let l:resource = split(split(a:file, ".md")[0], "/index")[0]
+    execute "!open http://127.0.0.1:8000/".l:resource."/"
+endfunction
+
+
+function! s:OpenWorkWikiPageInBrowser(file)
+    let l:resource = split(split(a:file, ".md")[0], "/index")[0]
+    execute "!open http://127.0.0.1:8001/".l:resource."/"
+endfunction
+
+
+function! wiki#OpenWikiPageInBrowser()
+    call fzf#run(fzf#wrap({'source': 'fd -p -t f --base-directory=$WIKI_DIR/docs', 'sink': function('s:OpenWikiPageInBrowser')}))
+endfunction
+
+
+function! wiki#OpenWorkWikiPageInBrowser()
+    call fzf#run(fzf#wrap({'source': 'fd -p -t f --base-directory=$WORK_WIKI_DIR/docs', 'sink': function('s:OpenWorkWikiPageInBrowser')}))
+    " find a way to send arguments to sink function
+endfunction
+
+
+function! wiki#OpenCurrentWikiPageInBrowser()
+    let l:file = split(expand('%:p'), "docs/")[-1]
+    if stridx(expand('%:p'), $WIKI_DIR) == 0
+        call s:OpenWikiPageInBrowser(l:file)
+    elseif stridx(expand('%:p'), $WORK_WIKI_DIR) == 0
+        call s:OpenWorkWikiPageInBrowser(l:file)
+    endif
 endfunction

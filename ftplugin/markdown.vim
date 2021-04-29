@@ -29,3 +29,6 @@ nnoremap <buffer> <silent> <leader>aq :call wiki#AddQuestion()<cr>
 nnoremap <buffer> <silent> <leader>aa :call wiki#AddAnswer()<cr>
 
 nnoremap <silent> f<c-f> :call wiki#Helpers()<cr>
+inoremap <silent> f<c-f> <Esc>:call wiki#Helpers()<cr>
+
+nnoremap <silent> w<tab>w :call wiki#OpenCurrentWikiPageInBrowser()<cr>
