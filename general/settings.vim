@@ -3,6 +3,8 @@ let mapleader = " "
 syntax enable
 set nocompatible
 filetype plugin on
+set exrc   "project specific vimrcs
+" set guicursor=
 set splitbelow
 set splitright
 set noerrorbells
@@ -37,6 +39,7 @@ set wildignore+=**/node_modules/**
 set clipboard+=unnamedplus
 set inccommand=nosplit                    " Show live highlighting during substitute in a split window
 set noshowmode
+set scrolloff=8
 
 "from How to do 90% of what plugins do
 "https://www.youtube.com/watch?v=XA2WjJbmmoM

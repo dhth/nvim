@@ -66,6 +66,8 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'puremourning/vimspector'
 " Plug 'jupyter-vim/jupyter-vim'
 Plug 'machakann/vim-highlightedyank'
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'sindrets/diffview.nvim'
 " Plug 'relastle/vim-nayvy'
 " Plug 'nvim-lua/popup.nvim'
 " Plug 'nvim-lua/plenary.nvim'

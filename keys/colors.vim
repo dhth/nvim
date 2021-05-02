@@ -7,11 +7,13 @@ set termguicolors
 
 " VIMCOLORSSTART
 
-set background=dark
-colorscheme gruvbox8_hard
-
-" colorscheme tokyonight
-" let g:tokyonight_style = "night"
+if strftime("%H") > 8 && strftime("%H") < 14
+  set background=light
+  colorscheme gruvbox8_soft
+else
+  set background=dark
+  colorscheme gruvbox8_hard
+endif
         
 " VIMCOLORSEND
 

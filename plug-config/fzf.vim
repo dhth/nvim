@@ -13,11 +13,6 @@ nnoremap <silent> <C-b> :Buffers<CR>
 nnoremap <silent> <C-s> :BLines<CR>
 nnoremap <silent> <leader><C-g> :GFiles?<CR>
 
-"repeat same mappings for new tab
-nnoremap <Leader><C-p> :tabnew<CR>:GFiles<CR>
-nnoremap <Leader><C-f> :tabnew<CR>:Files<CR>
-nnoremap <Leader>n<C-f> :vnew<CR>:Files<CR>
-
 if executable('rg')
     let g:rg_derive_root='true'
 endif
@@ -41,3 +36,32 @@ nnoremap <Leader>l :RG<CR>
 nnoremap <leader>vv :FZF ~/.config/nvim<CR>
 
 let g:fzf_preview_window = ''
+
+" An action can be a reference to a function that processes selected lines
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tabedit',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+

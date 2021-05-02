@@ -89,3 +89,24 @@ function! helpers#LocalNotes()
     " execute "tabnew " . l:project_root ."/local_wiki.md"
     tabnew local_wiki.md
 endfunction
+
+function! helpers#GetCommitsForDiffOpen()
+    "[TODO] get colors working in this 
+    "check https://github.com/junegunn/fzf.vim/blob/master/autoload/fzf/vim.vim#L1203
+    let source = "git log --all --graph --max-count=50 --pretty=format:'<<%h>> -%d %s (%cr) <%an>' --abbrev-commit"
+    let b:start_commit="0"
+    let b:end_commit="0"
+    call fzf#run(fzf#wrap({'source': source, 'sink': function('s:CommitHelper'), 'options': '--multi=2'}))
+endfunction
+
+function! s:CommitHelper(commit_data)
+    let commit_hash = trim(split(split(a:commit_data, "<<")[1], ">>")[0])
+    if b:end_commit ==# "0"
+        let b:end_commit = commit_hash
+    elseif b:start_commit ==# "0"
+        let b:start_commit = commit_hash
+    endif
+    if (b:end_commit != "0" && b:start_commit != "0")
+        execute 'DiffviewOpen '.b:start_commit.'...'.b:end_commit
+    endif
+endfunction

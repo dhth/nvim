@@ -15,6 +15,7 @@ source $HOME/.config/nvim/plug-config/fugitive.vim
 source $HOME/.config/nvim/plug-config/vim-sneak.vim
 source $HOME/.config/nvim/plug-config/airline.vim
 " lua require('plug_config.lualine')
+lua require('plug_config.diffview')
 source $HOME/.config/nvim/plug-config/vim-markdown.vim
 source $HOME/.config/nvim/plug-config/goyo.vim
 source $HOME/.config/nvim/plug-config/signify.vim
