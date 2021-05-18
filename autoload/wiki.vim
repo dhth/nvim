@@ -188,6 +188,8 @@ function! s:WikiCreateLinkHelperCommandToRun(link_type)
         let l:link_prefix = ":fontawesome-solid-link:"
     elseif a:link_type ==? "Github"
         let l:link_prefix = ":fontawesome-brands-github:"
+    elseif a:link_type ==? "AWS"
+        let l:link_prefix = ":fontawesome-brands-aws:"
     elseif a:link_type ==? "Stack Overflow"
         let l:link_prefix = ":fontawesome-brands-stack-overflow:"
     elseif a:link_type ==? "Video"
@@ -195,13 +197,14 @@ function! s:WikiCreateLinkHelperCommandToRun(link_type)
     elseif a:link_type ==? "Book"
         let l:link_prefix = ":fontawesome-solid-book:"
     endif
-    call wiki#AddMarkdownLink(l:link_prefix)
+    call wiki#AddMarkdownLinkV2(l:link_prefix)
 endfunction
 
 function! wiki#CreateLink()
     let l:commands = [
                 \"Regular",
                 \"Github",
+                \"AWS",
                 \"Stack Overflow",
                 \"Video",
                 \"Book",
@@ -212,11 +215,11 @@ endfunction
 function! wiki#Helpers()
     let l:commands = [
                 \"Add file",
+                \"Add link",
                 \"Add directory",
                 \"Add todo",
                 \"Add question",
                 \"Add answer",
-                \"Add link",
                 \"Add log",
                 \"Code block",
                 \]
@@ -230,13 +233,13 @@ endfunction
 
 function! s:OpenWikiPageInBrowser(file)
     let l:resource = split(split(a:file, ".md")[0], "/index")[0]
-    execute "!open http://127.0.0.1:8000/".l:resource."/"
+    silent execute "!open http://127.0.0.1:8000/".l:resource."/"
 endfunction
 
 
 function! s:OpenWorkWikiPageInBrowser(file)
     let l:resource = split(split(a:file, ".md")[0], "/index")[0]
-    execute "!open http://127.0.0.1:8001/".l:resource."/"
+    silent execute "!open http://127.0.0.1:8001/".l:resource."/"
 endfunction
 
 
@@ -258,4 +261,33 @@ function! wiki#OpenCurrentWikiPageInBrowser()
     elseif stridx(expand('%:p'), $WORK_WIKI_DIR) == 0
         call s:OpenWorkWikiPageInBrowser(l:file)
     endif
+endfunction
+
+function! wiki#AddMarkdownLinkV2(link_prefix)
+    " adds links as a markdown references,
+    " requires a <!-- Links --> line below
+    " the current line
+    let l:current_line_num = line('.')
+    let curline = getline('.')
+    call inputsave()
+    let link_address = input('Enter link address: ')
+    call inputrestore()
+    call inputsave()
+    let link_title = input('Enter link title: ')
+    call inputrestore()
+
+    " let l:line_above = getline(l:current_line_num - 1)
+    let l:last_link_index = matchstr(l:curline, '.*\]\[\zs.*\ze\]')
+    if l:last_link_index
+        let l:new_index_number = l:last_link_index + 1
+    else
+        let l:new_index_number = 1
+    endif
+    execute "normal! o\<esc>I- [" . a:link_prefix . " " . link_title."][" . l:new_index_number."]"
+
+    " https://stackoverflow.com/questions/56475817/vimscript-execute-search-does-not-work-anymore
+    let @/ = 'Links'
+    execute "normal! /\<cr>}O[".l:new_index_number."]: ".link_address
+    echon ''
+    execute l:current_line_num + 1
 endfunction

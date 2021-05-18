@@ -7,13 +7,20 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+" inoremap <expr> <c-j> ("\<C-n>")
+" inoremap <expr> <c-k> ("\<C-p>")
 
-nnoremap <C-h> <c-w>h
-nnoremap <C-j> <c-w>j
-nnoremap <C-k> <c-w>k
-nnoremap <C-l> <c-w>l
+" Mapping up and down keys
+" since, <c-j> and <c-k> are
+" mapped to up and down via
+" karabiner
+inoremap <expr> <Down> ("\<C-n>")
+inoremap <expr> <Up> ("\<C-p>")
+
+" nnoremap <C-h> <c-w>h
+" nnoremap <C-j> <c-w>j
+" nnoremap <C-k> <c-w>k
+" nnoremap <C-l> <c-w>l
 
 nnoremap <c-[> <c-o>
 nnoremap <c-]> <c-i>
@@ -121,3 +128,6 @@ nnoremap <silent><leader>cc :silent !cat % \| pbcopy<cr>
 " directly open wiki page
 nnoremap <silent> <leader>, :call wiki#OpenWikiPageInBrowser()<cr>
 nnoremap <silent> <leader>. :call wiki#OpenWorkWikiPageInBrowser()<cr>
+nnoremap <silent> <leader>dv :call helpers#GetCommitsForDiffOpen()<cr>
+nnoremap <silent> <leader>as :call aws_helpers#Search()<cr>
+nnoremap <silent> <leader>cw :call aws_helpers#SearchCDKAPIReferenceForCurrentWord()<cr>

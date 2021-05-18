@@ -32,3 +32,8 @@ nnoremap <silent> f<c-f> :call wiki#Helpers()<cr>
 inoremap <silent> f<c-f> <Esc>:call wiki#Helpers()<cr>
 
 nnoremap <silent> <leader>ow :call wiki#OpenCurrentWikiPageInBrowser()<cr>
+
+setlocal foldenable
+setlocal fo-=q
+" set formatoptions=tcqln
+" set comments=fb:*,fb:-,fb:+,n:>

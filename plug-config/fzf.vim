@@ -17,9 +17,9 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-let $FZF_DEFAULT_OPTS='--reverse'
-" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-let g:fzf_layout = { 'down': '30%' }
+" let $FZF_DEFAULT_OPTS='--reverse'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+" let g:fzf_layout = { 'down': '30%' }
 
 " from https://github.com/junegunn/fzf.vim#advanced-customization
 function! RipgrepFzf(query, fullscreen)

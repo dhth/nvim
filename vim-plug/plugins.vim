@@ -24,6 +24,7 @@ Plug 'lifepillar/vim-gruvbox8'
 " Plug 'sainnhe/sonokai'
 " Plug 'ajmwagar/vim-deus'
 " Plug 'folke/tokyonight.nvim'
+Plug 'arzg/vim-colors-xcode'
 " Plug 'wadackel/vim-dogrun'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
@@ -39,7 +40,7 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'tpope/vim-unimpaired'
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }                       " see commit history
@@ -67,11 +68,13 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'jupyter-vim/jupyter-vim'
 Plug 'machakann/vim-highlightedyank'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'sindrets/diffview.nvim'
+" Plug 'sindrets/diffview.nvim'  " git-split-diffs works better
+" Plug 'edkolev/tmuxline.vim'
 " Plug 'relastle/vim-nayvy'
 " Plug 'nvim-lua/popup.nvim'
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'nvim-telescope/telescope.nvim'
+Plug 'folke/todo-comments.nvim'
 
 
 call plug#end()

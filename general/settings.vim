@@ -4,7 +4,7 @@ syntax enable
 set nocompatible
 filetype plugin on
 set exrc   "project specific vimrcs
-" set guicursor=
+set guicursor=
 set splitbelow
 set splitright
 set noerrorbells
@@ -16,9 +16,8 @@ set smartindent
 set nonumber norelativenumber
 set wrap
 set linebreak
-set textwidth=0
+set textwidth=120
 set wrapmargin=0
-set tw=120
 set smartcase
 set noswapfile
 set nobackup

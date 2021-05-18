@@ -23,6 +23,8 @@ source $HOME/.config/nvim/plug-config/vimux.vim
 source $HOME/.config/nvim/plug-config/vim-test.vim
 source $HOME/.config/nvim/plug-config/vim-easy-align.vim
 source $HOME/.config/nvim/plug-config/vim-bookmarks.vim
+" source $HOME/.config/nvim/plug-config/tmuxline.vim
 source $HOME/.config/nvim/plug-config/which-key.vim
+source $HOME/.config/nvim/plug-config/todo-comments.vim
 source $HOME/.config/nvim/local_only.vim
-lua require('plug_config.diffview')
+" lua require('plug_config.nvim_telescope')

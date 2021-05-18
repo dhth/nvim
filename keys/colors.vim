@@ -7,13 +7,13 @@ set termguicolors
 
 " VIMCOLORSSTART
 
+let g:airline_theme = "gruvbox8"
 if strftime("%H") > 8 && strftime("%H") < 14
-  set background=light
-  colorscheme gruvbox8_soft
+    set background=light
 else
-  set background=dark
-  colorscheme gruvbox8_hard
+    set background=dark
 endif
+colorscheme gruvbox8_hard
         
 " VIMCOLORSEND
 

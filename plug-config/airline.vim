@@ -36,4 +36,4 @@ let g:airline_skip_empty_sections = 1
 " don't show hunk status
 let g:airline#extensions#hunks#enabled=0
 
-let g:airline_theme = "gruvbox8"
+" let g:airline_theme = "gruvbox8"

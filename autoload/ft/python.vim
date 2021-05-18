@@ -9,9 +9,9 @@ function! s:PyHelperCommandToRun(command)
     elseif a:command ==? "flake8"
         Dispatch $HOME/.virtualenvs/general/bin/flake8 $(pwd)
     elseif a:command ==? "black"
-        Dispatch $HOME/.virtualenvs/general/bin/black $(pwd)
+        silent execute '!black .'
     elseif a:command ==? "isort"
-        Dispatch $HOME/.virtualenvs/general/bin/isort $(pwd)
+        silent execute '!isort .'
     endif
 endfunction
 

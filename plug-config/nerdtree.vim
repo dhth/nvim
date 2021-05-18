@@ -13,4 +13,4 @@ augroup nerdtree_numbers
     autocmd FileType nerdtree setlocal relativenumber
 augroup END
 
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0

@@ -3,6 +3,8 @@ set foldmethod=indent
 "prevents { or } from opening up a fold
 set foldopen-=block
 
+set nofoldenable
+
 "leader fi to toggle opening/closing all folds
 let $unrol=0
 function UnrolMe()
