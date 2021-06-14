@@ -16,6 +16,7 @@ endfunction
 function! GetFileName(str)
     let l:stripped_str = substitute(a:str, ':', '', 'g')
     let l:stripped_str = substitute(l:stripped_str, ',', '', 'g')
+    let l:stripped_str = substitute(l:stripped_str, '@', '', 'g')
     return substitute(l:stripped_str, ' ', '-', 'g')
 endfunction
 
@@ -24,6 +25,7 @@ function! wiki#WriteHeadingInFile(file_loc, str, create_subpages_heading)
     execute "normal! i---\<cr>title: \"".a:str."\"\<cr>summary:\<cr>---\<cr>\<esc>"
     execute "normal! o".a:str."\<esc>"
     execute "normal! o===\<cr>\<cr>\<esc>"
+    " execute "normal! iResources\<cr>---\<cr>\<cr>\<cr><!-- Links -->\<cr>\<cr>\<esc>"
     if a:create_subpages_heading
         execute "normal! iModules\<cr>---\<cr>\<esc>"
     endif
@@ -40,16 +42,32 @@ function! wiki#AddMarkdownLink(link_prefix)
     echon ''
 endfunction
 
+function! s:PrePad(s,amt,...)
+    if a:0 > 0
+        let char = a:1
+    else
+        let char = ' '
+    endif
+    return repeat(char,a:amt - len(a:s)) . a:s
+endfunction
+
 function! wiki#CreateFileLink()
     " Personal utility to quickly generate markdown link
     " to a new file
+    let l:current_line_num = line('.')
     let curline = getline('.')
     call inputsave()
     let file_name_in = input('Enter file name: ')
     call inputrestore()
-    call inputsave()
-    let l:prefix = input('File Prefix: ')
-    call inputrestore()
+    let l:last_file_index = matchstr(l:curline, '.*\](\zs[0-9][0-9]\ze')
+    if l:last_file_index
+        let l:prefix = s:PrePad(l:last_file_index + 1, 2, '0')
+    else
+        let l:prefix = '01'
+    endif
+    " call inputsave()
+    " let l:prefix = input('File Prefix: ')
+    " call inputrestore()
     let l:title_prefix = input('Title Prefix: ')
     call inputrestore()
 
@@ -116,7 +134,9 @@ function! wiki#EnterKeyActions(line_str)
     elseif stridx(a:line_str, l:checklist_unticked) > -1
         s/\[ \]/\[x\]
     elseif stridx(a:line_str, l:page_link_str) > -1
-        execute "normal! 0f]\<C-W>gf"
+        " execute "normal! 0f]\<C-W>gf"
+        " C-W gf to open in new tab
+        execute "normal! 0f]gf"
     endif
 endfunction
 

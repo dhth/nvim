@@ -7,13 +7,19 @@ set termguicolors
 
 " VIMCOLORSSTART
 
-let g:airline_theme = "gruvbox8"
 if strftime("%H") > 8 && strftime("%H") < 14
-    set background=light
+    set background=dark
 else
     set background=dark
 endif
 colorscheme gruvbox8_hard
+let g:airline_theme = "gruvbox8"
+
+" set background=dark
+" colorscheme neodark
+
+" let g:neodark#background = '#202020'
+" let g:airline_theme = 'neodark'
         
 " VIMCOLORSEND
 

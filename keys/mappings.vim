@@ -1,4 +1,4 @@
-inoremap jj <Esc>
+" inoremap jj <Esc>
 " inoremap jk <Esc>
 " inoremap kj <Esc>
 
@@ -84,7 +84,7 @@ tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
 tnoremap <C-w>z <C-\><C-n><C-w>_
-tnoremap jj <C-\><C-n>
+" tnoremap jj <C-\><C-n>
 
 " Move to end of line while in insert mode
 " <C-o> puts you in Normal mode for just one command
@@ -101,7 +101,7 @@ nnoremap <Down> :resize -2<CR>
 nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 
-nnoremap <C-e> :Vex<CR>
+" nnoremap <C-e> :Vex<CR>
 inoremap <c-l> <C-o>a
 
 nnoremap <leader>\ :vnew<cr>:Files<cr>
@@ -119,6 +119,7 @@ nnoremap <silent> <leader>mm :MaximizerToggle<cr>
 nnoremap <silent> <leader>bo :BufOnly<cr>
 
 nnoremap <silent> t<c-t> :call helpers#Helpers()<cr>
+nnoremap <silent> <leader>pp :call helpers#LCDToDir()<cr>
 
 " create new file using fzf
 nnoremap <silent> <leader>nn :call helpers#CreateFile()<cr>
@@ -131,3 +132,4 @@ nnoremap <silent> <leader>. :call wiki#OpenWorkWikiPageInBrowser()<cr>
 nnoremap <silent> <leader>dv :call helpers#GetCommitsForDiffOpen()<cr>
 nnoremap <silent> <leader>as :call aws_helpers#Search()<cr>
 nnoremap <silent> <leader>cw :call aws_helpers#SearchCDKAPIReferenceForCurrentWord()<cr>
+nnoremap <silent> <leader>dd :call helpers#GvdiffsplitHelper()<cr>

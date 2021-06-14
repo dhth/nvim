@@ -4,4 +4,5 @@ nnoremap <silent> <leader>dm :Gvdiffsplit origin/master:%<CR>
 nnoremap <silent> <leader>gf :diffget //2<CR>                    " used during merge conflicts
 nnoremap <silent> <leader>gj :diffget //3<CR>
 nnoremap <silent> <leader>ds :Gvdiffsplit HEAD:%<CR>
+nnoremap <silent> <leader>ca :Git commit --amend<CR>
 nnoremap <leader>gppp :Gpush

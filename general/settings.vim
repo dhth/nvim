@@ -38,7 +38,7 @@ set wildignore+=**/node_modules/**
 set clipboard+=unnamedplus
 set inccommand=nosplit                    " Show live highlighting during substitute in a split window
 set noshowmode
-set scrolloff=8
+set scrolloff=12
 
 "from How to do 90% of what plugins do
 "https://www.youtube.com/watch?v=XA2WjJbmmoM

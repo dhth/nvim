@@ -18,7 +18,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
-" Plug 'KeitaNakamura/neodark.vim'
+Plug 'KeitaNakamura/neodark.vim'
 " Plug 'cormacrelf/vim-colors-github'
 " Plug 'bluz71/vim-nightfly-guicolors'
 " Plug 'sainnhe/sonokai'
@@ -36,7 +36,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 " Plug 'hoob3rt/lualine.nvim'
 Plug 'tpope/vim-commentary'
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'tpope/vim-unimpaired'
@@ -67,7 +67,7 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'puremourning/vimspector'
 " Plug 'jupyter-vim/jupyter-vim'
 Plug 'machakann/vim-highlightedyank'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'sindrets/diffview.nvim'  " git-split-diffs works better
 " Plug 'edkolev/tmuxline.vim'
 " Plug 'relastle/vim-nayvy'
@@ -75,10 +75,15 @@ Plug 'machakann/vim-highlightedyank'
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'nvim-telescope/telescope.nvim'
 Plug 'folke/todo-comments.nvim'
-
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'ThePrimeagen/harpoon'
+" Plug 'voldikss/vim-floaterm'
+Plug 'mcchrish/nnn.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
 let g:coc_global_extensions = ["coc-pyright",
             \ "coc-json",
+            \ "coc-yaml",
             \ "coc-snippets"]

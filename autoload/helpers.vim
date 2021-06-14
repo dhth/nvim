@@ -1,7 +1,7 @@
 function! s:HelperCommandToRun(command)
-    if a:command ==? "create file"
-        call fzf#run(fzf#wrap({'source': 'fd -H -t d', 'sink': function('s:CreateFileHelper')}))
-    elseif a:command ==? "e .zshrc"
+    " if a:command ==? "create file"
+    "     call fzf#run(fzf#wrap({'source': 'fd -H -t d', 'sink': function('s:CreateFileHelper')}))
+    if a:command ==? "e .zshrc"
         tabnew $HOME/.zshrc
     elseif a:command ==? "e helpers"
         tabnew $NVIM_DIR/autoload/helpers.vim
@@ -58,7 +58,6 @@ endfunction
 
 function! helpers#Helpers()
     let l:commands = [
-                \"create file",
                 \"e .zshrc",
                 \"e helpers",
                 \"e journal",
@@ -132,4 +131,23 @@ function! s:CommitHelper(commit_data)
     if (b:end_commit != "0" && b:start_commit != "0")
         execute 'DiffviewOpen '.b:start_commit.'...'.b:end_commit
     endif
+endfunction
+
+
+function! helpers#LCDToDir()
+    call fzf#run(fzf#wrap({'source': 'fd . --max-depth=1 $PROJECTS_DIR $WORK_DIR', 'sink': function('s:LCDToDirHelper')}))
+endfunction
+
+
+function! s:LCDToDirHelper(address)
+    tabnew a:address
+    execute "lcd " . a:address
+endfunction
+
+
+function! helpers#GvdiffsplitHelper()
+    call inputsave()
+    let l:base_commit = input('Gvdiffsplit HEAD~? ')
+    call inputrestore()
+    execute 'Gvdiffsplit HEAD~'.l:base_commit.':%'
 endfunction
