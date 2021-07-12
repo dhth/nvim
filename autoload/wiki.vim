@@ -68,15 +68,14 @@ function! wiki#CreateFileLink()
     " call inputsave()
     " let l:prefix = input('File Prefix: ')
     " call inputrestore()
-    let l:title_prefix = input('Title Prefix: ')
-    call inputrestore()
+    " let l:title_prefix = input('Title Prefix: ')
+    " call inputrestore()
 
-    " let l:file_title = TwiddleCase(file_name_in)
-    if empty(l:title_prefix)
-        let l:file_title = file_name_in
-    else
-        let l:file_title = l:title_prefix.": ".file_name_in
-    endif
+    " if empty(l:title_prefix)
+    let l:file_title = file_name_in
+    " else
+    "     let l:file_title = l:title_prefix.": ".file_name_in
+    " endif
     let l:dir_loc = expand("%:h")
     if empty(l:prefix)
         let l:file_name = GetFileName(tolower(file_name_in)).".md"

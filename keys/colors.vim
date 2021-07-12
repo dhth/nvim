@@ -13,6 +13,7 @@ else
     set background=dark
 endif
 colorscheme gruvbox8_hard
+" colorscheme moonlight
 let g:airline_theme = "gruvbox8"
 
 " set background=dark

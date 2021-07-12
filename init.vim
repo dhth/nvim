@@ -29,5 +29,7 @@ source $HOME/.config/nvim/plug-config/which-key.vim
 source $HOME/.config/nvim/plug-config/todo-comments.vim
 source $HOME/.config/nvim/plug-config/nnn.vim
 source $HOME/.config/nvim/local_only.vim
-" lua require('plug_config.nvim_telescope')
+source $HOME/.config/nvim/plug-config/telescope.vim
+" source $HOME/.config/nvim/plug-config/jupyter-vim.vim
+lua require('plug_config.nvim_telescope')
 lua require('plug_config.treesitter')
