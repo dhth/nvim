@@ -7,8 +7,8 @@ set termguicolors
 
 " VIMCOLORSSTART
 
-if strftime("%H") > 8 && strftime("%H") < 14
-    set background=dark
+if strftime("%H") >= 8 && strftime("%H") < 14
+    set background=light
 else
     set background=dark
 endif

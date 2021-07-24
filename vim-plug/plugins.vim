@@ -60,7 +60,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' } " profiling tool
 Plug 'MattesGroeger/vim-bookmarks'                           " bookmarks per line
 Plug 'farmergreg/vim-lastplace'                              " remembers last editing place
-" Plug 'preservim/tagbar'                                      " class outline viewer
+Plug 'preservim/tagbar'                                      " class outline viewer
 " Plug 'junegunn/vader.vim'                                    " testing tool for vim files
 Plug 'szw/vim-maximizer'
 Plug 'sheerun/vim-polyglot'
@@ -68,7 +68,7 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'puremourning/vimspector'
 " Plug 'jupyter-vim/jupyter-vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'sindrets/diffview.nvim'  " git-split-diffs works better
 " Plug 'edkolev/tmuxline.vim'
 " Plug 'relastle/vim-nayvy'

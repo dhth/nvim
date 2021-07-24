@@ -1,4 +1,4 @@
-nnoremap <leader>tt :tabnew<CR>
+" nnoremap <leader>tt :tabnew<CR>
 nnoremap <C-t> :tabnew<CR>
 nnoremap <leader>te :tabedit<space>
 nnoremap <leader>tc :tabclose<CR>

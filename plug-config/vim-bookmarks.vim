@@ -11,7 +11,7 @@ let g:bookmark_manage_per_buffer = 1
 " nnoremap <silent> <Leader>ba <Plug>BookmarkAnnotate
 " nnoremap <silent> <Leader>bl <Plug>BookmarkShowAll
 nnoremap <Leader>ba :BookmarkAnnotate<CR>
-nnoremap <silent> <Leader>bl :BookmarkShowAll<CR>
+" nnoremap <silent> <Leader>bl :BookmarkShowAll<CR>
 " nnoremap <silent> <Leader>j <Plug>BookmarkNext
 " nnoremap <silent> <Leader>k <Plug>BookmarkPrev
 " nnoremap <silent> <Leader>c <Plug>BookmarkClear

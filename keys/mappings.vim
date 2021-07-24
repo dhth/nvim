@@ -133,3 +133,5 @@ nnoremap <silent> <leader>dv :call helpers#GetCommitsForDiffOpen()<cr>
 nnoremap <silent> <leader>as :call aws_helpers#Search()<cr>
 nnoremap <silent> <leader>cw :call aws_helpers#SearchCDKAPIReferenceForCurrentWord()<cr>
 nnoremap <silent> <leader>dd :call helpers#GvdiffsplitHelper()<cr>
+
+nnoremap <silent> <leader>tt :TagbarToggle<CR>
