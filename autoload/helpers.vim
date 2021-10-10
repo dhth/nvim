@@ -11,6 +11,8 @@ function! s:HelperCommandToRun(command)
         tabnew $POMODORO_TASK_LIST_FILE_LOC
     elseif a:command ==? "e karabiner"
         tabnew $HOME/.config/karabiner.edn
+    elseif a:command ==? "e gitfile"
+        tabnew $HOME/.global.gitfile
     elseif a:command ==? "e tools"
         tabnew $ALFRED_DIR/tools/tools.txt
     elseif a:command ==? "notes"
@@ -19,6 +21,8 @@ function! s:HelperCommandToRun(command)
         tabnew local_commands.txt
     elseif a:command ==? "e aws services"
         tabnew $ALFRED_DIR/aws/aws_services/aws_services.txt
+    elseif a:command ==? "e docker commands"
+        tabnew $HOME/docker_commands.txt
     elseif a:command ==? "local:8000"
         silent !open 'http://127.0.0.1:8000'
         echon ''
@@ -63,6 +67,8 @@ function! helpers#Helpers()
                 \"e journal",
                 \"e pomodoro",
                 \"e karabiner",
+                \"e gitfile",
+                \"e docker commands",
                 \"e tools",
                 \"e local commands",
                 \"e aws services",
@@ -145,9 +151,48 @@ function! s:LCDToDirHelper(address)
 endfunction
 
 
-function! helpers#GvdiffsplitHelper()
+function! helpers#GvdiffHeadsplitHelper()
     call inputsave()
     let l:base_commit = input('Gvdiffsplit HEAD~? ')
     call inputrestore()
-    execute 'Gvdiffsplit HEAD~'.l:base_commit.':%'
+    execute 'Gvdiffsplit! HEAD~'.l:base_commit.':%'
+endfunction
+
+function! helpers#GvdiffsplitHelper()
+    call inputsave()
+    let l:ref = input('Gvdiffsplit HEAD~? ')
+    call inputrestore()
+    execute 'Gvdiffsplit! '.l:ref.':%'
+endfunction
+
+
+function! s:DiffWithRevHelper(rev)
+    execute 'Gvdiffsplit! '.a:rev.':%'
+endfunction
+
+
+function! helpers#DiffWithRev()
+    let source = 'git branch --all'
+    call fzf#run(fzf#wrap({'source': source, 'sink': function('s:DiffWithRevHelper')}))
+endfunction
+
+
+function! s:DiffWithCommitHelper(commit_data)
+    let l:commit_hash = trim(split(a:commit_data, " ")[0])
+    execute 'Gvdiffsplit! '.l:commit_hash.':%'
+    " execute "wincmd H"
+    " execute "wincmd l"
+endfunction
+
+
+function! helpers#DiffWithCommit()
+    let source = 'git log --all '.get(g:, 'fzf_commits_log_options', '--color=always '.fzf#shellescape('--format=%C(auto)%h%d %s %C(green)%cr'))
+    call fzf#run(fzf#wrap({'source': source, 'sink': function('s:DiffWithCommitHelper'), 'options': '--ansi --inline-info'}))
+endfunction
+
+
+function! helpers#DispatchHelper()
+    " Dispatch ls -1
+    let l:results = system('sh run_tests.sh')
+    echom l:results
 endfunction

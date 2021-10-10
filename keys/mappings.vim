@@ -132,6 +132,20 @@ nnoremap <silent> <leader>. :call wiki#OpenWorkWikiPageInBrowser()<cr>
 nnoremap <silent> <leader>dv :call helpers#GetCommitsForDiffOpen()<cr>
 nnoremap <silent> <leader>as :call aws_helpers#Search()<cr>
 nnoremap <silent> <leader>cw :call aws_helpers#SearchCDKAPIReferenceForCurrentWord()<cr>
-nnoremap <silent> <leader>dd :call helpers#GvdiffsplitHelper()<cr>
+nnoremap <silent> <leader>dd :call helpers#DiffWithRev()<cr>
+nnoremap <silent> <leader>jf :call just_helpers#Helpers()<cr>
+nnoremap <leader>dc :call helpers#DiffWithCommit()<cr>
+nnoremap <leader>gh :call just_helpers#GitHelpers()<cr>
 
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
+
+" [d via karabiner
+
+" from https://www.youtube.com/watch?v=hSHATqh8svM
+nnoremap Y y$
+
+nnoremap <leader>x :source %<CR>
+
+nnoremap <leader><leader>r :lua package.loaded['dhth'] = nil<CR>:source ~/.config/nvim/init.vim<CR>:echo "reloaded"<CR>
+
+nnoremap <silent> <leader>nh :noh<CR>

@@ -2,16 +2,16 @@
 nnoremap <C-p> :GFiles<CR>
 
 "for FZF files
-nnoremap <silent> <C-f> :Files<CR>
+" nnoremap <silent> <C-f> :Files<CR>
 
-nnoremap <Leader>ps :Rg --hidden --iglob='!.git/'<SPACE>
-nnoremap <leader>sw :Rg --hidden --iglob='!.git/'<SPACE><c-r><c-w><cr>
+nnoremap <Leader>ps :Rg --hidden --iglob='!.git/' -F<SPACE>
+" nnoremap <leader>sw :Rg --hidden --iglob='!.git/'<SPACE><c-r><c-w><cr>
 nnoremap <silent> <Leader>bs :Lines<CR>
 nnoremap <silent> <Leader>h :History<CR>
 nnoremap <silent> <Leader>ch :History:<CR>
-nnoremap <silent> <C-b> :Buffers<CR>
+" nnoremap <silent> <C-b> :Buffers<CR>
 nnoremap <silent> <leader>wn :Windows<CR>
-nnoremap <silent> <C-s> :BLines<CR>
+" nnoremap <silent> <C-s> :BLines<CR>
 nnoremap <silent> <leader><C-g> :GFiles?<CR>
 
 if executable('rg')
@@ -34,7 +34,7 @@ endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 nnoremap <Leader>l :RG<CR>
 
-nnoremap <leader>vv :FZF ~/.config/nvim<CR>
+" nnoremap <leader>vv :FZF ~/.config/nvim<CR>
 
 let g:fzf_preview_window = ''
 
@@ -66,3 +66,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+command! SearchDockerComposeFiles call fzf#run(fzf#wrap({'source': "fd -ipH -t f '.*docker.*.yml'"}))
+
+" nnoremap <leader>lo <cmd>call fzf#run(fzf#wrap({'source': "fd -ipH -t f 'local_only.*'"}))<CR>
+" nnoremap <leader>dkf <cmd>call fzf#run(fzf#wrap({'source': "fd -ipH -t f '.*Dockerfile.*'"}))<CR>

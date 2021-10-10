@@ -63,7 +63,7 @@ function! wiki_foam#CreateFileLink()
     let l:file_title = file_name_in
     let l:dir_loc = expand("%:h")
     let l:file_name = GetFileName(tolower(file_name_in))
-    let l:existing_file = system("fd -t f ".l:file_name.".md")
+    let l:existing_file = system("fd --glob -t f ".l:file_name.".md")
     if len(l:existing_file) > 0
         echom " - File already exists"
         return
@@ -107,7 +107,7 @@ function! wiki_foam#CreateFolderLink()
     let l:file_title = file_name_in
     let l:dir_name = GetFileName(tolower(file_name_in))
 
-    let l:existing_file = system("fd -t f ".l:dir_name.".md")
+    let l:existing_file = system("fd --glob -t f ".l:dir_name.".md")
     if len(l:existing_file) > 0
         echom " - File already exists"
         return
@@ -133,7 +133,7 @@ function! wiki_foam#EnterKeyActions(line_str)
         s/\[ \]/\[x\]
     elseif stridx(a:line_str, l:page_link_str) > -1
         let l:file_name = trim(matchstr(getline('.'), '.*\[\[\zs.*\ze\]\]'))
-        let l:existing_file = system("fd -t f ".l:file_name.".md")
+        let l:existing_file = system("fd --glob -t f ".l:file_name.".md")
         execute "tabe ".l:existing_file
     endif
 endfunction
@@ -252,15 +252,9 @@ function! wiki_foam#MakeLineCodeBlock()
 endfunction
 
 
-function! s:OpenWikiPageInBrowser(file)
+function! s:OpenWikiPageInBrowser(file, port)
     let l:resource = split(split(a:file, ".md")[0], "/index")[0]
-    silent execute "!open http://127.0.0.1:8000/".l:resource."/"
-endfunction
-
-
-function! s:OpenWorkWikiPageInBrowser(file)
-    let l:resource = split(split(a:file, ".md")[0], "/index")[0]
-    silent execute "!open http://127.0.0.1:8001/".l:resource."/"
+    silent execute "!open http://127.0.0.1:".a:port."/".l:resource."/"
 endfunction
 
 
@@ -276,11 +270,11 @@ endfunction
 
 
 function! wiki_foam#OpenCurrentWikiPageInBrowser()
-    let l:file = split(expand('%:p'), "docs/")[-1]
+    let l:file = expand('%:f')
     if stridx(expand('%:p'), $WIKI_DIR) == 0
-        call s:OpenWikiPageInBrowser(l:file)
+        call s:OpenWikiPageInBrowser(l:file, 8000)
     elseif stridx(expand('%:p'), $WORK_WIKI_DIR) == 0
-        call s:OpenWorkWikiPageInBrowser(l:file)
+        call s:OpenWikiPageInBrowser(l:file, 8001)
     endif
 endfunction
 

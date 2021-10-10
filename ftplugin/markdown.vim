@@ -34,7 +34,7 @@ nnoremap <buffer> <silent> <leader>bl :call wiki_foam#GetBacklinks()<cr>
 nnoremap <silent> f<c-f> :call wiki_foam#Helpers()<cr>
 inoremap <silent> f<c-f> <Esc>:call wiki_foam#Helpers()<cr>
 
-nnoremap <silent> <leader>ow :call wiki#OpenCurrentWikiPageInBrowser()<cr>
+nnoremap <silent> <leader>ow :call wiki_foam#OpenCurrentWikiPageInBrowser()<cr>
 
 setlocal foldenable
 setlocal fo-=q

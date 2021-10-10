@@ -12,6 +12,7 @@ if strftime("%H") >= 8 && strftime("%H") < 14
 else
     set background=dark
 endif
+" set background=dark
 colorscheme gruvbox8_hard
 " colorscheme moonlight
 let g:airline_theme = "gruvbox8"

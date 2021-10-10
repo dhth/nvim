@@ -1,7 +1,7 @@
 " nnoremap <leader>tt :tabnew<CR>
 nnoremap <C-t> :tabnew<CR>
 nnoremap <leader>te :tabedit<space>
-nnoremap <leader>tc :tabclose<CR>
+nnoremap <silent> <leader>tc :tabclose<CR>
 
 "don't show tab line
 "set showtabline=1
@@ -24,3 +24,10 @@ nnoremap <leader>0 :tablast<cr>
 nnoremap <silent> <TAB> :tabnext<CR>
 " SHIFT-TAB will go back
 nnoremap <silent> <S-TAB> :tabprevious<CR>
+
+" https://stackoverflow.com/questions/2119754/switch-to-last-active-tab-in-vim
+if !exists('g:lasttab')
+  let g:lasttab = 1
+endif
+nnoremap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
