@@ -141,7 +141,19 @@ endfunction
 
 
 function! helpers#LCDToDir()
-    call fzf#run(fzf#wrap({'source': 'fd . --max-depth=1 $PROJECTS_DIR $WORK_DIR', 'sink': function('s:LCDToDirHelper')}))
+    call fzf#run(fzf#wrap({'source': 'fd . -t d --max-depth=1 $PROJECTS_DIR $WORK_DIR $DOT_FILES_DIR $CONFIG_DIR', 'sink': function('s:LCDToDirHelper')}))
+endfunction
+
+
+function! helpers#SearchProjects()
+    call fzf#run(fzf#wrap({'source': 'fd . -t d --max-depth=1 $PROJECTS_DIR $WORK_DIR $DOT_FILES_DIR $CONFIG_DIR', 'sink': function('s:SearchProjectsHelper')}))
+endfunction
+
+
+function! s:SearchProjectsHelper(address)
+    " echom "lua require('telescope.builtin').find_files({cwd=\"" . a:address . "\"})"
+    " execute "lua require('dhth.telescope').search_dirs(\"" . a:address . "\")"
+    execute "FZF " . a:address
 endfunction
 
 

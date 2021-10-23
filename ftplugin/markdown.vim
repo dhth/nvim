@@ -37,7 +37,8 @@ inoremap <silent> f<c-f> <Esc>:call wiki_foam#Helpers()<cr>
 nnoremap <silent> <leader>ow :call wiki_foam#OpenCurrentWikiPageInBrowser()<cr>
 
 setlocal foldenable
-setlocal fo-=q
+" setlocal fo-=q
+" setlocal formatoptions-=q
 " set formatoptions=tcqln
 " set comments=fb:*,fb:-,fb:+,n:>
 " 

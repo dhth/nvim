@@ -18,7 +18,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
-" Plug 'KeitaNakamura/neodark.vim'
+Plug 'KeitaNakamura/neodark.vim'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'cormacrelf/vim-colors-github'
 " Plug 'bluz71/vim-nightfly-guicolors'
@@ -33,13 +33,19 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Plug 'stsewd/fzf-checkout.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'neovim/nvim-lspconfig'
+
+""" Completion
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-path'
+Plug 'onsails/lspkind-nvim'
+
 Plug 'vim-airline/vim-airline'
-" Plug 'hoob3rt/lualine.nvim'
 Plug 'tpope/vim-commentary'
-" Plug 'preservim/nerdtree'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'tpope/vim-unimpaired'
@@ -66,7 +72,7 @@ Plug 'farmergreg/vim-lastplace'                              " remembers last ed
 " Plug 'junegunn/vader.vim'                                    " testing tool for vim files
 Plug 'szw/vim-maximizer'
 " Plug 'sheerun/vim-polyglot'
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'puremourning/vimspector'
 Plug 'machakann/vim-highlightedyank'
 " Plug 'sindrets/diffview.nvim'  " git-split-diffs works better
@@ -78,6 +84,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'folke/todo-comments.nvim'
 Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/playground'
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'pwntester/octo.nvim'
@@ -85,7 +92,7 @@ call plug#end()
 
 let g:pydocstring_formatter = 'sphinx'
 
-let g:coc_global_extensions = ["coc-pyright",
-            \ "coc-json",
-            \ "coc-yaml",
-            \ "coc-snippets"]
+" let g:coc_global_extensions = ["coc-pyright",
+"             \ "coc-json",
+"             \ "coc-yaml",
+"             \ "coc-snippets"]

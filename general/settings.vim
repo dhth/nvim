@@ -39,6 +39,7 @@ set clipboard+=unnamedplus
 set inccommand=nosplit                    " Show live highlighting during substitute in a split window
 set noshowmode
 set scrolloff=12
+set completeopt=menu,menuone,noselect
 
 "from How to do 90% of what plugins do
 "https://www.youtube.com/watch?v=XA2WjJbmmoM
@@ -76,3 +77,6 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 set rtp+=/usr/local/opt/fzf
 
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript']
+
+" enables list items to be used with gq
+autocmd FileType markdown set formatoptions-=q

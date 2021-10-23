@@ -25,3 +25,8 @@ function! ft#python#Helpers()
                 \]
     return fzf#run({'source': l:commands, 'sink': function('s:PyHelperCommandToRun'),  'window': { 'width': 0.2, 'height': 0.3 } })
 endfunction
+
+
+function! ft#python#AddTestComments()
+    execute "normal! o# GIVEN\r# WHEN\r# THEN2k"
+endfunction

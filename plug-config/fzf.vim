@@ -32,7 +32,7 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-nnoremap <Leader>l :RG<CR>
+" nnoremap <Leader>l :RG<CR>
 
 " nnoremap <leader>vv :FZF ~/.config/nvim<CR>
 

@@ -11,6 +11,17 @@ function M.edit_neovim()
 end
 
 
+function M.grep_nvim()
+    opts = {
+        prompt_title = "~ nvim grep ~",
+        cwd = "~/.config/nvim",
+        previewer = false,
+    }
+
+    require("telescope.builtin").live_grep(opts)
+end
+
+
 function M.edit_dotfiles()
     opts = {
         prompt_title = "~ dotfiles ~",
@@ -30,7 +41,7 @@ function M.find_files()
             "fd",
             "-ipH",
             "-t=f",
-        }
+        },
     }
 
     require("telescope.builtin").find_files(opts)
@@ -97,6 +108,53 @@ function M.find_test_files()
         }
     }
 
+    require("telescope.builtin").find_files(opts)
+end
+
+
+function M.search_wiki()
+    opts = {
+        prompt_title = "~ wiki ~",
+        -- cwd = "$WIKI_DIR",
+        find_command = {
+            "fd",
+            "-t=f",
+            "-e=md",
+            "--search-path=/Users/dht93/Projects/knowledge",
+        },
+        previewer = false,
+    }
+    require("telescope.builtin").find_files(opts)
+end
+
+
+function M.search_work_wiki()
+    opts = {
+        prompt_title = "~ work wiki ~",
+        -- cwd = "$WORK_WIKI_DIR",
+        find_command = {
+            "fd",
+            "-t=f",
+            "-e=md",
+            "--search-path=/Users/dht93/Projects/deeplynx-wiki",
+        },
+        previewer = false,
+    }
+    require("telescope.builtin").find_files(opts)
+end
+
+
+function M.search_dirs(search_directory)
+    opts = {
+        prompt_title = "~ search dir ~",
+        find_command = {
+            "fd",
+            "-ipH",
+            "-t=f",
+            "--search-path=" .. search_directory,
+        },
+        previewer = false,
+    }
     require("telescope.builtin").find_files(opts)
 end
 

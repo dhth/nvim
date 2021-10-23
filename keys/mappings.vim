@@ -136,6 +136,7 @@ nnoremap <silent> <leader>dd :call helpers#DiffWithRev()<cr>
 nnoremap <silent> <leader>jf :call just_helpers#Helpers()<cr>
 nnoremap <leader>dc :call helpers#DiffWithCommit()<cr>
 nnoremap <leader>gh :call just_helpers#GitHelpers()<cr>
+nnoremap <silent><leader>sp :call helpers#SearchProjects()<cr>
 
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
@@ -146,6 +147,11 @@ nnoremap Y y$
 
 nnoremap <leader>x :source %<CR>
 
-nnoremap <leader><leader>r :lua package.loaded['dhth'] = nil<CR>:source ~/.config/nvim/init.vim<CR>:echo "reloaded"<CR>
+" nnoremap <leader><leader>r :lua package.loaded['dhth'] = nil<CR>:source ~/.config/nvim/init.vim<CR>:echo "reloaded"<CR>
+nnoremap <leader><leader>r :lua package.loaded['dhth.telescope'] = nil<CR>:echo "reloaded"<CR>
 
-nnoremap <silent> <leader>nh :noh<CR>
+nnoremap <silent> <leader><leader> :noh<CR>
+
+nnoremap <leader><leader>x :call dhth#save_and_exec()<CR>:echo "sourced!"<CR>
+
+nnoremap <leader>cb :verbose nmap <lt>leader>
