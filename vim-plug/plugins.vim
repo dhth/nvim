@@ -24,7 +24,7 @@ Plug 'KeitaNakamura/neodark.vim'
 " Plug 'bluz71/vim-nightfly-guicolors'
 " Plug 'sainnhe/sonokai'
 " Plug 'ajmwagar/vim-deus'
-" Plug 'folke/tokyonight.nvim'
+Plug 'folke/tokyonight.nvim'
 " Plug 'arzg/vim-colors-xcode'
 " Plug 'wadackel/vim-dogrun'
 " Plug 'jremmen/vim-ripgrep'
@@ -44,7 +44,11 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'onsails/lspkind-nvim'
 
-Plug 'vim-airline/vim-airline'
+""" Tabline, Bufferline
+" Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'akinsho/bufferline.nvim'
+
 Plug 'tpope/vim-commentary'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
@@ -82,6 +86,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'fannheyward/telescope-coc.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'folke/todo-comments.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'folke/lsp-colors.nvim'
 Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/playground'

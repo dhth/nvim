@@ -23,7 +23,7 @@ nnoremap <buffer> <silent> <leader>cdl :call wiki_foam#CreateFolderLink()<cr>
 nnoremap <buffer> <leader>ctr :call wiki#CreateBookTrackerRow()<cr>
 
 " nnoremap <buffer> <silent> <leader>tc :call ft#markdown#ToggleCocSuggestions()<cr>
-nnoremap <buffer> <silent> <leader>tc :call ft#markdown#ToggleCocSources()<cr>
+" nnoremap <buffer> <silent> <leader>tc :call ft#markdown#ToggleCocSources()<cr>
 nnoremap <buffer> <silent> <leader>al :call wiki#AddMarkdownLink()<cr>
 nnoremap <buffer> <silent> <leader>cl :call wiki_foam#CreateLinkToAnotherFile()<cr>
 nnoremap <buffer> <silent> <leader>ce :call wiki#CreateDateFileLink()<cr>
@@ -44,5 +44,5 @@ setlocal foldenable
 " 
 " This will disable most suggestions
 " snippets will still be suggested
-call CocAction('toggleSource', 'around')
-call CocAction('toggleSource', 'buffer')
+" call CocAction('toggleSource', 'around')
+" call CocAction('toggleSource', 'buffer')

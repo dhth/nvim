@@ -4,7 +4,7 @@ source $HOME/.config/nvim/general/tabs.vim
 source $HOME/.config/nvim/general/folds.vim
 source $HOME/.config/nvim/keys/mappings.vim
 source $HOME/.config/nvim/keys/colors.vim
-source $HOME/.config/nvim/themes/gruvbox.vim
+" source $HOME/.config/nvim/themes/gruvbox.vim
 source $HOME/.config/nvim/general/netrw.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/fzf-checkout.vim
@@ -12,7 +12,7 @@ source $HOME/.config/nvim/plug-config/fzf-checkout.vim
 source $HOME/.config/nvim/plug-config/auto-pairs.vim
 source $HOME/.config/nvim/plug-config/fugitive.vim
 source $HOME/.config/nvim/plug-config/vim-sneak.vim
-source $HOME/.config/nvim/plug-config/airline.vim
+" source $HOME/.config/nvim/plug-config/airline.vim
 source $HOME/.config/nvim/plug-config/vim-markdown.vim
 source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/vimux.vim

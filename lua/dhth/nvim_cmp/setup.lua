@@ -25,12 +25,12 @@ cmp.setup({
             },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
+                { name = 'buffer' },
                 { name = 'path' },
                 -- { name = 'vsnip' }, -- For vsnip users.
                 -- { name = 'luasnip' }, -- For luasnip users.
                 -- { name = 'ultisnips' }, -- For ultisnips users.
                 -- { name = 'snippy' }, -- For snippy users.
-                { name = 'buffer' },
             }
             ),
             formatting = {
@@ -38,7 +38,7 @@ cmp.setup({
                     with_text = false,
                     maxwidth = 50,
                     menu = {
-                        buffer = "[buf]",
+                        buffer = " ﬘ ",
                         nvim_lsp = "[LSP]",
                         path = "[path]"
                     },

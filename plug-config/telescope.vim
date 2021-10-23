@@ -5,13 +5,12 @@ nnoremap <silent> <C-b> <cmd>lua require('telescope.builtin').buffers()<CR>
 nnoremap <silent> <C-s> <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({previewer=false, prompt_title="search", sorting_strategy="ascending", layout_config={prompt_position="top"}})<cr>
 nnoremap <silent> <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <silent> <leader>ts <cmd>lua require('telescope.builtin').treesitter()<cr>
-nnoremap <silent> <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <silent> <leader>vh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <silent> <leader>l <cmd>lua require('telescope.builtin').live_grep({previewer=false})<cr>
 nnoremap <silent> <leader>ss :Telescope grep_string search=<c-r><c-w><cr>
-nnoremap <silent> <leader>sm :Telescope coc document_symbols<cr>
+nnoremap <silent> <leader>sm :Telescope lsp_document_symbols<cr>
 nnoremap <silent> <leader>sw :Telescope grep_string search=<c-r><c-w><cr>
-nnoremap <silent> <leader>vh :Telescope help_tags<CR> 
-nnoremap <silent> <leader>dg :Telescope coc diagnostics<CR>
+nnoremap <silent> <leader>dg :Telescope lsp_document_diagnostics<CR>
 
 
 " custom
