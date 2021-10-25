@@ -36,6 +36,7 @@ Plug 'junegunn/fzf.vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
 
 """ Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -53,12 +54,14 @@ Plug 'tpope/vim-commentary'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'tpope/vim-unimpaired'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " Plug 'junegunn/gv.vim', { 'on': 'GV' }                       " see commit history
 Plug 'justinmk/vim-sneak'
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'junegunn/vim-easy-align'                               " easy aligning around a character
 " Plug 'godlygeek/tabular', { 'for': 'markdown' }              " dependency for vim-markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -89,8 +92,13 @@ Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'mcchrish/nnn.vim'
+Plug 'ThePrimeagen/harpoon'
+
+" Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'
 " Plug 'nvim-treesitter/playground'
+
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'pwntester/octo.nvim'

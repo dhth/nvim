@@ -17,7 +17,7 @@ require('lualine').setup({
             {
                 'filename',
                 file_status = true, -- displays file status (readonly status, modified status)
-                path = 0,
+                path = 1,
                 filetype_names = {
                     TelescopePrompt = 'Telescope',
                     fzf = 'FZF',
