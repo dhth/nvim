@@ -18,13 +18,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
-Plug 'KeitaNakamura/neodark.vim'
+" Plug 'KeitaNakamura/neodark.vim'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'cormacrelf/vim-colors-github'
 " Plug 'bluz71/vim-nightfly-guicolors'
 " Plug 'sainnhe/sonokai'
 " Plug 'ajmwagar/vim-deus'
-Plug 'folke/tokyonight.nvim'
+" Plug 'folke/tokyonight.nvim'
 " Plug 'arzg/vim-colors-xcode'
 " Plug 'wadackel/vim-dogrun'
 " Plug 'jremmen/vim-ripgrep'
@@ -86,7 +86,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'fannheyward/telescope-coc.nvim'
+" Plug 'fannheyward/telescope-coc.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
@@ -102,6 +102,8 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'pwntester/octo.nvim'
+
+Plug 'rcarriga/nvim-notify'
 call plug#end()
 
 let g:pydocstring_formatter = 'sphinx'
