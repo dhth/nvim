@@ -322,5 +322,6 @@ endfunction
 function! wiki_foam#GetBacklinks()
     let l:file_name = split(expand("%:t"), ".md")[0]
     let l:search_str = '\[\['.l:file_name.'\]\]'
-    execute "Rg --hidden --iglob='!.git/' -t md '".l:search_str."'"
+    " execute "Rg --hidden --iglob='!.git/' -t md '".l:search_str."'"
+    execute "Rg ".l:search_str
 endfunction

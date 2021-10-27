@@ -7,7 +7,7 @@ nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>ps :Rg --hidden --iglob='!.git/' -F<SPACE>
 " nnoremap <leader>sw :Rg --hidden --iglob='!.git/'<SPACE><c-r><c-w><cr>
 nnoremap <silent> <Leader>bs :Lines<CR>
-nnoremap <silent> <Leader>h :History<CR>
+nnoremap <silent> <Leader>hh :History<CR>
 nnoremap <silent> <Leader>ch :History:<CR>
 " nnoremap <silent> <C-b> :Buffers<CR>
 nnoremap <silent> <leader>wn :Windows<CR>

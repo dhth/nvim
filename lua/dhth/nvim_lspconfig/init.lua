@@ -15,9 +15,9 @@ local on_attach = function(_, bufnr)
   local opts = { noremap=true, silent=true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', '<leader>ff', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', '<leader>jj', '<cmd>tab split | lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', '<leader>de', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>ff', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>jj', '<cmd>tab split | lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>de', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<leader><C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -60,6 +60,7 @@ nvim_lsp.pyright.setup{
 }
 
 -- LUA
+
 local system_name
 if vim.fn.has("mac") == 1 then
   system_name = "macOS"
@@ -71,38 +72,57 @@ else
   print("Unsupported system for sumneko")
 end
 
--- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
-local sumneko_root_path = '/Users/dht93/Soft/lua-language-server'
+local user = vim.fn.expand('$USER')
+local sumneko_root_path = '/Users/' .. user ..'/Soft/lua-language-server'
 local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-nvim_lsp.sumneko_lua.setup {
-    on_attach = on_attach,
+local luadev = require("lua-dev").setup({
+  -- add any options here, or leave empty to use the default settings
+  lspconfig = {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = 'LuaJIT',
-                -- Setup your lua path
-                path = runtime_path,
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = {'vim'},
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-}
+    on_attach = on_attach,
+  },
+})
+
+nvim_lsp.sumneko_lua.setup(luadev)
+
+
+-- -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
+-- local sumneko_root_path = '/Users/dht93/Soft/lua-language-server'
+-- local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+
+-- local runtime_path = vim.split(package.path, ';')
+-- table.insert(runtime_path, "lua/?.lua")
+-- table.insert(runtime_path, "lua/?/init.lua")
+
+-- nvim_lsp.sumneko_lua.setup {
+--     on_attach = on_attach,
+--     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+--     settings = {
+--         Lua = {
+--             runtime = {
+--                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+--                 version = 'LuaJIT',
+--                 -- Setup your lua path
+--                 path = runtime_path,
+--             },
+--             diagnostics = {
+--                 -- Get the language server to recognize the `vim` global
+--                 globals = {'vim'},
+--             },
+--             workspace = {
+--                 -- Make the server aware of Neovim runtime files
+--                 library = {
+--                     vim.api.nvim_get_runtime_file("", true),
+--                     -- [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+--                     -- [vim.fn.expand("/Users/dht93/Soft/neovim/src/nvim/lua")] = true,
+--                 }
+--             },
+--             -- Do not send telemetry data containing a randomized but unique identifier
+--             telemetry = {
+--                 enable = false,
+--             },
+--         },
+--     },
+-- }
 
