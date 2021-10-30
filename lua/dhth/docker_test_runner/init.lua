@@ -39,7 +39,14 @@ end
 ---
 local function failed_test_details (inputstr, projectstr)
     local file_name = mysplit(mysplit(inputstr, ' ')[2], '::')[1]
-    local function_name = mysplit(inputstr, '::')[#mysplit(inputstr, '::')]
+    --- function name is a bit tricky to extract
+    -- examples:
+    -- FAILED tests/test_file.py::TestClass::test_with_parameterize[param1]
+    -- FAILED tests/test_file.py::TestClass::test_with_parameterize[param2]
+    -- FAILED tests/test_file.py::TestClass::test_example_2
+    -- FAILED tests/test_file.py::TestClass::test_example_3 - sq...
+    -- FAILED tests/test_file.py::TestClass::test_example_4 - sq...
+    local function_name = mysplit(mysplit(mysplit(inputstr, '::')[#mysplit(inputstr, '::')], ' ')[1], '[')[1]
     return {
         filename = projectstr .. '/' .. file_name,
         pattern = trim(function_name),
@@ -125,7 +132,7 @@ end
 
 function M.failed_test_qf()
     local last_test_project = lines_from("testlastproject")[1][1]
-    vim.cmd("silent !cat testsfailedall | grep FAILED > testsfailed")
+    vim.cmd("silent !cat testsfailedall | grep 'FAILED ' > testsfailed")
     local qf = get_failed_test_summary('testsfailed', last_test_project)
     if next(qf) then
         -- vim.fn.setqflist(qf, 'r')
@@ -161,7 +168,7 @@ end
 --     local qf = get_failed_test_summary_from_line_numbers('testsfailed', last_test_project)
 --     if next(qf) then
 --         -- vim.fn.setqflist(qf, 'r')
---         vim.fn.setqflist({}, 'r', {title="Test failures ☹️", items=qf})
+--         vim.fn.setqflist({}, 'r', {title="Test failures ☹️  ", items=qf})
 --         vim.cmd("copen")
 --     end
 -- end

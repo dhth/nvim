@@ -9,16 +9,16 @@ nnoremap <silent> <leader>tc :tabclose<CR>
 "move to next tab
 " nnoremap <leader>m gt
 " nnoremap <leader>n gT
-" nnoremap <leader>1 1gt
-" nnoremap <leader>2 2gt
-" nnoremap <leader>3 3gt
-" nnoremap <leader>4 4gt
-" nnoremap <leader>5 5gt
-" nnoremap <leader>6 6gt
-" nnoremap <leader>7 7gt
-" nnoremap <leader>8 8gt
-" nnoremap <leader>9 9gt
-" nnoremap <leader>0 :tablast<cr>
+nnoremap <leader>t1 1gt
+nnoremap <leader>t2 2gt
+nnoremap <leader>t3 3gt
+nnoremap <leader>t4 4gt
+nnoremap <leader>t5 5gt
+nnoremap <leader>t6 6gt
+nnoremap <leader>t7 7gt
+nnoremap <leader>t8 8gt
+nnoremap <leader>t9 9gt
+nnoremap <leader>t0 :tablast<cr>
 
 " TAB in general mode will move to text buffer
 nnoremap <silent> <TAB> :tabnext<CR>

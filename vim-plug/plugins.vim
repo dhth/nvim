@@ -47,9 +47,10 @@ Plug 'hrsh7th/cmp-path'
 Plug 'onsails/lspkind-nvim'
 
 """ Tabline, Bufferline
-" Plug 'vim-airline/vim-airline'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim'
+Plug 'vim-airline/vim-airline'
+" Plug 'nvim-lualine/lualine.nvim'
+" Plug 'kdheepak/tabline.nvim'
+" Plug 'romgrk/barbar.nvim'
 
 Plug 'tpope/vim-commentary'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }

@@ -1,5 +1,5 @@
 nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-k> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
@@ -7,13 +7,14 @@ nmap <silent> t<C-g> :TestVisit<CR>
 let test#strategy = "vimux"
 let test#python#runner = 'pytest'
 let g:test#echo_command = 0
+let g:test#preserve_screen = 1
 
 
 function! MetaflowDockerTransform(cmd)
     let l:project_mapping = {
                 \"projects/metasync": {
-                    \"docker_compose_file": "docker-compose-metasync-run.yml",
-                    \"service_name": "metasync-dev",
+                    \"docker_compose_file": "docker-compose-test.yml",
+                    \"service_name": "metasync-test",
                     \},
                 \"projects/lib": {
                     \"docker_compose_file": "docker-compose-metasync-run.yml",
@@ -34,7 +35,20 @@ function! MetaflowDockerTransform(cmd)
         let l:stripped_cmd = substitute(l:stripped_cmd, "tests", "tests/lib", "")
     endif
 
-    let l:docker_cmd = "docker-compose -f " . l:docker_compose_file . " exec " . l:service_name . " bash -c \"TESTING=1 python -m pytest -qs ".l:stripped_cmd."\""
+    " long traceback if running a single test
+    if a:cmd =~ ".py$"
+        let l:traceback_format = "line"
+    else
+        let l:traceback_format = "short"
+    endif
+
+    let l:docker_cmd = "docker-compose -f " . l:docker_compose_file . " exec " . l:service_name . " bash -c \"TESTING=1 python -m pytest -v --tb=" . l:traceback_format . " " . l:stripped_cmd."\""
+    " only store test results if a whole file is run
+    if a:cmd =~ ".py$"
+        let l:docker_cmd = l:docker_cmd .. ' | tee testsfailedall'
+        execute 'silent !echo "' .. l:project .. '" > testlastproject'
+    endif
+
     return l:docker_cmd
 endfunction
 

@@ -2,7 +2,7 @@
 nnoremap <C-p> :GFiles<CR>
 
 "for FZF files
-" nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-f> :Files<CR>
 
 nnoremap <Leader>ps :Rg --hidden --iglob='!.git/' -F<SPACE>
 " nnoremap <leader>sw :Rg --hidden --iglob='!.git/'<SPACE><c-r><c-w><cr>

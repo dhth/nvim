@@ -8,3 +8,24 @@ vim.api.nvim_set_keymap(
         silent = true,
     }
 )
+
+
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>vn',
+    ':vnew<CR>',
+    {
+        noremap = true,
+        silent = true,
+    }
+)
+
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>vs',
+    ':vsplit<CR>',
+    {
+        noremap = true,
+        silent = true,
+    }
+)

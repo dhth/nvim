@@ -29,7 +29,7 @@ set showcmd
 set ruler
 set cursorline                          " enable highlighting of the current line
 set conceallevel=0                      " to be able to see `` in markdown files
-set updatetime=300                      " faster completion
+set updatetime=100                      " faster completion
 set timeoutlen=300                      " default is 1000 ms
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc

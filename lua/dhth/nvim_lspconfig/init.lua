@@ -17,6 +17,7 @@ local on_attach = function(_, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', '<leader>ff', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>jj', '<cmd>tab split | lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>vv', '<cmd>vsp | lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>de', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
