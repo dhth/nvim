@@ -16,6 +16,7 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Colorschemes
 " Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
 " Plug 'KeitaNakamura/neodark.vim'
@@ -27,6 +28,8 @@ Plug 'lifepillar/vim-gruvbox8'
 " Plug 'folke/tokyonight.nvim'
 " Plug 'arzg/vim-colors-xcode'
 " Plug 'wadackel/vim-dogrun'
+Plug 'dracula/vim'
+
 " Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -35,9 +38,11 @@ Plug 'junegunn/fzf.vim'
 " Plug 'stsewd/fzf-checkout.vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+""" LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'folke/lua-dev.nvim'
+Plug 'ray-x/lsp_signature.nvim'
 
 """ Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -45,6 +50,10 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'onsails/lspkind-nvim'
+
+""" Snippets
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-vsnip'
 
 """ Tabline, Bufferline
 Plug 'vim-airline/vim-airline'
@@ -71,7 +80,7 @@ Plug 'ferrine/md-img-paste.vim', { 'for': 'markdown' }
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }  " see commit history for a file
 Plug 'benmills/vimux'                                        " send commands to tmux
-Plug 'vim-test/vim-test', { 'on': 'TestNearest' }
+Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-slash'
 Plug 'tpope/vim-dispatch'
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' } " profiling tool
@@ -99,6 +108,7 @@ Plug 'ThePrimeagen/harpoon'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 " Plug 'nvim-treesitter/playground'
 
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
@@ -107,6 +117,7 @@ Plug 'pwntester/octo.nvim'
 
 Plug 'rcarriga/nvim-notify'
 " Plug 'untitled-ai/jupyter_ascending.vim'
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 call plug#end()
 
 let g:pydocstring_formatter = 'sphinx'

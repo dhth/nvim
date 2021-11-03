@@ -1,5 +1,7 @@
 "folds on by default
 set foldmethod=indent
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
 "prevents { or } from opening up a fold
 set foldopen-=block
 

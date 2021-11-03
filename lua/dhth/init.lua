@@ -1,8 +1,13 @@
 require "dhth.globals"
+require "dhth.helpers"
+require "dhth.mappings"
 
 require "dhth.treesitter"
+require "dhth.nvim_treesitter_textobjects"
 require "dhth.nvim_cmp.setup"
+require "dhth.vim_vsnip"
 require "dhth.nvim_lspconfig"
+require "dhth.lsp_signature"
 require "dhth.telescope.setup"
 require "dhth.trouble"
 -- require "dhth.lualine"

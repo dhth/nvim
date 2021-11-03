@@ -136,7 +136,7 @@ function M.failed_test_qf()
     local qf = get_failed_test_summary('testsfailed', last_test_project)
     if next(qf) then
         -- vim.fn.setqflist(qf, 'r')
-        vim.fn.setqflist({}, 'r', {title="Test failures ☹️", items=qf})
+        vim.fn.setqflist({}, 'r', {title="Test failures ☹️  ", items=qf})
         vim.cmd("copen")
     end
 end

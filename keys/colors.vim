@@ -14,8 +14,9 @@ else
 endif
 " set background=dark
 colorscheme gruvbox8_hard
+colorscheme dracula
 " colorscheme moonlight
-let g:airline_theme = "gruvbox8"
+let g:airline_theme = "dracula"
 " set background=dark
 " colorscheme neodark
 

@@ -124,7 +124,7 @@ nnoremap <silent> <leader>pp :call helpers#LCDToDir()<cr>
 " create new file using fzf
 nnoremap <silent> <leader>nn :call helpers#CreateFile()<cr>
 
-nnoremap <silent><leader>cc :silent !cat % \| pbcopy<cr>
+nnoremap <silent><leader>ct :silent !cat % \| pbcopy<cr>
 
 " directly open wiki page
 nnoremap <silent> <leader>, :call wiki#OpenWikiPageInBrowser()<cr>
@@ -148,7 +148,7 @@ nnoremap Y y$
 nnoremap <leader>x :source %<CR>
 
 " nnoremap <leader><leader>r :lua package.loaded['dhth'] = nil<CR>:source ~/.config/nvim/init.vim<CR>:echo "reloaded"<CR>
-nnoremap <leader><leader>r :lua package.loaded['dhth.telescope'] = nil<CR>:echo "reloaded"<CR>
+nnoremap <leader><leader>r :lua R('dhth')<CR>:echo "reloaded"<CR>
 
 nnoremap <silent> <leader><leader> :noh<CR>
 

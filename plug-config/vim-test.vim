@@ -12,8 +12,12 @@ let g:test#preserve_screen = 1
 
 function! MetaflowDockerTransform(cmd)
     let l:project_mapping = {
+                \"projects/project_a": {
+                    \"docker_compose_file": "docker-compose-project-a.yml",
+                    \"service_name": "project-a-dev",
+                    \},
                 \"projects/metasync": {
-                    \"docker_compose_file": "docker-compose-test.yml",
+                    \"docker_compose_file": "docker-compose-metasync-test-local.yml",
                     \"service_name": "metasync-test",
                     \},
                 \"projects/lib": {
@@ -42,7 +46,7 @@ function! MetaflowDockerTransform(cmd)
         let l:traceback_format = "short"
     endif
 
-    let l:docker_cmd = "docker-compose -f " . l:docker_compose_file . " exec " . l:service_name . " bash -c \"TESTING=1 python -m pytest -v --tb=" . l:traceback_format . " " . l:stripped_cmd."\""
+    let l:docker_cmd = "docker-compose -f " . l:docker_compose_file . " exec " . l:service_name . " bash -c \"TESTING=1 python -m pytest -v -s --tb=" . l:traceback_format . " " . l:stripped_cmd."\""
     " only store test results if a whole file is run
     if a:cmd =~ ".py$"
         let l:docker_cmd = l:docker_cmd .. ' | tee testsfailedall'

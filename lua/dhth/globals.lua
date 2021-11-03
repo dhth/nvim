@@ -20,3 +20,5 @@ end
 NOTIFP = function(body, title)
     NOTIF(vim.inspect(body), title)
 end
+
+REMAP = function(...) vim.api.nvim_set_keymap(...) end

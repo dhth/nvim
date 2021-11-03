@@ -1,1 +1,1 @@
-nnoremap <silent> <C-s> :BLines<CR>
+nnoremap <buffer> <silent> <C-s> :BLines<CR>

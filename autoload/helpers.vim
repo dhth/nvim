@@ -11,6 +11,8 @@ function! s:HelperCommandToRun(command)
         tabnew $POMODORO_TASK_LIST_FILE_LOC
     elseif a:command ==? "e karabiner"
         tabnew $HOME/.config/karabiner.edn
+    elseif a:command ==? "e alacritty"
+        tabnew $HOME/.config/alacritty/alacritty.yml
     elseif a:command ==? "e gitfile"
         tabnew $HOME/.global.gitfile
     elseif a:command ==? "e tools"
@@ -67,6 +69,7 @@ function! helpers#Helpers()
                 \"e journal",
                 \"e pomodoro",
                 \"e karabiner",
+                \"e alacritty",
                 \"e gitfile",
                 \"e docker commands",
                 \"e tools",

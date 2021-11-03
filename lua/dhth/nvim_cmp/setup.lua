@@ -2,14 +2,14 @@ local cmp = require'cmp'
 local lspkind = require('lspkind')
 
 cmp.setup({
-    -- snippet = {
-        --   expand = function(args)
-            --     vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            --     -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            --     -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            --     -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
-            --   end,
-            -- },
+    snippet = {
+          expand = function(args)
+                vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+                -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+              end,
+            },
             mapping = {
                 ['<C-d>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-u>'] = cmp.mapping.scroll_docs(4),
@@ -25,7 +25,13 @@ cmp.setup({
             },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
-                { name = 'buffer' },
+                { name = 'vsnip' },
+                --- get suggestions from all open buffers
+                { name = 'buffer', opts = {
+                    get_bufnrs = function()
+                        return vim.api.nvim_list_bufs()
+                    end
+                } },
                 { name = 'path' },
                 -- { name = 'vsnip' }, -- For vsnip users.
                 -- { name = 'luasnip' }, -- For luasnip users.
@@ -40,6 +46,7 @@ cmp.setup({
                     menu = {
                         buffer = " ﬘ ",
                         nvim_lsp = "[LSP]",
+                        vsnip = "[SNIPPET]",
                         path = "[path]"
                     },
                 })
