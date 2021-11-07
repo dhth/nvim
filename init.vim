@@ -1,4 +1,5 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
+" lua require('plugins')
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/tabs.vim
 source $HOME/.config/nvim/general/folds.vim
@@ -23,5 +24,6 @@ source $HOME/.config/nvim/plug-config/vim-bookmarks.vim
 source $HOME/.config/nvim/plug-config/todo-comments.vim
 source $HOME/.config/nvim/plug-config/nnn.vim
 source $HOME/.config/nvim/plug-config/octo-nvim.vim
+source $HOME/.config/nvim/plug-config/vim-startify.vim
 lua require('dhth')
 source $HOME/.config/nvim/plug-config/telescope.vim

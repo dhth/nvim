@@ -1,0 +1,29 @@
+{
+    "BashSnippet": {
+        "prefix": ["bs"],
+        "body": [
+            "```bash",
+            "$1",
+            "```"
+        ],
+        "description": "Bash snippet"
+    },
+    "PythonSnippet": {
+        "prefix": ["ps"],
+        "body": [
+            "```python",
+            "$1",
+            "```"
+        ],
+        "description": "Python snippet"
+    },
+    "JSONSnippet": {
+        "prefix": ["js"],
+        "body": [
+            "```json",
+            "$1",
+            "```"
+        ],
+        "description": "JSON snippet"
+    }
+}

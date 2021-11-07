@@ -6,9 +6,9 @@ nnoremap <silent> <C-s> <cmd>lua require('telescope.builtin').current_buffer_fuz
 nnoremap <silent> <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <silent> <leader>ts <cmd>lua require('telescope.builtin').treesitter()<cr>
 nnoremap <silent> <leader>vh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <silent> <leader>l <cmd>lua require('telescope.builtin').live_grep({previewer=false})<cr>
+nnoremap <silent> <leader>ll <cmd>lua require('telescope.builtin').live_grep({previewer=false})<cr>
 nnoremap <silent> <leader>ss :Telescope grep_string search=<c-r><c-w><cr>
-nnoremap <silent> <leader>sm :Telescope lsp_document_symbols<cr>
+nnoremap <silent> <leader>sm :Telescope lsp_document_symbols symbols=class,function,method<cr>
 nnoremap <silent> <leader>sw :Telescope grep_string search=<c-r><c-w><cr>
 nnoremap <silent> <leader>dg :Telescope lsp_document_diagnostics<CR>
 
@@ -24,3 +24,6 @@ nnoremap <silent> <leader>dkf <cmd>lua require('dhth.telescope').find_dockerfile
 nnoremap <silent> <leader>dt <cmd>lua require('dhth.telescope').edit_dotfiles()<CR>
 nnoremap <silent> <leader>vg <cmd>lua require('dhth.telescope').grep_nvim()<CR>
 nnoremap <silent> <leader>cc <cmd>lua require('dhth.telescope').edit_neovim()<CR>
+nnoremap <silent> <leader>cc <cmd>lua require('dhth.telescope').edit_neovim()<CR>
+nnoremap <silent> <leader>lt <cmd>lua require('dhth.telescope').search_test_files()<CR>
+nnoremap <silent> <c-f> <cmd>lua require('dhth.telescope').search_nearby_files()<CR>

@@ -103,6 +103,7 @@ Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'mcchrish/nnn.vim'
+" Plug 'luukvbaal/nnn.nvim'
 Plug 'ThePrimeagen/harpoon'
 
 " Treesitter
@@ -116,6 +117,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'pwntester/octo.nvim'
 
 Plug 'rcarriga/nvim-notify'
+Plug 'mhinz/vim-startify'
+" Plug 'tpope/vim-projectionist'
 " Plug 'untitled-ai/jupyter_ascending.vim'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 call plug#end()

@@ -15,5 +15,6 @@ require "dhth.gitsigns"
 require "dhth.nvim_autopairs"
 require "dhth.harpoon"
 require "octo".setup()
-require "dhth.docker_test_runner.mappings"
+require "dhth.test_helpers.mappings"
 require "dhth.nvim_notify"
+-- require "dhth.nnn"

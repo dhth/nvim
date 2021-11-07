@@ -25,8 +25,8 @@ function! MetaflowDockerTransform(cmd)
                     \"service_name": "metasync-dev",
                     \},
                     \"projects/api": {
-                        \"docker_compose_file": "docker-compose-metaflow-api.yml",
-                        \"service_name": "metaflow-api-dev",
+                        \"docker_compose_file": "docker-compose-metaflow-api-test-local.yml",
+                        \"service_name": "metaflow-api-test",
                         \},
                         \}
     let l:project = split(split(a:cmd, " ")[1], "/tests")[0]
@@ -40,8 +40,8 @@ function! MetaflowDockerTransform(cmd)
     endif
 
     " long traceback if running a single test
-    if a:cmd =~ ".py$"
-        let l:traceback_format = "line"
+    if a:cmd =~ ".py.*"
+        let l:traceback_format = "long"
     else
         let l:traceback_format = "short"
     endif
@@ -56,5 +56,5 @@ function! MetaflowDockerTransform(cmd)
     return l:docker_cmd
 endfunction
 
-let g:test#custom_transformations = {'docker': function('MetaflowDockerTransform')}
-let g:test#transformation = 'docker'
+" let g:test#custom_transformations = {'docker': function('MetaflowDockerTransform')}
+" let g:test#transformation = 'docker'

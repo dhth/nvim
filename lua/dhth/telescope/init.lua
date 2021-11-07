@@ -47,6 +47,23 @@ function M.find_files()
     require("telescope.builtin").find_files(opts)
 end
 
+function M.search_nearby_files()
+    local current_dir = vim.fn.expand('%:p:h')
+    local opts = {
+        prompt_title = "~ nearby files 🚎 ~",
+        previewer = false,
+        find_command = {
+            "fd",
+            "-ipH",
+            "-t=f",
+            "--search-path=" .. current_dir,
+            "--max-depth=2"
+        },
+    }
+
+    require("telescope.builtin").find_files(opts)
+end
+
 
 function M.find_dockerfiles()
     local opts = {
@@ -155,6 +172,27 @@ function M.search_dirs(search_directory)
         },
         previewer = false,
     }
+    require("telescope.builtin").find_files(opts)
+end
+
+
+function M.search_test_files()
+    local file_name = vim.fn.expand('%:t:r')
+    local test_file = 'test_' .. file_name
+    local opts = {
+        prompt_title = "~ linked tests ~",
+        previewer = false,
+        find_command = {
+            "fd",
+            "-ipH",
+            "-t=f",
+            test_file
+        },
+        layout_config = {
+            height = 0.8,
+        },
+    }
+
     require("telescope.builtin").find_files(opts)
 end
 

@@ -2,7 +2,7 @@
 vim.api.nvim_set_keymap(
     'n',
     '<Leader>rt',
-    [[<Cmd>:lua require("dhth.docker_test_runner").run_tests()<CR>]],
+    [[<Cmd>:lua require("dhth.test_helpers").run_tests()<CR>]],
     {
         noremap = true,
         silent = true,
@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
     'n',
     '<Leader>tr',
-    [[<Cmd>:lua require("dhth.docker_test_runner").failed_test_qf()<CR>]],
+    [[<Cmd>:lua require("dhth.test_helpers").failed_test_qf()<CR>]],
     {
         noremap = true,
         silent = true,

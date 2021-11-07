@@ -1,6 +1,6 @@
 {
     "PytestTestClass": {
-        "prefix": ["testclass"],
+        "prefix": ["tstcls"],
         "body": [
             "class Test$1:",
             "",
@@ -28,6 +28,56 @@
         "prefix": "1==1",
         "body": [
             "assert 1 == 1"
+        ]
+    },
+    "GivenWhenThen": {
+        "prefix": "givenwhenthen",
+        "body": [
+            "# GIVEN",
+            "",
+            "# WHEN",
+            "",
+            "# THEN",
+            ""
+        ]
+    },
+    "TestFunction": {
+        "prefix": "tstfn",
+        "body": [
+            "def test_$1(self):",
+            "\t# GIVEN",
+            "",
+            "\t# WHEN",
+            "",
+            "\t# THEN",
+            ""
+        ]
+    },
+    "Success": {
+        "prefix": "success",
+        "body": [
+            "",
+            "############",
+            "# SUCCESS #",
+            "############",
+            ""
+        ]
+    },
+    "Failure": {
+        "prefix": "failure",
+        "body": [
+            "",
+            "############",
+            "# FAILURES #",
+            "############",
+            ""
+        ]
+    },
+    "__name__": {
+        "prefix": "__name__",
+        "body": [
+            "if __name__ == \"__main__\":",
+            "\t$1"
         ]
     }
 }

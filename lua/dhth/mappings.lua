@@ -47,3 +47,10 @@ REMAP(
     opts
 )
 
+--- open plugins file
+REMAP(
+    'n',
+    '<bs>',
+    '<C-^>',
+    opts
+)
