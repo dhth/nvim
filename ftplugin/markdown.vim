@@ -46,3 +46,5 @@ setlocal foldenable
 " snippets will still be suggested
 " call CocAction('toggleSource', 'around')
 " call CocAction('toggleSource', 'buffer')
+
+nnoremap <buffer> <silent> <leader><enter> :call ft#markdown#GlowViaVimux()<cr>

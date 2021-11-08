@@ -27,3 +27,8 @@ source $HOME/.config/nvim/plug-config/octo-nvim.vim
 source $HOME/.config/nvim/plug-config/vim-startify.vim
 lua require('dhth')
 source $HOME/.config/nvim/plug-config/telescope.vim
+
+" augroup markdown_glow
+"     autocmd!
+"     autocmd BufWritePost,BufWinEnter *.md call ft#markdown#GlowViaVimux()
+" augroup END

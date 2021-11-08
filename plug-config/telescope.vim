@@ -25,5 +25,5 @@ nnoremap <silent> <leader>dt <cmd>lua require('dhth.telescope').edit_dotfiles()<
 nnoremap <silent> <leader>vg <cmd>lua require('dhth.telescope').grep_nvim()<CR>
 nnoremap <silent> <leader>cc <cmd>lua require('dhth.telescope').edit_neovim()<CR>
 nnoremap <silent> <leader>cc <cmd>lua require('dhth.telescope').edit_neovim()<CR>
-nnoremap <silent> <leader>lt <cmd>lua require('dhth.telescope').search_test_files()<CR>
-nnoremap <silent> <c-f> <cmd>lua require('dhth.telescope').search_nearby_files()<CR>
+nnoremap <silent> <leader>lt <cmd>lua require('dhth.telescope').search_linked_tests()<CR>
+nnoremap <silent> <c-f> <cmd>lua require('dhth.telescope').nearby_file_browser()<CR>

@@ -70,3 +70,7 @@ command! SearchDockerComposeFiles call fzf#run(fzf#wrap({'source': "fd -ipH -t f
 
 " nnoremap <leader>lo <cmd>call fzf#run(fzf#wrap({'source': "fd -ipH -t f 'local_only.*'"}))<CR>
 " nnoremap <leader>dkf <cmd>call fzf#run(fzf#wrap({'source': "fd -ipH -t f '.*Dockerfile.*'"}))<CR>
+
+let g:fzf_buffers_jump = 1
+
+let g:fzf_commits_log_options = '--all --color --graph --pretty=format:''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'' --abbrev-commit --since="1 month ago"'

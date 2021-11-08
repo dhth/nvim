@@ -50,7 +50,7 @@ end
 function M.search_nearby_files()
     local current_dir = vim.fn.expand('%:p:h')
     local opts = {
-        prompt_title = "~ nearby files 🚎 ~",
+        prompt_title = "~ files nearby 🚎 ~",
         previewer = false,
         find_command = {
             "fd",
@@ -62,6 +62,21 @@ function M.search_nearby_files()
     }
 
     require("telescope.builtin").find_files(opts)
+end
+
+
+function M.nearby_file_browser()
+    local opts = {
+        prompt_title = "~ files nearby 🚎 ~",
+        previewer = false,
+        cwd = require("telescope.utils").buffer_dir(),
+        hidden = true,
+        layout_config = {
+            height = 0.8,
+        },
+    }
+
+    require("telescope.builtin").file_browser(opts)
 end
 
 
@@ -176,7 +191,7 @@ function M.search_dirs(search_directory)
 end
 
 
-function M.search_test_files()
+function M.search_linked_tests()
     local file_name = vim.fn.expand('%:t:r')
     local test_file = 'test_' .. file_name
     local opts = {

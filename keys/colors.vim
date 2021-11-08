@@ -12,16 +12,6 @@ if strftime("%H") >= 8 && strftime("%H") < 14
 else
     set background=dark
 endif
-" set background=dark
-colorscheme gruvbox8_hard
-colorscheme dracula
-" colorscheme moonlight
-let g:airline_theme = "dracula"
-" set background=dark
-" colorscheme neodark
-
-" let g:neodark#background = '#202020'
-" let g:airline_theme = 'neodark'
         
 " VIMCOLORSEND
 
@@ -30,3 +20,5 @@ if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
+
+source $HOME/.config/nvim/themes/dracula.vim

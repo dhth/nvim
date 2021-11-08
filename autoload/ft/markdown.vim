@@ -21,3 +21,9 @@ function! ft#markdown#BoldListKeys()
     execute "noh"
     execute l:current_line_num
 endfunction
+
+
+function! ft#markdown#GlowViaVimux()
+    let l:current_file = expand('%')
+    VimuxRunCommand('clear; glow -p ' . l:current_file)
+endfunction
