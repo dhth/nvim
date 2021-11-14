@@ -32,6 +32,8 @@ Plug 'dracula/vim'
 
 " Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
+
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -63,13 +65,14 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'tpope/vim-commentary'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'folke/zen-mode.nvim'
 " Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'tpope/vim-unimpaired'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-" Plug 'junegunn/gv.vim', { 'on': 'GV' }                       " see commit history
+" Plug 'junegunn/gv.vim'
 Plug 'justinmk/vim-sneak'
 " Plug 'mhinz/vim-signify'
 Plug 'lewis6991/gitsigns.nvim'
@@ -93,7 +96,7 @@ Plug 'szw/vim-maximizer'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'puremourning/vimspector'
 Plug 'machakann/vim-highlightedyank'
-" Plug 'sindrets/diffview.nvim'  " git-split-diffs works better
+Plug 'sindrets/diffview.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'

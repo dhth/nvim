@@ -17,4 +17,4 @@ require "dhth.harpoon"
 require "octo".setup()
 require "dhth.test_helpers.mappings"
 require "dhth.nvim_notify"
--- require "dhth.nnn"
+require "dhth.diffview"

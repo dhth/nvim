@@ -14,10 +14,10 @@ function! TwiddleCase(str)
 endfunction
 
 function! GetFileName(str)
-    let l:stripped_str = substitute(a:str, ':', '-', 'g')
-    let l:stripped_str = substitute(l:stripped_str, ',', '-', 'g')
-    let l:stripped_str = substitute(l:stripped_str, '@', '-', 'g')
-    let l:stripped_str = substitute(l:stripped_str, '_', '-', 'g')
+    let l:stripped_str = substitute(a:str, ':', '', 'g')
+    let l:stripped_str = substitute(l:stripped_str, ',', '', 'g')
+    let l:stripped_str = substitute(l:stripped_str, '@', '', 'g')
+    let l:stripped_str = substitute(l:stripped_str, '_', '', 'g')
     return substitute(l:stripped_str, ' ', '-', 'g')
 endfunction
 

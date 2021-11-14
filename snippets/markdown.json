@@ -25,5 +25,14 @@
             "```"
         ],
         "description": "JSON snippet"
+    },
+    "VimScriptSnippet": {
+        "prefix": ["vs"],
+        "body": [
+            "```vim",
+            "$1",
+            "```"
+        ],
+        "description": "VimScript snippet"
     }
 }

@@ -7,4 +7,4 @@ nnoremap <silent> <leader>ds :Gvdiffsplit! HEAD:%<CR>
 nnoremap <silent> <leader>ca :Git commit --amend<CR>
 nnoremap <leader>gppp :Gpush
 nnoremap <silent> <leader>gb :GBrowse<CR>
-nnoremap <silent> <leader>df :Git difftool -y<space>
+" nnoremap <silent> <leader>df :Git difftool -y<space>

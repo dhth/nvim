@@ -155,3 +155,7 @@ nnoremap <silent> <leader><leader> :noh<CR>
 nnoremap <leader><leader>x :call dhth#save_and_exec()<CR>:echo "sourced!"<CR>
 
 nnoremap <leader>cb :verbose nmap <lt>leader>
+
+" highlight pasted text
+" https://vimtricks.com/p/reselect-pasted-text/
+nnoremap gp `[v`]

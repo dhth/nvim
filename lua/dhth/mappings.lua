@@ -54,3 +54,19 @@ REMAP(
     '<C-^>',
     opts
 )
+
+--- <ALT+o>
+REMAP(
+    'i',
+    'ø',
+    '<C-o>o',
+    opts
+)
+
+--- <ALT+O>
+REMAP(
+    'i',
+    'Ø',
+    '<C-o>O',
+    opts
+)
