@@ -19,3 +19,15 @@ vim.api.nvim_set_keymap(
         silent = true,
     }
 )
+
+
+-- test results for current file
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>stc',
+    [[<Cmd>:lua require("dhth.test_helpers").search_tests_for_current_file()<CR>]],
+    {
+        noremap = true,
+        silent = true,
+    }
+)

@@ -201,7 +201,7 @@ endfunction
 
 
 function! helpers#DiffWithCommit()
-    let source = 'git log --all '.get(g:, 'fzf_commits_log_options', '--color=always '.fzf#shellescape('--format=%C(auto)%h%d %s %C(green)%cr'))
+    let source = 'git log ' . get(g:, 'fzf_commits_log_options', '--color=always '.fzf#shellescape('--format=%C(auto)%h%d %s %C(green)%cr')) . ' ' . expand('%:t')
     call fzf#run(fzf#wrap({'source': source, 'sink': function('s:DiffWithCommitHelper'), 'options': '--ansi --inline-info'}))
 endfunction
 

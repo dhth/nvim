@@ -39,6 +39,7 @@ set clipboard+=unnamedplus
 set inccommand=nosplit                    " Show live highlighting during substitute in a split window
 set noshowmode
 set scrolloff=12
+" scrolloff turned off since it messes with lightspeed.nvim
 set completeopt=menu,menuone,noselect
 
 "from How to do 90% of what plugins do

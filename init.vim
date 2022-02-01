@@ -33,3 +33,4 @@ source $HOME/.config/nvim/plug-config/telescope.vim
 "     autocmd!
 "     autocmd BufWritePost,BufWinEnter *.md call ft#markdown#GlowViaVimux()
 " augroup END
+"

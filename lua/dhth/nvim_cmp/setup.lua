@@ -24,14 +24,15 @@ cmp.setup({
                 ),
             },
             sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'vsnip' },
                 --- get suggestions from all open buffers
-                { name = 'buffer', opts = {
+                { name = 'nvim_lsp' },
+                { name = 'buffer', option = {
                     get_bufnrs = function()
                         return vim.api.nvim_list_bufs()
                     end
                 } },
+                { name = 'vsnip' },
+                { name = 'orgmode' },
                 { name = 'path' },
                 -- { name = 'vsnip' }, -- For vsnip users.
                 -- { name = 'luasnip' }, -- For luasnip users.

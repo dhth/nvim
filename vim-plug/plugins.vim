@@ -63,7 +63,8 @@ Plug 'vim-airline/vim-airline'
 " Plug 'kdheepak/tabline.nvim'
 " Plug 'romgrk/barbar.nvim'
 
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
+Plug 'numToStr/Comment.nvim'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'folke/zen-mode.nvim'
 " Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
@@ -73,7 +74,9 @@ Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " Plug 'junegunn/gv.vim'
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
+Plug 'phaazon/hop.nvim'
+Plug 'ggandor/lightspeed.nvim'
 " Plug 'mhinz/vim-signify'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'junegunn/vim-easy-align'                               " easy aligning around a character
@@ -110,9 +113,13 @@ Plug 'mcchrish/nnn.vim'
 Plug 'ThePrimeagen/harpoon'
 
 " Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter'
+" , {'commit': '7135321cc254fd2a543f596a3648fdc481e54eef'}
+" https://github.com/nvim-treesitter/nvim-treesitter/issues/2014
+" 'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'romgrk/nvim-treesitter-context'
 " Plug 'nvim-treesitter/playground'
 
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
@@ -121,6 +128,8 @@ Plug 'pwntester/octo.nvim'
 
 Plug 'rcarriga/nvim-notify'
 Plug 'mhinz/vim-startify'
+Plug 'azabiong/vim-highlighter'
+
 " Plug 'tpope/vim-projectionist'
 " Plug 'untitled-ai/jupyter_ascending.vim'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }

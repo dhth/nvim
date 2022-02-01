@@ -2,6 +2,9 @@ setlocal colorcolumn=80
 nnoremap <buffer> <leader>ml f]gf
 " nnoremap <buffer> <ENTER> 0f]<C-W>gf
 nnoremap <buffer> <silent> <ENTER> :call wiki_foam#EnterKeyActions(getline('.'))<cr>
+vnoremap <buffer> <silent> <ENTER> :lua require("dhth.wiki_helpers").toggle_visual_checklist()<CR>
+vnoremap <buffer> <silent> aq :lua require("dhth.wiki_helpers").quotify_visual()<CR>
+
 nnoremap <buffer> <silent> <leader><ENTER> :call wiki#GoToFileInNewTab(getline('.'))<cr>
 " augroup mdtoc
 "     autocmd BufRead * Toc
@@ -48,3 +51,7 @@ setlocal foldenable
 " call CocAction('toggleSource', 'buffer')
 
 nnoremap <buffer> <silent> <leader><enter> :call ft#markdown#GlowViaVimux()<cr>
+
+nnoremap <buffer> <leader>mr :call ft#markdown#ToggleMarkdownRender()<cr>
+
+vnoremap <buffer> <silent> fm :'<,'>!jq<CR>

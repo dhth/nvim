@@ -29,7 +29,7 @@ function! MetaflowDockerTransform(cmd)
                         \"service_name": "metaflow-api-test",
                         \},
                         \}
-    let l:project = split(split(a:cmd, " ")[1], "/tests")[0]
+    let l:project = split(split(a:cmd, " ")[-1], "/tests")[0]
 
     let l:docker_compose_file = l:project_mapping[l:project]["docker_compose_file"]
     let l:service_name = l:project_mapping[l:project]["service_name"]
@@ -56,5 +56,5 @@ function! MetaflowDockerTransform(cmd)
     return l:docker_cmd
 endfunction
 
-" let g:test#custom_transformations = {'docker': function('MetaflowDockerTransform')}
-" let g:test#transformation = 'docker'
+let g:test#custom_transformations = {'docker': function('MetaflowDockerTransform')}
+let g:test#transformation = 'docker'

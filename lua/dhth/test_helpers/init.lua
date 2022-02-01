@@ -174,5 +174,17 @@ end
 -- end
 
 
+function M.search_tests_for_current_file()
+    local current_file = vim.fn.expand('%:t')
+    require ("dhth.telescope").find_test_files('test_' .. current_file)
+    -- vim.cmd("silent !cat testsfailedall | grep 'FAILED ' > testsfailed")
+    -- local qf = get_failed_test_summary('testsfailed', last_test_project)
+    -- if next(qf) then
+    --     -- vim.fn.setqflist(qf, 'r')
+    --     vim.fn.setqflist({}, 'r', {title="Test failures ☹️  ", items=qf})
+    --     vim.cmd("copen")
+    -- end
+end
+
 
 return M

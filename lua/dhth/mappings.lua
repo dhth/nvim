@@ -70,3 +70,12 @@ REMAP(
     '<C-o>O',
     opts
 )
+
+
+--- Todo Telescope
+REMAP(
+    'n',
+    '<Leader>td',
+    ':TodoTelescope<CR>',
+    opts
+)

@@ -27,3 +27,20 @@ function! ft#markdown#GlowViaVimux()
     let l:current_file = expand('%')
     VimuxRunCommand('clear; glow -p ' . l:current_file)
 endfunction
+
+
+function! ft#markdown#ToggleMarkdownRender()
+    if !exists('#MarkdownGlow#BufWritePost')
+        augroup MarkdownGlow
+            autocmd!
+            autocmd BufWritePost,BufWinEnter *.md call ft#markdown#GlowViaVimux()
+            echo "Markdown rendering turned ON"
+        augroup END
+    else
+        augroup MarkdownGlow
+            autocmd!
+            echo "Markdown rendering turned OFF"
+        augroup END
+    endif
+endfunction
+

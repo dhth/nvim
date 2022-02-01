@@ -11,9 +11,9 @@ lua << EOF
     },
     TODO = { icon = "? ", color = "info" },
     HACK = { icon = "? ", color = "warning" },
-    WARN = { icon = "? ", color = "warning", alt = { "WARNING", "XXX" } },
+    -- WARN = { icon = "? ", color = "warning", alt = { "WARNING", "XXX" } },
     PERF = { icon = "? ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-    NOTE = { icon = "? ", color = "hint", alt = { "INFO" } },
+    -- NOTE = { icon = "? ", color = "hint", alt = { "INFO" } },
   },
   -- highlighting of the line containing the todo comment
   -- * before: highlights before the keyword (typically comment characters)

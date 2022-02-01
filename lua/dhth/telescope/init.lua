@@ -128,7 +128,13 @@ function M.find_local_only_files()
 end
 
 
-function M.find_test_files()
+function M.find_test_files(search_str)
+    local file_pattern
+    if search_str then
+        file_pattern = search_str
+    else
+        file_pattern = ".*/tests/.*test_.*.py$"
+    end
     local opts = {
         prompt_title = "~ tests ~",
         previewer = false,
@@ -136,7 +142,7 @@ function M.find_test_files()
             "fd",
             "-ipH",
             "-t=f",
-            ".*/tests/.*test_.*.py$"
+            file_pattern
         }
     }
 
@@ -205,6 +211,23 @@ function M.search_linked_tests()
         },
         layout_config = {
             height = 0.8,
+        },
+    }
+
+    require("telescope.builtin").find_files(opts)
+end
+
+
+function M.search_changed_files()
+    local opts = {
+        prompt_title = "~ changed files ~",
+        previewer = false,
+        find_command = {
+            "git",
+            "diff",
+            "--name-only",
+            "--diff-filter=ACMRT",
+            "HEAD",
         },
     }
 

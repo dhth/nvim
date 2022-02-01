@@ -7,12 +7,13 @@ set termguicolors
 
 " VIMCOLORSSTART
 
-if strftime("%H") >= 8 && strftime("%H") < 14
-    set background=light
-else
-    set background=dark
-endif
+" if strftime("%H") >= 8 && strftime("%H") < 14
+"     set background=light
+" else
+"     set background=dark
+" endif
         
+set background=dark
 " VIMCOLORSEND
 
 "from https://www.youtube.com/watch?v=q7gr6s8skt0
@@ -21,4 +22,4 @@ if exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
-source $HOME/.config/nvim/themes/dracula.vim
+source $HOME/.config/nvim/themes/gruvbox.vim
