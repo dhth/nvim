@@ -76,7 +76,7 @@ function M.nearby_file_browser()
         },
     }
 
-    require("telescope.builtin").file_browser(opts)
+    require "telescope".extensions.file_browser.file_browser(opts)
 end
 
 

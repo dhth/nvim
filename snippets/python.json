@@ -79,5 +79,14 @@
             "if __name__ == \"__main__\":",
             "\t$1"
         ]
+    },
+    "tryexc": {
+        "prefix": "tryexc",
+        "body": [
+            "try:",
+            "\t$1",
+            "except $2:",
+            "   $3"
+        ]
     }
 }

@@ -22,7 +22,8 @@ function! GetFileName(str)
 endfunction
 
 function! wiki_foam#WriteHeadingInFile(file_loc, str, create_subpages_heading)
-    execute "normal! :tabe ".a:file_loc."\<cr>"
+    execute "vnew ".a:file_loc
+    " execute "normal! :tabe ".a:file_loc."\<cr>"
     " execute "normal! i---\<cr>title: \"".a:str."\"\<cr>summary:\<cr>---\<cr>\<esc>"
     execute "normal! i".a:str."\<esc>"
     execute "normal! o===\<cr>\<cr>\<esc>"
@@ -30,6 +31,7 @@ function! wiki_foam#WriteHeadingInFile(file_loc, str, create_subpages_heading)
     if a:create_subpages_heading
         execute "normal! iModules\<cr>---\<cr>\<esc>"
     endif
+    execute "write"
 endfunction
 
 function! wiki_foam#AddMarkdownLink(link_prefix)
@@ -72,6 +74,7 @@ function! wiki_foam#CreateFileLink()
     let l:file_loc = l:dir_loc."/".l:file_path
 
     execute "normal! o\<esc>I- [[".l:file_name."]]"
+    execute "write"
     call wiki_foam#WriteHeadingInFile(l:file_loc, l:file_title, 0)
 endfunction
 
@@ -92,6 +95,7 @@ function! wiki_foam#CreateDateFileLink()
     let l:file_loc = l:dir_loc."/".l:file_name
 
     execute "normal! o\<esc>I- [:fontawesome-solid-file-alt: ".l:file_title."](".l:file_name.")"
+    execute "only"
     call wiki_foam#WriteHeadingInFile(l:file_loc, l:file_title, 0)
 endfunction
 
@@ -118,6 +122,8 @@ function! wiki_foam#CreateFolderLink()
 
     execute "normal! o\<esc>I- [[".l:dir_name."]]"
     call wiki_foam#CreateDirectory(l:dir_loc)
+    execute "only"
+    execute "write"
     call wiki_foam#WriteHeadingInFile(l:file_name, l:file_title, 1)
 endfunction
 
@@ -134,7 +140,8 @@ function! wiki_foam#EnterKeyActions(line_str)
     elseif stridx(a:line_str, l:page_link_str) > -1
         let l:file_name = trim(matchstr(getline('.'), '.*\[\[\zs.*\ze\]\]'))
         let l:existing_file = system("fd --glob -t f ".l:file_name.".md")
-        execute "tabe ".l:existing_file
+        execute "only"
+        execute "vnew ".l:existing_file
     endif
 endfunction
 
