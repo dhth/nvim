@@ -45,6 +45,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'folke/lua-dev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'simrat39/symbols-outline.nvim', { 'on': 'SymbolsOutline' }
 
 """ Completion
 Plug 'hrsh7th/cmp-nvim-lsp'

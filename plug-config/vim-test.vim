@@ -31,8 +31,16 @@ function! MetaflowDockerTransform(cmd)
                         \}
     let l:project = split(split(a:cmd, " ")[-1], "/tests")[0]
 
-    let l:docker_compose_file = l:project_mapping[l:project]["docker_compose_file"]
-    let l:service_name = l:project_mapping[l:project]["service_name"]
+    let l:default_project_details = {
+                    \"docker_compose_file": "docker-compose.yml",
+                    \"service_name": l:project . "-dev",
+                    \}
+
+    let l:project_details = get(l:project_mapping, l:project, l:default_project_details)
+
+    let l:docker_compose_file = l:project_details["docker_compose_file"]
+    let l:service_name = l:project_details["service_name"]
+
     let l:stripped_cmd = substitute(a:cmd, ".*/tests", "tests", "")
 
     if l:project ==# "projects/lib"
