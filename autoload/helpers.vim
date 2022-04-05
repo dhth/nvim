@@ -149,7 +149,7 @@ endfunction
 
 
 function! helpers#SearchProjects()
-    call fzf#run(fzf#wrap({'source': 'fd . -t d --max-depth=1 $PROJECTS_DIR $WORK_DIR $DOT_FILES_DIR $CONFIG_DIR $OTHER_PEOPLES_DOTFILES_DIR', 'sink': function('s:SearchProjectsHelper')}))
+    call fzf#run(fzf#wrap({'source': 'fd . -t d --max-depth=1 $PROJECTS_DIR $WORK_DIR $DOT_FILES_DIR $CONFIG_DIR $OTHER_PEOPLES_DOTFILES_DIR $DROPBOX_DIR', 'sink': function('s:SearchProjectsHelper')}))
 endfunction
 
 

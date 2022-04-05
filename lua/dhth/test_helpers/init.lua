@@ -175,8 +175,9 @@ end
 
 
 function M.search_tests_for_current_file()
-    local current_file = vim.fn.expand('%:t')
-    require ("dhth.telescope").find_test_files('test_' .. current_file)
+    local current_file = vim.fn.expand('%:t:r')
+    --- this will search for test files containing the name of the current file
+    require ("dhth.telescope").find_test_files('test_' .. current_file .. '.*.py$')
     -- vim.cmd("silent !cat testsfailedall | grep 'FAILED ' > testsfailed")
     -- local qf = get_failed_test_summary('testsfailed', last_test_project)
     -- if next(qf) then

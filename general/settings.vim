@@ -42,6 +42,8 @@ set scrolloff=12
 " scrolloff turned off since it messes with lightspeed.nvim
 set completeopt=menu,menuone,noselect
 
+" set shortmess-=F  "nvim-metals says so
+
 "from How to do 90% of what plugins do
 "https://www.youtube.com/watch?v=XA2WjJbmmoM
 

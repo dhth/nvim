@@ -33,7 +33,8 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline_section_x=''
 let g:airline_section_y=''
 " https://www.reddit.com/r/vim/comments/1o9uo7/airline_custom_section/
-let g:airline_section_z = "%p%%  %l/%L"
+" let g:airline_section_z = "%p%%  %l/%L" " percentage current line/total lines
+let g:airline_section_z = "%p%%  %l:%c"
 
 " let g:airline_skip_empty_sections = 1
 

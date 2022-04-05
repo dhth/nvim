@@ -28,12 +28,16 @@ function! MetaflowDockerTransform(cmd)
                         \"docker_compose_file": "docker-compose-metaflow-api-test-local.yml",
                         \"service_name": "metaflow-api-test",
                         \},
+                    \"app": {
+                        \"docker_compose_file": "docker-compose-test.yml",
+                        \"service_name": "img-anon-api-test",
+                        \},
                         \}
     let l:project = split(split(a:cmd, " ")[-1], "/tests")[0]
 
     let l:default_project_details = {
-                    \"docker_compose_file": "docker-compose.yml",
-                    \"service_name": l:project . "-dev",
+                    \"docker_compose_file": "docker-compose-test.yml",
+                    \"service_name": l:project . "-test",
                     \}
 
     let l:project_details = get(l:project_mapping, l:project, l:default_project_details)

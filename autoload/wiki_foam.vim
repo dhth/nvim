@@ -133,6 +133,7 @@ function! wiki_foam#EnterKeyActions(line_str)
     let l:page_link_str = '[['
     let l:checklist_ticked = '[x]'
     let l:checklist_unticked = '[ ]'
+    let l:url = 'https://'
     if stridx(a:line_str, l:checklist_ticked) > -1
         s/\[x\]/\[ \]
     elseif stridx(a:line_str, l:checklist_unticked) > -1
@@ -142,6 +143,8 @@ function! wiki_foam#EnterKeyActions(line_str)
         let l:existing_file = system("fd --glob -t f ".l:file_name.".md")
         execute "only"
         execute "vnew ".l:existing_file
+    elseif stridx(a:line_str, l:url) > -1
+        execute "normal gx"
     endif
 endfunction
 

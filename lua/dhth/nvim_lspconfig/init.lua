@@ -62,20 +62,21 @@ nvim_lsp.pyright.setup{
 
 -- LUA
 
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
-end
+-- local system_name
+-- if vim.fn.has("mac") == 1 then
+--   system_name = "macOS"
+-- elseif vim.fn.has("unix") == 1 then
+--   system_name = "Linux"
+-- elseif vim.fn.has('win32') == 1 then
+--   system_name = "Windows"
+-- else
+--   print("Unsupported system for sumneko")
+-- end
 
 local user = vim.fn.expand('$USER')
 local sumneko_root_path = '/Users/' .. user ..'/Soft/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+-- local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+local sumneko_binary = sumneko_root_path.."/bin/".."/lua-language-server"
 
 local luadev = require("lua-dev").setup({
   -- add any options here, or leave empty to use the default settings
@@ -127,3 +128,9 @@ nvim_lsp.sumneko_lua.setup(luadev)
 --     },
 -- }
 
+
+-- SCALA
+
+require'lspconfig'.metals.setup{
+    on_attach = on_attach,
+}

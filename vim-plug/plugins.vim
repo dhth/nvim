@@ -81,7 +81,7 @@ Plug 'ggandor/lightspeed.nvim'
 " Plug 'mhinz/vim-signify'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'junegunn/vim-easy-align'                               " easy aligning around a character
-" Plug 'godlygeek/tabular', { 'for': 'markdown' }              " dependency for vim-markdown
+" Plug 'godlygeek/tabular', { 'for': 'markdown', 'on': 'Tabularize' }  " dependency for vim-markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'ferrine/md-img-paste.vim', { 'for': 'markdown' }
 Plug 'vim-scripts/ReplaceWithRegister'

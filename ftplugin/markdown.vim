@@ -55,3 +55,8 @@ nnoremap <buffer> <silent> <leader><enter> :call ft#markdown#GlowViaVimux()<cr>
 nnoremap <buffer> <leader>mr :call ft#markdown#ToggleMarkdownRender()<cr>
 
 vnoremap <buffer> <silent> fm :'<,'>!jq<CR>
+
+
+lua << EOF
+require('cmp').setup.buffer { enabled = false }
+EOF

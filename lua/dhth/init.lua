@@ -20,7 +20,7 @@ require "dhth.symbols_outline"
 require "dhth.telescope.setup"
 require "dhth.trouble"
 require "dhth.nvim_autopairs"
-require "dhth.harpoon"
+-- require "dhth.harpoon"
 
 -- git
 require "dhth.gitsigns"

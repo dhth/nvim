@@ -79,3 +79,24 @@ REMAP(
     ':TodoTelescope<CR>',
     opts
 )
+
+--- Substitute current word in current line
+REMAP(
+    'n',
+    '<Leader>sl',
+    ':s/<C-R><C-W>/',
+    opts
+)
+
+--- Go to tab at index
+for i=1,9 do
+    vim.api.nvim_set_keymap(
+        'n',
+        '<Leader>' .. i,
+        i .. "gt",
+        {
+            noremap = true,
+            silent = true,
+        }
+    )
+end
