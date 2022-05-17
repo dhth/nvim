@@ -1,8 +1,5 @@
 require "dhth.globals"
 require "dhth.helpers"
-require "dhth.wiki_helpers"
-require "dhth.mappings"
-require "dhth.test_helpers.mappings"
 
 -- treesitter
 require "dhth.treesitter"
@@ -34,3 +31,8 @@ require "hop".setup()
 require "dhth.vim_highlighter"
 require('Comment').setup()
 require "dhth.nvim_notify"
+
+
+require "dhth.wiki_helpers"
+require "dhth.mappings"
+require "dhth.test_helpers.mappings"

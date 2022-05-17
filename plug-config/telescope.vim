@@ -8,7 +8,7 @@ nnoremap <silent> <leader>ts <cmd>lua require('telescope.builtin').treesitter()<
 nnoremap <silent> <leader>vh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <silent> <leader>ll <cmd>lua require('telescope.builtin').live_grep({previewer=false})<cr>
 nnoremap <silent> <leader>ss :Telescope grep_string search=<c-r><c-w><cr>
-nnoremap <silent> <leader>sm :Telescope lsp_document_symbols symbols=class,function,method<cr>
+nnoremap <silent> <leader>sm :Telescope lsp_document_symbols symbols=class,function,method,module,constant<cr>
 nnoremap <silent> <leader>sw :Telescope grep_string search=<c-r><c-w><cr>
 nnoremap <silent> <leader>dg :Telescope lsp_document_diagnostics<CR>
 

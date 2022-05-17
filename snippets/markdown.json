@@ -17,6 +17,15 @@
         ],
         "description": "Python snippet"
     },
+    "ScalaSnippet": {
+        "prefix": ["ss"],
+        "body": [
+            "```scala",
+            "$1",
+            "```"
+        ],
+        "description": "Scala snippet"
+    },
     "JSONSnippet": {
         "prefix": ["js"],
         "body": [

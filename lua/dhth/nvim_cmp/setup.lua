@@ -32,7 +32,7 @@ cmp.setup({
                     end
                 } },
                 { name = 'vsnip' },
-                { name = 'orgmode' },
+                -- { name = 'orgmode' },
                 { name = 'path' },
                 -- { name = 'vsnip' }, -- For vsnip users.
                 -- { name = 'luasnip' }, -- For luasnip users.
@@ -56,6 +56,18 @@ cmp.setup({
                 native_menu = false,
             }
         })
+
+cmp.setup.filetype('markdown', {
+    sources = cmp.config.sources({
+                -- { name = 'buffer', option = {
+                --     get_bufnrs = function()
+                --         return vim.api.nvim_list_bufs()
+                --     end
+                -- } },
+                { name = 'vsnip' },
+                { name = 'path' },
+    })
+})
 
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

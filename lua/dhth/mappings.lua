@@ -100,3 +100,12 @@ for i=1,9 do
         }
     )
 end
+
+
+--- LSP code formatting
+REMAP(
+    'n',
+    '<Leader>fo',
+    '<cmd>lua vim.lsp.buf.formatting()<CR>',
+    opts
+)
