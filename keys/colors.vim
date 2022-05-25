@@ -23,3 +23,5 @@ if exists('+termguicolors')
 endif
 
 source $HOME/.config/nvim/themes/gruvbox.vim
+
+highlight SignColumn guibg=NONE ctermbg=NONE

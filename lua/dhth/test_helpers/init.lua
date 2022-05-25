@@ -176,8 +176,14 @@ end
 
 function M.search_tests_for_current_file()
     local current_file = vim.fn.expand('%:t:r')
+    local file_type = vim.bo.filetype
     --- this will search for test files containing the name of the current file
-    require ("dhth.telescope").find_test_files('test_' .. current_file .. '.*.py$')
+    if file_type == "python" then
+        require ("dhth.telescope").find_test_files('test_' .. current_file .. '.*.py$')
+    elseif file_type == "scala" then
+        require ("dhth.telescope").find_test_files(current_file .. 'Spec.scala')
+        -- then file_pattern = ".*/test/scala/.*test_.*.py$"
+    end
     -- vim.cmd("silent !cat testsfailedall | grep 'FAILED ' > testsfailed")
     -- local qf = get_failed_test_summary('testsfailed', last_test_project)
     -- if next(qf) then

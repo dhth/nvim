@@ -21,15 +21,22 @@ let g:airline#extensions#tabline#show_splits = 0
 "shorter tab names
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-"display tab count on the right side
-let g:airline#extensions#tabline#show_tab_count = 1
+" don't display tab count on the right side
+let g:airline#extensions#tabline#show_tab_count = 0
+
+" removes the word tabs on top left
+let g:airline#extensions#tabline#tabs_label = ''
+
+" minimalist tabs
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
 
 "show tab number
 let g:airline#extensions#tabline#tab_nr_type = 1
 
 " uncomment to remove section b
-" let g:airline_section_b=''
-" let g:airline_section_c=''
+let g:airline_section_b=''
+let g:airline_section_c='%t' " only show file name, and not the full path
 let g:airline_section_x=''
 let g:airline_section_y=''
 " https://www.reddit.com/r/vim/comments/1o9uo7/airline_custom_section/

@@ -22,8 +22,12 @@ inoremap <expr> <Up> ("\<C-p>")
 " nnoremap <C-k> <c-w>k
 " nnoremap <C-l> <c-w>l
 
+" this bugs out for mac with deutsch keyboard
 nnoremap <c-[> <c-o>
 nnoremap <c-]> <c-i>
+
+nnoremap { <c-o>
+nnoremap } <c-i>
 
 "resize splits -> increase/decrease height
 " nnoremap <silent> <Leader>+ :resize +5<CR>

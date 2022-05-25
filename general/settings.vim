@@ -36,11 +36,14 @@ set nowritebackup                       " This is recommended by coc
 set wildmenu
 set wildignore+=**/node_modules/**
 set clipboard+=unnamedplus
-set inccommand=nosplit                    " Show live highlighting during substitute in a split window
+set inccommand=nosplit                  " Show live highlighting during substitute in a split window
 set noshowmode
 set scrolloff=12
 " scrolloff turned off since it messes with lightspeed.nvim
 set completeopt=menu,menuone,noselect
+set foldcolumn=0                        " disables foldcolumn
+" set numberwidth=1                       " default is 4
+set fillchars+=vert:\                   " removes the thin line between buffers
 
 " set shortmess-=F  "nvim-metals says so
 

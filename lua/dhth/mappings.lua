@@ -88,6 +88,22 @@ REMAP(
     opts
 )
 
+--- Convert lines to markdown list
+REMAP(
+    'v',
+    'ml',
+    ":g/./norm!I - <cr>",
+    opts
+)
+
+--- Convert lines to markdown bullet list
+REMAP(
+    'v',
+    'mb',
+    ":g/./norm!I - [ ] <cr>",
+    opts
+)
+
 --- Go to tab at index
 for i=1,9 do
     vim.api.nvim_set_keymap(

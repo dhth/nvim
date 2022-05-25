@@ -133,7 +133,14 @@ function M.find_test_files(search_str)
     if search_str then
         file_pattern = search_str
     else
-        file_pattern = ".*/tests/.*test_.*.py$"
+        local file_type = vim.bo.filetype
+        if file_type == "python" then
+            file_pattern = ".*/tests/.*test_.*.py$"
+        elseif file_type == "scala" then
+            file_pattern = ".*Spec.scala$"
+        else
+            file_pattern = ".*test.*"
+        end
     end
     local opts = {
         prompt_title = "~ tests ~",

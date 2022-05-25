@@ -190,7 +190,8 @@ function! wiki_foam#CreateBookTrackerRow()
 endfunction
 
 function! wiki_foam#AddQuestion()
-    execute "normal! o\rI- [ ] "
+    execute "normal! oI- [ ]  "
+    startinsert
 endfunction
 
 function! wiki_foam#AddTodo()
@@ -256,10 +257,10 @@ function! wiki_foam#Helpers()
     let l:commands = [
                 \"Add file",
                 \"Foam janitor",
-                \"Add link",
-                \"Add directory",
-                \"Add todo",
                 \"Add question",
+                \"Add directory",
+                \"Add link",
+                \"Add todo",
                 \"Add answer",
                 \"Add log",
                 \"Code block",
