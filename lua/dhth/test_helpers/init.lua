@@ -194,4 +194,20 @@ function M.search_tests_for_current_file()
 end
 
 
+function M.go_to_next_test()
+    local current_file = vim.fn.expand('%:t:r')
+    local file_type = vim.bo.filetype
+    if file_type == "scala" then
+        -- vim.fn.search('".*" in .* { .* =>$')
+        vim.cmd([[silent vimgrep /".*" in .*/ %]])
+        -- vim.cmd([[Telescope quickfix]])
+        require ("telescope.builtin").quickfix({
+            trim_text=true,
+            ignore_filename=true,
+            sorting_strategy="ascending",
+    })
+    end
+end
+
+
 return M

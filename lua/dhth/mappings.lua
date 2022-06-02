@@ -125,3 +125,12 @@ REMAP(
     '<cmd>lua vim.lsp.buf.formatting()<CR>',
     opts
 )
+
+
+--- Go to next test
+REMAP(
+    'n',
+    '<Leader>nt',
+    '<cmd>lua require("dhth.test_helpers").go_to_next_test()<CR>',
+    opts
+)

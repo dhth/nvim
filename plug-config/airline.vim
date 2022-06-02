@@ -28,7 +28,7 @@ let g:airline#extensions#tabline#show_tab_count = 0
 let g:airline#extensions#tabline#tabs_label = ''
 
 " minimalist tabs
-let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ''
 
 "show tab number

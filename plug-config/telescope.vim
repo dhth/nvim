@@ -28,3 +28,4 @@ nnoremap <silent> <leader>cc <cmd>lua require('dhth.telescope').edit_neovim()<CR
 nnoremap <silent> <leader>lt <cmd>lua require('dhth.telescope').search_linked_tests()<CR>
 nnoremap <silent> <c-f> <cmd>lua require('dhth.telescope').nearby_file_browser()<CR>
 nnoremap <silent> <leader>gd <cmd>lua require('dhth.telescope').search_changed_files()<CR>
+nnoremap <silent> <leader>nf <cmd>lua require('dhth.telescope').create_new_file_at_location()<CR>

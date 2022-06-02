@@ -1,3 +1,6 @@
+local actions = require "telescope.actions"
+local action_state = require "telescope.actions.state"
+
 local M = {}
 
 function M.edit_neovim()
@@ -240,5 +243,46 @@ function M.search_changed_files()
 
     require("telescope.builtin").find_files(opts)
 end
+
+local function get_path(str,sep)
+    sep=sep or'/'
+    return str:match("(.*"..sep..")")
+end
+
+
+-- this is a good example to see how custom mappings work
+-- https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#replacing-actions
+-- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#performing-an-arbitrary-command-by-extending-existing-find_files-picker
+local function create_file_mapping(prompt_bufnr, map)
+  actions.select_default:replace(function()
+    actions.close(prompt_bufnr)
+    local selection = action_state.get_selected_entry()
+    local path = get_path(selection[1])
+    local fname = vim.fn.input(path)
+    vim.cmd([[silent !touch ]].. path .. fname)
+    vim.cmd([[tabedit ]].. path .. fname)
+  end)
+  actions.select_vertical:replace(function()
+    actions.close(prompt_bufnr)
+    local selection = action_state.get_selected_entry()
+    local path = get_path(selection[1])
+    local fname = vim.fn.input(path)
+    vim.cmd([[silent !touch ]].. path .. fname)
+    vim.cmd([[vnew ]].. path .. fname)
+  end)
+  return true
+end
+
+
+-- creates a new file alongside a file chosen from find_files
+M.create_new_file_at_location = function()
+  local opts = {
+        prompt_title = "~ create file ~",
+        previewer = false,
+        attach_mappings = create_file_mapping
+  }
+  require('telescope.builtin').find_files(opts)
+end
+
 
 return M
