@@ -29,7 +29,9 @@ nnoremap <buffer> <leader>ctr :call wiki#CreateBookTrackerRow()<cr>
 " nnoremap <buffer> <silent> <leader>tc :call ft#markdown#ToggleCocSources()<cr>
 nnoremap <buffer> <silent> <leader>al :call wiki#AddMarkdownLink()<cr>
 nnoremap <buffer> <silent> <leader>cl :call wiki_foam#CreateLinkToAnotherFile()<cr>
-inoremap <buffer> <silent> <leader>cl <Esc>:call wiki_foam#CreateLinkToAnotherFile()<cr>
+
+" TODO:find another way to remap it to not have <space> in the mapping
+" inoremap <buffer> <silent> <leader>cl <Esc>:call wiki_foam#CreateLinkToAnotherFile()<cr>
 nnoremap <buffer> <silent> <leader>ce :call wiki#CreateDateFileLink()<cr>
 nnoremap <buffer> <silent> <leader>aq :call wiki#AddQuestion()<cr>
 nnoremap <buffer> <silent> <leader>aa :call wiki#AddAnswer()<cr>

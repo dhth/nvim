@@ -36,7 +36,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 
 " uncomment to remove section b
 let g:airline_section_b=''
-let g:airline_section_c='%t' " only show file name, and not the full path
+" let g:airline_section_c='' " only show file name, and not the full path
 let g:airline_section_x=''
 let g:airline_section_y=''
 " https://www.reddit.com/r/vim/comments/1o9uo7/airline_custom_section/

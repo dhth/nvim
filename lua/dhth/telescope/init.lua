@@ -259,16 +259,28 @@ local function create_file_mapping(prompt_bufnr, map)
     local selection = action_state.get_selected_entry()
     local path = get_path(selection[1])
     local fname = vim.fn.input(path)
-    vim.cmd([[silent !touch ]].. path .. fname)
-    vim.cmd([[tabedit ]].. path .. fname)
+    if fname then
+        if string.find(fname, "/") then
+            local new_path = get_path(fname)
+            vim.cmd([[silent !mkdir -p ]] .. path .. new_path)
+        end
+        vim.cmd([[silent !touch ]].. path .. fname)
+        vim.cmd([[tabedit ]].. path .. fname)
+    end
   end)
   actions.select_vertical:replace(function()
     actions.close(prompt_bufnr)
     local selection = action_state.get_selected_entry()
     local path = get_path(selection[1])
     local fname = vim.fn.input(path)
-    vim.cmd([[silent !touch ]].. path .. fname)
-    vim.cmd([[vnew ]].. path .. fname)
+    if fname then
+        if string.find(fname, "/") then
+            local new_path = get_path(fname)
+            vim.cmd([[silent !mkdir -p ]] .. path .. new_path)
+        end
+        vim.cmd([[silent !touch ]].. path .. fname)
+        vim.cmd([[vnew ]].. path .. fname)
+    end
   end)
   return true
 end

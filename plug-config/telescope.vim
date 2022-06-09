@@ -10,6 +10,7 @@ nnoremap <silent> <leader>ll <cmd>lua require('telescope.builtin').live_grep({pr
 nnoremap <silent> <leader>ss :Telescope grep_string search=<c-r><c-w><cr>
 nnoremap <silent> <leader>sm :Telescope lsp_document_symbols symbols=class,function,method,module,constant<cr>
 nnoremap <silent> <leader>sw :Telescope grep_string search=<c-r><c-w><cr>
+nnoremap <silent> <leader>si :Telescope lsp_implementations search=<c-r><c-w><cr>
 nnoremap <silent> <leader>dg :Telescope lsp_document_diagnostics<CR>
 
 
