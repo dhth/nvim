@@ -7,7 +7,7 @@ set termguicolors
 
 " VIMCOLORSSTART
 
-" if strftime("%H") >= 8 && strftime("%H") < 14
+" if strftime("%H") >= 7 && strftime("%H") < 17
 "     set background=light
 " else
 "     set background=dark

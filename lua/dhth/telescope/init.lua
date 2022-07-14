@@ -131,8 +131,14 @@ function M.find_local_only_files()
 end
 
 
-function M.find_test_files(search_str)
+function M.find_test_files(search_str, prompt_title)
     local file_pattern
+    local prompt
+    if prompt_title then
+        prompt = prompt_title
+    else
+        prompt =  "~ tests ~"
+    end
     if search_str then
         file_pattern = search_str
     else
@@ -146,12 +152,13 @@ function M.find_test_files(search_str)
         end
     end
     local opts = {
-        prompt_title = "~ tests ~",
+        prompt_title = prompt,
         previewer = false,
         find_command = {
             "fd",
             "-ipH",
             "-t=f",
+            "--case-sensitive",
             file_pattern
         }
     }
@@ -294,6 +301,45 @@ M.create_new_file_at_location = function()
         attach_mappings = create_file_mapping
   }
   require('telescope.builtin').find_files(opts)
+end
+
+
+function M.search_related_files()
+    local current_file = vim.fn.expand('%:t:r')
+    local file_type = vim.bo.filetype
+    local entity_name
+    if file_type == "python" then
+        require ("dhth.telescope").find_test_files('test_' .. current_file .. '.*.py$')
+    elseif file_type == "scala" then
+        local file_kinds = {
+            "ManagementControllerSpec",
+            "ManagementController",
+            "ControllerSpec",
+            "Controller",
+            "ServiceSpec",
+            "Service",
+            "RepositorySpec",
+            "Repository",
+            "TestData",
+            "Module",
+            "ApiSpec",
+        }
+        local file_kinds_regex = "(" .. table.concat(file_kinds, "|") .. ")"
+        local kind_matched = false
+        for i = 1, #file_kinds do
+            if string.find(current_file, file_kinds[i]) then
+                entity_name = string.gsub(current_file, file_kinds[i], "")
+                require ("dhth.telescope").find_test_files('/' .. entity_name .. '.*' .. file_kinds_regex .. '.scala',  "~ files related to " .. entity_name  .. ":" .. file_kinds[i] ..  " ~")
+                kind_matched = true
+                break
+            end
+        end
+        if not kind_matched then
+            require ("dhth.telescope").find_test_files('/' .. current_file .. '.*.scala',  "~ files related to " .. current_file  .. ":" .. "Any " ..  " ~")
+        end
+    else
+        print("No related files found")
+    end
 end
 
 

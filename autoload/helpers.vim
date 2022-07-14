@@ -3,6 +3,9 @@ function! s:HelperCommandToRun(command)
     "     call fzf#run(fzf#wrap({'source': 'fd -H -t d', 'sink': function('s:CreateFileHelper')}))
     if a:command ==? "e .zshrc"
         tabnew $HOME/.zshrc
+    elseif match(a:command, '^scala\:*', 0) == 0
+        " echo a:command
+        VimuxRunCommand(split(a:command, "scala:")[-1])
     elseif a:command ==? "e helpers"
         tabnew $NVIM_DIR/autoload/helpers.vim
     elseif a:command ==? "e journal"
@@ -58,33 +61,53 @@ function! s:HelperCommandToRun(command)
     elseif a:command == "lcd project"
         echom 'fd -H -t d ' . $PROJECTS_DIR
         call fzf#run(fzf#wrap({'source': 'fd -H -t d --max-depth 3 --base-directory ' . $PROJECTS_DIR, 'sink': function('s:LcdToProjectDirHelper')}))
+        lcd $WIKI_DIR
 
     endif
 endfunction
 
 function! helpers#Helpers()
-    let l:commands = [
-                \"e .zshrc",
-                \"e helpers",
-                \"e journal",
-                \"e pomodoro",
-                \"e karabiner",
-                \"e alacritty",
-                \"e gitfile",
-                \"e docker commands",
-                \"e tools",
-                \"e local commands",
-                \"e aws services",
-                \"notes",
-                \"get staged files",
-                \"add recently modified links",
-                \"lcd nvim",
-                \"lcd alfred",
-                \"lcd dotfiles",
-                \"lcd wiki",
-                \"lcd project",
-                \]
-    return fzf#run({'source': l:commands, 'sink': function('s:HelperCommandToRun'),  'window': { 'width': 0.3, 'height': 0.6 } })
+    if &filetype ==# 'scala'
+        let l:commands = [
+                    \"scala:fbrdCompliance",
+                    \"scala:test",
+                    \"scala:reload;fbrdCompliance",
+                    \"scala:reload;fbrdCompliance;compile;test",
+                    \"scala:fbrdCompliance;compile;test",
+                    \"scala:testQuick",
+                    \"scala:compile",
+                    \"scala:reload",
+                    \"scala:clean",
+                    \"scala:docs/previewSite",
+                    \]
+        let l:window_height = 5
+        let l:window_width = 2
+    else
+        let l:commands = [
+                    \"e .zshrc",
+                    \"e helpers",
+                    \"e journal",
+                    \"e pomodoro",
+                    \"e karabiner",
+                    \"e alacritty",
+                    \"e gitfile",
+                    \"e docker commands",
+                    \"e tools",
+                    \"e local commands",
+                    \"e aws services",
+                    \"notes",
+                    \"get staged files",
+                    \"add recently modified links",
+                    \"lcd nvim",
+                    \"lcd alfred",
+                    \"lcd dotfiles",
+                    \"lcd wiki",
+                    \"lcd project",
+                    \]
+        let l:window_height = 6
+        let l:window_width = 3
+    endif
+    return fzf#run({'source': l:commands, 'sink': function('s:HelperCommandToRun'),  'window': { 'width': l:window_width / 10.0 , 'height': l:window_height / 10.0 } })
 endfunction
 
 function! s:LcdToProjectDirHelper(location)

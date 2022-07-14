@@ -9,10 +9,11 @@ lua << EOF
       alt = { "FIXME", "BUG", "FIXIT", "FIX", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
       -- signs = false, -- configure signs for some keywords individually
     },
-    TODO = { icon = "? ", color = "info" },
-    HACK = { icon = "? ", color = "warning" },
-    -- WARN = { icon = "? ", color = "warning", alt = { "WARNING", "XXX" } },
-    PERF = { icon = "? ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+    TODO = { icon = "T", color = "info" },
+    -- HACK = { icon = "H ", color = "warning" },
+    WARN = { icon = "W", color = "warning", alt = { "WARNING", "XXX", "CHECK" } },
+    -- PERF = { icon = "? ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+    QUES = { icon = "Q", color = "warning"},
     -- NOTE = { icon = "? ", color = "hint", alt = { "INFO" } },
   },
   -- highlighting of the line containing the todo comment

@@ -122,7 +122,7 @@ nnoremap <silent> <leader>mm :MaximizerToggle<cr>
 
 nnoremap <silent> <leader>bo :BufOnly<cr>
 
-nnoremap <silent> t<c-t> :call helpers#Helpers()<cr>
+nnoremap <silent> <leader>er :call helpers#Helpers()<cr>
 nnoremap <silent> <leader>pp :call helpers#LCDToDir()<cr>
 
 " create new file using fzf

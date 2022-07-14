@@ -202,6 +202,7 @@ function M.go_to_next_test()
         vim.cmd([[silent vimgrep /".*" in .*/ %]])
         -- vim.cmd([[Telescope quickfix]])
         require ("telescope.builtin").quickfix({
+            previewer=false,
             trim_text=true,
             ignore_filename=true,
             sorting_strategy="ascending",

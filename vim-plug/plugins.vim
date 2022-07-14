@@ -68,6 +68,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'numToStr/Comment.nvim'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'folke/zen-mode.nvim'
+Plug 'folke/twilight.nvim'
 " Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'tpope/vim-unimpaired'
 " Plug 'jiangmiao/auto-pairs'

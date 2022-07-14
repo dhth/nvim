@@ -1,7 +1,8 @@
 nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-t> :TestNearest<CR>:silent !tmux select-pane -t .+1 && tmux resize-pane -Z<CR>
 nmap <silent> t<C-k> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-l> :TestSuite<CR>
+" nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
 let test#strategy = "vimux"

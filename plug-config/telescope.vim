@@ -1,7 +1,7 @@
 "builtin
 nnoremap <silent> <leader>re <cmd>lua require('telescope.builtin').resume()<CR>
 nnoremap <silent> <leader>bc <cmd>lua require('telescope.builtin').git_bcommits()<CR>
-nnoremap <silent> <C-b> <cmd>lua require('telescope.builtin').buffers()<CR>
+nnoremap <silent> <C-b> <cmd>lua require('telescope.builtin').buffers({previewer=false})<CR>
 nnoremap <silent> <C-s> <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({previewer=false, prompt_title="search", sorting_strategy="ascending", layout_config={prompt_position="top"}})<cr>
 nnoremap <silent> <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <silent> <leader>ts <cmd>lua require('telescope.builtin').treesitter()<cr>
@@ -30,3 +30,4 @@ nnoremap <silent> <leader>lt <cmd>lua require('dhth.telescope').search_linked_te
 nnoremap <silent> <c-f> <cmd>lua require('dhth.telescope').nearby_file_browser()<CR>
 nnoremap <silent> <leader>gd <cmd>lua require('dhth.telescope').search_changed_files()<CR>
 nnoremap <silent> <leader>nf <cmd>lua require('dhth.telescope').create_new_file_at_location()<CR>
+nnoremap <silent> <leader>rf <cmd>lua require('dhth.telescope').search_related_files()<CR>
