@@ -4,8 +4,11 @@ function! s:HelperCommandToRun(command)
     if a:command ==? "e .zshrc"
         tabnew $HOME/.zshrc
     elseif match(a:command, '^scala\:*', 0) == 0
-        " echo a:command
-        VimuxRunCommand(split(a:command, "scala:")[-1])
+        if match(a:command, '^scala\:runMain', 0) == 0
+            VimuxRunCommand("runMain " . substitute(split(expand('%:r'), "src/main/scala/")[-1], '/', '.', 'g'))
+        else
+            VimuxRunCommand(split(a:command, "scala:")[-1])
+        endif
     elseif a:command ==? "e helpers"
         tabnew $NVIM_DIR/autoload/helpers.vim
     elseif a:command ==? "e journal"
@@ -69,6 +72,7 @@ endfunction
 function! helpers#Helpers()
     if &filetype ==# 'scala'
         let l:commands = [
+                    \"scala:runMain",
                     \"scala:fbrdCompliance",
                     \"scala:test",
                     \"scala:reload;fbrdCompliance",
@@ -77,11 +81,12 @@ function! helpers#Helpers()
                     \"scala:testQuick",
                     \"scala:compile",
                     \"scala:reload",
+                    \"scala:run",
                     \"scala:clean",
                     \"scala:docs/previewSite",
                     \]
         let l:window_height = 5
-        let l:window_width = 2
+        let l:window_width = 3
     else
         let l:commands = [
                     \"e .zshrc",

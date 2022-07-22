@@ -18,7 +18,7 @@ nnoremap <buffer> <leader>tf :TableFormat<CR>
 nnoremap <buffer> <leader>- o---<esc>k0i
 nnoremap <buffer> <leader>x o<esc>I- [ ] 
 set tw=80
-" set foldmethod=syntax
+
 nnoremap <buffer> <silent> <leader>oo :call wiki#OpenFileAndEnterText(expand("%:h")."/".expand("<cfile>"), expand("<cfile>"))<cr>
 nnoremap <buffer> <silent> <leader>cfl :call wiki_foam#CreateFileLink()<cr>
 nnoremap <buffer> <silent> <leader>cdl :call wiki_foam#CreateFolderLink()<cr>
@@ -29,6 +29,7 @@ nnoremap <buffer> <leader>ctr :call wiki#CreateBookTrackerRow()<cr>
 " nnoremap <buffer> <silent> <leader>tc :call ft#markdown#ToggleCocSources()<cr>
 nnoremap <buffer> <silent> <leader>al :call wiki#AddMarkdownLink()<cr>
 nnoremap <buffer> <silent> <leader>cl :call wiki_foam#CreateLinkToAnotherFile()<cr>
+inoremap <buffer> <silent> [[ <Esc>:call wiki_foam#CreateLinkToAnotherFile()<cr>
 
 " TODO:find another way to remap it to not have <space> in the mapping
 " inoremap <buffer> <silent> <leader>cl <Esc>:call wiki_foam#CreateLinkToAnotherFile()<cr>
@@ -36,6 +37,7 @@ nnoremap <buffer> <silent> <leader>ce :call wiki#CreateDateFileLink()<cr>
 nnoremap <buffer> <silent> <leader>aq :call wiki#AddQuestion()<cr>
 nnoremap <buffer> <silent> <leader>aa :call wiki#AddAnswer()<cr>
 nnoremap <buffer> <silent> <leader>bl :call wiki_foam#GetBacklinks()<cr>
+nnoremap <buffer> <silent> [[ :call wiki_foam#GetBacklinks()<cr>
 nnoremap <buffer> <silent> <leader>le :call wiki_foam#AddQuestion()<cr>
 nnoremap <buffer> <silent> <leader>te :call wiki_foam#AddQuestion()<cr>
 
@@ -44,7 +46,7 @@ inoremap <silent> f<c-f> <Esc>:call wiki_foam#Helpers()<cr>
 
 nnoremap <silent> <leader>ow :call wiki_foam#OpenCurrentWikiPageInBrowser()<cr>
 
-setlocal foldenable
+" setlocal foldenable
 " setlocal fo-=q
 " setlocal formatoptions-=q
 " set formatoptions=tcqln
@@ -65,3 +67,8 @@ vnoremap <buffer> <silent> fm :'<,'>!jq<CR>
 " lua << EOF
 " require('cmp').setup.buffer { enabled = false }
 " EOF
+
+" auto fold foam markers
+" setlocal foldmarker=[//begin],[//end]
+" setlocal foldmethod=marker
+" set foldlevelstart=0

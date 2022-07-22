@@ -331,7 +331,7 @@ endfunction
 
 function! s:CreateMarkdownForLinkToAnotherFile(file_path)
     let l:file_name = split(split(a:file_path, "/")[-1], ".md")[0]
-    execute "normal! i[[".l:file_name."]]"
+    execute "normal! i [[".l:file_name."]]"
 endfunction
 
 

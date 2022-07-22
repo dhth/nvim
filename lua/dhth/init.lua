@@ -31,6 +31,7 @@ require "hop".setup()
 require "dhth.vim_highlighter"
 require('Comment').setup()
 require "dhth.nvim_notify"
+require "dhth.zen_mode"
 
 
 require "dhth.wiki_helpers"

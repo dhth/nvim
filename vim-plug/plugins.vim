@@ -19,7 +19,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Colorschemes
 " Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
-" Plug 'KeitaNakamura/neodark.vim'
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'folke/lsp-colors.nvim'
+Plug 'projekt0n/github-nvim-theme'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'cormacrelf/vim-colors-github'
 " Plug 'bluz71/vim-nightfly-guicolors'
@@ -28,7 +30,7 @@ Plug 'lifepillar/vim-gruvbox8'
 " Plug 'folke/tokyonight.nvim'
 " Plug 'arzg/vim-colors-xcode'
 " Plug 'wadackel/vim-dogrun'
-Plug 'dracula/vim'
+" Plug 'dracula/vim'
 
 " Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
@@ -68,8 +70,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'numToStr/Comment.nvim'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'folke/zen-mode.nvim'
-Plug 'folke/twilight.nvim'
-" Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+" Plug 'folke/twilight.nvim'
+" Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-unimpaired'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'windwp/nvim-autopairs'
@@ -82,8 +84,8 @@ Plug 'ggandor/lightspeed.nvim'
 " Plug 'mhinz/vim-signify'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'junegunn/vim-easy-align'                               " easy aligning around a character
-" Plug 'godlygeek/tabular', { 'for': 'markdown', 'on': 'Tabularize' }  " dependency for vim-markdown
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+" Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 Plug 'ferrine/md-img-paste.vim', { 'for': 'markdown' }
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }  " see commit history for a file

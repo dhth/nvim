@@ -13,7 +13,7 @@ set termguicolors
 "     set background=dark
 " endif
         
-set background=dark
+" set background=dark
 " VIMCOLORSEND
 
 "from https://www.youtube.com/watch?v=q7gr6s8skt0
@@ -23,5 +23,16 @@ if exists('+termguicolors')
 endif
 
 source $HOME/.config/nvim/themes/gruvbox.vim
+" source $HOME/.config/nvim/themes/neodark.vim
+
+" let g:airline_theme='neodark'
+" let g:neodark#background = '#202020'
+" let g:neodark#use_256color = 1
+"
+" lua << EOF
+" require('github-theme').setup({
+"     theme_style = "light",
+" })
+" EOF
 
 " highlight SignColumn guibg=NONE ctermbg=NONE

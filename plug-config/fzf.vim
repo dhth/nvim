@@ -10,9 +10,9 @@ nnoremap <silent> <Leader>bs :Lines<CR>
 nnoremap <silent> <Leader>hh :History<CR>
 nnoremap <silent> <Leader>ch :History:<CR>
 " nnoremap <silent> <C-b> :Buffers<CR>
-nnoremap <silent> <leader>wn :Windows<CR>
+nnoremap <silent> g<c-g> :Windows<CR>
 " nnoremap <silent> <C-s> :BLines<CR>
-nnoremap <silent> <leader><C-g> :GFiles?<CR>
+" nnoremap <silent> <leader><C-g> :GFiles?<CR>
 
 if executable('rg')
     let g:rg_derive_root='true'

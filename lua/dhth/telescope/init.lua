@@ -321,8 +321,10 @@ function M.search_related_files()
             "RepositorySpec",
             "Repository",
             "TestData",
+            "ApiModule",
             "Module",
             "ApiSpec",
+            "Endpoints",
         }
         local file_kinds_regex = "(" .. table.concat(file_kinds, "|") .. ")"
         local kind_matched = false
