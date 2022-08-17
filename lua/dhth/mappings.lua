@@ -23,13 +23,13 @@ REMAP(
     opts
 )
 
---- create a scratch buffer
-REMAP(
-    'n',
-    '<Leader>sc',
-    '<cmd>lua require("dhth.helpers").new_scratch_buffer()<CR>',
-    opts
-)
+-- --- create a scratch buffer
+-- REMAP(
+--     'n',
+--     '<Leader>sc',
+--     '<cmd>lua require("dhth.helpers").new_scratch_buffer()<CR>',
+--     opts
+-- )
 
 --- go to last buffer
 REMAP(

@@ -19,9 +19,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Colorschemes
 " Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
-Plug 'KeitaNakamura/neodark.vim'
+" Plug 'KeitaNakamura/neodark.vim'
 Plug 'folke/lsp-colors.nvim'
-Plug 'projekt0n/github-nvim-theme'
+" Plug 'projekt0n/github-nvim-theme'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'cormacrelf/vim-colors-github'
 " Plug 'bluz71/vim-nightfly-guicolors'
@@ -34,9 +34,9 @@ Plug 'projekt0n/github-nvim-theme'
 
 " Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
-Plug 'rbong/vim-flog'
+" Plug 'rbong/vim-flog'
 
-Plug 'tpope/vim-rhubarb'
+" Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Plug 'stsewd/fzf-checkout.vim'
@@ -44,10 +44,12 @@ Plug 'junegunn/fzf.vim'
 
 """ LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'scalameta/nvim-metals'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'folke/lua-dev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'simrat39/symbols-outline.nvim', { 'on': 'SymbolsOutline' }
+" Plug 'simrat39/symbols-outline.nvim', { 'on': 'SymbolsOutline' }
+" Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 """ Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -69,7 +71,7 @@ Plug 'vim-airline/vim-airline'
 " Plug 'tpope/vim-commentary'
 Plug 'numToStr/Comment.nvim'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-Plug 'folke/zen-mode.nvim'
+" Plug 'folke/zen-mode.nvim'
 " Plug 'folke/twilight.nvim'
 " Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-unimpaired'
@@ -79,7 +81,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " Plug 'junegunn/gv.vim'
 " Plug 'justinmk/vim-sneak'
-Plug 'phaazon/hop.nvim'
+" Plug 'phaazon/hop.nvim'
 Plug 'ggandor/lightspeed.nvim'
 " Plug 'mhinz/vim-signify'
 Plug 'lewis6991/gitsigns.nvim'
@@ -88,7 +90,7 @@ Plug 'junegunn/vim-easy-align'                               " easy aligning aro
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 Plug 'ferrine/md-img-paste.vim', { 'for': 'markdown' }
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }  " see commit history for a file
+" Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }  " see commit history for a file
 Plug 'benmills/vimux'                                        " send commands to tmux
 Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-slash'
@@ -114,8 +116,9 @@ Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'mcchrish/nnn.vim'
+Plug 'kevinhwang91/nvim-bqf'
 " Plug 'luukvbaal/nnn.nvim'
-Plug 'ThePrimeagen/harpoon'
+" Plug 'ThePrimeagen/harpoon'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -127,11 +130,11 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'romgrk/nvim-treesitter-context'
 " Plug 'nvim-treesitter/playground'
 
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+" Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'pwntester/octo.nvim'
+" Plug 'pwntester/octo.nvim'
 
-Plug 'rcarriga/nvim-notify'
+" Plug 'rcarriga/nvim-notify'
 Plug 'mhinz/vim-startify'
 Plug 'azabiong/vim-highlighter'
 

@@ -251,6 +251,23 @@ function M.search_changed_files()
     require("telescope.builtin").find_files(opts)
 end
 
+
+function M.files_to_quickfix()
+    local opts = {
+        prompt_title = "~ changed files ~",
+        previewer = false,
+        find_command = {
+            "git",
+            "diff",
+            "--name-only",
+            "--diff-filter=ACMRT",
+            "HEAD",
+        },
+    }
+
+    require("telescope.builtin").find_files(opts)
+end
+
 local function get_path(str,sep)
     sep=sep or'/'
     return str:match("(.*"..sep..")")

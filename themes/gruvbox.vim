@@ -6,5 +6,5 @@ let g:gruvbox_invert_selection='0'
 
 let g:airline_theme = "gruvbox8"
 
-set background=light
+set background=dark
 colorscheme gruvbox8

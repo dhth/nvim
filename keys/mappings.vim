@@ -141,6 +141,7 @@ nnoremap <silent> <leader>jf :call just_helpers#Helpers()<cr>
 nnoremap <leader>dc :call helpers#DiffWithCommit()<cr>
 nnoremap <leader>gh :call just_helpers#GitHelpers()<cr>
 nnoremap <silent><leader>sp :call helpers#SearchProjects()<cr>
+nnoremap <silent><leader>sq :call helpers#SearchToQuickfix()<cr>
 
 " nnoremap <silent> <leader>tt :TagbarToggle<CR>
 

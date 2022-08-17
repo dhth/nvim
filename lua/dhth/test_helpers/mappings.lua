@@ -31,3 +31,26 @@ vim.api.nvim_set_keymap(
         silent = true,
     }
 )
+
+
+-- run sbt compile
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>sc',
+    [[<Cmd>:lua require("dhth.test_helpers.scala").run_sbt_compile()<CR>]],
+    {
+        noremap = true,
+        silent = true,
+    }
+)
+
+-- sbt compile results
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>ce',
+    [[<Cmd>:lua require("dhth.test_helpers.scala").compile_errors_to_quickfix()<CR>]],
+    {
+        noremap = true,
+        silent = true,
+    }
+)

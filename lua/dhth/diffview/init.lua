@@ -68,6 +68,6 @@ REMAP(
 REMAP(
     'n',
     '<Leader>fh',
-    ':DiffviewFileHistory<CR>',
+    ':DiffviewFileHistory %<CR>',
     opts
 )

@@ -1,5 +1,5 @@
 "from https://www.youtube.com/watch?v=-I1b8BINyEw
-nnoremap <C-p> :GFiles<CR>
+" nnoremap <C-p> :GFiles<CR>
 
 "for FZF files
 nnoremap <silent> <leader>sf :Files<CR>
@@ -7,7 +7,7 @@ nnoremap <silent> <leader>sf :Files<CR>
 nnoremap <Leader>ps :Rg --hidden --iglob='!.git/' -F<SPACE>
 " nnoremap <leader>sw :Rg --hidden --iglob='!.git/'<SPACE><c-r><c-w><cr>
 nnoremap <silent> <Leader>bs :Lines<CR>
-nnoremap <silent> <Leader>hh :History<CR>
+nnoremap <silent> <c-p> :History<CR>
 nnoremap <silent> <Leader>ch :History:<CR>
 " nnoremap <silent> <C-b> :Buffers<CR>
 nnoremap <silent> g<c-g> :Windows<CR>

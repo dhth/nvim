@@ -20,7 +20,8 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', '<leader>jj', '<cmd>tab split | lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>vv', '<cmd>vsp | lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>de', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  --- using lspsaga
+  -- buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'X', '<cmd>lua require("dhth.nvim_lspconfig.custom_hover").show_file_definition_path()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', 'M', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -29,9 +30,11 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  --- using lspsaga
+  -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>', opts)
+  --- using lspsaga
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>qf', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
@@ -133,6 +136,7 @@ nvim_lsp.sumneko_lua.setup(luadev)
 
 -- SCALA
 
-require'lspconfig'.metals.setup{
-    on_attach = on_attach,
-}
+-- using nvim-metals for this
+-- require'lspconfig'.metals.setup{
+--     on_attach = on_attach,
+-- }

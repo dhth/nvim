@@ -44,8 +44,7 @@ set completeopt=menu,menuone,noselect
 set foldcolumn=0                        " disables foldcolumn
 " set numberwidth=1                       " default is 4
 set fillchars+=vert:\                   " removes the thin line between buffers
-
-" set shortmess-=F  "nvim-metals says so
+set foldlevelstart=99
 
 "from How to do 90% of what plugins do
 "https://www.youtube.com/watch?v=XA2WjJbmmoM

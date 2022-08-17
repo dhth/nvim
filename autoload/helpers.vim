@@ -239,3 +239,15 @@ function! helpers#DispatchHelper()
     let l:results = system('sh run_tests.sh')
     echom l:results
 endfunction
+
+
+function! helpers#SearchToQuickfix()
+    call inputsave()
+    let l:pattern = input('pattern? ')
+    call inputrestore()
+    let l:raw_lines = systemlist("fd -ipH -t f '" . l:pattern . "'")
+    let l:non_empty_lines = filter(l:raw_lines, { key, val -> val != '' })
+    let l:data = map(l:non_empty_lines, '{"filename": v:val}')
+    call setqflist(l:data)
+    copen
+endfunction

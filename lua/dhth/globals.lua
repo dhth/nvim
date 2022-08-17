@@ -22,3 +22,14 @@ NOTIFP = function(body, title)
 end
 
 REMAP = function(...) vim.api.nvim_set_keymap(...) end
+
+SPLIT = function (inputstr, sep)
+    if sep == nil then
+        sep = "%s"
+    end
+    local t={}
+    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+        table.insert(t, str)
+    end
+    return t
+end
