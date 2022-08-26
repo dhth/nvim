@@ -134,3 +134,19 @@ REMAP(
     '<cmd>lua require("dhth.test_helpers").go_to_next_test()<CR>',
     opts
 )
+
+--- windo diffthis
+REMAP(
+    'n',
+    '<Leader>dt',
+    '<cmd>windo diffthis<CR>',
+    opts
+)
+
+--- copen
+REMAP(
+    'n',
+    '<Leader>co',
+    '<cmd>copen<CR>',
+    opts
+)

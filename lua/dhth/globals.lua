@@ -33,3 +33,7 @@ SPLIT = function (inputstr, sep)
     end
     return t
 end
+
+TRIM = function (s)
+    return (s:gsub("^%s*(.-)%s*$", "%1"))
+end

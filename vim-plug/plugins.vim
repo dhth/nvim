@@ -21,6 +21,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'lifepillar/vim-gruvbox8'
 " Plug 'KeitaNakamura/neodark.vim'
 Plug 'folke/lsp-colors.nvim'
+Plug 'rebelot/kanagawa.nvim'
 " Plug 'projekt0n/github-nvim-theme'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'cormacrelf/vim-colors-github'

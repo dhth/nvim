@@ -241,6 +241,7 @@ function M.search_changed_files()
         previewer = false,
         find_command = {
             "git",
+            "--no-pager",
             "diff",
             "--name-only",
             "--diff-filter=ACMRT",
@@ -342,6 +343,7 @@ function M.search_related_files()
             "Module",
             "ApiSpec",
             "Endpoints",
+            "Spec",
         }
         local file_kinds_regex = "(" .. table.concat(file_kinds, "|") .. ")"
         local kind_matched = false

@@ -13,7 +13,7 @@ require('gitsigns').setup {
     -- Actions
     map('n', '<leader>hr', ':Gitsigns reset_hunk<CR>')
     map('v', '<leader>hr', ':Gitsigns reset_hunk<CR>')
-    map('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<CR>')
+    map('n', '<leader>vc', '<cmd>Gitsigns preview_hunk<CR>')
     map('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>')
     map('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
 

@@ -24,7 +24,7 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set colorcolumn=120
+set colorcolumn=0
 set showcmd
 set ruler
 set cursorline                          " enable highlighting of the current line

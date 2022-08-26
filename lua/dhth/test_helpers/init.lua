@@ -118,6 +118,51 @@ local function run_tests_via_vimux(opts)
     }):find()
 end
 
+
+local function scala_test_results_to_qf()
+    print("running tests...")
+    local cmd = "sbt test"
+    local state = {}
+
+    local test_details
+    local test_details_raw
+    vim.fn.jobstart(SPLIT(cmd, " "), {
+        stdout_buffered = true,
+        on_stdout = function(_, data)
+            for _, line in ipairs(data) do
+                if string.match(line, 'Spec.scala:') then
+                    test_details_raw = TRIM(vim.fn.system('echo \'' .. line .. '\' | python $HOME/.config/nvim/lua/dhth/command_to_buffer/helper.py'))
+                    test_details = vim.json.decode(test_details_raw)
+                    table.insert(state, test_details)
+                end
+            end
+        end,
+        on_exit = function ()
+            local failed = {}
+            local full_file_path
+            for _, details in ipairs(state) do
+                full_file_path = TRIM(vim.fn.system("fd -ipH -t f " .. details.file_name .. ".scala"))
+                failed[#failed + 1] = {
+                    filename = full_file_path,
+                    lnum=details.lnum,
+                    type='E',
+                    text=details.error_message,
+                }
+            end
+            if #state > 0 then
+                vim.fn.setqflist({}, 'r', {title="Test failures ❌ ", items=failed})
+                print("test results ready, [" .. #state .. "] failure(s) 🧪")
+                -- vim.cmd("copen")
+            else
+                print("no failing tests ✅")
+            end
+        end
+    }
+    )
+end
+
+
+
 function M.run_tests()
     local opts = {
         prompt_title = "~ tests 🧪 ~",
@@ -131,13 +176,19 @@ end
 
 
 function M.failed_test_qf()
-    local last_test_project = lines_from("testlastproject")[1][1]
-    vim.cmd("silent !cat testsfailedall | grep 'FAILED ' > testsfailed")
-    local qf = get_failed_test_summary('testsfailed', last_test_project)
-    if next(qf) then
-        -- vim.fn.setqflist(qf, 'r')
-        vim.fn.setqflist({}, 'r', {title="Test failures ☹️  ", items=qf})
-        vim.cmd("copen")
+    local file_type = vim.bo.filetype
+    --- this will search for test files containing the name of the current file
+    if file_type == "scala" then
+        scala_test_results_to_qf()
+    elseif file_type == "python" then
+        local last_test_project = lines_from("testlastproject")[1][1]
+        vim.cmd("silent !cat testsfailedall | grep 'FAILED ' > testsfailed")
+        local qf = get_failed_test_summary('testsfailed', last_test_project)
+        if next(qf) then
+            -- vim.fn.setqflist(qf, 'r')
+            vim.fn.setqflist({}, 'r', {title="Test failures ❌ ", items=qf})
+            vim.cmd("copen")
+        end
     end
 end
 
