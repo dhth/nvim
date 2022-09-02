@@ -4,7 +4,7 @@ nnoremap <buffer> Í a<space>=><space>
 inoremap <buffer> Å <space><-<space>
 nnoremap <buffer> Å a<space><-<space>
 
-nnoremap <silent> <buffer> <leader>cm :VimuxRunCommand("compile")<CR>
+" nnoremap <silent> <buffer> <leader>cm :VimuxRunCommand("compile")<CR>
 
 set colorcolumn=0
 

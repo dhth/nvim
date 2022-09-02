@@ -344,6 +344,7 @@ function M.search_related_files()
             "ApiSpec",
             "Endpoints",
             "Spec",
+            "",
         }
         local file_kinds_regex = "(" .. table.concat(file_kinds, "|") .. ")"
         local kind_matched = false

@@ -140,3 +140,5 @@ nvim_lsp.sumneko_lua.setup(luadev)
 -- require'lspconfig'.metals.setup{
 --     on_attach = on_attach,
 -- }
+
+-- vim.lsp.set_log_level("debug")

@@ -22,6 +22,12 @@ if exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
+"SECTIONBACKGROUNDSTART
+
+set background=dark
+
+"SECTIONBACKGROUNDEND
+
 source $HOME/.config/nvim/themes/gruvbox.vim
 " source $HOME/.config/nvim/themes/neodark.vim
 

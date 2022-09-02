@@ -150,3 +150,19 @@ REMAP(
     '<cmd>copen<CR>',
     opts
 )
+
+--- git helpers
+REMAP(
+    'n',
+    '<Leader>gh',
+    '<cmd>lua require("dhth.git_helpers").git_commands()<CR>',
+    opts
+)
+
+--- code helpers
+REMAP(
+    'n',
+    '<Leader>cm',
+    '<cmd>lua require("dhth.code_helpers").show_commands()<CR>',
+    opts
+)

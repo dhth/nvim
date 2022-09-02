@@ -1,5 +1,3 @@
-set textwidth=0
-
 function! s:PyHelperCommandToRun(command)
     if a:command ==? "__init__"
         let l:new_file = expand('%:p:h').'/__init__.py'

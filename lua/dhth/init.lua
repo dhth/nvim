@@ -38,6 +38,8 @@ require('Comment').setup()
 
 
 require "dhth.wiki_helpers"
+require "dhth.code_helpers"
+require "dhth.git_helpers"
 require "dhth.mappings"
 require "dhth.test_helpers.mappings"
 
