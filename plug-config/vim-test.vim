@@ -36,6 +36,10 @@ function! MetaflowDockerTransform(cmd)
                             \"docker_compose_file": "docker-compose-test.yml",
                             \"service_name": "img-anon-api-test",
                             \},
+                        \"webapptests": {
+                            \"docker_compose_file": "docker-compose.yml",
+                            \"service_name": "webapptests-dev",
+                            \},
                             \}
         let l:project = split(split(a:cmd, " ")[-1], "/tests")[0]
 

@@ -14,6 +14,8 @@ local function create_telescope_search(opts)
             { "runMain" },
             { "compile" },
             { "test" },
+            { "compile;test" },
+            { "test:compile" },
             { "reload;fbrdCompliance" },
             { "reload;fbrdCompliance;compile;test" },
             { "fbrdCompliance;compile;test" },
@@ -104,6 +106,8 @@ local function create_telescope_search(opts)
     }):find()
 end
 
+
+
 function M.show_commands()
     local opts = {
         layout_config = {
@@ -112,6 +116,44 @@ function M.show_commands()
         }
     }
     create_telescope_search(opts)
+end
+
+function M.add_todo_comment()
+    local opts = {
+        layout_config = {
+            height = .6,
+            width = .4,
+        }
+    }
+    local config = {
+        { "ques", "QUES" },
+        { "fixit", "FIXIT" },
+    }
+
+    pickers.new(opts, {
+        prompt_title = "~ todo ~",
+        results_title = "type",
+        finder = finders.new_table {
+            results = config,
+            entry_maker = function(entry)
+                return {
+                    value = entry,
+                    display = entry[1],
+                    ordinal = entry[1],
+                }
+            end
+        },
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr, _)
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                vim.api.nvim_command("normal O" .. selection.value[2] .. ":gccj")
+            end)
+            return true
+        end,
+
+    }):find()
 end
 
 return M

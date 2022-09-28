@@ -166,3 +166,19 @@ REMAP(
     '<cmd>lua require("dhth.code_helpers").show_commands()<CR>',
     opts
 )
+
+--- add todo comment
+REMAP(
+    'n',
+    '<Leader>at',
+    '<cmd>lua require("dhth.code_helpers").add_todo_comment()<CR>',
+    opts
+)
+
+--- git push
+REMAP(
+    'n',
+    '<Leader>gp',
+    '<cmd>lua require("dhth.git_helpers").git_push()<CR>',
+    opts
+)

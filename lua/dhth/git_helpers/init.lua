@@ -9,14 +9,16 @@ local M = {}
 local function create_telescope_search(opts)
     -- third column is 0 when task is supposed to be done in the background, else 1
     local config = {
-        {"pull", "Git pull", "0", "pulled!"},
-        {"fetch", "Git fetch", "0", "fetched!"},
-        {"diff", "DiffviewOpen", "1", ""},
-        {"diff cached", "DiffviewOpen --cached", "1", ""},
-        {"checkout master", "Git checkout master", "0", "checked out master!"},
-        {"checkout master and pull", "Git checkout master | Git pull", "0", "checked out master and pulled!"},
-        {"rebase o/master", "Git rebase origin/master", "0", "rebased!"},
-        }
+        { "pull", "Git pull", "0", "pulled!" },
+        { "fetch", "Git fetch", "0", "fetched!" },
+        { "diff", "DiffviewOpen", "1", "" },
+        { "diff cached", "DiffviewOpen --cached", "1", "" },
+        { "checkout master", "Git checkout master", "0", "checked out master!" },
+        { "checkout master and pull", "Git checkout master | Git pull", "0", "checked out master and pulled!" },
+        { "rebase o/master", "Git rebase origin/master", "0", "rebased!" },
+        { "stash push, rebase o/master and stash pop", "Git stash push | Git rebase origin/master | Git stash pop", "0",
+            "rebased!" },
+    }
     pickers.new(opts, {
         prompt_title = "git",
         results_title = "commands",
@@ -47,7 +49,6 @@ local function create_telescope_search(opts)
     }):find()
 end
 
-
 function M.git_commands()
     local opts = {
         prompt_title = "~ git ~",
@@ -59,5 +60,18 @@ function M.git_commands()
     create_telescope_search(opts)
 end
 
+function M.git_push()
+    vim.fn.inputsave()
+    local confirmation = vim.fn.input("push it? ")
+    vim.fn.inputrestore()
+
+    if (confirmation == "" or confirmation == "y")
+    then
+        print("pushing...")
+        vim.cmd("Git push")
+    else
+        print(" cancelled")
+    end
+end
 
 return M

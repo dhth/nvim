@@ -47,3 +47,10 @@ require "dhth.test_helpers.mappings"
 -- vim.diagnostic.config({
 --   virtual_text = false,
 -- })
+
+require 'marks'.setup {
+    mappings = {
+        next = "]v",
+        previous = "[v",
+    }
+}
