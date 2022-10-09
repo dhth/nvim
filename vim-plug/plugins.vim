@@ -20,8 +20,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
 " Plug 'KeitaNakamura/neodark.vim'
-Plug 'folke/lsp-colors.nvim'
-Plug 'rebelot/kanagawa.nvim'
+" Plug 'rebelot/kanagawa.nvim'
 " Plug 'projekt0n/github-nvim-theme'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'cormacrelf/vim-colors-github'
@@ -32,16 +31,16 @@ Plug 'rebelot/kanagawa.nvim'
 " Plug 'arzg/vim-colors-xcode'
 " Plug 'wadackel/vim-dogrun'
 " Plug 'dracula/vim'
+" Plug 'folke/twilight.nvim'
 
-" Plug 'jremmen/vim-ripgrep'
-Plug 'tpope/vim-fugitive'
-" Plug 'rbong/vim-flog'
-
-" Plug 'tpope/vim-rhubarb'
+""" Search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'stsewd/fzf-checkout.vim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 """ LSP
 Plug 'neovim/nvim-lspconfig'
@@ -49,8 +48,6 @@ Plug 'scalameta/nvim-metals'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'folke/lua-dev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
-" Plug 'simrat39/symbols-outline.nvim', { 'on': 'SymbolsOutline' }
-" Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 """ Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -73,7 +70,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'numToStr/Comment.nvim'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " Plug 'folke/zen-mode.nvim'
-" Plug 'folke/twilight.nvim'
 " Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-unimpaired'
 " Plug 'jiangmiao/auto-pairs'
@@ -81,15 +77,23 @@ Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " Plug 'junegunn/gv.vim'
+
+""" Moving around
 " Plug 'justinmk/vim-sneak'
 " Plug 'phaazon/hop.nvim'
-Plug 'ggandor/lightspeed.nvim'
+" Plug 'ggandor/lightspeed.nvim'
+Plug 'ggandor/leap.nvim'
+
+""" Git
 " Plug 'mhinz/vim-signify'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'junegunn/vim-easy-align'                               " easy aligning around a character
+Plug 'tpope/vim-fugitive'
+
+""" Markdown
 " Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 Plug 'ferrine/md-img-paste.vim', { 'for': 'markdown' }
+
 Plug 'vim-scripts/ReplaceWithRegister'
 " Plug 'junkblocker/git-time-lapse', { 'on': 'GitTimeLapse' }  " see commit history for a file
 Plug 'benmills/vimux'                                        " send commands to tmux
@@ -104,15 +108,10 @@ Plug 'farmergreg/vim-lastplace'                              " remembers last ed
 Plug 'szw/vim-maximizer'
 " Plug 'sheerun/vim-polyglot'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'junegunn/vim-easy-align'                               " easy aligning around a character
 " Plug 'puremourning/vimspector'
 Plug 'machakann/vim-highlightedyank'
 Plug 'sindrets/diffview.nvim'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
-" Plug 'fannheyward/telescope-coc.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'

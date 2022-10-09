@@ -54,3 +54,5 @@ require 'marks'.setup {
         previous = "[v",
     }
 }
+
+require('leap').set_default_keymaps()
