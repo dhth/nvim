@@ -83,7 +83,11 @@ local sumneko_root_path = '/Users/' .. user ..'/soft/lua-language-server'
 -- local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 local sumneko_binary = sumneko_root_path.."/bin/".."/lua-language-server"
 
-local luadev = require("lua-dev").setup({
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
+local luadev = require("neodev").setup({
   -- add any options here, or leave empty to use the default settings
   lspconfig = {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};

@@ -46,7 +46,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'scalameta/nvim-metals'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'folke/lua-dev.nvim'
+Plug 'folke/neodev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
 """ Completion
