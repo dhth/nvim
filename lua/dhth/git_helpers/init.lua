@@ -18,6 +18,8 @@ local function create_telescope_search(opts)
         { "rebase o/master", "Git rebase origin/master", "0", "rebased!" },
         { "stash push, rebase o/master and stash pop", "Git stash push | Git rebase origin/master | Git stash pop", "0",
             "rebased!" },
+        { "stash push, checkout master, pull, and stash pop", "Git stash push | Git checkout master | Git pull | Git stash pop", "0",
+            "checked out master!" },
     }
     pickers.new(opts, {
         prompt_title = "git",
@@ -62,12 +64,14 @@ end
 
 function M.git_push()
     vim.fn.inputsave()
-    local confirmation = vim.fn.input("push it? ")
+    local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+    local remote = vim.fn.system("git remote get-url --push origin")
+    local confirmation = vim.fn.input("push " .. branch .. " to " .. remote .. " ? ")
     vim.fn.inputrestore()
 
-    if (confirmation == "" or confirmation == "y")
+    if (confirmation == "y")
     then
-        print("pushing...")
+        print(" pushing...")
         vim.cmd("Git push")
     else
         print(" cancelled")

@@ -45,12 +45,12 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 """ LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'scalameta/nvim-metals'
-Plug 'glepnir/lspsaga.nvim'
+Plug 'glepnir/lspsaga.nvim', { 'commit': '0b3ee6a4fb2cb9c80c05fe7c191ea116bdda34f7' }
 Plug 'folke/neodev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
 """ Completion
-Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lsp', { 'commit': 'affe808a5c56b71630f17aa7c38e15c59fd648a8' }
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'

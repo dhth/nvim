@@ -24,7 +24,7 @@ vim.api.nvim_set_keymap(
 -- test results for current file
 vim.api.nvim_set_keymap(
     'n',
-    '<Leader>stc',
+    '<Leader>st',
     [[<Cmd>:lua require("dhth.test_helpers").search_tests_for_current_file()<CR>]],
     {
         noremap = true,

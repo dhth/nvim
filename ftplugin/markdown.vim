@@ -1,5 +1,6 @@
 setlocal colorcolumn=80
-nnoremap <buffer> <leader>ml f]gf
+" nnoremap <buffer> <leader>ml f]gf
+nnoremap <buffer> <leader>ml :call wiki_foam#AddLinkToInternalUri()<CR>
 " nnoremap <buffer> <ENTER> 0f]<C-W>gf
 nnoremap <buffer> <silent> <ENTER> :call wiki_foam#EnterKeyActions(getline('.'))<cr>
 vnoremap <buffer> <silent> <ENTER> :lua require("dhth.wiki_helpers").toggle_visual_checklist()<CR>

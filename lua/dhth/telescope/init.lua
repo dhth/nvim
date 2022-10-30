@@ -310,6 +310,16 @@ local function create_file_mapping(prompt_bufnr, map)
   return true
 end
 
+local function show_commit_mappings(prompt_bufnr, map)
+  actions.select_default:replace(function()
+    actions.close(prompt_bufnr)
+    local selection = action_state.get_selected_entry()
+    local commit_hash = selection.value
+    vim.cmd("DiffviewOpen " .. commit_hash .. "~1.." .. commit_hash )
+  end)
+  return true
+end
+
 
 -- creates a new file alongside a file chosen from find_files
 M.create_new_file_at_location = function()
@@ -319,6 +329,16 @@ M.create_new_file_at_location = function()
         attach_mappings = create_file_mapping
   }
   require('telescope.builtin').find_files(opts)
+end
+
+-- diff view open commit
+M.show_commit = function()
+  local opts = {
+        prompt_title = "~ show commit ~",
+        previewer = false,
+        attach_mappings = show_commit_mappings
+  }
+  require('telescope.builtin').git_commits(opts)
 end
 
 

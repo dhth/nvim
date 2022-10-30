@@ -340,6 +340,15 @@ function! wiki_foam#CreateLinkToAnotherFile()
 endfunction
 
 
+function! wiki_foam#AddLinkToInternalUri()
+    " makes the current word a link to a already existing link in the document
+    call inputsave()
+    let link_number = input('link number? ')
+    call inputrestore()
+    execute "normal! bi[ea][" . link_number . "]"
+endfunction
+
+
 function! wiki_foam#GetBacklinks()
     let l:file_name = split(expand("%:t"), ".md")[0]
     let l:search_str = '\[\['.l:file_name.'\]\]'

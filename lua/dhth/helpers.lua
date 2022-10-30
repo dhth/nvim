@@ -7,4 +7,16 @@ function M.new_scratch_buffer()
     vim.cmd("setlocal noswapfile")
 end
 
+function M.quit_vim()
+    vim.fn.inputsave()
+    local confirmation = vim.fn.input("restart? ")
+
+    if (confirmation == "y")
+    then
+        vim.cmd("quitall")
+    else
+        print(" cancelled")
+    end
+end
+
 return M

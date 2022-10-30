@@ -146,3 +146,5 @@ nvim_lsp.sumneko_lua.setup(luadev)
 -- }
 
 -- vim.lsp.set_log_level("debug")
+
+-- nvim_lsp.tsserver.setup{}

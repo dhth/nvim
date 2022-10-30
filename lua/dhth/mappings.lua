@@ -167,6 +167,14 @@ REMAP(
     opts
 )
 
+--- code helpers
+REMAP(
+    'n',
+    't<c-j>',
+    '<cmd>lua require("dhth.code_helpers").show_commands()<CR>',
+    opts
+)
+
 --- add todo comment
 REMAP(
     'n',
@@ -181,4 +189,21 @@ REMAP(
     '<Leader>gp',
     '<cmd>lua require("dhth.git_helpers").git_push()<CR>',
     opts
+)
+
+
+--- quit vim
+REMAP(
+    'n',
+    '<Leader>vq',
+    '<cmd>lua require("dhth.helpers").quit_vim()<CR>',
+    opts
+)
+
+--- toggle comment inner paragraph
+REMAP(
+    'n',
+    'e<c-e>',
+    'gcip',
+    { noremap=false, silent=true }
 )
