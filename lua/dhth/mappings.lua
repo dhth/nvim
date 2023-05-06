@@ -92,15 +92,15 @@ REMAP(
 REMAP(
     'v',
     'ml',
-    ":g/./norm!I - <cr>",
+    ":g/./norm!I- <cr>",
     opts
 )
 
---- Convert lines to markdown bullet list
+--- Convert lines to markdown checklist
 REMAP(
     'v',
-    'mb',
-    ":g/./norm!I - [ ] <cr>",
+    'cl',
+    ":g/./norm!I- [ ] <cr>",
     opts
 )
 
@@ -205,5 +205,13 @@ REMAP(
     'n',
     'e<c-e>',
     'gcip',
+    { noremap=false, silent=true }
+)
+
+--- diffview open
+REMAP(
+    'n',
+    '<Leader>do',
+    ':DiffviewOpen origin/master..origin/',
     { noremap=false, silent=true }
 )

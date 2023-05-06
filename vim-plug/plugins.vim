@@ -130,6 +130,8 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'romgrk/nvim-treesitter-context'
 " Plug 'nvim-treesitter/playground'
 
+" Plug 'nvim-neorg/neorg'
+
 " Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'pwntester/octo.nvim'
@@ -142,6 +144,7 @@ Plug 'azabiong/vim-highlighter'
 " Plug 'untitled-ai/jupyter_ascending.vim'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'chentoast/marks.nvim'
+Plug 'purescript-contrib/purescript-vim'
 call plug#end()
 
 let g:pydocstring_formatter = 'sphinx'

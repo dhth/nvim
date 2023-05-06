@@ -85,3 +85,5 @@ let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascri
 
 " enables list items to be used with gq
 autocmd FileType markdown set formatoptions-=q
+
+autocmd BufRead,BufNewFile *.purs set filetype=purescript

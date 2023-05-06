@@ -5,8 +5,9 @@ nnoremap <buffer> <leader>ml :call wiki_foam#AddLinkToInternalUri()<CR>
 nnoremap <buffer> <silent> <ENTER> :call wiki_foam#EnterKeyActions(getline('.'))<cr>
 vnoremap <buffer> <silent> <ENTER> :lua require("dhth.wiki_helpers").toggle_visual_checklist()<CR>
 vnoremap <buffer> <silent> aq :lua require("dhth.wiki_helpers").quotify_visual()<CR>
+nnoremap <buffer> <silent> <leader>st :lua require("dhth.wiki_helpers").search_for_tags()<CR>
 
-nnoremap <buffer> <silent> <leader><ENTER> :call wiki#GoToFileInNewTab(getline('.'))<cr>
+nnoremap <buffer> <silent> <leader><ENTER> :call wiki_foam#GoToFileInNewTab(getline('.'))<cr>
 " augroup mdtoc
 "     autocmd BufRead * Toc
 " augroup END
@@ -58,7 +59,7 @@ nnoremap <silent> <leader>ow :call wiki_foam#OpenCurrentWikiPageInBrowser()<cr>
 " call CocAction('toggleSource', 'around')
 " call CocAction('toggleSource', 'buffer')
 
-nnoremap <buffer> <silent> <leader><enter> :call ft#markdown#GlowViaVimux()<cr>
+" nnoremap <buffer> <silent> <leader><enter> :call ft#markdown#GlowViaVimux()<cr>
 
 nnoremap <buffer> <leader>mr :call ft#markdown#ToggleMarkdownRender()<cr>
 

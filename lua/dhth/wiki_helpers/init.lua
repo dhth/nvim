@@ -1,3 +1,6 @@
+local actions = require "telescope.actions"
+local action_state = require "telescope.actions.state"
+
 local M = {}
 
 function M.toggle_line_checklist()
@@ -44,6 +47,17 @@ function M.quotify_visual()
         table.insert(changed_lines, "> " .. line)
     end
     vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, true, changed_lines)
+end
+
+function M.search_for_tags()
+    local tag = '#currently-active'
+    local opts = {
+        search = tag,
+        prompt_title = "~ " .. tag .. " ~",
+        previewer = false,
+    }
+
+    require("telescope.builtin").grep_string(opts)
 end
 
 return M

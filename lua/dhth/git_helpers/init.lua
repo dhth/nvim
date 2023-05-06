@@ -78,4 +78,28 @@ function M.git_push()
     end
 end
 
+function M.see_diff()
+    local opts = {
+        prompt_title = "~ see diff ~",
+        previewer = false,
+    }
+    -- local branch = require('telescope.builtin').git_branches(opts)
+    -- print("here" .. branch)
+    pickers.new(opts, {
+        prompt_title = "colors",
+        finder = finders.new_oneshot_job({ "git",  "branch", "-a" }, opts ),
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr, _)
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                P(selection)
+            end)
+            return true
+        end,
+
+    }):find()
+
+end
+
 return M

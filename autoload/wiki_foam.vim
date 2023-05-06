@@ -159,7 +159,13 @@ function! wiki_foam#EnterKeyActions(line_str)
 endfunction
 
 function! wiki_foam#GoToFileInNewTab(line_str)
-    execute "normal! 0f(\<C-W>gf"
+    " execute "normal! 0f(\<C-W>gf"
+    let l:page_link_str = '[['
+    if stridx(a:line_str, l:page_link_str) > -1
+        let l:file_name = trim(matchstr(getline('.'), '.*\[\[\zs.*\ze\]\]'))
+        let l:existing_file = system("fd --glob -t f ".l:file_name.".md")
+        execute "tabnew ".l:existing_file
+    endif
 endfunction
 
 function! wiki_foam#CreateBookTrackerRow()

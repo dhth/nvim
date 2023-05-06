@@ -137,6 +137,11 @@ function! helpers#CreateFile()
 endfunction
 
 
+function! helpers#AddDate()
+    let l:date = system("date '+%Y-%m-%d' | tr -d '\n'")
+    execute 'normal! i' . l:date
+endfunction
+
 function! helpers#LocalNotes()
     " let l:project_root = trim(system("git rev-parse --show-toplevel"))
     " echo l:project_root."/local_wiki.md"

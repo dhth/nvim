@@ -22,6 +22,10 @@ Researching
 Experimenting With
 ---
 
+To build
+---
+
+- A quick helper that converts a md list to a checklist
 
 Working on
 ---

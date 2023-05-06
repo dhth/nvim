@@ -56,3 +56,10 @@ require 'marks'.setup {
 }
 
 require('leap').set_default_keymaps()
+
+
+-- require('neorg').setup {
+--     load = {
+--         ["core.defaults"] = {}
+--     }
+-- }

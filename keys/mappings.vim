@@ -41,7 +41,8 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 
 noremap <leader>fn :echo @%<CR>
-noremap <silent> <leader>cf :!echo -n % \| pbcopy<CR>
+" noremap <silent> <leader>cf :!echo -n % \| pbcopy<CR>
+noremap <silent> <leader>cf :let @+=join([expand('%'),  line(".")], ':')<CR>
 
 "shortcut to edit nvim config
 noremap <leader>ev :vsplit $MYVIMRC<CR>
@@ -142,6 +143,7 @@ nnoremap <leader>dc :call helpers#DiffWithCommit()<cr>
 " nnoremap <leader>gh :call just_helpers#GitHelpers()<cr>
 nnoremap <silent><leader>sp :call helpers#SearchProjects()<cr>
 nnoremap <silent><leader>sq :call helpers#SearchToQuickfix()<cr>
+nnoremap <silent><leader>ad :call helpers#AddDate()<cr>
 
 " nnoremap <silent> <leader>tt :TagbarToggle<CR>
 

@@ -83,19 +83,19 @@ local sumneko_root_path = '/Users/' .. user ..'/soft/lua-language-server'
 -- local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 local sumneko_binary = sumneko_root_path.."/bin/".."/lua-language-server"
 
-require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
-})
+-- require("neodev").setup({
+--   -- add any options here, or leave empty to use the default settings
+-- })
 
-local luadev = require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
-  lspconfig = {
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-    on_attach = on_attach,
-  },
-})
+-- local luadev = require("neodev").setup({
+--   -- add any options here, or leave empty to use the default settings
+--   lspconfig = {
+--     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+--     on_attach = on_attach,
+--   },
+-- })
 
-nvim_lsp.sumneko_lua.setup(luadev)
+-- nvim_lsp.sumneko_lua.setup(luadev)
 
 
 -- -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
@@ -147,4 +147,11 @@ nvim_lsp.sumneko_lua.setup(luadev)
 
 -- vim.lsp.set_log_level("debug")
 
+-- TYPESCRIPT
 -- nvim_lsp.tsserver.setup{}
+
+-- PURESCRIPT
+nvim_lsp.purescriptls.setup{}
+
+-- C
+require'lspconfig'.ccls.setup{}
