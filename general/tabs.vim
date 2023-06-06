@@ -2,6 +2,7 @@
 nnoremap <C-t> :tabnew<CR>
 " nnoremap <leader>te :tabedit<space>
 nnoremap <silent> <leader>mc :tabclose<CR>
+nnoremap <Bs><Bs> :tabclose<CR>
 
 "don't show tab line
 "set showtabline=1

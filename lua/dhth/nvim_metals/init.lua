@@ -31,7 +31,7 @@ map('n', '<space>e', '<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>')
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 map('n', '<space>qf', '<cmd>lua vim.diagnostic.set_loclist()<CR>')
-map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+map('n', '<space>f', '<cmd>lua vim.lsp.buf.format({async=true})<CR>')
 map("n", "<leader>aa", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
 
 -- map("n", "<leader>ff", "<cmd>lua vim.lsp.buf.definition()<CR>")

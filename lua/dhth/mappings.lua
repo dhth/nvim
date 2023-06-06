@@ -105,10 +105,11 @@ REMAP(
 )
 
 --- Go to tab at index
-for i=1,9 do
+-- used for harpoon instead
+for i=1,8 do
     vim.api.nvim_set_keymap(
         'n',
-        '<Leader>' .. i,
+        i .. i,
         i .. "gt",
         {
             noremap = true,
@@ -213,5 +214,37 @@ REMAP(
     'n',
     '<Leader>do',
     ':DiffviewOpen origin/master..origin/',
+    { noremap=false, silent=true }
+)
+
+-- move tab to the right
+REMAP(
+    'n',
+    '<Right><Right>',
+    ':tabm +1<CR>',
+    { noremap=false, silent=true }
+)
+
+-- move tab to the left
+REMAP(
+    'n',
+    '<Left><Left>',
+    ':tabm -1<CR>',
+    { noremap=false, silent=true }
+)
+
+-- move tab to the left
+REMAP(
+    'n',
+    '---',
+    ':tabclose<CR>',
+    { noremap=false, silent=true }
+)
+
+-- go to last tab
+REMAP(
+    'n',
+    '99',
+    ':tablast<CR>',
     { noremap=false, silent=true }
 )

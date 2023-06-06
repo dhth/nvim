@@ -1,3 +1,5 @@
+local lga_actions = require("telescope-live-grep-args.actions")
+
 require('telescope').setup{
   defaults = {
     vimgrep_arguments = {
@@ -46,10 +48,24 @@ require('telescope').setup{
       override_generic_sorter = true,  -- override the generic sorter
       override_file_sorter = true,     -- override the file sorter
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+    },
+    live_grep_args = {
+      auto_quoting = false, -- enable/disable auto-quoting
+      -- define mappings, e.g.
+      mappings = { -- extend mappings
+        i = {
+          ["<C-g>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+        },
+      },
+      -- ... also accepts theme settings, for example:
+      -- theme = "dropdown", -- use dropdown theme
+      -- theme = { }, -- use own theme spec
+      -- layout_config = { mirror=true }, -- mirror preview pane
     }
   }
 }
 
 require("telescope").load_extension "file_browser"
+require("telescope").load_extension("live_grep_args")
 -- require('telescope').load_extension('coc')
 -- require('telescope').load_extension('fzf')

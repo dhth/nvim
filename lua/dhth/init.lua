@@ -1,6 +1,7 @@
 require "dhth.general"
 require "dhth.globals"
 require "dhth.helpers"
+require "dhth.settings"
 
 -- treesitter
 require "dhth.treesitter"
@@ -20,7 +21,7 @@ require "dhth.nvim_metals"
 require "dhth.telescope.setup"
 require "dhth.trouble"
 require "dhth.nvim_autopairs"
--- require "dhth.harpoon"
+require "dhth.harpoon"
 
 -- git
 require "dhth.gitsigns"
@@ -49,9 +50,20 @@ require "dhth.test_helpers.mappings"
 -- })
 
 require 'marks'.setup {
+  bookmark_0 = {
+    sign = "0",
+    virt_text = "0",
+    annotate = false,
+  },
+  bookmark_1 = {
+    sign = "1",
+    virt_text = "1",
+    annotate = false,
+  },
     mappings = {
         next = "]v",
         previous = "[v",
+        set_bookmark0 = "m0",
     }
 }
 

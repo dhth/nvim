@@ -45,9 +45,13 @@ function! s:build_quickfix_list(lines)
   cc
 endfunction
 
+" $tabe opens up a file in the last tab
+" https://learnbyexample.github.io/tips/vim-tip-21/
+
 let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tabedit',
+  \ 'ctrl-t': '$tabe',
+  \ 'ctrl-f': '0tabe',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 

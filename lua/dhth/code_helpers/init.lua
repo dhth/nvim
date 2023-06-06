@@ -12,6 +12,7 @@ local function create_telescope_search(opts)
     if file_type == "scala" then
         config = {
             { "runMain" },
+            { "docs/makeSite" },
             { "compile" },
             { "test" },
             { "compile;test" },

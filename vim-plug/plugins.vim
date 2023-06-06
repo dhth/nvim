@@ -41,6 +41,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 
 """ LSP
 Plug 'neovim/nvim-lspconfig'
@@ -90,7 +91,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 
 """ Markdown
-" Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 Plug 'ferrine/md-img-paste.vim', { 'for': 'markdown' }
 
@@ -118,7 +119,7 @@ Plug 'folke/lsp-colors.nvim'
 Plug 'mcchrish/nnn.vim'
 Plug 'kevinhwang91/nvim-bqf'
 " Plug 'luukvbaal/nnn.nvim'
-" Plug 'ThePrimeagen/harpoon'
+Plug 'ThePrimeagen/harpoon'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter'

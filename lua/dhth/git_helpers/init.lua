@@ -12,6 +12,8 @@ local function create_telescope_search(opts)
         { "pull", "Git pull", "0", "pulled!" },
         { "fetch", "Git fetch", "0", "fetched!" },
         { "diff", "DiffviewOpen", "1", "" },
+        { "diff window", M.show_diff_in_window, "0", "" },
+        { "diff branch", M.show_diff_for_branch, "0", "" },
         { "diff cached", "DiffviewOpen --cached", "1", "" },
         { "checkout master", "Git checkout master", "0", "checked out master!" },
         { "checkout master and pull", "Git checkout master | Git pull", "0", "checked out master and pulled!" },
@@ -39,11 +41,55 @@ local function create_telescope_search(opts)
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
                 local selection = action_state.get_selected_entry()
-                vim.cmd(selection.value[2])
-                if selection.value[3] == "0" then
-                    print(selection.value[4])
+                if type(selection.value[2]) == "string" then
+                    vim.cmd(selection.value[2])
+                    if selection.value[3] == "0" then
+                        print(selection.value[4])
+                    end
+                else
+                    selection.value[2]()
                 end
 
+            end)
+            return true
+        end,
+
+    }):find()
+end
+
+
+function M.show_diff_in_window()
+    -- third column is 0 when task is supposed to be done in the background, else 1
+    local opts = {
+        layout_config = {
+            height = .3,
+            width = .2,
+        }
+    }
+    local config = {
+        "json",
+        "yaml",
+    }
+    pickers.new(opts, {
+        prompt_title = "file type?",
+        results_title = "options",
+        finder = finders.new_table {
+            results = config,
+            entry_maker = function(entry)
+                return {
+                    value = entry,
+                    display = entry,
+                    ordinal = entry,
+                }
+            end
+        },
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr, _)
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                vim.cmd("set filetype=" .. selection.value)
+                vim.cmd("windo diffthis")
             end)
             return true
         end,
@@ -60,6 +106,36 @@ function M.git_commands()
         }
     }
     create_telescope_search(opts)
+end
+
+function M.show_diff_for_branch()
+    vim.fn.inputsave()
+    local base_branch = vim.fn.input("base branch? ")
+    vim.fn.inputrestore()
+    if (base_branch == "q")
+        then
+            print(" quitting..")
+            return
+        end
+    vim.fn.inputsave()
+    local target_branch = vim.fn.input("target branch? ")
+    vim.fn.inputrestore()
+    if (target_branch == "q")
+        then
+            print(" quitting..")
+            return
+        end
+    local cmd = "DiffviewOpen origin/" .. base_branch .. "..origin/" .. target_branch
+    vim.fn.inputsave()
+    local confirmation = vim.fn.input(cmd .. " ? [y/n] ")
+    vim.fn.inputrestore()
+    if (confirmation ~= "y")
+    then
+        return
+    end
+    print(" fetching..")
+    vim.cmd[[Git fetch]]
+    vim.cmd(cmd)
 end
 
 function M.git_push()

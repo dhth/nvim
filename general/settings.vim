@@ -4,6 +4,7 @@ syntax enable
 set nocompatible
 filetype plugin on
 set exrc   "project specific vimrcs
+set secure
 set guicursor=
 set splitbelow
 set splitright

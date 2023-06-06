@@ -40,11 +40,11 @@ function M.find_files()
     local opts = {
         prompt_title = "~ files ~",
         previewer = false,
-        find_command = {
-            "fd",
-            "-ipH",
-            "-t=f",
-        },
+        -- find_command = {
+        --     "fd",
+        --     "-ipH",
+        --     "-t=f",
+        -- },
     }
 
     require("telescope.builtin").find_files(opts)
