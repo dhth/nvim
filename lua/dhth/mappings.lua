@@ -43,7 +43,7 @@ REMAP(
 REMAP(
     'n',
     '<Leader>pg',
-    ':tabnew ~/.config/nvim/vim-plug/plugins.vim<CR>',
+    ':new ~/.config/nvim/vim-plug/plugins.vim<CR>',
     opts
 )
 
@@ -106,17 +106,17 @@ REMAP(
 
 --- Go to tab at index
 -- used for harpoon instead
-for i=1,8 do
-    vim.api.nvim_set_keymap(
-        'n',
-        i .. i,
-        i .. "gt",
-        {
-            noremap = true,
-            silent = true,
-        }
-    )
-end
+-- for i=1,8 do
+--     vim.api.nvim_set_keymap(
+--         'n',
+--         i .. i,
+--         i .. "gt",
+--         {
+--             noremap = true,
+--             silent = true,
+--         }
+--     )
+-- end
 
 
 --- LSP code formatting
@@ -217,21 +217,21 @@ REMAP(
     { noremap=false, silent=true }
 )
 
--- move tab to the right
-REMAP(
-    'n',
-    '<Right><Right>',
-    ':tabm +1<CR>',
-    { noremap=false, silent=true }
-)
-
--- move tab to the left
-REMAP(
-    'n',
-    '<Left><Left>',
-    ':tabm -1<CR>',
-    { noremap=false, silent=true }
-)
+-- -- move tab to the right
+-- REMAP(
+--     'n',
+--     '<Right><Right>',
+--     ':tabm +1<CR>',
+--     { noremap=false, silent=true }
+-- )
+--
+-- -- move tab to the left
+-- REMAP(
+--     'n',
+--     '<Left><Left>',
+--     ':tabm -1<CR>',
+--     { noremap=false, silent=true }
+-- )
 
 -- move tab to the left
 REMAP(
@@ -248,3 +248,11 @@ REMAP(
     ':tablast<CR>',
     { noremap=false, silent=true }
 )
+
+-- nvim-treehopper
+-- REMAP(
+--     'o',
+--     's',
+--     ':<C-U>lua require(\'tsht\').nodes()<CR>',
+--     opts
+-- )

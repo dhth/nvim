@@ -2,7 +2,7 @@ function! s:HelperCommandToRun(command)
     " if a:command ==? "create file"
     "     call fzf#run(fzf#wrap({'source': 'fd -H -t d', 'sink': function('s:CreateFileHelper')}))
     if a:command ==? "e .zshrc"
-        tabnew $HOME/.zshrc
+        new $HOME/.zshrc
     elseif match(a:command, '^scala\:*', 0) == 0
         if match(a:command, '^scala\:runMain', 0) == 0
             VimuxRunCommand("runMain " . substitute(split(expand('%:r'), "src/main/scala/")[-1], '/', '.', 'g'))
@@ -10,27 +10,27 @@ function! s:HelperCommandToRun(command)
             VimuxRunCommand(split(a:command, "scala:")[-1])
         endif
     elseif a:command ==? "e helpers"
-        tabnew $NVIM_DIR/autoload/helpers.vim
+        new $NVIM_DIR/autoload/helpers.vim
     elseif a:command ==? "e journal"
-        tabnew $NVIM_DIR/journal.md
+        new $NVIM_DIR/journal.md
     elseif a:command ==? "e pomodoro"
-        tabnew $POMODORO_TASK_LIST_FILE_LOC
+        new $POMODORO_TASK_LIST_FILE_LOC
     elseif a:command ==? "e karabiner"
-        tabnew $HOME/.config/karabiner.edn
+        new $HOME/.config/karabiner.edn
     elseif a:command ==? "e alacritty"
-        tabnew $HOME/.config/alacritty/alacritty.yml
+        new $HOME/.config/alacritty/alacritty.yml
     elseif a:command ==? "e gitfile"
-        tabnew $HOME/.global.gitfile
+        new $HOME/.global.gitfile
     elseif a:command ==? "e tools"
-        tabnew $ALFRED_DIR/tools/tools.txt
+        new $ALFRED_DIR/tools/tools.txt
     elseif a:command ==? "notes"
-        tabnew local_notes.md
+        new local_notes.md
     elseif a:command ==? "e local commands"
-        tabnew local_commands.txt
+        new local_commands.txt
     elseif a:command ==? "e aws services"
-        tabnew $ALFRED_DIR/aws/aws_services/aws_services.txt
+        new $ALFRED_DIR/aws/aws_services/aws_services.txt
     elseif a:command ==? "e docker commands"
-        tabnew $HOME/docker_commands.txt
+        new $HOME/docker_commands.txt
     elseif a:command ==? "local:8000"
         silent !open 'http://127.0.0.1:8000'
         echon ''
@@ -126,7 +126,7 @@ function! s:CreateFileHelper(command)
     let l:file_name_in = input('Enter file name: ')
     call inputrestore()
     if len(l:file_name_in) > 0
-        execute "tabnew ".a:command."/".l:file_name_in
+        execute "new ".a:command."/".l:file_name_in
         write
     endif
 endfunction
@@ -145,8 +145,8 @@ endfunction
 function! helpers#LocalNotes()
     " let l:project_root = trim(system("git rev-parse --show-toplevel"))
     " echo l:project_root."/local_wiki.md"
-    " execute "tabnew " . l:project_root ."/local_wiki.md"
-    tabnew local_wiki.md
+    " execute "new " . l:project_root ."/local_wiki.md"
+    new local_wiki.md
 endfunction
 
 
@@ -194,7 +194,7 @@ endfunction
 
 
 function! s:LCDToDirHelper(address)
-    tabnew a:address
+    new a:address
     execute "lcd " . a:address
 endfunction
 

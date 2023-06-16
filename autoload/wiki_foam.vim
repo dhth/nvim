@@ -164,7 +164,7 @@ function! wiki_foam#GoToFileInNewTab(line_str)
     if stridx(a:line_str, l:page_link_str) > -1
         let l:file_name = trim(matchstr(getline('.'), '.*\[\[\zs.*\ze\]\]'))
         let l:existing_file = system("fd --glob -t f ".l:file_name.".md")
-        execute "tabnew ".l:existing_file
+        execute "new ".l:existing_file
     endif
 endfunction
 

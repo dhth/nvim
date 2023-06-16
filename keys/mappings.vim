@@ -103,8 +103,8 @@ autocmd FileType qf nnoremap <leader><enter> <c-w>gF
 
 nnoremap <Up> :resize +2<CR>
 nnoremap <Down> :resize -2<CR>
-nnoremap <Left> :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
+" nnoremap <Left> :vertical resize +2<CR>
+" nnoremap <Right> :vertical resize -2<CR>
 
 " nnoremap <C-e> :Vex<CR>
 inoremap <c-l> <C-o>a

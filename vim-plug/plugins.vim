@@ -18,7 +18,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Colorschemes
 " Plug 'gruvbox-community/gruvbox'
-Plug 'lifepillar/vim-gruvbox8'
+" Plug 'lifepillar/vim-gruvbox8'
+Plug 'ellisonleao/gruvbox.nvim'
 " Plug 'KeitaNakamura/neodark.vim'
 " Plug 'rebelot/kanagawa.nvim'
 " Plug 'projekt0n/github-nvim-theme'
@@ -28,6 +29,7 @@ Plug 'lifepillar/vim-gruvbox8'
 " Plug 'sainnhe/sonokai'
 " Plug 'ajmwagar/vim-deus'
 " Plug 'folke/tokyonight.nvim'
+" Plug 'tiagovla/tokyodark.nvim'
 " Plug 'arzg/vim-colors-xcode'
 " Plug 'wadackel/vim-dogrun'
 " Plug 'dracula/vim'
@@ -49,6 +51,7 @@ Plug 'scalameta/nvim-metals'
 Plug 'glepnir/lspsaga.nvim', { 'commit': '0b3ee6a4fb2cb9c80c05fe7c191ea116bdda34f7' }
 Plug 'folke/neodev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'Maan2003/lsp_lines.nvim'
 
 """ Completion
 Plug 'hrsh7th/cmp-nvim-lsp', { 'commit': 'affe808a5c56b71630f17aa7c38e15c59fd648a8' }
@@ -62,10 +65,14 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-vsnip'
 
 """ Tabline, Bufferline
-Plug 'vim-airline/vim-airline'
-" Plug 'nvim-lualine/lualine.nvim'
+" Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
 " Plug 'kdheepak/tabline.nvim'
-" Plug 'romgrk/barbar.nvim'
+Plug 'romgrk/barbar.nvim'
+
+
+""" Sessions
+Plug 'olimorris/persisted.nvim'
 
 " Plug 'tpope/vim-commentary'
 Plug 'numToStr/Comment.nvim'
@@ -81,14 +88,17 @@ Plug 'tpope/vim-repeat'
 
 """ Moving around
 " Plug 'justinmk/vim-sneak'
-" Plug 'phaazon/hop.nvim'
+Plug 'phaazon/hop.nvim'
 " Plug 'ggandor/lightspeed.nvim'
-Plug 'ggandor/leap.nvim'
+" Plug 'ggandor/leap.nvim'
+" Plug 'mfussenegger/nvim-treehopper'
 
 """ Git
 " Plug 'mhinz/vim-signify'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
+
+Plug 'mbbill/undotree'
 
 """ Markdown
 Plug 'godlygeek/tabular'
@@ -130,6 +140,7 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'romgrk/nvim-treesitter-context'
 " Plug 'nvim-treesitter/playground'
+Plug 'HampusHauffman/block.nvim'
 
 " Plug 'nvim-neorg/neorg'
 
@@ -144,8 +155,8 @@ Plug 'azabiong/vim-highlighter'
 " Plug 'tpope/vim-projectionist'
 " Plug 'untitled-ai/jupyter_ascending.vim'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-Plug 'chentoast/marks.nvim'
-Plug 'purescript-contrib/purescript-vim'
+" Plug 'chentoast/marks.nvim'
+" Plug 'purescript-contrib/purescript-vim'
 call plug#end()
 
 let g:pydocstring_formatter = 'sphinx'

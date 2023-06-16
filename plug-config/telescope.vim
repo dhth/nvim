@@ -10,8 +10,8 @@ nnoremap <silent> <leader>vh <cmd>lua require('telescope.builtin').help_tags()<c
 nnoremap <silent> <leader>ll <cmd>lua require("telescope").extensions.live_grep_args.live_grep_args({prompt_title = "~ grep ~"})<CR>
 " nnoremap <silent> <leader>rr <cmd>lua require('telescope.builtin').lsp_references({previewer=true})<cr>
 nnoremap <silent> <leader>ii <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
-nnoremap <silent> <leader>oo <cmd>tab split \| lua require('telescope.builtin').lsp_implementations()<cr>
-nnoremap <silent> <leader>ss :Telescope grep_string search=<c-r><c-w><cr>
+nnoremap <silent> <leader>oo <cmd>split \| lua require('telescope.builtin').lsp_implementations()<cr>
+nnoremap <silent> <leader>ss :Telescope persisted<CR>
 nnoremap <silent> <leader>sm :Telescope lsp_document_symbols<cr>
 nnoremap <silent> <leader>sw :Telescope grep_string search=<c-r><c-w><cr>
 nnoremap <silent> <leader>si :Telescope lsp_implementations search=<c-r><c-w><cr>

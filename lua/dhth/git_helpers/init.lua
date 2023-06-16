@@ -15,6 +15,7 @@ local function create_telescope_search(opts)
         { "diff window", M.show_diff_in_window, "0", "" },
         { "diff branch", M.show_diff_for_branch, "0", "" },
         { "diff cached", "DiffviewOpen --cached", "1", "" },
+        { "diff with master", "Git difftool -y origin/master %", "1", "" },
         { "checkout master", "Git checkout master", "0", "checked out master!" },
         { "checkout master and pull", "Git checkout master | Git pull", "0", "checked out master and pulled!" },
         { "rebase o/master", "Git rebase origin/master", "0", "rebased!" },
