@@ -3,6 +3,7 @@ nnoremap <C-t> :tabnew<CR>
 " nnoremap <leader>te :tabedit<space>
 nnoremap <silent> <leader>mc :tabclose<CR>
 nnoremap <Bs><Bs> :tabclose<CR>
+nnoremap <silent> e<C-e> :tabe %<CR>
 
 "don't show tab line
 "set showtabline=1
@@ -23,9 +24,9 @@ nnoremap <Bs><Bs> :tabclose<CR>
 nnoremap <leader>t0 :tablast<cr>
 
 " TAB in general mode will move to text buffer
-nnoremap <silent> <TAB> :tabnext<CR>
+nnoremap <silent> <Right> :tabnext<CR>
 " SHIFT-TAB will go back
-nnoremap <silent> <S-TAB> :tabprevious<CR>
+nnoremap <silent> <Left> :tabprevious<CR>
 
 " https://stackoverflow.com/questions/2119754/switch-to-last-active-tab-in-vim
 if !exists('g:lasttab')

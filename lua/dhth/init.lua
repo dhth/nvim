@@ -24,7 +24,7 @@ require "dhth.nvim_lspconfig"
 require "dhth.lsp_signature"
 require "dhth.lspsaga"
 require "dhth.nvim_metals"
-require("dhth.lsp_lines")
+require "dhth.lsp_lines"
 -- require "dhth.symbols_outline"
 
 -- search

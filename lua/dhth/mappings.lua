@@ -163,7 +163,7 @@ REMAP(
 --- code helpers
 REMAP(
     'n',
-    '<Leader>cm',
+    '<Leader><Leader>',
     '<cmd>lua require("dhth.code_helpers").show_commands()<CR>',
     opts
 )
@@ -256,3 +256,11 @@ REMAP(
 --     ':<C-U>lua require(\'tsht\').nodes()<CR>',
 --     opts
 -- )
+
+--- reload module
+REMAP(
+    'n',
+    '<Leader>rm',
+    '<cmd>lua require("dhth.code_helpers").reload_module()<CR>',
+    opts
+)

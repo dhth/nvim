@@ -155,11 +155,11 @@ nnoremap Y y$
 nnoremap <leader>x :source %<CR>
 
 " nnoremap <leader><leader>r :lua package.loaded['dhth'] = nil<CR>:source ~/.config/nvim/init.vim<CR>:echo "reloaded"<CR>
-nnoremap <leader><leader>r :lua R('dhth')<CR>:echo "reloaded"<CR>
+" nnoremap <leader><leader>r :lua R('dhth')<CR>:echo "reloaded"<CR>
 
 nnoremap <silent> <leader><leader> :noh<CR>
 
-nnoremap <leader><leader>x :call dhth#save_and_exec()<CR>:echo "sourced!"<CR>
+" nnoremap <leader><leader>x :call dhth#save_and_exec()<CR>:echo "sourced!"<CR>
 
 nnoremap <leader>cb :verbose nmap <lt>leader>
 

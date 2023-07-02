@@ -83,6 +83,7 @@ local function create_telescope_search(opts)
                         vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
                     end
                 end
+                print("sent: " .. selection.value[1] .. " ⚡️")
 
             end)
             actions.select_vertical:replace(function()
@@ -153,6 +154,39 @@ function M.add_todo_comment()
             end)
             return true
         end,
+
+    }):find()
+end
+
+function M.reload_module()
+    local packages = vim.fn.system([[cat ~/.config/nvim/lua/dhth/init.lua | grep "^require \"" | awk -F  "\"" '// {print $2}' | awk -F  "dhth." '// {print $2}']])
+    local packages_array = vim.split(packages, '\n')
+    table.remove(packages_array) -- remove the last entry which is a empty line
+    table.insert(packages_array, "dhth")
+
+    pickers.new(opts, {
+    prompt_title = "~ modules ~",
+    results_title = "module",
+    finder = finders.new_table {
+        results = packages_array,
+        entry_maker = function(entry)
+            return {
+                value = entry,
+                display = entry,
+                ordinal = entry,
+            }
+        end
+    },
+    sorter = conf.generic_sorter(opts),
+    attach_mappings = function(prompt_bufnr, _)
+        actions.select_default:replace(function()
+            actions.close(prompt_bufnr)
+            local selection = action_state.get_selected_entry()
+            vim.cmd("lua R(\"dhth." .. selection.value .. "\")")
+            print("reloaded dhth." .. selection.value .. " ⚡️")
+        end)
+        return true
+    end,
 
     }):find()
 end
