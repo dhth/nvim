@@ -58,12 +58,12 @@ require'diffview'.setup {
   },
 }
 
-REMAP(
-    'n',
-    '<Leader>df',
-    ':DiffviewOpen<space>',
-    { noremap=true, silent=false }
-)
+-- REMAP(
+--     'n',
+--     '<Leader>df',
+--     ':DiffviewOpen<space>',
+--     { noremap=true, silent=false }
+-- )
 
 REMAP(
     'n',

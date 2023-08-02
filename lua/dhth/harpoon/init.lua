@@ -4,15 +4,15 @@ require("harpoon").setup({
     }
 })
 
--- vim.api.nvim_set_keymap(
---     'n',
---     '``',
---     [[<Cmd>:lua require("harpoon.mark").add_file()<CR>:echo "Added!"<CR>]],
---     {
---         noremap = true,
---         silent = true,
---     }
--- )
+vim.api.nvim_set_keymap(
+    'n',
+    '``',
+    [[<Cmd>:lua require("harpoon.mark").add_file()<CR>:echo "Added!"<CR>]],
+    {
+        noremap = true,
+        silent = true,
+    }
+)
 
 vim.api.nvim_set_keymap(
     'n',

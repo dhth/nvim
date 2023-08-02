@@ -31,6 +31,8 @@ local function create_telescope_search(opts)
         config = {
             { "diff", "DiffviewOpen" },
             { "diff cached", "DiffviewOpen --cached" },
+            { "git push -u", "Git push -u" },
+            { "git pull", "Git pull" },
         }
 
     else
@@ -189,6 +191,14 @@ function M.reload_module()
     end,
 
     }):find()
+end
+
+function M.run_line_as_command()
+    local line_number = vim.api.nvim_win_get_cursor(0)[1]
+
+    local line_contents = vim.api.nvim_buf_get_lines(0, line_number - 1, line_number, false)[1]
+
+    vim.cmd("silent !" .. line_contents)
 end
 
 return M

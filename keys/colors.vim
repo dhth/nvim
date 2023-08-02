@@ -23,8 +23,12 @@ if exists('+termguicolors')
 endif
 
 "SECTIONBACKGROUNDSTART
-
-set background=dark
+"
+if strftime("%H") >= 7 && strftime("%H") < 17
+    set background=light
+else
+    set background=dark
+endif
 
 "SECTIONBACKGROUNDEND
 

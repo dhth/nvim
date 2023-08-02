@@ -346,6 +346,12 @@ function! wiki_foam#CreateLinkToAnotherFile()
 endfunction
 
 
+function! wiki_foam#AddFoamLinkToTodaysLog()
+    let l:date = system("date '+%Y-%m-%d-%A-%B' | tr '[:upper:]' '[:lower:]' | tr -d '\n'")
+    execute 'normal! i [[' . l:date . ']]'
+endfunction
+
+
 function! wiki_foam#AddLinkToInternalUri()
     " makes the current word a link to a already existing link in the document
     call inputsave()

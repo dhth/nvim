@@ -83,26 +83,29 @@ REMAP(
 --- Substitute current word in current line
 REMAP(
     'n',
-    '<Leader>sl',
+    '<Leader>rw',
     ':s/<C-R><C-W>/',
     opts
 )
 
 --- Convert lines to markdown list
-REMAP(
-    'v',
-    'ml',
-    ":g/./norm!I- <cr>",
-    opts
-)
+--- done via wiki_helpers.add_visual_list now
+
+-- REMAP(
+--     'v',
+--     'ml',
+--     ":g/./norm!I- <cr>",
+--     opts
+-- )
 
 --- Convert lines to markdown checklist
-REMAP(
-    'v',
-    'cl',
-    ":g/./norm!I- [ ] <cr>",
-    opts
-)
+--- done via wiki_helpers.add_visual_checklist now
+-- REMAP(
+--     'v',
+--     'cl',
+--     ":g/./norm!I- [ ] <cr>",
+--     opts
+-- )
 
 --- Go to tab at index
 -- used for harpoon instead
@@ -262,5 +265,21 @@ REMAP(
     'n',
     '<Leader>rm',
     '<cmd>lua require("dhth.code_helpers").reload_module()<CR>',
+    opts
+)
+
+--- run line as command
+REMAP(
+    'n',
+    '<Leader>ru',
+    '<cmd>lua require("dhth.code_helpers").run_line_as_command()<CR>',
+    opts
+)
+
+--- diff buffer with HEAD
+REMAP(
+    'n',
+    '<Leader>dh',
+    ':Gvdiffsplit! HEAD:%<CR>',
     opts
 )

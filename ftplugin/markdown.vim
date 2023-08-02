@@ -1,6 +1,6 @@
 setlocal colorcolumn=80
 " nnoremap <buffer> <leader>ml f]gf
-nnoremap <buffer> <leader>ml :call wiki_foam#AddLinkToInternalUri()<CR>
+" nnoremap <buffer> <leader>ml :call wiki_foam#AddLinkToInternalUri()<CR>
 " nnoremap <buffer> <ENTER> 0f]<C-W>gf
 nnoremap <buffer> <silent> <ENTER> :call wiki_foam#EnterKeyActions(getline('.'))<cr>
 vnoremap <buffer> <silent> <ENTER> :lua require("dhth.wiki_helpers").toggle_visual_checklist()<CR>
@@ -65,6 +65,9 @@ nnoremap <buffer> <leader>mr :call ft#markdown#ToggleMarkdownRender()<cr>
 
 vnoremap <buffer> <silent> fm :'<,'>!jq<CR>
 
+vnoremap <buffer> <silent> cl :lua require("dhth.wiki_helpers").add_visual_checklist()<CR>
+
+vnoremap <buffer> <silent> ml :lua require("dhth.wiki_helpers").add_visual_list()<CR>
 
 " lua << EOF
 " require('cmp').setup.buffer { enabled = false }
@@ -74,3 +77,7 @@ vnoremap <buffer> <silent> fm :'<,'>!jq<CR>
 " setlocal foldmarker=[//begin],[//end]
 " setlocal foldmethod=marker
 " set foldlevelstart=0
+nnoremap <silent><leader>ad :call helpers#AddDate()<cr>
+inoremap <buffer> <silent> t[ <Esc>:call wiki_foam#AddFoamLinkToTodaysLog()<cr>
+
+nnoremap <buffer> <silent> <leader>sl :lua require("dhth.wiki_helpers").open_current_pages_webview()<CR>

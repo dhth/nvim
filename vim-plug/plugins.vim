@@ -141,6 +141,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'romgrk/nvim-treesitter-context'
 " Plug 'nvim-treesitter/playground'
 Plug 'HampusHauffman/block.nvim'
+Plug 'github/copilot.vim'
 
 " Plug 'nvim-neorg/neorg'
 
