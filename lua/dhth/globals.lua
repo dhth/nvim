@@ -37,3 +37,14 @@ end
 TRIM = function (s)
     return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
+
+RANDOMCHARS = function (length)
+    local charset = "0123456789abcdefghijklmnopqrstuvwxyz"
+    local randomString = ""
+    math.randomseed(os.time())
+    for i = 1, length do
+        local randIndex = math.random(1, #charset)
+        randomString = randomString .. string.sub(charset, randIndex, randIndex)
+    end
+    return randomString
+end

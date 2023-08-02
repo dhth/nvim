@@ -180,15 +180,16 @@ function M.git_push(set_upstream)
     local remote = vim.fn.system("git remote get-url --push origin")
     local set_upstream = set_upstream or false
     local confirmation
+    local random_string = RANDOMCHARS(2)
     if (set_upstream)
     then
-        confirmation = vim.fn.input("push -u " .. branch .. " to " .. remote .. " ? ")
+        confirmation = vim.fn.input("push -u " .. branch .. " to " .. remote .. " ? Type [" .. random_string .. "] to confirm: ")
     else
-        confirmation = vim.fn.input("push " .. branch .. " to " .. remote .. " ? ")
+        confirmation = vim.fn.input("push " .. branch .. " to " .. remote .. " ? Type [" .. random_string .. "] to confirm: ")
     end
     vim.fn.inputrestore()
 
-    if (confirmation == "y")
+    if (confirmation == random_string)
     then
         if (set_upstream)
         then
@@ -199,7 +200,7 @@ function M.git_push(set_upstream)
             print(" push ...")
         end
     else
-        print(" cancelled")
+        print(" cancelled/incorrect input")
     end
 end
 
