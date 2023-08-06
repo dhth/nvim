@@ -161,6 +161,23 @@ function M.add_todo_comment()
 end
 
 function M.reload_module()
+    local file_type = vim.bo.filetype
+
+    if file_type ~= "lua" then
+        print("reload module only works from a lua file")
+        return
+    end
+
+    local file_path = vim.fn.expand('%:p')
+    local module_name_till_end = SPLIT_STRING(file_path, "lua/dhth/")[2]
+
+    local module_name = SPLIT_STRING(module_name_till_end, "/")[1]
+
+    vim.cmd("lua R(\"dhth." .. module_name .. "\")")
+    print("reloaded dhth." .. module_name .. " ⚡️")
+end
+
+function M.reload_selected_module()
     local packages = vim.fn.system([[cat ~/.config/nvim/lua/dhth/init.lua | grep "^require \"" | awk -F  "\"" '// {print $2}' | awk -F  "dhth." '// {print $2}']])
     local packages_array = vim.split(packages, '\n')
     table.remove(packages_array) -- remove the last entry which is a empty line

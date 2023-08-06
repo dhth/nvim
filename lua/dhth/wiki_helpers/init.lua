@@ -1,3 +1,6 @@
+local pickers = require "telescope.pickers"
+local finders = require "telescope.finders"
+local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 
@@ -96,6 +99,32 @@ function M.search_for_tags()
     }
 
     require("telescope.builtin").grep_string(opts)
+end
+
+
+function M.reference_existing_link()
+    local opts = {
+        prompt_title = "~ links ~",
+        previewer = false,
+        sorting_strategy = "ascending",
+    }
+    pickers.new(opts, {
+        finder = finders.new_oneshot_job({ "rg", [[^- \[\S.*\]\[\d\]$]], vim.fn.expand('%:p') }, opts ),
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr, _)
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                local link = selection.value
+                local split_elems = SPLIT_STRING(link, "][")
+                local link_number = SPLIT(split_elems[#split_elems], "]")[1]
+                vim.cmd("normal! i [][" .. link_number .. "]3h")
+            end)
+            return true
+        end,
+
+    }):find()
+
 end
 
 return M

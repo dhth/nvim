@@ -38,6 +38,25 @@ TRIM = function (s)
     return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
 
+SPLIT_STRING = function (input_str, delimiter)
+    local result = {}
+    local start = 1
+    
+    while true do
+        local pos = input_str:find(delimiter, start, true)
+        if not pos then
+            table.insert(result, input_str:sub(start))
+            break
+        end
+        
+        table.insert(result, input_str:sub(start, pos - 1))
+        start = pos + #delimiter
+    end
+    
+    return result
+end
+
+
 RANDOMCHARS = function (length)
     local charset = "0123456789abcdefghijklmnopqrstuvwxyz"
     local randomString = ""

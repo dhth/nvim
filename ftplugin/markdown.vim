@@ -81,3 +81,5 @@ nnoremap <silent><leader>ad :call helpers#AddDate()<cr>
 inoremap <buffer> <silent> t[ <Esc>:call wiki_foam#AddFoamLinkToTodaysLog()<cr>
 
 nnoremap <buffer> <silent> <leader>sl :lua require("dhth.wiki_helpers").open_current_pages_webview()<CR>
+
+inoremap <buffer> <silent> r[ <Esc>:lua require("dhth.wiki_helpers").reference_existing_link()<CR>
