@@ -3,6 +3,7 @@ local finders = require "telescope.finders"
 local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
+local git_helpers = require "dhth.git_helpers"
 
 local M = {}
 
@@ -27,17 +28,9 @@ local function create_telescope_search(opts)
             { "clean" },
             { "docs/previewSite" },
         }
-    elseif file_type == "fugitive" then
-        config = {
-            { "diff", "DiffviewOpen" },
-            { "diff cached", "DiffviewOpen --cached" },
-            { "git push -u", "Git push -u" },
-            { "git pull", "Git pull" },
-        }
-
     else
-        print("nothing configured for filetype")
-        return
+        print("nothing configured for filetype, showing git helpers")
+        return git_helpers.git_commands()
     end
 
     pickers.new(opts, {

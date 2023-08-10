@@ -18,10 +18,10 @@ function M.grep_nvim()
     local opts = {
         prompt_title = "~ nvim grep ~",
         cwd = "~/.config/nvim",
-        previewer = false,
+        previewer = true,
     }
 
-    require("telescope.builtin").live_grep(opts)
+    require("telescope").extensions.live_grep_args.live_grep_args(opts)
 end
 
 

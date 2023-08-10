@@ -25,7 +25,7 @@ for i=1,9 do
     map('n', i .. i, '<Cmd>BufferGoto '.. i .. '<CR>', opts)
 end
 
-map('n', '00', '<Cmd>BufferLast<CR>', opts)
+-- map('n', '00', '<Cmd>BufferLast<CR>', opts)
 -- Pin/unpin buffer
 map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer

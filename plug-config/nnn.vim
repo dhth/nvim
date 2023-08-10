@@ -2,7 +2,9 @@
 let g:nnn#set_default_mappings = 0
 
 " Floating window (neovim latest and vim with patch 8.2.191)
-let g:nnn#layout = { 'window': { 'width': 0.6, 'height': 0.9, 'highlight': 'Debug' } }
+" let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Comment' } }
+let g:nnn#layout = 'vnew'
+" let g:nnn#explorer_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Comment' } }
 
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
