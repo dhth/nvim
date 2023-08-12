@@ -78,10 +78,10 @@ nvim_lsp.pyright.setup{
 --   print("Unsupported system for sumneko")
 -- end
 
-local user = vim.fn.expand('$USER')
-local sumneko_root_path = '/Users/' .. user ..'/soft/lua-language-server'
--- local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
-local sumneko_binary = sumneko_root_path.."/bin/".."/lua-language-server"
+-- local user = vim.fn.expand('$USER')
+-- local sumneko_root_path = '/Users/' .. user ..'/soft/lua-language-server'
+-- -- local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+-- local sumneko_binary = sumneko_root_path.."/bin/".."/lua-language-server"
 
 -- require("neodev").setup({
 --   -- add any options here, or leave empty to use the default settings
@@ -151,7 +151,18 @@ local sumneko_binary = sumneko_root_path.."/bin/".."/lua-language-server"
 -- nvim_lsp.tsserver.setup{}
 
 -- PURESCRIPT
-nvim_lsp.purescriptls.setup{}
+-- nvim_lsp.purescriptls.setup{}
 
 -- C
-require'lspconfig'.ccls.setup{}
+-- nvim_lsp.ccls.setup{}
+
+-- folke/neodev.nvim
+nvim_lsp.lua_ls.setup({
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace"
+      }
+    }
+  }
+})

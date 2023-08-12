@@ -72,7 +72,7 @@ Plug 'romgrk/barbar.nvim'
 
 
 """ Sessions
-Plug 'olimorris/persisted.nvim'
+" Plug 'olimorris/persisted.nvim'
 
 " Plug 'tpope/vim-commentary'
 Plug 'numToStr/Comment.nvim'
@@ -116,7 +116,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'farmergreg/vim-lastplace'                              " remembers last editing place
 " Plug 'preservim/tagbar'                                      " class outline viewer
 " Plug 'junegunn/vader.vim'                                    " testing tool for vim files
-Plug 'szw/vim-maximizer'
+" Plug 'szw/vim-maximizer'
 " Plug 'sheerun/vim-polyglot'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'junegunn/vim-easy-align'                               " easy aligning around a character

@@ -9,7 +9,7 @@ require "dhth.lualine"
 require "dhth.barbar"
 
 -- sessions
-require "dhth.sessions"
+-- require "dhth.sessions"
 
 -- treesitter
 require "dhth.treesitter"
@@ -20,6 +20,7 @@ require "dhth.nvim_treesitter_context"
 -- autocomplete/lsp
 require "dhth.nvim_cmp.setup"
 require "dhth.vim_vsnip"
+require "dhth.luadev"
 require "dhth.nvim_lspconfig"
 require "dhth.lsp_signature"
 require "dhth.lspsaga"
