@@ -3,3 +3,4 @@
 .netrwhist
 plug.vim
 plug.vim.old
+.luarc.json

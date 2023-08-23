@@ -283,3 +283,11 @@ REMAP(
     ':Gvdiffsplit! HEAD:%<CR>',
     opts
 )
+
+--- diff file with main branch
+REMAP(
+    'n',
+    '<Leader>dm',
+    '<cmd>lua require("dhth.git_helpers").diff_with_main_branch()<CR>',
+    opts
+)

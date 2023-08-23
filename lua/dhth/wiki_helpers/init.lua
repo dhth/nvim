@@ -34,8 +34,7 @@ function M.add_visual_checklist()
 end
 
 function M.open_current_pages_webview()
-    local bufnr = vim.fn.bufnr("%")
-    local file_path = vim.fn.bufname(bufnr)
+    local file_path = vim.fn.expand("%")
 
     local config_file = ".preview-page.lua"
     local config = dofile(config_file)
@@ -109,7 +108,7 @@ function M.reference_existing_link()
         sorting_strategy = "ascending",
     }
     pickers.new(opts, {
-        finder = finders.new_oneshot_job({ "rg", [[^- \[\S.*\]\[\d\]$]], vim.fn.expand('%:p') }, opts ),
+        finder = finders.new_oneshot_job({ "rg", [[^- \[\S.*\]\[\d+\]$]], vim.fn.expand('%:p') }, opts ),
         sorter = conf.generic_sorter(opts),
         attach_mappings = function(prompt_bufnr, _)
             actions.select_default:replace(function()
@@ -118,7 +117,7 @@ function M.reference_existing_link()
                 local link = selection.value
                 local split_elems = SPLIT_STRING(link, "][")
                 local link_number = SPLIT(split_elems[#split_elems], "]")[1]
-                vim.cmd("normal! i [][" .. link_number .. "]3h")
+                vim.cmd("normal! i[][" .. link_number .. "]F[F[")
             end)
             return true
         end,

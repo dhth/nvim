@@ -140,7 +140,7 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'romgrk/nvim-treesitter-context'
 " Plug 'nvim-treesitter/playground'
-Plug 'HampusHauffman/block.nvim'
+" Plug 'HampusHauffman/block.nvim'
 Plug 'github/copilot.vim'
 
 " Plug 'nvim-neorg/neorg'

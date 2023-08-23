@@ -232,4 +232,12 @@ function M.see_diff()
 
 end
 
+function M.diff_with_main_branch()
+    local main_branch = TRIM(vim.fn.system('[ -f ".mainbranch" ] && cat ".mainbranch" || echo "main"'))
+
+    print("diffing with " .. main_branch)
+
+    vim.cmd("Gvdiffsplit! origin/" .. main_branch .. ":%")
+end
+
 return M
