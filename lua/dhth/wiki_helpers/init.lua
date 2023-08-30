@@ -34,12 +34,14 @@ function M.add_visual_checklist()
 end
 
 function M.open_current_pages_webview()
+    local project_dir = vim.fn.getcwd() .. "/"
     local file_path = vim.fn.expand("%")
+    local file_path_in_project_dir = string.gsub(file_path, project_dir, "")
 
     local config_file = ".preview-page.lua"
     local config = dofile(config_file)
 
-    local output = file_path
+    local output = file_path_in_project_dir
     for _, command in ipairs(config.commands) do
         output = command(output)
     end

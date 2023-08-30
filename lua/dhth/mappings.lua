@@ -1,5 +1,5 @@
 -- local function REMAP(...) vim.api.nvim_set_keymap(...) end
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 --- inserts a date using external command completion
 REMAP(
@@ -122,15 +122,6 @@ REMAP(
 -- end
 
 
---- LSP code formatting
-REMAP(
-    'n',
-    '<Leader>fo',
-    '<cmd>lua vim.lsp.buf.formatting()<CR>',
-    opts
-)
-
-
 --- Go to next test
 REMAP(
     'n',
@@ -209,7 +200,7 @@ REMAP(
     'n',
     'e<c-e>',
     'gcip',
-    { noremap=false, silent=true }
+    { noremap = false, silent = true }
 )
 
 --- diffview open
@@ -217,7 +208,7 @@ REMAP(
     'n',
     '<Leader>do',
     ':DiffviewOpen origin/master..origin/',
-    { noremap=false, silent=true }
+    { noremap = false, silent = true }
 )
 
 -- -- move tab to the right
@@ -241,7 +232,7 @@ REMAP(
     'n',
     '---',
     ':tabclose<CR>',
-    { noremap=false, silent=true }
+    { noremap = false, silent = true }
 )
 
 -- go to last tab
@@ -249,7 +240,7 @@ REMAP(
     'n',
     '99',
     ':tablast<CR>',
-    { noremap=false, silent=true }
+    { noremap = false, silent = true }
 )
 
 -- nvim-treehopper
@@ -289,5 +280,13 @@ REMAP(
     'n',
     '<Leader>dm',
     '<cmd>lua require("dhth.git_helpers").diff_with_main_branch()<CR>',
+    opts
+)
+
+--- format buffer using lsp
+REMAP(
+    'n',
+    'f<c-f>',
+    '<cmd>lua vim.lsp.buf.format({async=true}) print("formatted 🧹")<CR>',
     opts
 )

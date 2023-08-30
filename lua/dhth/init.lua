@@ -37,7 +37,7 @@ require "dhth.harpoon"
 -- git
 require "dhth.gitsigns"
 require "dhth.diffview"
--- require "octo".setup()
+require "octo".setup()
 
 -- movement
 require "dhth.hop"

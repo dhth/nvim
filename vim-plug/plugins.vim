@@ -141,13 +141,13 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'romgrk/nvim-treesitter-context'
 " Plug 'nvim-treesitter/playground'
 " Plug 'HampusHauffman/block.nvim'
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 
 " Plug 'nvim-neorg/neorg'
 
 " Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'pwntester/octo.nvim'
+Plug 'pwntester/octo.nvim'
 
 " Plug 'rcarriga/nvim-notify'
 Plug 'mhinz/vim-startify'
