@@ -28,9 +28,21 @@ function M.add_visual_checklist()
     local selected_lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, true)
     local changed_lines = {}
     for _,line in ipairs(selected_lines) do
-        table.insert(changed_lines, '- [ ] ' .. line)
+        table.insert(changed_lines, '- [ ] ' .. TRIM(line))
     end
     vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, true, changed_lines)
+end
+
+function M.open_urls()
+    local start_line = vim.fn.getpos("'<")[2]
+    local end_line = vim.fn.getpos("'>")[2]
+    local selected_lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, true)
+    for _,line in ipairs(selected_lines) do
+        if (vim.fn.match(line, 'https://') ~= -1)
+            then
+                vim.cmd("silent !open " .. line)
+        end
+    end
 end
 
 function M.open_current_pages_webview()
@@ -56,7 +68,7 @@ function M.add_visual_list()
     local selected_lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, true)
     local changed_lines = {}
     for _,line in ipairs(selected_lines) do
-        table.insert(changed_lines, '- ' .. line)
+        table.insert(changed_lines, '- ' .. TRIM(line))
     end
     vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, true, changed_lines)
 end

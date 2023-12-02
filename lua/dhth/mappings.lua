@@ -252,12 +252,13 @@ REMAP(
 -- )
 
 --- reload module
-REMAP(
-    'n',
-    '<Leader>rm',
-    '<cmd>lua require("dhth.code_helpers").reload_module()<CR>',
-    opts
-)
+-- moved to ftplugin/lua.vim
+-- REMAP(
+--     'n',
+--     '<Leader>rm',
+--     '<cmd>lua require("dhth.code_helpers").reload_module()<CR>',
+--     opts
+-- )
 
 --- run line as command
 REMAP(

@@ -1,6 +1,6 @@
 -- SECTIONBACKGROUNDSTART
 
-vim.o.background = "light"
+vim.o.background = "dark"
 
 -- SECTIONBACKGROUNDEND
 

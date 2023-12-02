@@ -78,8 +78,10 @@ vnoremap <buffer> <silent> ml :lua require("dhth.wiki_helpers").add_visual_list(
 " setlocal foldmethod=marker
 " set foldlevelstart=0
 nnoremap <silent><leader>ad :call helpers#AddDate()<cr>
-inoremap <buffer> <silent> t[ <Esc>:call wiki_foam#AddFoamLinkToTodaysLog()<cr>
+inoremap <buffer> <silent> [t <Esc>:call wiki_foam#AddFoamLinkToTodaysLog()<cr>
 
 nnoremap <buffer> <silent> <leader>sl :lua require("dhth.wiki_helpers").open_current_pages_webview()<CR>
 
-inoremap <buffer> <silent> r[ <Esc>:lua require("dhth.wiki_helpers").reference_existing_link()<CR>
+inoremap <buffer> <silent> [r <Esc>:lua require("dhth.wiki_helpers").reference_existing_link()<CR>
+
+vnoremap <buffer> <c-t> :lua require("dhth.wiki_helpers").open_urls()<CR>

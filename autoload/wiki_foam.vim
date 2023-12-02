@@ -148,9 +148,9 @@ function! wiki_foam#EnterKeyActions(line_str)
         " check to see what's failing with gx
         " https://stackoverflow.com/questions/9458294/open-url-under-cursor-in-vim-with-browser
         let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
-        echo s:uri
         if s:uri != ""
-            silent exec "!open '".s:uri."'"
+            let @* = s:uri
+            silent exec "!open $(pbpaste)"
         else
             echo "No URI found in line."
         endif

@@ -165,3 +165,6 @@ nnoremap <leader>cb :verbose nmap <lt>leader>
 " highlight pasted text
 " https://vimtricks.com/p/reselect-pasted-text/
 nnoremap gp `[v`]
+
+" so that deleted stuff doesn't go in the system clipboard
+nnoremap d "_d

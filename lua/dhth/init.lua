@@ -12,9 +12,9 @@ require "dhth.barbar"
 -- require "dhth.sessions"
 
 -- treesitter
-require "dhth.treesitter"
-require "dhth.nvim_treesitter_textobjects"
-require "dhth.nvim_treesitter_context"
+-- require "dhth.treesitter"
+-- require "dhth.nvim_treesitter_textobjects"
+-- require "dhth.nvim_treesitter_context"
 -- require "dhth.block"
 
 -- autocomplete/lsp
@@ -32,7 +32,7 @@ require "dhth.lsp_lines"
 require "dhth.telescope.setup"
 require "dhth.trouble"
 require "dhth.nvim_autopairs"
-require "dhth.harpoon"
+-- require "dhth.harpoon"
 
 -- git
 require "dhth.gitsigns"
