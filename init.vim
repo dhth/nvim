@@ -3,6 +3,7 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/tabs.vim
 source $HOME/.config/nvim/general/folds.vim
+source $HOME/.config/nvim/general/highlights.vim
 source $HOME/.config/nvim/keys/mappings.vim
 " source $HOME/.config/nvim/keys/colors.vim
 " source $HOME/.config/nvim/themes/gruvbox.vim

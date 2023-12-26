@@ -38,7 +38,7 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({float=true})<CR>', opts) -- turn float=true if not using lsp_lines
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next({float=true})<CR>', opts) -- turn float=true if not using lsp_lines
   -- buf_set_keymap('n', '<space>qf', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
-  -- buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
+  buf_set_keymap('n', '<space>fm', '<cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
 
 end
 

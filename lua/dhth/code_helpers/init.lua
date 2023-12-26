@@ -237,6 +237,26 @@ function M.run_line_as_command()
     vim.cmd("silent !" .. line_contents)
 end
 
+function M.highlight_range(bufnr, start_line, end_line, highlight_duration_ms)
+    local ns_id = vim.api.nvim_create_namespace('flash_highlight')
+    local hl_group = 'FlashRangeHighlight'
+
+    vim.api.nvim_buf_clear_namespace(bufnr, ns_id, 0, -1)
+
+    for line = start_line, end_line do
+        vim.api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, line - 1, 0, -1)
+    end
+
+    vim.defer_fn(function()
+        vim.api.nvim_buf_clear_namespace(bufnr, ns_id, 0, -1)
+    end, highlight_duration_ms)
+end
+
+-- This function searches for a code block (most likely in a markdown file),
+-- and formats its using an external formatting tool (eg. jq). It then
+-- highlights the newly formatted code block for a short duration (using
+-- M.highlight_range).
+-- Highlight defined here: ../../../general/highlights.vim
 function M.format_code_block()
     local filetype = vim.bo.filetype
     local current_line = vim.fn.line('.')
@@ -266,20 +286,38 @@ function M.format_code_block()
         end
     end
 
-    if (start_line ~=nil) and (end_line ~= nil) then
+    if (start_line ~= nil) and (end_line ~= nil) then
         if code_block_type == "json" then
             format_prg = "jq"
         elseif code_block_type == "python" then
-            format_prg = "black -"
+            format_prg = "black - --quiet"
+        elseif code_block_type == "scala" then
+            format_prg = "scalafmt --config-str 'version = 3.5.3' --stdin"
         else
             print("Code block not supported")
             return
         end
-        local range_string = string.format("%d,%d", start_line+1, end_line-1)
+        local range_string = string.format("%d,%d", start_line + 1, end_line - 1)
         vim.api.nvim_exec(':' .. range_string .. '!' .. format_prg, false)
     else
         print("Couldn't find a code block")
     end
+
+    -- after formatting
+    -- SLEEP(.2, function()
+    local start_line_after_format = vim.fn.line('.')
+    local end_line_after_format
+
+    for i = start_line_after_format, vim.fn.line('$') do
+        if vim.fn.getline(i):match('^```$') then
+            end_line_after_format = i
+            break
+        end
+    end
+    if (end_line_after_format ~= nil) then
+        M.highlight_range(CURRENT_BUFFER_NUMBER(), start_line_after_format, end_line_after_format - 1, 1000)
+    end
+    -- end)
 end
 
 return M
