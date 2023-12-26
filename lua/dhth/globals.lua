@@ -67,3 +67,14 @@ RANDOMCHARS = function (length)
     end
     return randomString
 end
+
+DOES_FILE_EXIST = function(filePath)
+    local file = io.open(filePath, "r")
+    if file then
+        io.close(file)
+        return true
+    else
+        return false
+    end
+end
+

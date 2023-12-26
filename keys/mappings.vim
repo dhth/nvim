@@ -137,7 +137,7 @@ nnoremap <silent> <leader>. :call wiki#OpenWorkWikiPageInBrowser()<cr>
 nnoremap <silent> <leader>dv :call helpers#GetCommitsForDiffOpen()<cr>
 nnoremap <silent> <leader>as :call aws_helpers#Search()<cr>
 nnoremap <silent> <leader>cw :call aws_helpers#SearchCDKAPIReferenceForCurrentWord()<cr>
-nnoremap <silent> <leader>dd :call helpers#DiffWithRev()<cr>
+" nnoremap <silent> <leader>dd :call helpers#DiffWithRev()<cr>
 nnoremap <silent> <leader>jf :call just_helpers#Helpers()<cr>
 nnoremap <leader>dc :call helpers#DiffWithCommit()<cr>
 " nnoremap <leader>gh :call just_helpers#GitHelpers()<cr>
@@ -167,4 +167,7 @@ nnoremap <leader>cb :verbose nmap <lt>leader>
 nnoremap gp `[v`]
 
 " so that deleted stuff doesn't go in the system clipboard
-nnoremap d "_d
+" nnoremap d "_d
+
+" so that deleted stuff DOES go in the system clipboard
+" nnoremap <leader>dd dd

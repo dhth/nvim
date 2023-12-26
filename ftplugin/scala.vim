@@ -14,4 +14,4 @@ set colorcolumn=0
 " setlocal foldexpr=nvim_treesitter#foldexpr()
 nnoremap <silent> <buffer> <leader>db :normal Iprintln(A)
 
-nnoremap <silent> <buffer> <leader>rm :lua require("dhth.code_helpers").scala_run_main_file(true)<CR>
+nnoremap <silent> <buffer> <leader>rm :lua require("dhth.code_helpers").scala_run(true)<CR>

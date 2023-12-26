@@ -139,7 +139,7 @@ endfunction
 
 function! helpers#AddDate()
     let l:date = system("date '+%Y-%m-%d' | tr -d '\n'")
-    execute 'normal! i' . l:date
+    execute 'normal! a ' . l:date
 endfunction
 
 function! helpers#LocalNotes()

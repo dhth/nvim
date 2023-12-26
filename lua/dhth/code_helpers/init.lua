@@ -17,11 +17,32 @@ function M.scala_run_main_file(switch_to_pane)
     end
 end
 
+function M.scala_cli_run(switch_to_pane)
+    switch_to_pane = switch_to_pane or false
+
+    local filePath = vim.fn.expand('%')
+    vim.cmd('silent VimuxRunCommand("scala-cli run ' .. filePath .. '")')
+    if switch_to_pane then
+        vim.cmd('silent !tmux select-pane -t .+1 && tmux resize-pane -Z')
+    end
+end
+
+function M.scala_run(switch_to_pane)
+    local is_a_scala_cli_project = DOES_FILE_EXIST(".bsp/scala-cli.json")
+
+    if is_a_scala_cli_project then
+        M.scala_cli_run(switch_to_pane)
+    else
+        M.scala_run_main_file(switch_to_pane)
+    end
+end
+
 local function create_telescope_search(opts)
     local file_type = vim.bo.filetype
     local config
     if file_type == "scala" then
         config = {
+            { "cli" },
             { "runMain" },
             { "docs/makeSite" },
             { "compile" },
@@ -63,10 +84,10 @@ local function create_telescope_search(opts)
                 local selection = action_state.get_selected_entry()
 
                 if file_type == "scala" then
-                    if string.match(selection.value[1], "runMain") then
-                        local mainFile = string.gsub((string.gsub(vim.fn.expand('%:r'), "src/main/scala/", "")), "/", ".")
-                        vim.cmd('silent VimuxRunCommand("runMain ' .. mainFile .. '")')
-                        vim.cmd('silent !tmux select-pane -t .+1 && tmux resize-pane -Z')
+                    if string.match(selection.value[1], "cli") then
+                        M.scala_cli_run(true)
+                    elseif string.match(selection.value[1], "runMain") then
+                        M.scala_run_main_file(true)
                     else
                         vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
                         vim.cmd('silent !tmux select-pane -t .+1 && tmux resize-pane -Z')
@@ -176,7 +197,7 @@ end
 
 function M.reload_selected_module()
     local packages = vim.fn.system(
-    [[cat ~/.config/nvim/lua/dhth/init.lua | grep "^require \"" | awk -F  "\"" '// {print $2}' | awk -F  "dhth." '// {print $2}']])
+        [[cat ~/.config/nvim/lua/dhth/init.lua | grep "^require \"" | awk -F  "\"" '// {print $2}' | awk -F  "dhth." '// {print $2}']])
     local packages_array = vim.split(packages, '\n')
     table.remove(packages_array) -- remove the last entry which is a empty line
     table.insert(packages_array, "dhth")
@@ -214,6 +235,51 @@ function M.run_line_as_command()
     local line_contents = vim.api.nvim_buf_get_lines(0, line_number - 1, line_number, false)[1]
 
     vim.cmd("silent !" .. line_contents)
+end
+
+function M.format_code_block()
+    local filetype = vim.bo.filetype
+    local current_line = vim.fn.line('.')
+    local format_prg
+
+    local start_line
+    local end_line
+    local code_block_type
+
+    if filetype ~= 'markdown' then
+        print("filetype not supported")
+        return
+    end
+
+    for i = current_line, vim.fn.line('^'), -1 do
+        if vim.fn.getline(i):match('^```') then
+            start_line = i
+            code_block_type = SPLIT_STRING(vim.fn.getline(i), "```")[2]
+            break
+        end
+    end
+
+    for i = current_line, vim.fn.line('$') do
+        if vim.fn.getline(i):match('^```$') then
+            end_line = i
+            break
+        end
+    end
+
+    if (start_line ~=nil) and (end_line ~= nil) then
+        if code_block_type == "json" then
+            format_prg = "jq"
+        elseif code_block_type == "python" then
+            format_prg = "black -"
+        else
+            print("Code block not supported")
+            return
+        end
+        local range_string = string.format("%d,%d", start_line+1, end_line-1)
+        vim.api.nvim_exec(':' .. range_string .. '!' .. format_prg, false)
+    else
+        print("Couldn't find a code block")
+    end
 end
 
 return M

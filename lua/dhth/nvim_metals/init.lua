@@ -30,7 +30,7 @@ map('n', '<space>e', '<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>')
 --- using lspsaga
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({float=false})<CR>') -- turn float=true if not using lsp_lines
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next({float=false})<CR>') -- turn float=true if not using lsp_lines
-map('n', '<space>qf', '<cmd>lua vim.diagnostic.set_loclist()<CR>')
+-- map('n', '<space>qf', '<cmd>lua vim.diagnostic.set_loclist()<CR>')
 map('n', '<space>f', '<cmd>lua vim.lsp.buf.format({async=true})<CR>')
 map("n", "<leader>aa", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
 

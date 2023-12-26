@@ -7,8 +7,6 @@ Inspired by https://www.youtube.com/watch?v=EJqnWXDJZr0
 Current Vim Goals
 ---
 
- - Move from Airline to Lualine
-
 Annoyed With
 ---
 
@@ -24,8 +22,6 @@ Experimenting With
 
 To build
 ---
-
-- A quick helper that converts a md list to a checklist
 
 Working on
 ---

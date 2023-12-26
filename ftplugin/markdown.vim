@@ -43,8 +43,8 @@ nnoremap <buffer> <silent> [[ :call wiki_foam#GetBacklinks()<cr>
 nnoremap <buffer> <silent> <leader>le :call wiki_foam#AddQuestion()<cr>
 nnoremap <buffer> <silent> <leader>te :call wiki_foam#AddQuestion()<cr>
 
-nnoremap <silent> f<c-f> :call wiki_foam#Helpers()<cr>
-inoremap <silent> f<c-f> <Esc>:call wiki_foam#Helpers()<cr>
+nnoremap <silent> <leader>he :call wiki_foam#Helpers()<cr>
+" inoremap <silent> f<c-f> <Esc>:call wiki_foam#Helpers()<cr>
 
 nnoremap <silent> <leader>ow :call wiki_foam#OpenCurrentWikiPageInBrowser()<cr>
 
@@ -85,3 +85,4 @@ nnoremap <buffer> <silent> <leader>sl :lua require("dhth.wiki_helpers").open_cur
 inoremap <buffer> <silent> [r <Esc>:lua require("dhth.wiki_helpers").reference_existing_link()<CR>
 
 vnoremap <buffer> <c-t> :lua require("dhth.wiki_helpers").open_urls()<CR>
+nnoremap <buffer> f<c-f> :lua require("dhth.code_helpers").format_code_block()<CR>

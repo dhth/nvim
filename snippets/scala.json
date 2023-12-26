@@ -1,0 +1,10 @@
+{
+    "main": {
+        "prefix": ["main"],
+        "body": [
+            "def main(args: Array[String]): Unit = {",
+            "}"
+        ],
+        "description": "Scala main method"
+    }
+}

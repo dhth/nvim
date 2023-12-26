@@ -25,8 +25,9 @@ function! wiki_foam#WriteHeadingInFile(file_loc, str, create_subpages_heading)
     execute "vnew ".a:file_loc
     " execute "normal! :tabe ".a:file_loc."\<cr>"
     " execute "normal! i---\<cr>title: \"".a:str."\"\<cr>summary:\<cr>---\<cr>\<esc>"
-    execute "normal! i".a:str."\<esc>"
-    execute "normal! o===\<cr>\<cr>\<esc>"
+    execute "normal! i# ".a:str."\n\n\<esc>"
+    " execute "normal! i".a:str."\<esc>"
+    " execute "normal! o===\<cr>\<cr>\<esc>"
     " execute "normal! iResources\<cr>---\<cr>\<cr>\<cr><!-- Links -->\<cr>\<cr>\<esc>"
     if a:create_subpages_heading
         execute "normal! iModules\<cr>---\<cr>\<esc>"

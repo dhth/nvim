@@ -19,7 +19,7 @@ if executable('rg')
 endif
 
 " let $FZF_DEFAULT_OPTS='--reverse'
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
 " let g:fzf_layout = { 'down': '30%' }
 
 " from https://github.com/junegunn/fzf.vim#advanced-customization
