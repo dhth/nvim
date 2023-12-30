@@ -24,15 +24,15 @@ endif
 
 "SECTIONBACKGROUNDSTART
 "
-if strftime("%H") >= 7 && strftime("%H") < 17
-    set background=light
-else
-    set background=dark
-endif
+" if strftime("%H") >= 7 && strftime("%H") < 17
+"     set background=light
+" else
+"     set background=dark
+" endif
 
 "SECTIONBACKGROUNDEND
 
-source $HOME/.config/nvim/themes/gruvbox.vim
+" source $HOME/.config/nvim/themes/gruvbox.vim
 " source $HOME/.config/nvim/themes/neodark.vim
 
 " let g:airline_theme='neodark'
@@ -46,3 +46,8 @@ source $HOME/.config/nvim/themes/gruvbox.vim
 " EOF
 
 " highlight SignColumn guibg=NONE ctermbg=NONE
+
+hi DiffAdd      gui=none    guifg=#1F2F38          guibg=#84B97C
+hi DiffChange   gui=none    guifg=none             guibg=none
+hi DiffDelete   gui=bold    guifg=#1F2F38          guibg=#DC657D
+hi DiffText     gui=bold    guifg=#1F2F38          guibg=#D4B261

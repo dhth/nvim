@@ -6,37 +6,11 @@ local action_state = require "telescope.actions.state"
 
 local M = {}
 
-local function file_exists(file)
-    local f = io.open(file, "rb")
-    if f then f:close() end
-    return f ~= nil
-end
-
 local function trim(s)
     return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
 
-local function mysplit (inputstr, sep)
-    if sep == nil then
-        sep = "%s"
-    end
-    local t={}
-    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-        table.insert(t, str)
-    end
-    return t
-end
 
-local function lines_from(file)
-    if not file_exists(file) then return {} end
-    local lines = {}
-    for line in io.lines(file) do
-        lines[#lines + 1] = mysplit(line, "::")
-    end
-    return lines
-end
-
----
 local function failed_test_details (inputstr, projectstr)
     local file_name = mysplit(mysplit(inputstr, ' ')[2], '::')[1]
     --- function name is a bit tricky to extract

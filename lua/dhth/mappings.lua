@@ -291,3 +291,11 @@ REMAP(
     '<cmd>lua vim.lsp.buf.format({async=true}) print("formatted 🧹")<CR>',
     opts
 )
+
+--- grep projects
+REMAP(
+    'n',
+    'g<c-g>',
+    '<cmd>lua require("dhth.telescope").grep_projects()<CR>',
+    opts
+)

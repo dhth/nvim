@@ -78,12 +78,31 @@ DOES_FILE_EXIST = function(filePath)
     end
 end
 
+DOES_DIRECTORY_EXIST = function (directory)
+    local directory_expanded = vim.fn.expand(directory)
+    local stat = vim.loop.fs_stat(directory_expanded)
+    if not stat then
+        return false
+    end
+    return stat and stat.type == 'directory'
+end
+
 CURRENT_BUFFER_NUMBER = function()
     local current_winnr = vim.api.nvim_get_current_win()
 
     local current_bufnr = vim.api.nvim_win_get_buf(current_winnr)
     return current_bufnr
 end
+
+GET_LINES_FROM_FILE = function(file)
+    if not DOES_FILE_EXIST(file) then return {} end
+    local lines = {}
+    for line in io.lines(file) do
+        lines[#lines + 1] = SPLIT(line, "::")
+    end
+    return lines
+end
+
 
 SLEEP = function(seconds, callback)
     vim.defer_fn(callback, seconds * 1000)

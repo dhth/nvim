@@ -10,7 +10,7 @@ nnoremap <silent> <Leader>bs :Lines<CR>
 nnoremap <silent> <c-p> :History<CR>
 nnoremap <silent> <Leader>ch :History:<CR>
 " nnoremap <silent> <C-b> :Buffers<CR>
-nnoremap <silent> g<c-g> :Windows<CR>
+" nnoremap <silent> g<c-g> :Windows<CR>
 " nnoremap <silent> <C-s> :BLines<CR>
 " nnoremap <silent> <leader><C-g> :GFiles?<CR>
 

@@ -37,7 +37,8 @@ nnoremap } <c-i>
 nnoremap <silent> <Leader>> :vertical resize +5<CR>
 nnoremap <silent> <Leader>< :vertical resize -5<CR>
 
-nnoremap <leader>q :q<CR>
+" nnoremap <leader>q :q<CR>
+nnoremap <leader>q :BufferClose<CR>
 nnoremap <leader>w :w<CR>
 
 noremap <leader>fn :echo @%<CR>

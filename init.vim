@@ -5,7 +5,7 @@ source $HOME/.config/nvim/general/tabs.vim
 source $HOME/.config/nvim/general/folds.vim
 source $HOME/.config/nvim/general/highlights.vim
 source $HOME/.config/nvim/keys/mappings.vim
-" source $HOME/.config/nvim/keys/colors.vim
+source $HOME/.config/nvim/keys/colors.vim
 " source $HOME/.config/nvim/themes/gruvbox.vim
 source $HOME/.config/nvim/general/netrw.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
