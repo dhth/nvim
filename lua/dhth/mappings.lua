@@ -299,3 +299,11 @@ REMAP(
     '<cmd>lua require("dhth.telescope").grep_projects()<CR>',
     opts
 )
+
+--- search projects
+REMAP(
+    'n',
+    '<leader>sp',
+    '<cmd>lua require("dhth.telescope").search_projects()<CR>',
+    opts
+)

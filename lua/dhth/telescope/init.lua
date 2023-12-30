@@ -3,6 +3,7 @@ local actions = require "telescope.actions"
 local conf = require("telescope.config").values
 local action_state = require "telescope.actions.state"
 local finders = require "telescope.finders"
+local builtin = require "telescope.builtin"
 
 local M = {}
 
@@ -26,39 +27,6 @@ function M.grep_nvim()
     require("telescope").extensions.live_grep_args.live_grep_args(opts)
 end
 
-function M.grep_project(project_location)
-    if (not project_location) then
-        print("project location is not valid")
-        return
-    end
-
-    local project_location_split = SPLIT(project_location, "/")
-    if (#project_location_split == 0) then
-        print("project location is not valid")
-        return
-    end
-
-    if not DOES_DIRECTORY_EXIST(project_location) then
-        print("directory does not exist: " .. project_location)
-        return
-    end
-
-    local project_name
-    if (project_location_split[#project_location_split] == "/") then
-        project_name = project_location_split[#project_location_split - 1]
-    else
-        project_name = project_location_split[#project_location_split]
-    end
-
-    local opts = {
-        prompt_title = "grep ~ " .. project_name .. " ~",
-        cwd = project_location,
-        previewer = true,
-    }
-
-    require("telescope").extensions.live_grep_args.live_grep_args(opts)
-end
-
 function M.grep_projects()
     local opts = {
         layout_config = {
@@ -66,7 +34,6 @@ function M.grep_projects()
             width = .8,
         }
     }
-
 
     local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_PROJECTS_DIR")
 
@@ -87,7 +54,58 @@ function M.grep_projects()
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
                 local selection = action_state.get_selected_entry()
-                return M.grep_project(selection.value)
+                require("telescope").extensions.live_grep_args.live_grep_args({
+                    prompt_title = "grep ~ " .. selection.display .. " ~",
+                    cwd = selection.value,
+                    previewer = true,
+                    layout_config = {
+                        height = .9,
+                        width = .9,
+                        horizontal = {
+                            preview_width = 0.55,
+                            results_width = 0.45,
+                        },
+                    }
+                })
+            end)
+            return true
+        end,
+
+    }):find()
+end
+
+function M.search_projects()
+    local opts = {
+        layout_config = {
+            height = .8,
+            width = .8,
+        }
+    }
+
+    local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_PROJECTS_DIR")
+
+    pickers.new(opts, {
+        prompt_title = "~ search projects ~",
+        finder = finders.new_table {
+            results = config,
+            entry_maker = function(entry)
+                return {
+                    value = entry,
+                    display = string.gsub(entry, vim.fn.expand("$HOME/"), ""),
+                    ordinal = entry,
+                }
+            end
+        },
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr, _)
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                return builtin.find_files({
+                    prompt_title = "~ search " .. selection.display .. " ~",
+                    cwd = selection.value,
+                    previewer = false,
+                })
             end)
             return true
         end,
