@@ -74,10 +74,10 @@ function M.grep_projects()
         prompt_title = "~ grep projects ~",
         finder = finders.new_table {
             results = config,
-            try_maker = function(entry)
+            entry_maker = function(entry)
                 return {
                     value = entry,
-                    display = entry,
+                    display = string.gsub(entry, vim.fn.expand("$HOME/"), ""),
                     ordinal = entry,
                 }
             end
