@@ -9,6 +9,7 @@ require 'barbar'.setup {
       buffer_index = true,
       button = false,
   },
+  semantic_letters = false,
 }
 
 
@@ -21,15 +22,15 @@ map('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
 map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
 -- Goto buffer in position...
-for i=1,9 do
-    map('n', i .. i, '<Cmd>BufferGoto '.. i .. '<CR>', opts)
-end
+-- for i=1,9 do
+--     map('n', i .. i, '<Cmd>BufferGoto '.. i .. '<CR>', opts)
+-- end
 
 -- map('n', '00', '<Cmd>BufferLast<CR>', opts)
 -- Pin/unpin buffer
 map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
-map('n', '<leader>xx', '<Cmd>BufferClose<CR>', opts)
+map('n', 'xx', ':BufferClose<CR>', opts)
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands
@@ -39,7 +40,7 @@ map('n', '<leader>xx', '<Cmd>BufferClose<CR>', opts)
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
-map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
+map('n', ';;', '<Cmd>BufferPick<CR>', opts)
 -- Sort automatically by...
 map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)

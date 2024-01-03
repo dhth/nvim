@@ -2,12 +2,12 @@
 " nnoremap <C-p> :GFiles<CR>
 
 "for FZF files
-nnoremap <silent> <c-f> :Files<CR>
+" nnoremap <silent> <c-f> :Files<CR>
 
 nnoremap <Leader>ps :Rg --hidden --iglob='!.git/' -F<SPACE>
 " nnoremap <leader>sw :Rg --hidden --iglob='!.git/'<SPACE><c-r><c-w><cr>
 nnoremap <silent> <Leader>bs :Lines<CR>
-nnoremap <silent> <c-p> :History<CR>
+" nnoremap <silent> <c-p> :History<CR>
 nnoremap <silent> <Leader>ch :History:<CR>
 " nnoremap <silent> <C-b> :Buffers<CR>
 " nnoremap <silent> g<c-g> :Windows<CR>

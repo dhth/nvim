@@ -307,3 +307,11 @@ REMAP(
     '<cmd>lua require("dhth.telescope").search_projects()<CR>',
     opts
 )
+
+--- LCD to dir
+REMAP(
+    'n',
+    '<leader>pp',
+    '<cmd>lua require("dhth.telescope").lcd_to_dir()<CR>',
+    opts
+)

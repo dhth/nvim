@@ -7,7 +7,8 @@ nnoremap <silent> <leader>gb <cmd>lua require('telescope.builtin').git_branches(
 nnoremap <silent> <leader>ts <cmd>lua require('telescope.builtin').treesitter()<cr>
 nnoremap <silent> <leader>vh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " nnoremap <silent> <leader>ll <cmd>lua require('telescope.builtin').live_grep({previewer=false})<cr>
-nnoremap <silent> <leader>ll <cmd>lua require("telescope").extensions.live_grep_args.live_grep_args({prompt_title = "~ grep ~"})<CR>
+nnoremap <silent> <leader>ll <cmd>lua require("telescope").extensions.live_grep_args.live_grep_args({prompt_title = "~ grep ~", layout_config = { height = .9, width = .9, horizontal = { preview_width = 0.55, results_width = 0.45, } } })<CR>
+nnoremap <silent> <c-f> <cmd>lua require("telescope.builtin").find_files({ find_command = { "fd", "-ipH", "-t=f" }, prompt_title = "~ search files ~" , previewer = false })<CR>
 " nnoremap <silent> <leader>rr <cmd>lua require('telescope.builtin').lsp_references({previewer=true})<cr>
 nnoremap <silent> <leader>ii <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 nnoremap <silent> <leader>oo <cmd>split \| lua require('telescope.builtin').lsp_implementations()<cr>
@@ -28,7 +29,6 @@ nnoremap <silent> <leader>dkf <cmd>lua require('dhth.telescope').find_dockerfile
 " nnoremap <silent> <C-f> <cmd>lua require('dhth.telescope').find_files()<CR>
 " nnoremap <silent> <leader>dt <cmd>lua require('dhth.telescope').edit_dotfiles()<CR>
 nnoremap <silent> <leader>vg <cmd>lua require('dhth.telescope').grep_nvim()<CR>
-nnoremap <silent> <leader>cc <cmd>lua require('dhth.telescope').edit_neovim()<CR>
 nnoremap <silent> <leader>cc <cmd>lua require('dhth.telescope').edit_neovim()<CR>
 nnoremap <silent> <leader>lt <cmd>lua require('dhth.telescope').search_linked_tests()<CR>
 nnoremap <silent> <leader>sf <cmd>lua require('dhth.telescope').nearby_file_browser()<CR>

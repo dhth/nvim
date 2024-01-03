@@ -35,7 +35,7 @@ function M.grep_projects()
         }
     }
 
-    local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_PROJECTS_DIR")
+    local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
 
     pickers.new(opts, {
         prompt_title = "~ grep projects ~",
@@ -82,7 +82,7 @@ function M.search_projects()
         }
     }
 
-    local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_PROJECTS_DIR")
+    local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
 
     pickers.new(opts, {
         prompt_title = "~ search projects ~",
@@ -102,10 +102,52 @@ function M.search_projects()
                 actions.close(prompt_bufnr)
                 local selection = action_state.get_selected_entry()
                 return builtin.find_files({
+                    find_command = {
+                        "fd",
+                        "-ipH",
+                        "-t=f",
+                    },
                     prompt_title = "~ search " .. selection.display .. " ~",
                     cwd = selection.value,
                     previewer = false,
                 })
+            end)
+            return true
+        end,
+
+    }):find()
+end
+
+function M.lcd_to_dir()
+    local opts = {
+        layout_config = {
+            height = .8,
+            width = .8,
+        }
+    }
+
+    local config = vim.fn.systemlist("fd . -t d --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
+
+    pickers.new(opts, {
+        prompt_title = "~ change project ~",
+        finder = finders.new_table {
+            results = config,
+            entry_maker = function(entry)
+                return {
+                    value = entry,
+                    display = string.gsub(entry, vim.fn.expand("$HOME/"), ""),
+                    ordinal = entry,
+                }
+            end
+        },
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr, _)
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                vim.api.nvim_command('tabnew')
+                vim.api.nvim_command('lcd ' .. selection.value)
+                print("👉 tab's working directory set to: " .. selection.value)
             end)
             return true
         end,
@@ -132,6 +174,21 @@ function M.find_files()
         --     "-ipH",
         --     "-t=f",
         -- },
+    }
+
+    require("telescope.builtin").find_files(opts)
+end
+
+function M.search_md_files()
+    local opts = {
+        prompt_title = "~ search markdown ~",
+        previewer = false,
+        find_command = {
+            "fd",
+            "-ipH",
+            "-t=f",
+            "-e=md",
+        },
     }
 
     require("telescope.builtin").find_files(opts)
