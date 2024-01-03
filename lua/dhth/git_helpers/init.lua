@@ -194,9 +194,9 @@ function M.git_push(set_upstream)
         if (set_upstream)
         then
             print(" push -u ...")
-            vim.cmd("Git push -u")
+            vim.api.nvim_command("terminal git push -u")
         else
-            vim.cmd("Git push")
+            vim.api.nvim_command("terminal git status")
             print(" push ...")
         end
     else
