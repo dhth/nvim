@@ -14,7 +14,12 @@ Annoyed With
 Researching
 ---
 
- - fugitive's stash key bindings: fugitive_cz
+- https://github.com/williamboman/mason.nvim
+- https://github.com/nvim-pack/nvim-spectre
+- https://github.com/zbirenbaum/copilot.lua
+- https://github.com/stevearc/conform.nvim
+- https://github.com/gbprod/yanky.nvim
+- https://github.com/stevearc/aerial.nvim
 
 
 Experimenting With

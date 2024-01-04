@@ -30,7 +30,7 @@ map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
 -- Pin/unpin buffer
 map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
-map('n', 'xx', ':BufferClose<CR>', opts)
+map('n', '<leader>q', ':BufferClose<CR>', opts)
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands

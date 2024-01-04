@@ -86,3 +86,6 @@ inoremap <buffer> <silent> [r <Esc>:lua require("dhth.wiki_helpers").reference_e
 
 vnoremap <buffer> <c-t> :lua require("dhth.wiki_helpers").open_urls()<CR>
 nnoremap <buffer> f<c-f> :lua require("dhth.code_helpers").format_code_block()<CR>
+
+nmap <silent> `` ysiw`
+nnoremap <buffer> <leader>al :lua require("dhth.code_helpers").add_link_to_md()<CR>

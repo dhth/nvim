@@ -15,6 +15,7 @@ require "dhth.barbar"
 require "dhth.treesitter"
 require "dhth.nvim_treesitter_textobjects"
 require "dhth.nvim_treesitter_context"
+require('mini.indentscope').setup()
 -- require "dhth.block"
 
 -- autocomplete/lsp

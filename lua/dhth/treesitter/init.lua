@@ -1,11 +1,20 @@
 -- require 'nvim-treesitter.install'.compilers = { "clang", "gcc" }
 
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     -- ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    ensure_installed = {"python", "scala", "lua", "json", "yaml", "toml", "html", "css"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = { "python", "scala", "lua", "json", "yaml", "toml", "html", "css" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ignore_install = { "javascript" },
     highlight = {
-        enable = true,              -- false will disable the whole extension
+        enable = true, -- false will disable the whole extension
+        disable = { "vimdoc" }
+        -- use the function below to determine languages to disable TS for
+        -- TS's internal language names may differ from vim's file type
+        -- disable = function(lang, _)
+        --     if lang == "vimdoc" then
+        --         return true
+        --     end
+        --     return false
+        -- end,
     },
     rainbow = {
         enable = true,

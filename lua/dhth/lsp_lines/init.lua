@@ -18,3 +18,4 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 }
 )
 
+require("lsp_lines").toggle()

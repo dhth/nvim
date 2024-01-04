@@ -28,10 +28,10 @@ map("n", "<leader>cl", [[<cmd>lua vim.lsp.codelens.run()<CR>]])
 map('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>')
 map('n', '<space>e', '<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>')
 --- using lspsaga
-map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({float=false})<CR>') -- turn float=true if not using lsp_lines
-map('n', ']d', '<cmd>lua vim.diagnostic.goto_next({float=false})<CR>') -- turn float=true if not using lsp_lines
+map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>') -- turn float=true if not using lsp_lines
+map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>') -- turn float=true if not using lsp_lines
 -- map('n', '<space>qf', '<cmd>lua vim.diagnostic.set_loclist()<CR>')
-map('n', '<space>f', '<cmd>lua vim.lsp.buf.format({async=true})<CR>')
+map('n', 'f<c-f>', '<cmd>lua vim.lsp.buf.format({async=true})<CR>')
 map("n", "<leader>aa", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
 
 -- map("n", "<leader>ff", "<cmd>lua vim.lsp.buf.definition()<CR>")

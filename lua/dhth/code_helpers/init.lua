@@ -320,4 +320,53 @@ function M.format_code_block()
     -- end)
 end
 
+function M.add_link_to_md()
+    local clipboard_contents = vim.api.nvim_exec("echo getreg('*')", true)
+
+    if string.find(clipboard_contents, "\n") then
+        print("Clipboard contains multiple lines")
+        return
+    end
+
+    if not string.match(clipboard_contents, "^http.*") then
+        print("Clipboard doesn't contain a url")
+        return
+    end
+
+    local url_to_add = clipboard_contents
+
+    local current_bufnr = vim.fn.bufnr('%')
+
+    local line_count = vim.fn.line('$')
+
+    local last_line = vim.fn.getline(line_count)
+
+    local pattern = "^%[(%d+)%]: http.*$"
+
+    local lines_to_add
+    local new_url_number
+
+    P(string.match(last_line, pattern))
+
+    if string.match(last_line, pattern) then
+        local captured_digit = string.match(last_line, pattern)
+        new_url_number = tonumber(captured_digit) + 1
+    else
+        new_url_number = 1
+    end
+
+    lines_to_add = {"[" .. new_url_number .. "]: " .. url_to_add}
+
+    if lines_to_add then
+        local lines = vim.api.nvim_buf_get_lines(current_bufnr, 0, -1, false)
+        local extended_lines = vim.list_extend(lines, lines_to_add)
+        vim.api.nvim_buf_set_lines(current_bufnr, 0, -1, false, extended_lines)
+    end
+
+    if new_url_number then
+        vim.api.nvim_exec("normal! a" .. "[" .. new_url_number .. "]", false)
+    end
+
+end
+
 return M
