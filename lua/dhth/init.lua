@@ -16,6 +16,7 @@ require "dhth.treesitter"
 require "dhth.nvim_treesitter_textobjects"
 require "dhth.nvim_treesitter_context"
 require('mini.indentscope').setup()
+require("aerial").setup()
 -- require "dhth.block"
 
 -- autocomplete/lsp
@@ -23,7 +24,7 @@ require "dhth.nvim_cmp.setup"
 require "dhth.vim_vsnip"
 require "dhth.luadev"
 require "dhth.nvim_lspconfig"
-require "dhth.lsp_signature"
+-- require "dhth.lsp_signature"
 require "dhth.lspsaga"
 require "dhth.nvim_metals"
 -- require "dhth.lsp_lines"

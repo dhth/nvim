@@ -346,16 +346,15 @@ function M.add_link_to_md()
     local lines_to_add
     local new_url_number
 
-    P(string.match(last_line, pattern))
-
     if string.match(last_line, pattern) then
         local captured_digit = string.match(last_line, pattern)
         new_url_number = tonumber(captured_digit) + 1
+        lines_to_add = {"[" .. new_url_number .. "]: " .. url_to_add}
     else
         new_url_number = 1
+        lines_to_add = {"", "[" .. new_url_number .. "]: " .. url_to_add}
     end
 
-    lines_to_add = {"[" .. new_url_number .. "]: " .. url_to_add}
 
     if lines_to_add then
         local lines = vim.api.nvim_buf_get_lines(current_bufnr, 0, -1, false)

@@ -315,3 +315,11 @@ REMAP(
     '<cmd>lua require("dhth.telescope").lcd_to_dir()<CR>',
     opts
 )
+
+--- Code outline
+REMAP(
+    'n',
+    '<leader>co',
+    '<cmd>AerialToggle<CR>',
+    opts
+)

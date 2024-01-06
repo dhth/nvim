@@ -140,6 +140,7 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'echasnovski/mini.indentscope', { 'branch': 'stable' }
+Plug 'stevearc/aerial.nvim'
 " Plug 'nvim-treesitter/playground'
 " Plug 'HampusHauffman/block.nvim'
 " Plug 'github/copilot.vim'

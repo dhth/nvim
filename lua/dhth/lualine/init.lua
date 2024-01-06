@@ -9,16 +9,16 @@
 require('lualine').setup({
     options = {
         theme = 'gruvbox',
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
     },
     sections = {
-        lualine_a = {'mode'},
+        lualine_a = { 'mode' },
         lualine_b = {},
-        lualine_c = {'filename'},
+        lualine_c = { { 'filename', path = 4 } },
         lualine_x = {},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
     },
     -- winbar = {
     --     lualine_a = {},
