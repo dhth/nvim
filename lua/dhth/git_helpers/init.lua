@@ -193,13 +193,13 @@ function M.git_push(set_upstream)
     then
         if (set_upstream)
         then
-            print("\ngit push -u")
-            vim.api.nvim_command("below split")
+            -- print("\ngit push -u")
+            vim.api.nvim_command("new | setlocal buftype=nofile bufhidden=delete nobuflisted noswapfile | execute 'silent! r! Git push -u' | 1delete")
             vim.api.nvim_command("terminal git push -u")
         else
-            print("\ngit push")
+            -- print("\ngit push")
             vim.api.nvim_command("below split")
-            vim.api.nvim_command("terminal git push")
+            vim.api.nvim_command("new | setlocal buftype=nofile bufhidden=delete nobuflisted noswapfile | execute 'silent! r! Git push' | 1delete")
         end
     else
         print(" cancelled/incorrect input")
