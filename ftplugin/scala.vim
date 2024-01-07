@@ -27,3 +27,6 @@ nnoremap <silent> <buffer> f<c-f> :lua vim.lsp.buf.format({async=true})<CR>
 nnoremap <silent> <buffer> <leader>ca :lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> <buffer> [d :lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> <buffer> ]d :lua vim.diagnostic.goto_next()<CR>
+
+inoremap <buffer> .. <space>=><space>
+inoremap <buffer> ,, <space><-<space>
