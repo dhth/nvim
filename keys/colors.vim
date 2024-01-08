@@ -44,10 +44,3 @@ endif
 "     theme_style = "light",
 " })
 " EOF
-
-" highlight SignColumn guibg=NONE ctermbg=NONE
-
-hi DiffAdd      gui=none    guifg=#1F2F38          guibg=#84B97C
-hi DiffChange   gui=none    guifg=none             guibg=none
-hi DiffDelete   gui=bold    guifg=#1F2F38          guibg=#DC657D
-hi DiffText     gui=bold    guifg=#1F2F38          guibg=#D4B261

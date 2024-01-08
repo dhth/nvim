@@ -268,13 +268,14 @@ REMAP(
     opts
 )
 
---- diff buffer with HEAD
-REMAP(
-    'n',
-    '<Leader>dh',
-    ':Gvdiffsplit! HEAD:%<CR>',
-    opts
-)
+-- --- diff buffer with HEAD
+-- use gitsigns instead
+-- REMAP(
+--     'n',
+--     '<Leader>dh',
+--     ':Gvdiffsplit! HEAD:%<CR>',
+--     opts
+-- )
 
 --- diff file with main branch
 REMAP(

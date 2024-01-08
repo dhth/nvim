@@ -69,6 +69,14 @@ cmp.setup.filetype('markdown', {
     })
 })
 
+cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+                { name = 'vsnip' },
+                { name = 'path' },
+    })
+})
+
+
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   require('lspconfig')['pyright'].setup {

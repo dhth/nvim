@@ -1,6 +1,6 @@
 "builtin
 nnoremap <silent> <leader>re <cmd>lua require('telescope.builtin').resume()<CR>
-nnoremap <silent> <leader>df <cmd>lua require('telescope.builtin').git_bcommits()<CR>
+" nnoremap <silent> <leader>df <cmd>lua require('telescope.builtin').git_bcommits()<CR>
 nnoremap <silent> <C-b> <cmd>lua require('telescope.builtin').buffers({previewer=false})<CR>
 nnoremap <silent> <C-s> <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({previewer=false, prompt_title="search", sorting_strategy="ascending", layout_config={prompt_position="top"}})<cr>
 nnoremap <silent> <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>

@@ -11,11 +11,9 @@ require('gitsigns').setup {
     map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
 
     -- Actions
-    map('n', '<leader>hr', ':Gitsigns reset_hunk<CR>')
-    map('v', '<leader>hr', ':Gitsigns reset_hunk<CR>')
-    map('n', '<leader>vc', '<cmd>Gitsigns preview_hunk<CR>')
-    map('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>')
-    map('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
+    map('n', 'r<c-r>', ':Gitsigns reset_hunk<CR>')
+    map('n', '<leader>dh', '<cmd>Gitsigns preview_hunk_inline<CR>')
+    map('n', '<leader>df', '<cmd>Gitsigns diffthis<CR>')
 
     -- Text object
     map('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
