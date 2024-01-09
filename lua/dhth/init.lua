@@ -15,7 +15,7 @@ require "dhth.barbar"
 require "dhth.treesitter"
 require "dhth.nvim_treesitter_textobjects"
 require "dhth.nvim_treesitter_context"
-require('mini.indentscope').setup()
+require "dhth.mini_indentscope"
 require("aerial").setup()
 -- require "dhth.block"
 

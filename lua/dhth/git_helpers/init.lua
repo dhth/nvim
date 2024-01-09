@@ -37,7 +37,7 @@ local function create_telescope_search(opts)
                 return {
                     value = entry,
                     display = entry[1],
-                    ordinal = entry[2],
+                    ordinal = entry[1],
                 }
             end
         },
