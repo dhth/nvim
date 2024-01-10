@@ -324,3 +324,11 @@ REMAP(
     '<cmd>AerialToggle<CR>',
     opts
 )
+
+--- Code outline
+REMAP(
+    'n',
+    'Y',
+    'mQ0y$`Q',
+    opts
+)

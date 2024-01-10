@@ -149,7 +149,7 @@ nnoremap <silent><leader>sq :call helpers#SearchToQuickfix()<cr>
 " [d via karabiner
 
 " from https://www.youtube.com/watch?v=hSHATqh8svM
-nnoremap Y y$
+" nnoremap Y y$
 
 nnoremap <leader>x :source %<CR>
 

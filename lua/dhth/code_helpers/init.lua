@@ -292,7 +292,7 @@ function M.format_code_block()
         elseif code_block_type == "python" then
             format_prg = "black - --quiet"
         elseif code_block_type == "scala" then
-            format_prg = "scalafmt --config-str 'version = 3.5.3' --stdin"
+            format_prg = "scalafmt --config .scalafmt.conf  --stdin --stdout --quiet"
         else
             print("Code block not supported")
             return
