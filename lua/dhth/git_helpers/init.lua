@@ -1,7 +1,7 @@
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
-local theme = require('telescope.themes').get_ivy()
+local theme = require('telescope.themes').get_ivy
 
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
@@ -72,13 +72,11 @@ local function diff_commit_search(opts, commits, stage, source_commit)
     local prompt_title
     if stage == 1 then
         prompt_title = "diff with which commit?"
-        print("👉  <c-t> to diff in a new tab; <c-v> to diff a range")
+        print("👉  <c-t> to diff in a new tab; <c-v> to diff a range; <c-x> to diff commit with it's parent")
     else
-        prompt_title = "and the second commit?"
+        prompt_title = source_commit .. ".. ?"
         print("👉  <c-t> to diff the entire tree")
     end
-
-    local file_name = vim.fn.expand("%")
 
     pickers.new(opts, {
         prompt_title = prompt_title,
@@ -96,6 +94,7 @@ local function diff_commit_search(opts, commits, stage, source_commit)
         attach_mappings = function(prompt_bufnr, _)
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
+
                 local selection = action_state.get_selected_entry()
                 local commit_hash = SPLIT_STRING(SPLIT_STRING(selection.value, ">> ")[2], " <<")[1]
 
@@ -104,6 +103,7 @@ local function diff_commit_search(opts, commits, stage, source_commit)
                     return
                 end
 
+                local file_name = vim.fn.expand("%")
                 if stage == 1 then
                     vim.api.nvim_exec2("only", { output = false })
                     vim.api.nvim_exec2("Gvdiffsplit! " .. commit_hash, { output = false })
@@ -111,7 +111,7 @@ local function diff_commit_search(opts, commits, stage, source_commit)
                     -- Gvdiffsplit command, a second diffthis is needed, after a small delay
                     vim.defer_fn(function()
                         vim.api.nvim_exec2("windo diffthis", { output = false })
-                        local message =  "git diff " .. commit_hash .. " -- " .. file_name
+                        local message = "git diff " .. commit_hash .. " -- " .. file_name
                         print("👉 " .. message)
                         vim.fn.setreg('+', message)
                     end, 5)
@@ -124,6 +124,31 @@ local function diff_commit_search(opts, commits, stage, source_commit)
                     vim.defer_fn(function()
                         vim.api.nvim_exec2("windo diffthis", { output = false })
                         local message = "git diff " .. source_commit .. ".." .. commit_hash .. " -- " .. file_name
+                        print("👉 " .. message)
+                        vim.fn.setreg('+', message)
+                    end, 5)
+                end
+            end)
+            actions.select_horizontal:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                local commit_hash = SPLIT_STRING(SPLIT_STRING(selection.value, ">> ")[2], " <<")[1]
+
+                if not commit_hash then
+                    print("Couldn't find a commit hash")
+                    return
+                end
+
+                if stage == 1 then
+                    local file_name = vim.fn.expand("%")
+                    vim.api.nvim_exec2("only", { output = false })
+                    vim.api.nvim_exec2("DiffviewOpen " .. commit_hash .. "~1.." .. commit_hash .. " -- " .. file_name,
+                        { output = false })
+                    -- For some reason, the diff doesn't align properly with just the
+                    -- Gvdiffsplit command, a second diffthis is needed, after a small delay
+                    vim.defer_fn(function()
+                        vim.api.nvim_exec2("windo diffthis", { output = false })
+                        local message = "git diff " .. commit_hash .. "~1.." .. commit_hash .. " -- " .. file_name
                         print("👉 " .. message)
                         vim.fn.setreg('+', message)
                     end, 5)
@@ -151,13 +176,14 @@ local function diff_commit_search(opts, commits, stage, source_commit)
                 end
 
                 if stage == 1 then
+                    local file_name = vim.fn.expand("%")
                     vim.api.nvim_exec2("tabe %", { output = false })
                     vim.api.nvim_exec2("Gvdiffsplit! " .. commit_hash, { output = false })
                     -- For some reason, the diff doesn't align properly with just the
                     -- Gvdiffsplit command, a second diffthis is needed, after a small delay
                     vim.defer_fn(function()
                         vim.api.nvim_exec2("windo diffthis", { output = false })
-                        local message =  "git diff " .. commit_hash .. " -- " .. file_name
+                        local message = "git diff " .. commit_hash .. " -- " .. file_name
                         print("👉 " .. message)
                         vim.fn.setreg('+', message)
                     end, 5)
@@ -185,7 +211,7 @@ end
 function M.git_diff()
     local commits = vim.fn.systemlist(
         "git --no-pager log --all --graph --oneline --pretty=format:'      >> %h <<   %d %s (%cr)' --since='1 month ago'")
-    diff_commit_search(theme, commits, 1, nil)
+    diff_commit_search(theme(), commits, 1, nil)
 end
 
 function M.show_diff_in_window()
@@ -289,15 +315,11 @@ function M.git_push(set_upstream)
     then
         if (set_upstream)
         then
-            print("\ngit push -u")
-            vim.api.nvim_command(
-                "new | setlocal buftype=nofile bufhidden=delete nobuflisted noswapfile | execute 'silent! r! Git push -u' | 1delete")
-            vim.api.nvim_command("terminal git push -u")
+            print(" push -u ...")
+            vim.cmd("Git push -u")
         else
-            print("\ngit push")
-            vim.api.nvim_command("below split")
-            vim.api.nvim_command(
-                "new | setlocal buftype=nofile bufhidden=delete nobuflisted noswapfile | execute 'silent! r! Git push' | 1delete")
+            print(" push ...")
+            vim.cmd("Git push")
         end
     else
         print(" cancelled/incorrect input")

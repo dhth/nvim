@@ -1,6 +1,7 @@
 local pickers = require "telescope.pickers"
 local actions = require "telescope.actions"
 local conf = require("telescope.config").values
+local theme = require('telescope.themes').get_ivy
 local action_state = require "telescope.actions.state"
 local finders = require "telescope.finders"
 local builtin = require "telescope.builtin"
@@ -8,11 +9,15 @@ local builtin = require "telescope.builtin"
 local M = {}
 
 function M.edit_neovim()
-    local opts = {
+    local opts = theme({
         prompt_title = "~ nvim ~",
+        results_title = false,
         cwd = "~/.config/nvim",
         previewer = false,
-    }
+        layout_config = {
+            height = .6,
+        }
+    })
 
     require("telescope.builtin").find_files(opts)
 end
@@ -20,6 +25,8 @@ end
 function M.grep_nvim()
     local opts = {
         prompt_title = "~ nvim grep ~",
+        results_title = false,
+        preview_title = false,
         cwd = "~/.config/nvim",
         previewer = true,
     }
@@ -28,12 +35,10 @@ function M.grep_nvim()
 end
 
 function M.grep_projects()
-    local opts = {
-        layout_config = {
-            height = .8,
-            width = .8,
-        }
-    }
+    local opts = theme({
+        prompt_title = "~ projects ~",
+        results_title = false,
+    })
 
     local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
 
@@ -54,19 +59,27 @@ function M.grep_projects()
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
                 local selection = action_state.get_selected_entry()
-                require("telescope").extensions.live_grep_args.live_grep_args({
+                local args = theme({
                     prompt_title = "grep ~ " .. selection.display .. " ~",
+                    results_title = false,
+                    preview_title = false,
                     cwd = selection.value,
                     previewer = true,
-                    layout_config = {
-                        height = .9,
-                        width = .9,
-                        horizontal = {
-                            preview_width = 0.55,
-                            results_width = 0.45,
-                        },
-                    }
                 })
+                -- local args = {
+                --     prompt_title = "grep ~ " .. selection.display .. " ~",
+                --     cwd = selection.value,
+                --     previewer = true,
+                --     layout_config = {
+                --         height = .9,
+                --         width = .9,
+                --         horizontal = {
+                --             preview_width = 0.55,
+                --             results_width = 0.45,
+                --         },
+                --     }
+                -- }
+                require("telescope").extensions.live_grep_args.live_grep_args(args)
             end)
             return true
         end,
@@ -75,12 +88,14 @@ function M.grep_projects()
 end
 
 function M.search_projects()
-    local opts = {
+    local opts = theme({
+        prompt_title = "~ search projects ~",
+        results_title = false,
+        previewer = false,
         layout_config = {
-            height = .8,
-            width = .8,
+            height = .6,
         }
-    }
+    })
 
     local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
 
@@ -101,16 +116,21 @@ function M.search_projects()
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
                 local selection = action_state.get_selected_entry()
-                return builtin.find_files({
+                local opts_for_find_files = theme({
                     find_command = {
                         "fd",
                         "-ipH",
                         "-t=f",
                     },
                     prompt_title = "~ search " .. selection.display .. " ~",
+                    results_title = false,
                     cwd = selection.value,
                     previewer = false,
+                    layout_config = {
+                        height = .6,
+                    }
                 })
+                return builtin.find_files(opts_for_find_files)
             end)
             return true
         end,
