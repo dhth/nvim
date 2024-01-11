@@ -13,7 +13,7 @@ require('gitsigns').setup {
     -- Actions
     map('n', 'r<c-r>', ':Gitsigns reset_hunk<CR>')
     map('n', '<leader>dh', '<cmd>Gitsigns preview_hunk_inline<CR>')
-    map('n', '<leader>df', '<cmd>Gitsigns diffthis<CR>')
+    -- map('n', '<leader>df', '<cmd>Gitsigns diffthis<CR>')
 
     -- Text object
     map('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')

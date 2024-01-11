@@ -8,7 +8,7 @@ nnoremap <silent> <leader>ts <cmd>lua require('telescope.builtin').treesitter()<
 nnoremap <silent> <leader>vh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " nnoremap <silent> <leader>ll <cmd>lua require('telescope.builtin').live_grep({previewer=false})<cr>
 nnoremap <silent> <leader>ll <cmd>lua require("telescope").extensions.live_grep_args.live_grep_args({prompt_title = "~ grep ~", layout_config = { height = .9, width = .9, horizontal = { preview_width = 0.55, results_width = 0.45, } } })<CR>
-nnoremap <silent> <c-f> <cmd>lua require("telescope.builtin").find_files({ find_command = { "fd", "-ipH", "-t=f" }, prompt_title = "~ search files ~" , previewer = false })<CR>
+nnoremap <silent> <c-f> <cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_ivy({ find_command = { "fd", "-ipH", "-t=f" }, prompt_title = "~ search files ~" , previewer = false }))<CR>
 " nnoremap <silent> <leader>rr <cmd>lua require('telescope.builtin').lsp_references({previewer=true})<cr>
 nnoremap <silent> <leader>ii <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 nnoremap <silent> <leader>oo <cmd>split \| lua require('telescope.builtin').lsp_implementations()<cr>

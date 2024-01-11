@@ -285,6 +285,14 @@ REMAP(
     opts
 )
 
+--- general diff helper
+REMAP(
+    'n',
+    '<Leader>df',
+    '<cmd>lua require("dhth.git_helpers").git_diff()<CR>',
+    opts
+)
+
 --- format buffer using lsp
 REMAP(
     'n',
