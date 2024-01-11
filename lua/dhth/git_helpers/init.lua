@@ -111,7 +111,9 @@ local function diff_commit_search(opts, commits, stage, source_commit)
                     -- Gvdiffsplit command, a second diffthis is needed, after a small delay
                     vim.defer_fn(function()
                         vim.api.nvim_exec2("windo diffthis", { output = false })
-                        print("👉 git diff " .. commit_hash .. " -- " .. file_name)
+                        local message =  "git diff " .. commit_hash .. " -- " .. file_name
+                        print("👉 " .. message)
+                        vim.fn.setreg('+', message)
                     end, 5)
                 else
                     vim.api.nvim_exec2("only", { output = false })
@@ -121,16 +123,14 @@ local function diff_commit_search(opts, commits, stage, source_commit)
                     -- Gvdiffsplit command, a second diffthis is needed, after a small delay
                     vim.defer_fn(function()
                         vim.api.nvim_exec2("windo diffthis", { output = false })
-                        print("👉  git diff " .. source_commit .. ".." .. commit_hash .. " -- " .. file_name)
+                        local message = "git diff " .. source_commit .. ".." .. commit_hash .. " -- " .. file_name
+                        print("👉 " .. message)
+                        vim.fn.setreg('+', message)
                     end, 5)
                 end
             end)
             actions.select_vertical:replace(function()
                 actions.close(prompt_bufnr)
-                if stage == 2 then
-                    print("Diff range can only be between 2 commits")
-                    return
-                end
                 local selection = action_state.get_selected_entry()
                 local commit_hash = SPLIT_STRING(SPLIT_STRING(selection.value, ">> ")[2], " <<")[1]
 
@@ -157,7 +157,9 @@ local function diff_commit_search(opts, commits, stage, source_commit)
                     -- Gvdiffsplit command, a second diffthis is needed, after a small delay
                     vim.defer_fn(function()
                         vim.api.nvim_exec2("windo diffthis", { output = false })
-                        print("👉 Gvdiffsplit! " .. commit_hash)
+                        local message =  "git diff " .. commit_hash .. " -- " .. file_name
+                        print("👉 " .. message)
+                        vim.fn.setreg('+', message)
                     end, 5)
                 else
                     vim.api.nvim_exec2("tabe %", { output = false })
@@ -167,7 +169,9 @@ local function diff_commit_search(opts, commits, stage, source_commit)
                     -- Gvdiffsplit command, a second diffthis is needed, after a small delay
                     vim.defer_fn(function()
                         vim.api.nvim_exec2("windo diffthis", { output = false })
-                        print("👉  git diff " .. source_commit .. ".." .. commit_hash)
+                        local message = "git diff " .. source_commit .. ".." .. commit_hash
+                        print("👉 " .. message)
+                        vim.fn.setreg('+', message)
                     end, 5)
                 end
             end)
