@@ -42,8 +42,7 @@ require "dhth.diffview"
 require "octo".setup()
 
 -- movement
-require "dhth.hop"
--- require('leap').set_default_keymaps()
+require "dhth.flash"
 
 -- other
 require "dhth.vim_highlighter"

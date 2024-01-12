@@ -87,8 +87,9 @@ Plug 'tpope/vim-repeat'
 " Plug 'junegunn/gv.vim'
 
 """ Moving around
+Plug 'folke/flash.nvim'
 " Plug 'justinmk/vim-sneak'
-Plug 'phaazon/hop.nvim'
+" Plug 'phaazon/hop.nvim'
 " Plug 'ggandor/lightspeed.nvim'
 " Plug 'ggandor/leap.nvim'
 " Plug 'mfussenegger/nvim-treehopper'
