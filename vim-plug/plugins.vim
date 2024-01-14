@@ -53,6 +53,9 @@ Plug 'folke/neodev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'Maan2003/lsp_lines.nvim'
 
+" A few LSPs support sending $/progress messages (https://github.com/j-hui/fidget.nvim/wiki/Known-compatible-LSP-servers)
+" Plug 'j-hui/fidget.nvim' 
+
 """ Completion
 Plug 'hrsh7th/cmp-nvim-lsp', { 'commit': 'affe808a5c56b71630f17aa7c38e15c59fd648a8' }
 Plug 'hrsh7th/cmp-buffer'

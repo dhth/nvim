@@ -167,7 +167,10 @@ nvim_lsp.lua_ls.setup({
         Lua = {
             completion = {
                 callSnippet = "Replace"
-            }
+            },
+            diagnostics = {
+                globals = { 'hs' }, -- for hammerspoon config
+            },
         }
     }
 })

@@ -20,7 +20,7 @@ require("aerial").setup()
 -- require "dhth.block"
 
 -- autocomplete/lsp
-require "dhth.nvim_cmp.setup"
+require "dhth.nvim_cmp"
 require "dhth.vim_vsnip"
 require "dhth.luadev"
 require "dhth.nvim_lspconfig"

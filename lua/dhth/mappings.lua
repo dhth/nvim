@@ -337,6 +337,6 @@ REMAP(
 REMAP(
     'n',
     'Y',
-    'mQ0y$`Q',
+    'mQ^yg_`Q', -- ^ and g_ for skipping whitespace
     opts
 )
