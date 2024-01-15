@@ -9,6 +9,13 @@ REMAP(
 
 REMAP(
     'o',
+    's',
+    '<cmd>lua require("flash").jump({ search = { multi_window = false }, })<cr>',
+    { noremap = true, silent = true }
+)
+
+REMAP(
+    'o',
     'r',
     '<cmd>lua require("flash").remote({ search = { multi_window = false }, })<cr>',
     { noremap = true, silent = true }

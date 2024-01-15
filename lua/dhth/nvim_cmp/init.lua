@@ -72,11 +72,12 @@ cmp.setup.filetype('markdown', {
     sources = cmp.config.sources({
         {
             name = 'buffer',
-            option = {
-                get_bufnrs = function()
-                    return vim.api.nvim_list_bufs()
-                end
-            }
+            -- default is just the current buffer
+            -- option = {
+            --     get_bufnrs = function()
+            --         return vim.api.nvim_list_bufs()
+            --     end
+            -- }
         },
         { name = 'vsnip' },
         { name = 'path' },

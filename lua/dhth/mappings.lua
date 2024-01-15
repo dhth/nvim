@@ -333,10 +333,18 @@ REMAP(
     opts
 )
 
---- Code outline
+--- Yank non whitespace on line
 REMAP(
     'n',
     'Y',
     'mQ^yg_`Q', -- ^ and g_ for skipping whitespace
+    opts
+)
+
+--- Yank entire file contents
+REMAP(
+    'n',
+    '<leader>fy',
+    'mQggyG`Q',
     opts
 )

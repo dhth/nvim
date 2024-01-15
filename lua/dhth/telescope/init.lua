@@ -199,6 +199,31 @@ function M.find_files()
     require("telescope.builtin").find_files(opts)
 end
 
+function M.enter_file_path()
+    local function create_mappings(prompt_bufnr, _)
+        actions.select_default:replace(function()
+            actions.close(prompt_bufnr)
+            local selection = action_state.get_selected_entry()
+            vim.api.nvim_exec2("norm!i" .. selection.value, { output = false })
+        end)
+        return true
+    end
+    local opts = theme({
+        prompt_title = "~ insert link to file ~",
+        results_title = false,
+        previewer = false,
+        find_command = {
+            "fd",
+            "-ipH",
+            "-t=f",
+            "--relative-path",
+        },
+        attach_mappings = create_mappings
+    })
+
+    require("telescope.builtin").find_files(opts)
+end
+
 function M.search_md_files()
     local opts = {
         prompt_title = "~ search markdown ~",
@@ -431,7 +456,7 @@ end
 -- this is a good example to see how custom mappings work
 -- https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#replacing-actions
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#performing-an-arbitrary-command-by-extending-existing-find_files-picker
-local function create_file_mapping(prompt_bufnr, map)
+local function create_file_mapping(prompt_bufnr, _)
     actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
@@ -443,7 +468,7 @@ local function create_file_mapping(prompt_bufnr, map)
                 vim.cmd([[silent !mkdir -p ]] .. path .. new_path)
             end
             vim.cmd([[silent !touch ]] .. path .. fname)
-            vim.cmd([[tabedit ]] .. path .. fname)
+            vim.cmd([[edit ]] .. path .. fname)
         end
     end)
     actions.select_vertical:replace(function()
@@ -476,11 +501,15 @@ end
 
 -- creates a new file alongside a file chosen from find_files
 M.create_new_file_at_location = function()
-    local opts = {
+    local opts = theme({
         prompt_title = "~ create file ~",
+        results_title = false,
         previewer = false,
+        layout_config = {
+            height = .6,
+        },
         attach_mappings = create_file_mapping
-    }
+    })
     require('telescope.builtin').find_files(opts)
 end
 

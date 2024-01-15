@@ -89,3 +89,5 @@ nnoremap <buffer> <silent> f<c-f> :lua require("dhth.code_helpers").format_code_
 
 nmap <silent> `` ysiw`
 nnoremap <buffer> <leader>al :lua require("dhth.code_helpers").add_link_to_md()<CR>
+
+inoremap <buffer> <silent> ][ <cmd>lua require("dhth.telescope").enter_file_path()<CR>
