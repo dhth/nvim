@@ -2,6 +2,9 @@ local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
 cmp.setup({
+    -- completion = {
+    --   autocomplete = false
+    -- },
     snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.

@@ -38,6 +38,9 @@ function M.grep_projects()
     local opts = theme({
         prompt_title = "~ projects ~",
         results_title = false,
+        layout_config = {
+            height = .6,
+        }
     })
 
     local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
@@ -65,6 +68,9 @@ function M.grep_projects()
                     preview_title = false,
                     cwd = selection.value,
                     previewer = true,
+                    layout_config = {
+                        height = .6,
+                    }
                 })
                 -- local args = {
                 --     prompt_title = "grep ~ " .. selection.display .. " ~",
@@ -212,6 +218,9 @@ function M.enter_file_path()
         prompt_title = "~ insert link to file ~",
         results_title = false,
         previewer = false,
+        layout_config = {
+            height = .6,
+        },
         find_command = {
             "fd",
             "-ipH",
@@ -521,6 +530,33 @@ M.show_commit = function()
         attach_mappings = show_commit_mappings
     }
     require('telescope.builtin').git_commits(opts)
+end
+
+-- diff view open commit
+M.search_document_symbols = function(symbol_type)
+    local prompt_title
+    local symbols_to_search
+
+    if symbol_type == "function" then
+        prompt_title = symbol_type
+        symbols_to_search = { symbol_type }
+    else
+        prompt_title = "symbols"
+        symbols_to_search = { "function", "method", "class" }
+    end
+
+    local opts = theme({
+        prompt_title = "~ " .. prompt_title .. " ~",
+        results_title = false,
+        symbol_width = 50,
+        symbol_type_width = 12,
+        symbols = symbols_to_search,
+        preview_title = false,
+        layout_config = {
+            height = .6,
+        }
+    })
+    require('telescope.builtin').lsp_document_symbols(opts)
 end
 
 

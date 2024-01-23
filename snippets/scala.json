@@ -6,5 +6,12 @@
             "}"
         ],
         "description": "Scala main method"
+    },
+    "ec": {
+        "prefix": ["ec"],
+        "body": [
+            "implicit val ec: ExecutionContext = ExecutionContext.global"
+        ],
+        "description": "Global Execution Context"
     }
 }

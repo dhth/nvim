@@ -162,7 +162,7 @@ Plug 'azabiong/vim-highlighter'
 " Plug 'tpope/vim-projectionist'
 " Plug 'untitled-ai/jupyter_ascending.vim'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-" Plug 'chentoast/marks.nvim'
+Plug 'chentoast/marks.nvim'
 " Plug 'purescript-contrib/purescript-vim'
 call plug#end()
 

@@ -6,6 +6,7 @@ nnoremap <silent> <C-s> <cmd>lua require('telescope.builtin').current_buffer_fuz
 nnoremap <silent> <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <silent> <leader>ts <cmd>lua require('telescope.builtin').treesitter()<cr>
 nnoremap <silent> <leader>vh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <silent> <leader>sh <cmd>lua require("telescope.builtin").search_history(require("telescope.themes").get_ivy({ results_title = false, layout_config = { height = .6 }}))<CR>
 " nnoremap <silent> <leader>ll <cmd>lua require('telescope.builtin').live_grep({previewer=false})<cr>
 nnoremap <silent> <leader>ll <cmd>lua require("telescope").extensions.live_grep_args.live_grep_args(require("telescope.themes").get_ivy({prompt_title = "~ grep ~", results_title = false, preview_title = false}))<CR>
 nnoremap <silent> <c-f> <cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_ivy({ find_command = { "fd", "-ipH", "-t=f" }, prompt_title = "~ search files ~" , results_title = false, previewer = false, layout_config = { height = .6 } }))<CR>
@@ -13,7 +14,7 @@ nnoremap <silent> <c-f> <cmd>lua require("telescope.builtin").find_files(require
 nnoremap <silent> <leader>ii <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 nnoremap <silent> <leader>oo <cmd>split \| lua require('telescope.builtin').lsp_implementations()<cr>
 nnoremap <silent> <leader>ss :Telescope persisted<CR>
-nnoremap <silent> <leader>sm :Telescope lsp_document_symbols<cr>
+nnoremap <silent> <leader>sm <cmd>lua require('dhth.telescope').search_document_symbols()<cr>
 nnoremap <silent> <leader>sw :Telescope grep_string search=<c-r><c-w><cr>
 nnoremap <silent> <leader>si :Telescope lsp_implementations search=<c-r><c-w><cr>
 nnoremap <silent> <leader>dg :Telescope lsp_document_diagnostics<CR>

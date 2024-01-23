@@ -21,7 +21,16 @@ function M.scala_cli_run(switch_to_pane)
     switch_to_pane = switch_to_pane or false
 
     local filePath = vim.fn.expand('%')
-    vim.cmd('silent VimuxRunCommand("scala-cli run ' .. filePath .. '")')
+
+    local command
+    if ENDSWITH(filePath, '.test.scala') then
+        command = "scala-cli test"
+    else
+        command = "scala-cli run"
+    end
+
+    vim.cmd('silent VimuxRunCommand("' .. command .. ' ' .. filePath .. '")')
+
     if switch_to_pane then
         vim.cmd('silent !tmux select-pane -t .+1 && tmux resize-pane -Z')
     end
@@ -42,8 +51,7 @@ local function create_telescope_search(opts)
     local config
     if file_type == "scala" then
         config = {
-            { "cli" },
-            { "runMain" },
+            { "run" },
             { "docs/makeSite" },
             { "compile" },
             { "test" },
@@ -84,10 +92,8 @@ local function create_telescope_search(opts)
                 local selection = action_state.get_selected_entry()
 
                 if file_type == "scala" then
-                    if string.match(selection.value[1], "cli") then
-                        M.scala_cli_run(true)
-                    elseif string.match(selection.value[1], "runMain") then
-                        M.scala_run_main_file(true)
+                    if string.match(selection.value[1], "run") then
+                        M.scala_run(true)
                     else
                         vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
                         vim.cmd('silent !tmux select-pane -t .+1 && tmux resize-pane -Z')
@@ -101,8 +107,8 @@ local function create_telescope_search(opts)
                 local selection = action_state.get_selected_entry()
 
                 if file_type == "scala" then
-                    if string.match(selection.value[1], "runMain") then
-                        M.scala_run_main_file()
+                    if string.match(selection.value[1], "run") then
+                        M.scala_run()
                     else
                         vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
                     end
@@ -114,8 +120,8 @@ local function create_telescope_search(opts)
                 local selection = action_state.get_selected_entry()
 
                 if file_type == "scala" then
-                    if string.match(selection.value[1], "runMain") then
-                        M.scala_run_main_file(true)
+                    if string.match(selection.value[1], "run") then
+                        M.scala_run(true)
                     else
                         vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
                         vim.cmd('silent !tmux resize-pane -Z')

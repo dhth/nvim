@@ -43,5 +43,14 @@
             "```"
         ],
         "description": "VimScript snippet"
+    },
+    "MkDocsSnippet": {
+        "prefix": ["snippet"],
+        "body": [
+            "```$1",
+            "--8<-- \"$2\"",
+            "```"
+        ],
+        "description": "Mk Docs Snippet"
     }
 }

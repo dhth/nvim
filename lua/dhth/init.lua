@@ -47,6 +47,7 @@ require "dhth.flash"
 -- other
 require "dhth.vim_highlighter"
 require('Comment').setup()
+require "dhth.marks"
 -- require "dhth.nvim_notify"
 -- require "dhth.zen_mode"
 

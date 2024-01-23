@@ -56,6 +56,10 @@ SPLIT_STRING = function(input_str, delimiter)
     return result
 end
 
+ENDSWITH = function (str, suffix)
+    return string.sub(str, -string.len(suffix)) == suffix
+end
+
 
 RANDOMCHARS = function(length)
     local charset = "0123456789abcdefghijklmnopqrstuvwxyz"
