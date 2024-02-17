@@ -353,7 +353,7 @@ REMAP(
 REMAP(
     'v',
     'r<c-r>',
-    ":'<,'>!bash<CR>",
+    "y<cmd>lua require('dhth.helpers').run_shell_command()<CR>",
     opts
 )
 
@@ -365,11 +365,19 @@ REMAP(
     opts
 )
 
+--- Run visual selection in terminal
+REMAP(
+    'v',
+    '<c-t>',
+    "y<cmd>lua require('dhth.helpers').replace_visual_selection_with_clipboard_after_command()<CR>",
+    opts
+)
+
 --- Run inner paragraph in terminal
 REMAP(
     'n',
     '<leader>rt',
-    "<cmd>lua require('dhth.helpers').run_in_terminal()<CR>",
+    "<cmd>lua require('dhth.helpers').run_in_terminal({yank_first=true})<CR>",
     opts
 )
 

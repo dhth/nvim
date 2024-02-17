@@ -9,6 +9,17 @@ local theme = require('telescope.themes').get_ivy
 local M = {}
 
 
+function M.select()
+    vim.ui.select({ 'tabs', 'spaces' }, {
+        prompt = 'Select tabs or spaces:',
+        format_item = function(item)
+            return "I'd like to choose " .. item
+        end,
+    }, function(choice)
+        print("you chose: " .. choice)
+    end)
+end
+
 function M.format_file()
     local file_type = vim.bo.filetype
     if file_type == "python" then

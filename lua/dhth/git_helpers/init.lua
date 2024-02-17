@@ -316,10 +316,10 @@ function M.git_push(set_upstream)
         if (set_upstream)
         then
             print(" push -u ...")
-            vim.cmd("Git push -u")
+            vim.api.nvim_exec2("vsplit term://git push -u", { output = false })
         else
             print(" push ...")
-            vim.cmd("Git push")
+            vim.api.nvim_exec2("vsplit term://git push", { output = false })
         end
     else
         print(" cancelled/incorrect input")
