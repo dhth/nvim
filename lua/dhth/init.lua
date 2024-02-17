@@ -29,12 +29,13 @@ require "dhth.lspsaga"
 require "dhth.nvim_metals"
 -- require "dhth.lsp_lines"
 -- require "dhth.symbols_outline"
+require "dhth.nvim_dap"
 
 -- search
 require "dhth.telescope.setup"
 require "dhth.trouble"
 require "dhth.nvim_autopairs"
--- require "dhth.harpoon"
+require "dhth.harpoon"
 
 -- git
 require "dhth.gitsigns"
@@ -62,3 +63,4 @@ require "dhth.test_helpers.mappings"
 --         ["core.defaults"] = {}
 --     }
 -- }
+-- require "copilotchat".setup()

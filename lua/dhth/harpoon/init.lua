@@ -1,38 +1,17 @@
-require("harpoon").setup({
-    menu = {
-        width = math.floor(vim.api.nvim_win_get_width(0) * .6 ),
-    }
-})
+local harpoon = require("harpoon")
 
-vim.api.nvim_set_keymap(
-    'n',
-    '``',
-    [[<Cmd>:lua require("harpoon.mark").add_file()<CR>:echo "Added!"<CR>]],
-    {
-        noremap = true,
-        silent = true,
-    }
-)
+harpoon:setup()
 
-vim.api.nvim_set_keymap(
-    'n',
-    ';;',
-    [[<Cmd>:lua require("harpoon.ui").toggle_quick_menu()<CR>]],
-    {
-        noremap = true,
-        silent = true,
-    }
-)
+vim.keymap.set("n", "<leader>aa", function() harpoon:list():append() end)
+vim.keymap.set("n", "<leader>`", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
+vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<leader>5", function() harpoon:list():select(5) end)
+vim.keymap.set("n", "<leader>6", function() harpoon:list():select(6) end)
 
-for i=1,9 do
-    vim.api.nvim_set_keymap(
-        'n',
-        '<Leader>' .. i,
-        "<cmd>:lua require(\"harpoon.ui\").nav_file(" .. i .. ")<CR>",
-        {
-            noremap = true,
-            silent = true,
-        }
-    )
-end
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-[>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-]>", function() harpoon:list():next() end)

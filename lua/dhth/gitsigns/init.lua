@@ -11,7 +11,7 @@ require('gitsigns').setup {
     map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
 
     -- Actions
-    map('n', 'r<c-r>', ':Gitsigns reset_hunk<CR>')
+    map('n', '<leader>rh', ':Gitsigns reset_hunk<CR>')
     map('n', '<leader>dh', '<cmd>Gitsigns preview_hunk_inline<CR>')
     -- map('n', '<leader>df', '<cmd>Gitsigns diffthis<CR>')
 

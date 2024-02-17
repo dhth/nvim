@@ -76,6 +76,8 @@ function! MetaflowDockerTransform(cmd)
         " " return "echo '" .. l:docker_cmd .. "' | pbcopy"
         " " return l:docker_cmd
         let l:final_cmd =  substitute(a:cmd, 'webapptests/webapptests/', '', 'g')
+        let l:final_cmd =  substitute(l:final_cmd, 'livetests/livetests/', '', 'g')
+        let l:final_cmd =  substitute(l:final_cmd, 'pytest', 'pytest -s -v', 'g')
         return l:final_cmd
         " return l:docker_cmd
     elseif l:file_type == "scala"

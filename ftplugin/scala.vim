@@ -12,7 +12,7 @@ set colorcolumn=0
 " set foldlevelstart=-1
 " setlocal foldmethod=expr
 " setlocal foldexpr=nvim_treesitter#foldexpr()
-nnoremap <silent> <buffer> <leader>db :normal Iprintln(A)
+" nnoremap <silent> <buffer> <leader>db :normal Iprintln(A)
 
 nnoremap <silent> <buffer> <leader>rm :lua require("dhth.code_helpers").scala_run(false)<CR>
 
@@ -21,7 +21,7 @@ nnoremap <silent> <buffer> <leader>rm :lua require("dhth.code_helpers").scala_ru
 nnoremap <silent> <buffer> <leader>ff :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <buffer> <leader>vv :lua vim.cmd('vsp'); vim.lsp.buf.definition()<CR>
 nnoremap <silent> <buffer> <leader>gi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <buffer> <leader>rr :lua vim.lsp.buf.references()<CR>
+" nnoremap <silent> <buffer> <leader>rr :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <buffer> M :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <buffer> <leader>rn :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <buffer> f<c-f> :lua vim.lsp.buf.format({async=true})<CR>

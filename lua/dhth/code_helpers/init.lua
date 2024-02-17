@@ -4,8 +4,19 @@ local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 local git_helpers = require "dhth.git_helpers"
+local theme = require('telescope.themes').get_ivy
 
 local M = {}
+
+
+function M.format_file()
+    local file_type = vim.bo.filetype
+    if file_type == "python" then
+        vim.api.nvim_exec2(':silent ! ruff format %', { output = false })
+    else
+        vim.lsp.buf.format({ async = true })
+    end
+end
 
 function M.scala_run_main_file(switch_to_pane)
     switch_to_pane = switch_to_pane or false
@@ -58,6 +69,7 @@ local function create_telescope_search(opts)
             { "compile;test" },
             { "test:compile" },
             { "reload;fbrdCompliance" },
+            { "reload;fbrdCompliance;compile" },
             { "reload;fbrdCompliance;compile;test" },
             { "fbrdCompliance;compile;test" },
             { "reload" },
@@ -74,7 +86,6 @@ local function create_telescope_search(opts)
 
     pickers.new(opts, {
         prompt_title = "~ " .. file_type .. " ~",
-        results_title = "commands",
         finder = finders.new_table {
             results = config,
             entry_maker = function(entry)
@@ -137,12 +148,12 @@ end
 
 
 function M.show_commands()
-    local opts = {
+    local opts = theme({
+        results_title = false,
         layout_config = {
             height = .6,
-            width = .4,
         }
-    }
+    })
     create_telescope_search(opts)
 end
 
@@ -355,10 +366,10 @@ function M.add_link_to_md()
     if string.match(last_line, pattern) then
         local captured_digit = string.match(last_line, pattern)
         new_url_number = tonumber(captured_digit) + 1
-        lines_to_add = {"[" .. new_url_number .. "]: " .. url_to_add}
+        lines_to_add = { "[" .. new_url_number .. "]: " .. url_to_add }
     else
         new_url_number = 1
-        lines_to_add = {"", "[" .. new_url_number .. "]: " .. url_to_add}
+        lines_to_add = { "", "[" .. new_url_number .. "]: " .. url_to_add }
     end
 
 
@@ -371,7 +382,6 @@ function M.add_link_to_md()
     if new_url_number then
         vim.api.nvim_exec("normal! a" .. "[" .. new_url_number .. "]", false)
     end
-
 end
 
 return M

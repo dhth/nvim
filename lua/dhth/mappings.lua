@@ -12,7 +12,7 @@ REMAP(
 REMAP(
     'n',
     '<Leader>vn',
-    ':vnew<CR>',
+    ':vnew | setlocal buftype=nofile | setlocal nobuflisted<CR>',
     opts
 )
 
@@ -196,12 +196,12 @@ REMAP(
 )
 
 --- toggle comment inner paragraph
-REMAP(
-    'n',
-    'e<c-e>',
-    'gcip',
-    { noremap = false, silent = true }
-)
+-- REMAP(
+--     'n',
+--     'e<c-e>',
+--     'gcip',
+--     { noremap = false, silent = true }
+-- )
 
 --- diffview open
 REMAP(
@@ -346,5 +346,37 @@ REMAP(
     'n',
     '<leader>fy',
     'mQggyG`Q',
+    opts
+)
+
+--- Run visual selection via shell
+REMAP(
+    'v',
+    'r<c-r>',
+    ":'<,'>!bash<CR>",
+    opts
+)
+
+--- Run inner paragraph via shell
+REMAP(
+    'n',
+    'r<c-r>',
+    "vip:'<,'>!bash<CR>",
+    opts
+)
+
+--- Run inner paragraph in terminal
+REMAP(
+    'n',
+    '<leader>rt',
+    "<cmd>lua require('dhth.helpers').run_in_terminal()<CR>",
+    opts
+)
+
+--- Keep terminal open
+REMAP(
+    't',
+    '<Esc>',
+    '<C-\\><C-n>',
     opts
 )

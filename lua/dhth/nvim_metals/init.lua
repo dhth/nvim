@@ -9,6 +9,10 @@ metals_config.settings = {
     showImplicitArguments = true,
 }
 
+metals_config.on_attach = function(client, bufnr)
+    require("metals").setup_dap()
+end
+
 local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
 
 api.nvim_create_autocmd("FileType", {

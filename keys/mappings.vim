@@ -62,8 +62,8 @@ nnoremap <silent> <leader>] :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
 "alternative: ∆ is opt+j, ˚ is opt+k
 "using the shift-opt version
 "since opt+j is mapped in karabiner
-nnoremap Ô :m .+1<CR>
 nnoremap  :m .-2<CR>
+nnoremap Ô :m .+1<CR>
 inoremap Ô <Esc>:m .+1<CR>gi
 inoremap  <Esc>:m .-2<CR>gi
 vnoremap Ô :m '>+1<CR>gv

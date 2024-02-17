@@ -32,13 +32,13 @@ local on_attach = function(_, bufnr)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     --- using lspsaga
     -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    -- buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>', opts)
     --- using lspsaga
     buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts) -- turn float=true if not using lsp_lines
     buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts) -- turn float=true if not using lsp_lines
     -- buf_set_keymap('n', '<space>qf', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
-    buf_set_keymap('n', 'f<c-f>', '<cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
+    buf_set_keymap('n', 'f<c-f>', '<cmd>lua require("dhth.code_helpers").format_file()<CR>', opts)
 end
 
 vim.diagnostic.config({

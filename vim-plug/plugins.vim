@@ -52,6 +52,8 @@ Plug 'glepnir/lspsaga.nvim', { 'commit': '0b3ee6a4fb2cb9c80c05fe7c191ea116bdda34
 Plug 'folke/neodev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'Maan2003/lsp_lines.nvim'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
 
 " A few LSPs support sending $/progress messages (https://github.com/j-hui/fidget.nvim/wiki/Known-compatible-LSP-servers)
 " Plug 'j-hui/fidget.nvim' 
@@ -133,7 +135,7 @@ Plug 'folke/lsp-colors.nvim'
 Plug 'mcchrish/nnn.vim'
 Plug 'kevinhwang91/nvim-bqf'
 " Plug 'luukvbaal/nnn.nvim'
-Plug 'ThePrimeagen/harpoon'
+Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2' }
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -148,6 +150,7 @@ Plug 'stevearc/aerial.nvim'
 " Plug 'nvim-treesitter/playground'
 " Plug 'HampusHauffman/block.nvim'
 " Plug 'github/copilot.vim'
+" Plug 'jellydn/CopilotChat.nvim'
 
 " Plug 'nvim-neorg/neorg'
 

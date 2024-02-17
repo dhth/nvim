@@ -8,6 +8,43 @@ local builtin = require "telescope.builtin"
 
 local M = {}
 
+-- local cache_picker_config = function()
+--     return {
+--         num_pickers = 5,
+--         limit_entries = 50,
+--     }
+-- end
+
+function M.telescope_pickers()
+    local opts = theme({
+        prompt_title = "~ pickers ~",
+        results_title = false,
+        preview_title = false,
+        previewer = true,
+        layout_config = {
+            height = .9,
+        },
+    })
+
+    require("telescope.builtin").pickers(opts)
+end
+
+function M.lsp_references()
+    local opts = theme({
+        prompt_title = "~ references ~",
+        results_title = false,
+        show_line = false,
+        previewer = true,
+        preview_title = false,
+        layout_config = {
+            height = .9,
+        },
+        -- cache_picker = cache_picker_config(),
+    })
+
+    require("telescope.builtin").lsp_references(opts)
+end
+
 function M.edit_neovim()
     local opts = theme({
         prompt_title = "~ nvim ~",
@@ -16,7 +53,7 @@ function M.edit_neovim()
         previewer = false,
         layout_config = {
             height = .6,
-        }
+        },
     })
 
     require("telescope.builtin").find_files(opts)
@@ -40,7 +77,7 @@ function M.grep_projects()
         results_title = false,
         layout_config = {
             height = .6,
-        }
+        },
     })
 
     local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
@@ -70,7 +107,7 @@ function M.grep_projects()
                     previewer = true,
                     layout_config = {
                         height = .6,
-                    }
+                    },
                 })
                 -- local args = {
                 --     prompt_title = "grep ~ " .. selection.display .. " ~",
@@ -100,7 +137,7 @@ function M.search_projects()
         previewer = false,
         layout_config = {
             height = .6,
-        }
+        },
     })
 
     local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
@@ -134,7 +171,7 @@ function M.search_projects()
                     previewer = false,
                     layout_config = {
                         height = .6,
-                    }
+                    },
                 })
                 return builtin.find_files(opts_for_find_files)
             end)
@@ -145,17 +182,17 @@ function M.search_projects()
 end
 
 function M.lcd_to_dir()
-    local opts = {
+    local opts = theme({
+        prompt_title = "~ change project ~",
+        results_title = false,
         layout_config = {
-            height = .8,
-            width = .8,
-        }
-    }
+            height = .6,
+        },
+    })
 
     local config = vim.fn.systemlist("fd . -t d --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
 
     pickers.new(opts, {
-        prompt_title = "~ change project ~",
         finder = finders.new_table {
             results = config,
             entry_maker = function(entry)
@@ -353,7 +390,8 @@ function M.find_test_files(search_str, prompt_title)
             "-t=f",
             "--case-sensitive",
             file_pattern
-        }
+        },
+        -- cache_picker = cache_picker_config(),
     }
 
     require("telescope.builtin").find_files(opts)
@@ -513,10 +551,16 @@ M.create_new_file_at_location = function()
     local opts = theme({
         prompt_title = "~ create file ~",
         results_title = false,
+        find_command = {
+            "fd",
+            "-ipH",
+            "-t=f"
+        },
         previewer = false,
         layout_config = {
             height = .6,
         },
+        -- cache_picker = cache_picker_config(),
         attach_mappings = create_file_mapping
     })
     require('telescope.builtin').find_files(opts)
@@ -554,7 +598,8 @@ M.search_document_symbols = function(symbol_type)
         preview_title = false,
         layout_config = {
             height = .6,
-        }
+        },
+        -- cache_picker = cache_picker_config(),
     })
     require('telescope.builtin').lsp_document_symbols(opts)
 end

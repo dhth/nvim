@@ -6,3 +6,5 @@ nnoremap <leader><cr> :VimuxRunCommand('python '.expand('%'))<CR>
 " nnoremap <silent> <leader>cm :call ft#python#AddTestComments()<cr>
 
 setl textwidth=0
+
+" nnoremap <silent> <buffer> <leader>fm :silent !ruff format %<CR>
