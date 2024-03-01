@@ -24,7 +24,7 @@ require "dhth.nvim_cmp"
 require "dhth.vim_vsnip"
 require "dhth.luadev"
 require "dhth.nvim_lspconfig"
--- require "dhth.lsp_signature"
+require "dhth.lsp_signature"
 require "dhth.lspsaga"
 require "dhth.nvim_metals"
 -- require "dhth.lsp_lines"
@@ -43,7 +43,8 @@ require "dhth.diffview"
 require "octo".setup()
 
 -- movement
-require "dhth.flash"
+-- require "dhth.flash"
+require('leap').create_default_mappings()
 
 -- other
 require "dhth.vim_highlighter"

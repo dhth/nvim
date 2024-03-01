@@ -117,4 +117,24 @@ function M.replace_visual_selection_with_clipboard_after_command()
     })
 end
 
+function M.run_quickrun()
+    local command = "./.quickrun"
+    vim.fn.jobstart(command, {
+        stdout_buffered = false,
+        on_stdout = function(_, data, _)
+            if data[1] ~= "" then
+                print(".quickrun: " .. data[1])
+            end
+        end,
+        on_exit = function(_, exit_code, _)
+            if exit_code == 1 then
+                print(".quickrun failed")
+            else
+                print(".quickrun done")
+            end
+        end
+
+    })
+end
+
 return M

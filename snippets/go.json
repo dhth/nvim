@@ -1,0 +1,34 @@
+{
+  "Println": {
+    "prefix": [
+      "prnt"
+    ],
+    "body": [
+      "fmt.Println($1)"
+    ],
+    "description": "fmt.Println"
+  },
+  "ErrorHandling": {
+    "prefix": [
+      "err"
+    ],
+    "body": [
+      "if err != nil {",
+      "\tfmt.Println(\"Error:\", err)",
+      "\treturn $1",
+      "}"
+    ],
+    "description": "Error handling"
+  },
+  "Fori": {
+    "prefix": [
+      "fori"
+    ],
+    "body": [
+      "for i := 0; i < $1; i++ {",
+      "\t$2",
+      "}"
+    ],
+    "description": "For i"
+  }
+}

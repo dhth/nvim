@@ -3,7 +3,14 @@ require("flash").setup()
 REMAP(
     'n',
     's',
-    '<cmd>lua require("flash").jump({ search = { multi_window = false }, })<cr>',
+    '<cmd>lua require("flash").jump({ search = { forward = true, multi_window = false }, })<cr>',
+    { noremap = true, silent = true }
+)
+
+REMAP(
+    'n',
+    'S',
+    '<cmd>lua require("flash").jump({ search = { forward = false, multi_window = false }, })<cr>',
     { noremap = true, silent = true }
 )
 
@@ -28,12 +35,12 @@ REMAP(
     { noremap = true, silent = true }
 )
 
-REMAP(
-    'n',
-    'S',
-    '<cmd>lua require("flash").treesitter({ search = { multi_window = false }, })<cr>',
-    { noremap = true, silent = true }
-)
+-- REMAP(
+--     'n',
+--     'S',
+--     '<cmd>lua require("flash").treesitter({ search = { multi_window = false }, })<cr>',
+--     { noremap = true, silent = true }
+-- )
 
 REMAP(
     'x',

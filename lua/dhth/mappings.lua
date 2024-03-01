@@ -384,7 +384,15 @@ REMAP(
 --- Keep terminal open
 REMAP(
     't',
-    '<Esc>',
+    '<C-x>',
     '<C-\\><C-n>',
+    opts
+)
+
+--- Run quickrun
+REMAP(
+    'n',
+    'e<c-e>',
+    "<cmd>lua require('dhth.helpers').run_quickrun()<CR>",
     opts
 )

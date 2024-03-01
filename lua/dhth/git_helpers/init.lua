@@ -295,35 +295,36 @@ function M.show_diff_for_branch()
 end
 
 function M.git_push(set_upstream)
-    vim.fn.inputsave()
-    local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
-    local remote = vim.fn.system("git remote get-url --push origin")
-    local set_upstream = set_upstream or false
-    local confirmation
-    local random_string = RANDOMCHARS(2)
-    if (set_upstream)
-    then
-        confirmation = vim.fn.input("push -u " ..
-            branch .. " to " .. remote .. " ? Type [" .. random_string .. "] to confirm: ")
-    else
-        confirmation = vim.fn.input("push " ..
-            branch .. " to " .. remote .. " ? Type [" .. random_string .. "] to confirm: ")
-    end
-    vim.fn.inputrestore()
-
-    if (confirmation == random_string)
-    then
-        if (set_upstream)
-        then
-            print(" push -u ...")
-            vim.api.nvim_exec2("vsplit term://git push -u", { output = false })
-        else
-            print(" push ...")
-            vim.api.nvim_exec2("vsplit term://git push", { output = false })
-        end
-    else
-        print(" cancelled/incorrect input")
-    end
+    vim.api.nvim_exec2("vsplit term://gpp", { output = false })
+    -- vim.fn.inputsave()
+    -- local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+    -- local remote = vim.fn.system("git remote get-url --push origin")
+    -- local set_upstream = set_upstream or false
+    -- local confirmation
+    -- local random_string = RANDOMCHARS(2)
+    -- if (set_upstream)
+    -- then
+    --     confirmation = vim.fn.input("push -u " ..
+    --         branch .. " to " .. remote .. " ? Type [" .. random_string .. "] to confirm: ")
+    -- else
+    --     confirmation = vim.fn.input("push " ..
+    --         branch .. " to " .. remote .. " ? Type [" .. random_string .. "] to confirm: ")
+    -- end
+    -- vim.fn.inputrestore()
+    --
+    -- if (confirmation == random_string)
+    -- then
+    --     if (set_upstream)
+    --     then
+    --         print(" push -u ...")
+    --         vim.api.nvim_exec2("vsplit term://git push -u", { output = false })
+    --     else
+    --         print(" push ...")
+    --         vim.api.nvim_exec2("vsplit term://gpp", { output = false })
+    --     end
+    -- else
+    --     print(" cancelled/incorrect input")
+    -- end
 end
 
 function M.git_push_set_upstream()
@@ -358,7 +359,7 @@ function M.diff_with_main_branch()
 
     print("diffing with " .. main_branch)
 
-    vim.cmd("Gvdiffsplit! origin/" .. main_branch .. ":%")
+    vim.cmd("Gvdiffsplit! " .. main_branch .. ":%")
 end
 
 return M

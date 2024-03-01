@@ -37,7 +37,7 @@ inoremap <buffer> <silent> [[ <Esc>:call wiki_foam#CreateLinkToAnotherFile()<cr>
 " inoremap <buffer> <silent> <leader>cl <Esc>:call wiki_foam#CreateLinkToAnotherFile()<cr>
 nnoremap <buffer> <silent> <leader>ce :call wiki#CreateDateFileLink()<cr>
 nnoremap <buffer> <silent> <leader>aq :call wiki#AddQuestion()<cr>
-nnoremap <buffer> <silent> <leader>aa :call wiki#AddAnswer()<cr>
+" nnoremap <buffer> <silent> <leader>aa :call wiki#AddAnswer()<cr>
 nnoremap <buffer> <silent> <leader>bl :call wiki_foam#GetBacklinks()<cr>
 nnoremap <buffer> <silent> [[ :call wiki_foam#GetBacklinks()<cr>
 nnoremap <buffer> <silent> <leader>le :call wiki_foam#AddQuestion()<cr>

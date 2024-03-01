@@ -68,6 +68,15 @@ function M.scala_run(switch_to_pane)
     end
 end
 
+function M.go_run(switch_to_pane)
+    local command = "go run " .. vim.fn.expand('%')
+    vim.cmd('silent VimuxRunCommand("' .. command .. '")')
+
+    if switch_to_pane then
+        vim.cmd('silent !tmux select-pane -t .+1 && tmux resize-pane -Z')
+    end
+end
+
 local function create_telescope_search(opts)
     local file_type = vim.bo.filetype
     local config
@@ -89,6 +98,13 @@ local function create_telescope_search(opts)
             { "run" },
             { "clean" },
             { "docs/previewSite" },
+        }
+    elseif file_type == "go" then
+        config = {
+            { "go build ." },
+            { "go run ." },
+            { "gofmt -w ." },
+            { "go run" },
         }
     else
         print("nothing configured for filetype, showing git helpers")
@@ -114,8 +130,15 @@ local function create_telescope_search(opts)
                 local selection = action_state.get_selected_entry()
 
                 if file_type == "scala" then
-                    if string.match(selection.value[1], "run") then
+                    if string.match(selection.value[1], "go run") then
                         M.scala_run(true)
+                    else
+                        vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
+                        vim.cmd('silent !tmux select-pane -t .+1 && tmux resize-pane -Z')
+                    end
+                elseif file_type == "go" then
+                    if string.match(selection.value[1], "run") then
+                        M.go_run(true)
                     else
                         vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
                         vim.cmd('silent !tmux select-pane -t .+1 && tmux resize-pane -Z')
@@ -134,6 +157,12 @@ local function create_telescope_search(opts)
                     else
                         vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
                     end
+                elseif file_type == "go" then
+                    if string.match(selection.value[1], "run") then
+                        M.go_run(true)
+                    else
+                        vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
+                    end
                 end
                 print("sent: " .. selection.value[1] .. " ⚡️")
             end)
@@ -144,6 +173,13 @@ local function create_telescope_search(opts)
                 if file_type == "scala" then
                     if string.match(selection.value[1], "run") then
                         M.scala_run(true)
+                    else
+                        vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
+                        vim.cmd('silent !tmux resize-pane -Z')
+                    end
+                elseif file_type == "go" then
+                    if string.match(selection.value[1], "run") then
+                        M.go_run(true)
                     else
                         vim.cmd('silent VimuxRunCommand("' .. selection.value[1] .. '")')
                         vim.cmd('silent !tmux resize-pane -Z')

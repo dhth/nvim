@@ -187,3 +187,8 @@ nvim_lsp.rust_analyzer.setup {
         }
     }
 }
+
+-- go
+nvim_lsp.gopls.setup({
+    on_attach = on_attach,
+})

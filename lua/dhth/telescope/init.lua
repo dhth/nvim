@@ -247,7 +247,7 @@ function M.enter_file_path()
         actions.select_default:replace(function()
             actions.close(prompt_bufnr)
             local selection = action_state.get_selected_entry()
-            vim.api.nvim_exec2("norm!i" .. selection.value, { output = false })
+            vim.api.nvim_exec2("norm!i--8<-- \"" .. selection.value .. "\"", { output = false })
         end)
         return true
     end

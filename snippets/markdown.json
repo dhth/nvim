@@ -1,56 +1,79 @@
 {
-    "BashSnippet": {
-        "prefix": ["bs"],
-        "body": [
-            "```bash",
-            "$1",
-            "```"
-        ],
-        "description": "Bash snippet"
-    },
-    "PythonSnippet": {
-        "prefix": ["ps"],
-        "body": [
-            "```python",
-            "$1",
-            "```"
-        ],
-        "description": "Python snippet"
-    },
-    "ScalaSnippet": {
-        "prefix": ["ss"],
-        "body": [
-            "```scala",
-            "$1",
-            "```"
-        ],
-        "description": "Scala snippet"
-    },
-    "JSONSnippet": {
-        "prefix": ["js"],
-        "body": [
-            "```json",
-            "$1",
-            "```"
-        ],
-        "description": "JSON snippet"
-    },
-    "VimScriptSnippet": {
-        "prefix": ["vs"],
-        "body": [
-            "```vim",
-            "$1",
-            "```"
-        ],
-        "description": "VimScript snippet"
-    },
-    "MkDocsSnippet": {
-        "prefix": ["snippet"],
-        "body": [
-            "```$1",
-            "--8<-- \"$2\"",
-            "```"
-        ],
-        "description": "Mk Docs Snippet"
-    }
+  "BashSnippet": {
+    "prefix": [
+      "bs"
+    ],
+    "body": [
+      "```bash",
+      "$1",
+      "```"
+    ],
+    "description": "Bash snippet"
+  },
+  "PythonSnippet": {
+    "prefix": [
+      "ps"
+    ],
+    "body": [
+      "```python",
+      "$1",
+      "```"
+    ],
+    "description": "Python snippet"
+  },
+  "ScalaSnippet": {
+    "prefix": [
+      "ss"
+    ],
+    "body": [
+      "```scala",
+      "$1",
+      "```"
+    ],
+    "description": "Scala snippet"
+  },
+  "JSONSnippet": {
+    "prefix": [
+      "js"
+    ],
+    "body": [
+      "```json",
+      "$1",
+      "```"
+    ],
+    "description": "JSON snippet"
+  },
+  "VimScriptSnippet": {
+    "prefix": [
+      "vs"
+    ],
+    "body": [
+      "```vim",
+      "$1",
+      "```"
+    ],
+    "description": "VimScript snippet"
+  },
+  "MkDocsSnippet": {
+    "prefix": [
+      "snippet"
+    ],
+    "body": [
+      "```$1",
+      "--8<-- \"$2\"",
+      "```"
+    ],
+    "description": "Mk Docs Snippet"
+  },
+  "GoSnippet": {
+    "prefix": [
+      "gs"
+    ],
+    "body": [
+      "```go",
+      "$1",
+      "```"
+    ],
+    "description": "Go snippet"
+  }
 }
