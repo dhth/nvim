@@ -104,6 +104,11 @@ local function create_telescope_search(opts)
             { "go build ." },
             { "go run ." },
             { "gofmt -w ." },
+            { "go test ." },
+            { "go test ./..." },
+            { "gotestdox ./..." },
+            { "go test . -v" },
+            { "go test ./... -v" },
             { "go run" },
         }
     else

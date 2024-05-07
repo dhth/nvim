@@ -30,5 +30,98 @@
       "}"
     ],
     "description": "For i"
+  },
+  "gotWant": {
+    "prefix": [
+      "gotexpected"
+    ],
+    "body": [
+      "if got != expected {",
+      "\tt.Errorf(\"got: %v, expected: %v\", got , expected)",
+      "}"
+    ],
+    "description": "got expected"
+  },
+  "testingT": {
+    "prefix": [
+      "tt"
+    ],
+    "body": [
+      "t *testing.T"
+    ],
+    "description": "testing.T"
+  },
+  "ftest": {
+    "prefix": [
+      "tfunc"
+    ],
+    "body": [
+      "func TestGreet(t *testing.T) {",
+      "\tgot := $1",
+      "\texpected := $2",
+      "\tif got != expected {",
+      "\t\tt.Errorf(\"got: %v, expected: %v\", got, expected)",
+      "\t}",
+      "}"
+    ],
+    "description": "test func"
+  },
+  "fttest": {
+    "prefix": [
+      "ttfunc"
+    ],
+    "body": [
+      "func Test$1(t *testing.T) {",
+      "\ttestCases := []struct {",
+      "\t\tname     string",
+      "\t\tinput    int",
+      "\t\texpected int",
+      "\t\terr      error",
+      "\t}{",
+      "\t\t// success",
+      "\t\t{",
+      "\t\t\tname:     \"an input somewhere in the middle\",",
+      "\t\t\tinput:    1,",
+      "\t\t\texpected: 2,",
+      "\t\t},",
+      "\t\t// failures",
+      "\t\t{",
+      "\t\t\tname:    \"a negative input\",",
+      "\t\t\tinput:   -3,",
+      "\t\t\terr:     SomeErr,",
+      "\t\t},",
+      "\t}",
+      "",
+      "\tfor _, tt := range testCases {",
+      "\t\tt.Run(tt.name, func(t *testing.T) {",
+      "\t\t\tgot, err := FuncToBeTested(tt.input)",
+      "",
+      "\t\t\tif tt.err == nil {",
+      "\t\t\t\tif got != tt.expected {",
+      "\t\t\t\t\tt.Errorf(\"got: %v, expected: %v\", got, tt.expected)",
+      "\t\t\t\t}",
+      "\t\t\t} else {",
+      "\t\t\t\tif err != tt.err {",
+      "\t\t\t\t\tt.Errorf(\"got error: %v, expected error: %v\", err, tt.err)",
+      "\t\t\t\t}",
+      "\t\t\t}",
+      "",
+      "\t\t})",
+      "\t}",
+      "",
+      "}"
+    ],
+    "description": "test func"
+  },
+  "trun": {
+    "prefix": [
+      "trun"
+    ],
+    "body": [
+      "t.Run(\"$1\", func(t *testing.T) {",
+      "\t$2",
+      "})"
+    ],
+    "description": "t.Run"
   }
 }

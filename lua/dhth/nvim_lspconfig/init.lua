@@ -1,11 +1,14 @@
 require "dhth.nvim_lspconfig.custom_hover"
+local navbuddy = require("nvim-navbuddy")
+
 local util = require 'lspconfig/util'
 
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
+    navbuddy.attach(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -158,7 +161,9 @@ nvim_lsp.pyright.setup {
 -- nvim_lsp.purescriptls.setup{}
 
 -- C
--- nvim_lsp.ccls.setup{}
+nvim_lsp.ccls.setup {
+    on_attach = on_attach,
+}
 
 -- folke/neodev.nvim
 nvim_lsp.lua_ls.setup({

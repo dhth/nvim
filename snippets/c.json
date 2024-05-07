@@ -1,0 +1,25 @@
+{
+  "stdio": {
+    "prefix": [
+      "stdio"
+    ],
+    "body": [
+      "#include <stdio.h>",
+      "",
+      ""
+    ],
+    "description": "stdio.h"
+  },
+  "intMainVoid": {
+    "prefix": [
+      "imv"
+    ],
+    "body": [
+      "int main(void){",
+      "\t$1",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "int main(void)"
+  }
+}

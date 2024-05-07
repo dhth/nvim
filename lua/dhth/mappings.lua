@@ -361,7 +361,7 @@ REMAP(
 REMAP(
     'n',
     'r<c-r>',
-    "vip:'<,'>!bash<CR>",
+    "vipyOPgv:'<,'>!bash<CR>",
     opts
 )
 
@@ -394,5 +394,29 @@ REMAP(
     'n',
     'e<c-e>',
     "<cmd>lua require('dhth.helpers').run_quickrun()<CR>",
+    opts
+)
+
+--- UndotreeToggle
+REMAP(
+    'n',
+    '<leader>uu',
+    "<cmd>UndotreeToggle<CR>",
+    opts
+)
+
+--- Tab close
+REMAP(
+    'n',
+    '<c-x>',
+    "<cmd>tabclose<CR>",
+    opts
+)
+
+--- Open dir in explorer
+REMAP(
+    'n',
+    '<leader>dw',
+    "<cmd>lua require('dhth.telescope').open_dir_in_explorer()<CR>",
     opts
 )

@@ -1,3 +1,4 @@
+local navbuddy = require("nvim-navbuddy")
 local api = vim.api
 
 -- vim.opt_global.shortmess:remove("F"):append("c")
@@ -11,6 +12,7 @@ metals_config.settings = {
 
 metals_config.on_attach = function(client, bufnr)
     require("metals").setup_dap()
+    navbuddy.attach(client, bufnr)
 end
 
 local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })

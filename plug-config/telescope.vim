@@ -29,7 +29,7 @@ nnoremap <silent> <leader>dkf <cmd>lua require('dhth.telescope').find_dockerfile
 nnoremap <silent> <leader>te <cmd>lua require('dhth.telescope').telescope_pickers()<CR>
 " nnoremap <silent> <C-f> <cmd>lua require('dhth.telescope').find_files()<CR>
 " nnoremap <silent> <leader>dt <cmd>lua require('dhth.telescope').edit_dotfiles()<CR>
-nnoremap <silent> <leader>vg <cmd>lua require('dhth.telescope').grep_nvim()<CR>
+nnoremap <silent> <leader>vc <cmd>lua require('dhth.telescope').grep_nvim()<CR>
 nnoremap <silent> <leader>cc <cmd>lua require('dhth.telescope').edit_neovim()<CR>
 nnoremap <silent> <leader>lt <cmd>lua require('dhth.telescope').search_linked_tests()<CR>
 nnoremap <silent> <leader>sf <cmd>lua require('dhth.telescope').nearby_file_browser()<CR>

@@ -172,3 +172,5 @@ nnoremap gp `[v`]
 
 " so that deleted stuff DOES go in the system clipboard
 " nnoremap <leader>dd dd
+
+nnoremap v<c-v> <c-w><c-v>

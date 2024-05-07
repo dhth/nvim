@@ -29,6 +29,21 @@ function M.telescope_pickers()
     require("telescope.builtin").pickers(opts)
 end
 
+function M.file_browser()
+    local opts = theme({
+        prompt_title = "~ file browser ~",
+        results_title = false,
+        show_line = false,
+        previewer = true,
+        preview_title = false,
+        layout_config = {
+            height = .9,
+        },
+    })
+
+    require("telescope.builtin").pickers.file_browser(opts)
+end
+
 function M.lsp_references()
     local opts = theme({
         prompt_title = "~ references ~",
@@ -60,13 +75,16 @@ function M.edit_neovim()
 end
 
 function M.grep_nvim()
-    local opts = {
-        prompt_title = "~ nvim grep ~",
+    local opts = theme({
+        prompt_title = "~ grep ~/.config/nvim ~",
         results_title = false,
         preview_title = false,
         cwd = "~/.config/nvim",
         previewer = true,
-    }
+        layout_config = {
+            height = .6,
+        },
+    })
 
     require("telescope").extensions.live_grep_args.live_grep_args(opts)
 end
@@ -647,6 +665,41 @@ function M.search_related_files()
     else
         print("No related files found")
     end
+end
+
+function M.open_dir_in_explorer()
+    local opts = theme({
+        prompt_title = "~ open dir ~",
+        results_title = false,
+        layout_config = {
+            height = .6,
+        },
+    })
+
+    local config = vim.fn.systemlist("fd . -t d --max-depth=5")
+
+    pickers.new(opts, {
+        finder = finders.new_table {
+            results = config,
+            entry_maker = function(entry)
+                return {
+                    value = entry,
+                    display = entry,
+                    ordinal = entry,
+                }
+            end
+        },
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr, _)
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                vim.api.nvim_command('NnnPicker ' .. selection.value)
+            end)
+            return true
+        end,
+
+    }):find()
 end
 
 return M

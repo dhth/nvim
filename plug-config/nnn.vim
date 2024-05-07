@@ -12,3 +12,5 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit' }
 
 nnoremap <silent> <C-e> :NnnPicker %:p:h<CR>
+
+let g:nnn#command = 'VISUAL="vi -u NONE" nnn'

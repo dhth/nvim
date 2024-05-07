@@ -1,4 +1,15 @@
 {
+  "CSnippet": {
+    "prefix": [
+      "cs"
+    ],
+    "body": [
+      "```c",
+      "$1",
+      "```"
+    ],
+    "description": "C snippet"
+  },
   "BashSnippet": {
     "prefix": [
       "bs"

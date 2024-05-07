@@ -17,6 +17,7 @@ require "dhth.nvim_treesitter_textobjects"
 require "dhth.nvim_treesitter_context"
 require "dhth.mini_indentscope"
 require("aerial").setup()
+require('refactoring').setup()
 -- require "dhth.block"
 
 -- autocomplete/lsp

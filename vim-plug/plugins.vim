@@ -54,6 +54,9 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'Maan2003/lsp_lines.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'SmiteshP/nvim-navic'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'SmiteshP/nvim-navbuddy'
 
 " A few LSPs support sending $/progress messages (https://github.com/j-hui/fidget.nvim/wiki/Known-compatible-LSP-servers)
 " Plug 'j-hui/fidget.nvim' 
@@ -142,11 +145,13 @@ Plug 'nvim-treesitter/nvim-treesitter'
 " , {'commit': '7135321cc254fd2a543f596a3648fdc481e54eef'}
 " https://github.com/nvim-treesitter/nvim-treesitter/issues/2014
 " 'do': ':TSUpdate'}
-Plug 'p00f/nvim-ts-rainbow'
+" Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'echasnovski/mini.indentscope', { 'branch': 'stable' }
 Plug 'stevearc/aerial.nvim'
+Plug 'ThePrimeagen/refactoring.nvim'
+
 " Plug 'nvim-treesitter/playground'
 " Plug 'HampusHauffman/block.nvim'
 " Plug 'github/copilot.vim'

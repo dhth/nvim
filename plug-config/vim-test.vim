@@ -1,7 +1,7 @@
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-t> :TestNearest<CR>:silent !tmux select-pane -t .+1 && tmux resize-pane -Z<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-l> :TestSuite<CR>
+nmap <silent> t<Down> :TestFile<CR>:silent !tmux select-pane -t .+1 && tmux resize-pane -Z<CR>
+nmap <silent> t<Up> :TestSuite<CR>:silent !tmux select-pane -t .+1 && tmux resize-pane -Z<CR>
 " nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
