@@ -31,17 +31,6 @@ function M.run_in_terminal(opts)
     vim.api.nvim_exec2("vsplit term://" .. command, { output = true })
 end
 
-local function get_visual_selection()
-    local start_line = vim.fn.line("'<")
-    local end_line = vim.fn.line("'>")
-    local start_col = vim.fn.col("'<")
-    local end_col = vim.fn.col("'>")
-    local bufnr = vim.fn.bufnr('%')
-
-    return start_line, start_col, end_line, end_col, bufnr
-end
-
-
 --[=====[
 try visually selecting the lines below (with v or Shift-V)
 and calling the function below
@@ -53,7 +42,7 @@ tmux list-panes \
     '#{=40;p40:session_name} #{=20;p20:window_name}'
 --]=====]
 function M.run_shell_command()
-    local start_line, start_col, end_line, end_col, bufnr = get_visual_selection()
+    local start_line, start_col, end_line, end_col, bufnr = GET_VISUAL_SELECTION()
     local command = vim.fn.getreg('"')
     local last_line_of_selection = vim.api.nvim_buf_get_lines(bufnr, end_line - 1, end_line, false)
     if end_col > #last_line_of_selection[1] then
@@ -75,7 +64,7 @@ end
 -- problem: new lines are separated with \r
 -- leading to a ^M in the replaced text
 function M.terminal_test()
-    local start_line, start_col, end_line, end_col, bufnr = get_visual_selection()
+    local start_line, start_col, end_line, end_col, bufnr = GET_VISUAL_SELECTION()
     vim.cmd.vnew()
     local command = vim.fn.getreg('"')
     vim.fn.termopen(command, {
@@ -95,7 +84,7 @@ read input;echo $input | pbcopy
 --]=====]
 
 function M.replace_visual_selection_with_clipboard_after_command()
-    local start_line, start_col, end_line, end_col, bufnr = get_visual_selection()
+    local start_line, start_col, end_line, end_col, bufnr = GET_VISUAL_SELECTION()
     local command = vim.fn.getreg('"')
     local last_line_of_selection = vim.api.nvim_buf_get_lines(bufnr, end_line - 1, end_line, false)
     if end_col > #last_line_of_selection[1] then
@@ -135,6 +124,11 @@ function M.run_quickrun()
         end
 
     })
+end
+
+function M.echo_buffer_path()
+    local path = vim.fn.expand("%:h")
+    vim.api.nvim_exec2("normal!i" .. path .. " ", { output = false })
 end
 
 return M

@@ -56,7 +56,7 @@ SPLIT_STRING = function(input_str, delimiter)
     return result
 end
 
-ENDSWITH = function (str, suffix)
+ENDSWITH = function(str, suffix)
     return string.sub(str, -string.len(suffix)) == suffix
 end
 
@@ -82,7 +82,7 @@ DOES_FILE_EXIST = function(filePath)
     end
 end
 
-DOES_DIRECTORY_EXIST = function (directory)
+DOES_DIRECTORY_EXIST = function(directory)
     local directory_expanded = vim.fn.expand(directory)
     local stat = vim.loop.fs_stat(directory_expanded)
     if not stat then
@@ -110,4 +110,14 @@ end
 
 SLEEP = function(seconds, callback)
     vim.defer_fn(callback, seconds * 1000)
+end
+
+GET_VISUAL_SELECTION = function()
+    local start_line = vim.fn.line("'<")
+    local end_line = vim.fn.line("'>")
+    local start_col = vim.fn.col("'<")
+    local end_col = vim.fn.col("'>")
+    local bufnr = vim.fn.bufnr('%')
+
+    return start_line, start_col, end_line, end_col, bufnr
 end

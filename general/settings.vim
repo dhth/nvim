@@ -26,7 +26,7 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set colorcolumn=0
-set showcmd
+set noshowcmd
 set ruler
 set cursorline                          " enable highlighting of the current line
 set conceallevel=0                      " to be able to see `` in markdown files

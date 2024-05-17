@@ -436,4 +436,58 @@ function M.add_link_to_md()
     end
 end
 
+function M.dstll()
+    local file_path = vim.fn.expand('%')
+    local file_type = vim.bo.filetype
+
+    vim.cmd("vnew")
+    vim.cmd("setlocal buftype=nofile")
+    vim.cmd("setlocal filetype=" .. file_type)
+    vim.cmd("setlocal nobuflisted")
+
+    local bufnr = vim.fn.bufnr('%')
+
+    local command = "echo '" .. file_path .. "' | dstll -plain"
+
+    vim.fn.jobstart(command, {
+        stdout_buffered = true,
+        on_stdout = function(_, data, _)
+            table.remove(data, #data)
+            vim.api.nvim_buf_set_text(bufnr, 0, 0, 0, 0,
+                data)
+        end
+    })
+end
+
+function M.d2_code_to_file()
+    if vim.bo.filetype ~= "d2" then
+        print("not a d2 file")
+        return
+    end
+
+    local file_name = vim.fn.expand("%:t:r")
+
+    local current_dir_rel = vim.fn.expand('%:h')
+
+    local command = {
+        "d2",
+        current_dir_rel .. "/" .. file_name .. ".d2",
+        current_dir_rel .. "/assets/" .. file_name .. ".svg",
+    }
+
+    local on_exit_fn = function(obj)
+        P(obj.stderr)
+    end
+
+    vim.system(command, { text = true }, on_exit_fn)
+end
+
+function M.format_d2()
+    local full_file_path = vim.fn.expand("%:p")
+
+    local command = "d2 fmt " .. full_file_path
+
+    vim.cmd("silent !" .. command)
+end
+
 return M

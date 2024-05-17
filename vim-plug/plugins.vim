@@ -83,7 +83,7 @@ Plug 'romgrk/barbar.nvim'
 " Plug 'olimorris/persisted.nvim'
 
 " Plug 'tpope/vim-commentary'
-Plug 'numToStr/Comment.nvim'
+" Plug 'numToStr/Comment.nvim'
 " Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " Plug 'folke/zen-mode.nvim'
 " Plug 'junegunn/limelight.vim'
@@ -171,6 +171,7 @@ Plug 'azabiong/vim-highlighter'
 " Plug 'untitled-ai/jupyter_ascending.vim'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'chentoast/marks.nvim'
+Plug 'terrastruct/d2-vim'
 " Plug 'purescript-contrib/purescript-vim'
 call plug#end()
 

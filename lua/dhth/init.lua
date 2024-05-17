@@ -49,7 +49,7 @@ require('leap').create_default_mappings()
 
 -- other
 require "dhth.vim_highlighter"
-require('Comment').setup()
+-- require('Comment').setup()
 require "dhth.marks"
 -- require "dhth.nvim_notify"
 -- require "dhth.zen_mode"

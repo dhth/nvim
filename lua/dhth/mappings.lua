@@ -420,3 +420,11 @@ REMAP(
     "<cmd>lua require('dhth.telescope').open_dir_in_explorer()<CR>",
     opts
 )
+
+--- D2 code to file
+REMAP(
+    'i',
+    '[p',
+    "<cmd>lua require('dhth.helpers').echo_buffer_path()<CR>",
+    opts
+)
