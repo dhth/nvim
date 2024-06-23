@@ -56,12 +56,10 @@
       "tfunc"
     ],
     "body": [
-      "func TestGreet(t *testing.T) {",
-      "\tgot := $1",
-      "\texpected := $2",
-      "\tif got != expected {",
-      "\t\tt.Errorf(\"got: %v, expected: %v\", got, expected)",
-      "\t}",
+      "func Test$1(t *testing.T) {",
+      "\tgot := $2",
+      "\texpected := $3",
+      "\tassert.Equal(t, expected, got)",
       "}"
     ],
     "description": "test func"

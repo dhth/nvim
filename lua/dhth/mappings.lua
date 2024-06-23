@@ -428,3 +428,19 @@ REMAP(
     "<cmd>lua require('dhth.helpers').echo_buffer_path()<CR>",
     opts
 )
+
+--- substitute for visual mode
+REMAP(
+    'v',
+    '<C-s>',
+    ":s/",
+    opts
+)
+
+--- cmds
+REMAP(
+    'n',
+    ';;',
+    "<cmd>lua require('dhth.helpers.tmux').cmds()<CR>",
+    opts
+)

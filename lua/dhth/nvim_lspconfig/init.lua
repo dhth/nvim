@@ -1,5 +1,5 @@
 require "dhth.nvim_lspconfig.custom_hover"
-local navbuddy = require("nvim-navbuddy")
+-- local navbuddy = require("nvim-navbuddy")
 
 local util = require 'lspconfig/util'
 
@@ -7,8 +7,8 @@ local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-    navbuddy.attach(client, bufnr)
+local on_attach = function(_, bufnr)
+    -- navbuddy.attach(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>vv', '<cmd>vsp | lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', '<leader>de', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     --- using lspsaga
-    -- buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'X', '<cmd>lua require("dhth.nvim_lspconfig.custom_hover").show_file_definition_path()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', 'M', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -34,8 +34,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     --- using lspsaga
-    -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>', opts)
     --- using lspsaga
     buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts) -- turn float=true if not using lsp_lines

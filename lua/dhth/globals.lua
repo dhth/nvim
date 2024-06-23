@@ -121,3 +121,16 @@ GET_VISUAL_SELECTION = function()
 
     return start_line, start_col, end_line, end_col, bufnr
 end
+
+SETQF = function (entries)
+    vim.fn.setqflist(entries)
+    vim.cmd("copen")
+end
+
+READ_FILE_LINES = function(file_path)
+    local cmds = {}
+    for line in io.lines(file_path) do
+        table.insert(cmds, line)
+    end
+    return cmds
+end

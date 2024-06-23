@@ -59,7 +59,6 @@ function M.open_current_pages_webview()
     end
 
     vim.cmd("silent !" .. output)
-
 end
 
 function M.add_visual_list()

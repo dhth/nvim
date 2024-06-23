@@ -3,6 +3,7 @@ require "dhth.globals"
 require "dhth.helpers"
 require "dhth.settings"
 require "dhth.colors"
+require "dhth.cmds"
 
 -- tabs and buffers
 require "dhth.lualine"
@@ -17,7 +18,7 @@ require "dhth.nvim_treesitter_textobjects"
 require "dhth.nvim_treesitter_context"
 require "dhth.mini_indentscope"
 require("aerial").setup()
-require('refactoring').setup()
+-- require('refactoring').setup()
 -- require "dhth.block"
 
 -- autocomplete/lsp
@@ -26,7 +27,7 @@ require "dhth.vim_vsnip"
 require "dhth.luadev"
 require "dhth.nvim_lspconfig"
 require "dhth.lsp_signature"
-require "dhth.lspsaga"
+-- require "dhth.lspsaga"
 require "dhth.nvim_metals"
 -- require "dhth.lsp_lines"
 -- require "dhth.symbols_outline"
@@ -41,7 +42,11 @@ require "dhth.harpoon"
 -- git
 require "dhth.gitsigns"
 require "dhth.diffview"
-require "octo".setup()
+-- require "octo".setup({
+--     suppress_missing_scope = {
+--         projects_v2 = true,
+--     }
+-- })
 
 -- movement
 -- require "dhth.flash"
@@ -50,7 +55,7 @@ require('leap').create_default_mappings()
 -- other
 require "dhth.vim_highlighter"
 -- require('Comment').setup()
-require "dhth.marks"
+-- require "dhth.marks"
 -- require "dhth.nvim_notify"
 -- require "dhth.zen_mode"
 
@@ -65,4 +70,4 @@ require "dhth.test_helpers.mappings"
 --         ["core.defaults"] = {}
 --     }
 -- }
--- require "copilotchat".setup()
+require("CopilotChat").setup {}

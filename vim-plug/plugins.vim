@@ -48,21 +48,21 @@ Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 """ LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'scalameta/nvim-metals'
-Plug 'glepnir/lspsaga.nvim', { 'commit': '0b3ee6a4fb2cb9c80c05fe7c191ea116bdda34f7' }
+"Plug 'glepnir/lspsaga.nvim'
 Plug 'folke/neodev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'Maan2003/lsp_lines.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
-Plug 'SmiteshP/nvim-navic'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'SmiteshP/nvim-navbuddy'
+"Plug 'SmiteshP/nvim-navic'
+"Plug 'MunifTanjim/nui.nvim'
+"Plug 'SmiteshP/nvim-navbuddy'
 
 " A few LSPs support sending $/progress messages (https://github.com/j-hui/fidget.nvim/wiki/Known-compatible-LSP-servers)
 " Plug 'j-hui/fidget.nvim' 
 
 """ Completion
-Plug 'hrsh7th/cmp-nvim-lsp', { 'commit': 'affe808a5c56b71630f17aa7c38e15c59fd648a8' }
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
@@ -119,7 +119,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'benmills/vimux'                                        " send commands to tmux
 Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-slash'
-Plug 'tpope/vim-dispatch'
+"Plug 'tpope/vim-dispatch'
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' } " profiling tool
 " Plug 'MattesGroeger/vim-bookmarks'                           " bookmarks per line
 Plug 'farmergreg/vim-lastplace'                              " remembers last editing place
@@ -132,11 +132,11 @@ Plug 'junegunn/vim-easy-align'                               " easy aligning aro
 " Plug 'puremourning/vimspector'
 Plug 'machakann/vim-highlightedyank'
 Plug 'sindrets/diffview.nvim'
-Plug 'folke/todo-comments.nvim'
+"Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
-Plug 'folke/lsp-colors.nvim'
+"Plug 'folke/lsp-colors.nvim'
 Plug 'mcchrish/nnn.vim'
-Plug 'kevinhwang91/nvim-bqf'
+"Plug 'kevinhwang91/nvim-bqf'
 " Plug 'luukvbaal/nnn.nvim'
 Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2' }
 
@@ -150,27 +150,29 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'echasnovski/mini.indentscope', { 'branch': 'stable' }
 Plug 'stevearc/aerial.nvim'
-Plug 'ThePrimeagen/refactoring.nvim'
+"Plug 'ThePrimeagen/refactoring.nvim'
 
 " Plug 'nvim-treesitter/playground'
 " Plug 'HampusHauffman/block.nvim'
 " Plug 'github/copilot.vim'
 " Plug 'jellydn/CopilotChat.nvim'
+Plug 'zbirenbaum/copilot.lua'
+Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 
 " Plug 'nvim-neorg/neorg'
 
 " Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'pwntester/octo.nvim'
+"Plug 'pwntester/octo.nvim'
 
 " Plug 'rcarriga/nvim-notify'
-Plug 'mhinz/vim-startify'
+"Plug 'mhinz/vim-startify'
 Plug 'azabiong/vim-highlighter'
 
 " Plug 'tpope/vim-projectionist'
 " Plug 'untitled-ai/jupyter_ascending.vim'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-Plug 'chentoast/marks.nvim'
+"Plug 'chentoast/marks.nvim'
 Plug 'terrastruct/d2-vim'
 " Plug 'purescript-contrib/purescript-vim'
 call plug#end()

@@ -1,0 +1,19 @@
+{
+  "vars": {
+    "prefix": [
+      "vars"
+    ],
+    "body": [
+      "vars: {",
+      "  d2-config: {",
+      "    sketch: true",
+      "    theme-id: 0",
+      "    dark-theme-id: 200",
+      "  }",
+      "}",
+      "",
+      ""
+    ],
+    "description": "vars"
+  }
+}

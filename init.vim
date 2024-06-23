@@ -23,10 +23,10 @@ source $HOME/.config/nvim/plug-config/vim-test.vim
 source $HOME/.config/nvim/plug-config/vim-easy-align.vim
 source $HOME/.config/nvim/plug-config/vim-bookmarks.vim
 " source $HOME/.config/nvim/plug-config/which-key.vim
-source $HOME/.config/nvim/plug-config/todo-comments.vim
+"source $HOME/.config/nvim/plug-config/todo-comments.vim
 source $HOME/.config/nvim/plug-config/nnn.vim
 " source $HOME/.config/nvim/plug-config/octo-nvim.vim
-source $HOME/.config/nvim/plug-config/vim-startify.vim
+"source $HOME/.config/nvim/plug-config/vim-startify.vim
 lua require('dhth')
 source $HOME/.config/nvim/plug-config/telescope.vim
 

@@ -604,7 +604,7 @@ M.search_document_symbols = function(symbol_type)
         symbols_to_search = { symbol_type }
     else
         prompt_title = "symbols"
-        symbols_to_search = { "function", "method", "class" }
+        symbols_to_search = { "function", "method", "class", "struct" }
     end
 
     local opts = theme({
@@ -700,6 +700,20 @@ function M.open_dir_in_explorer()
         end,
 
     }):find()
+end
+
+function M.diagnostics()
+    local opts = theme({
+        prompt_title = "~ diagnostics ~",
+        results_title = false,
+        preview_title = false,
+        previewer = true,
+        layout_config = {
+            height = .6,
+        },
+    })
+
+    require("telescope.builtin").diagnostics(opts)
 end
 
 return M

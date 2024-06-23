@@ -6,7 +6,7 @@ require 'nvim-treesitter.configs'.setup {
     ignore_install = { "javascript", "html" },
     highlight = {
         enable = true, -- false will disable the whole extension
-        disable = { "vimdoc", "html", "javascript", "fugitive" }
+        disable = { "vimdoc", "html", "javascript", "fugitive", "markdown" }
         -- use the function below to determine languages to disable TS for
         -- TS's internal language names may differ from vim's file type
         -- disable = function(lang, _)
