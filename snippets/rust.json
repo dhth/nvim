@@ -1,0 +1,23 @@
+{
+  "db": {
+    "prefix": [
+      "#"
+    ],
+    "body": [
+      "#[derive(Debug)]",
+      ""
+    ],
+    "description": "#[derive(Debug)]"
+  },
+  "GivenWhenThen": {
+    "prefix": "givenwhenthen",
+    "body": [
+      "// GIVEN",
+      "",
+      "// WHEN",
+      "",
+      "// THEN",
+      ""
+    ]
+  }
+}

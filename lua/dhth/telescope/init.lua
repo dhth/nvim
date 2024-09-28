@@ -158,7 +158,7 @@ function M.search_projects()
         },
     })
 
-    local config = vim.fn.systemlist("fd . --max-depth=1 \"$HOME/.config\" $PROJECTS_DIR $WORK_DIR")
+    local config = vim.fn.systemlist("fd . --max-depth=1 $PROJECTS_DIR $WORK_DIR $CONFIG_DIR $MAC_CONFIG_DIR")
 
     pickers.new(opts, {
         prompt_title = "~ search projects ~",

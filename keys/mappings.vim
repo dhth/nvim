@@ -42,7 +42,7 @@ nnoremap <leader>xx :bdelete<CR>
 nnoremap <leader>w :w<CR>
 
 noremap <leader>fn :echo @%<CR>
-" noremap <silent> <leader>cf :!echo -n % \| pbcopy<CR>
+noremap <silent> <leader>cf :silent !echo -n % \| pbcopy<CR>
 "noremap <silent> <leader>cf :let @+=join([expand('%'),  line(".")], ':')<CR>
 
 "shortcut to edit nvim config

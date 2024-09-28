@@ -317,6 +317,10 @@ function M.format_code_block()
     if (start_line ~= nil) and (end_line ~= nil) then
         if code_block_type == "json" then
             format_prg = "jq"
+        elseif code_block_type == "go" then
+            format_prg = "gofmt"
+        elseif code_block_type == "rust" then
+            format_prg = "rustfmt"
         elseif code_block_type == "python" then
             format_prg = "black - --quiet"
         elseif code_block_type == "scala" then
@@ -445,6 +449,14 @@ function M.format_d2()
     local full_file_path = vim.fn.expand("%:p")
 
     local command = "d2 fmt " .. full_file_path
+
+    vim.cmd("silent !" .. command)
+end
+
+function M.format_terraform()
+    local full_file_path = vim.fn.expand("%:p")
+
+    local command = "terraform fmt " .. full_file_path
 
     vim.cmd("silent !" .. command)
 end

@@ -362,4 +362,35 @@ function M.diff_with_main_branch()
     vim.cmd("Gvdiffsplit! " .. main_branch .. ":%")
 end
 
+function M.diff_file()
+    local opts = theme({
+        prompt_title = "~ diff file ~",
+        results_title = false,
+        previewer = false,
+        layout_config = {
+            height = .6,
+        },
+    })
+    pickers.new(opts, {
+        prompt_title = "colors",
+        finder = finders.new_oneshot_job({ "git", "--no-pager", "branch" }, opts),
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr, _)
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if CONTAINS_STR(selection.value, "* ") then
+                    print("This is the current branch")
+                    return
+                end
+
+                local branch = TRIM(selection.value)
+                vim.cmd("Gvdiffsplit " .. branch .. ":%")
+            end)
+            return true
+        end,
+
+    }):find()
+end
+
 return M

@@ -65,7 +65,7 @@ RANDOMCHARS = function(length)
     local charset = "0123456789abcdefghijklmnopqrstuvwxyz"
     local randomString = ""
     math.randomseed(os.time())
-    for i = 1, length do
+    for _ = 1, length do
         local randIndex = math.random(1, #charset)
         randomString = randomString .. string.sub(charset, randIndex, randIndex)
     end
@@ -122,7 +122,7 @@ GET_VISUAL_SELECTION = function()
     return start_line, start_col, end_line, end_col, bufnr
 end
 
-SETQF = function (entries)
+SETQF = function(entries)
     vim.fn.setqflist(entries)
     vim.cmd("copen")
 end
@@ -133,4 +133,10 @@ READ_FILE_LINES = function(file_path)
         table.insert(cmds, line)
     end
     return cmds
+end
+
+CONTAINS_STR = function(str, substr)
+    local found = string.find(str, substr)
+
+    return found ~= nil
 end

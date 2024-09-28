@@ -46,7 +46,6 @@ end
 
 vim.diagnostic.config({
     virtual_text = false,
-    virtual_lines = { only_current_line = false },
 })
 
 -- PYTHON
@@ -148,9 +147,9 @@ nvim_lsp.pyright.setup {
 -- SCALA
 
 -- using nvim-metals for this
--- require'lspconfig'.metals.setup{
---     on_attach = on_attach,
--- }
+require'lspconfig'.metals.setup{
+    on_attach = on_attach,
+}
 
 -- vim.lsp.set_log_level("debug")
 
@@ -195,5 +194,20 @@ nvim_lsp.rust_analyzer.setup {
 
 -- go
 nvim_lsp.gopls.setup({
+    on_attach = on_attach,
+    settings = {
+        gopls = {
+            gofumpt = true
+        }
+    }
+})
+
+-- terraform
+nvim_lsp.terraformls.setup({
+    on_attach = on_attach,
+})
+
+-- elm
+nvim_lsp.elmls.setup({
     on_attach = on_attach,
 })

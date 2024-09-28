@@ -28,7 +28,7 @@ require "dhth.luadev"
 require "dhth.nvim_lspconfig"
 require "dhth.lsp_signature"
 -- require "dhth.lspsaga"
-require "dhth.nvim_metals"
+-- require "dhth.nvim_metals"
 -- require "dhth.lsp_lines"
 -- require "dhth.symbols_outline"
 require "dhth.nvim_dap"
@@ -54,6 +54,10 @@ require('leap').create_default_mappings()
 
 -- other
 require "dhth.vim_highlighter"
+require 'colorizer'.setup {
+  'json';
+  'go';
+}
 -- require('Comment').setup()
 -- require "dhth.marks"
 -- require "dhth.nvim_notify"
@@ -70,4 +74,6 @@ require "dhth.test_helpers.mappings"
 --         ["core.defaults"] = {}
 --     }
 -- }
-require("CopilotChat").setup {}
+require("CopilotChat").setup {
+    auto_follow_cursor = false,
+}

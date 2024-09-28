@@ -2,9 +2,9 @@ local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
 cmp.setup({
-    -- completion = {
-    --   autocomplete = false
-    -- },
+    completion = {
+        autocomplete = false
+    },
     snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
@@ -28,8 +28,8 @@ cmp.setup({
     --     ),
     -- },
         cmp.mapping.preset.insert({
-            ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-u>'] = cmp.mapping.scroll_docs(4),
+            ['<C-d>'] = cmp.mapping.scroll_docs(4),
+            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
             ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
             ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
             ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -74,7 +74,7 @@ cmp.setup({
 cmp.setup.filetype('markdown', {
     sources = cmp.config.sources({
         {
-            name = 'buffer',
+            -- name = 'buffer',
             -- default is just the current buffer
             -- option = {
             --     get_bufnrs = function()
@@ -94,8 +94,28 @@ cmp.setup.filetype('gitcommit', {
     })
 })
 
+cmp.setup.filetype('terraform', {
+    completion = {
+        autocomplete = { cmp.TriggerEvent.TextChanged },
+    },
+})
+
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig')['pyright'].setup {
     capabilities = capabilities
 }
+
+-- https://github.com/hrsh7th/nvim-cmp/issues/261#issuecomment-1860408641
+local function toggle_autocomplete()
+    local current_setting = cmp.get_config().completion.autocomplete
+    if current_setting and #current_setting > 0 then
+        cmp.setup({ completion = { autocomplete = false } })
+        print('autocomplete disabled')
+    else
+        cmp.setup({ completion = { autocomplete = { cmp.TriggerEvent.TextChanged } } })
+        print('autocomplete enabled')
+    end
+end
+
+vim.api.nvim_create_user_command('CmpToggle', toggle_autocomplete, {})

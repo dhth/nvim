@@ -121,5 +121,16 @@
       "})"
     ],
     "description": "t.Run"
+  },
+  "GivenWhenThen": {
+    "prefix": "givenwhenthen",
+    "body": [
+      "// GIVEN",
+      "",
+      "// WHEN",
+      "",
+      "// THEN",
+      ""
+    ]
   }
 }

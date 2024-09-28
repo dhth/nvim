@@ -7,7 +7,7 @@
 nnoremap <Leader>ps :Rg --hidden --iglob='!.git/' -F<SPACE>
 " nnoremap <leader>sw :Rg --hidden --iglob='!.git/'<SPACE><c-r><c-w><cr>
 nnoremap <silent> <Leader>bs :Lines<CR>
-nnoremap <silent> <c-p> :History<CR>
+"nnoremap <silent> <c-p> :History<CR>
 nnoremap <silent> <Leader>ch :History:<CR>
 " nnoremap <silent> <C-b> :Buffers<CR>
 " nnoremap <silent> g<c-g> :Windows<CR>
@@ -20,7 +20,7 @@ endif
 
 " let $FZF_DEFAULT_OPTS='--reverse'
 let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
-" let g:fzf_layout = { 'down': '30%' }
+"let g:fzf_layout = { 'down': '50%' }
 
 " from https://github.com/junegunn/fzf.vim#advanced-customization
 function! RipgrepFzf(query, fullscreen)

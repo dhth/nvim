@@ -23,22 +23,6 @@ REMAP(
     opts
 )
 
--- --- create a scratch buffer
--- REMAP(
---     'n',
---     '<Leader>sc',
---     '<cmd>lua require("dhth.helpers").new_scratch_buffer()<CR>',
---     opts
--- )
-
---- go to last buffer
-REMAP(
-    'n',
-    '<Leader>6',
-    '<C-^>',
-    opts
-)
-
 --- open plugins file
 REMAP(
     'n',
@@ -87,40 +71,6 @@ REMAP(
     ':s/<C-R><C-W>/',
     opts
 )
-
---- Convert lines to markdown list
---- done via wiki_helpers.add_visual_list now
-
--- REMAP(
---     'v',
---     'ml',
---     ":g/./norm!I- <cr>",
---     opts
--- )
-
---- Convert lines to markdown checklist
---- done via wiki_helpers.add_visual_checklist now
--- REMAP(
---     'v',
---     'cl',
---     ":g/./norm!I- [ ] <cr>",
---     opts
--- )
-
---- Go to tab at index
--- used for harpoon instead
--- for i=1,8 do
---     vim.api.nvim_set_keymap(
---         'n',
---         i .. i,
---         i .. "gt",
---         {
---             noremap = true,
---             silent = true,
---         }
---     )
--- end
-
 
 --- Go to next test
 REMAP(
@@ -195,14 +145,6 @@ REMAP(
     opts
 )
 
---- toggle comment inner paragraph
--- REMAP(
---     'n',
---     'e<c-e>',
---     'gcip',
---     { noremap = false, silent = true }
--- )
-
 --- diffview open
 REMAP(
     'n',
@@ -210,22 +152,6 @@ REMAP(
     ':DiffviewOpen origin/master..origin/',
     { noremap = false, silent = true }
 )
-
--- -- move tab to the right
--- REMAP(
---     'n',
---     '<Right><Right>',
---     ':tabm +1<CR>',
---     { noremap=false, silent=true }
--- )
---
--- -- move tab to the left
--- REMAP(
---     'n',
---     '<Left><Left>',
---     ':tabm -1<CR>',
---     { noremap=false, silent=true }
--- )
 
 -- move tab to the left
 REMAP(
@@ -243,23 +169,6 @@ REMAP(
     { noremap = false, silent = true }
 )
 
--- nvim-treehopper
--- REMAP(
---     'o',
---     's',
---     ':<C-U>lua require(\'tsht\').nodes()<CR>',
---     opts
--- )
-
---- reload module
--- moved to ftplugin/lua.vim
--- REMAP(
---     'n',
---     '<Leader>rm',
---     '<cmd>lua require("dhth.code_helpers").reload_module()<CR>',
---     opts
--- )
-
 --- run line as command
 REMAP(
     'n',
@@ -268,28 +177,11 @@ REMAP(
     opts
 )
 
--- --- diff buffer with HEAD
--- use gitsigns instead
--- REMAP(
---     'n',
---     '<Leader>dh',
---     ':Gvdiffsplit! HEAD:%<CR>',
---     opts
--- )
-
 --- diff file with main branch
 REMAP(
     'n',
     '<Leader>dm',
     '<cmd>lua require("dhth.git_helpers").diff_with_main_branch()<CR>',
-    opts
-)
-
---- general diff helper
-REMAP(
-    'n',
-    '<Leader>df',
-    '<cmd>lua require("dhth.git_helpers").git_diff()<CR>',
     opts
 )
 
@@ -389,14 +281,6 @@ REMAP(
     opts
 )
 
---- Run quickrun
-REMAP(
-    'n',
-    'e<c-e>',
-    "<cmd>lua require('dhth.helpers').run_quickrun()<CR>",
-    opts
-)
-
 --- UndotreeToggle
 REMAP(
     'n',
@@ -442,5 +326,71 @@ REMAP(
     'n',
     ';;',
     "<cmd>lua require('dhth.helpers.tmux').cmds()<CR>",
+    opts
+)
+
+--- .quickrun
+REMAP(
+    'n',
+    ';`',
+    "<cmd>lua require('dhth.helpers').run_quickrun()<CR>",
+    opts
+)
+
+--- quickrun(1)
+REMAP(
+    'n',
+    'e<c-e>',
+    "<cmd>lua require('dhth.helpers.tmux').quickrun(1)<CR>",
+    opts
+)
+
+--- quickrun 1-4
+for i = 1, 4 do
+    vim.api.nvim_set_keymap(
+        'n',
+        ";" .. i,
+        "<cmd>lua require('dhth.helpers.tmux').quickrun(" .. i .. ")<CR>",
+        opts
+    )
+end
+
+--- copilot
+REMAP(
+    'v',
+    '<c-e>',
+    ":CopilotChatExplain<CR>",
+    opts
+)
+
+--- diff file
+REMAP(
+    'n',
+    '<leader>df',
+    "<cmd>lua require('dhth.git_helpers').diff_file()<CR>",
+    opts
+)
+
+--- show commit
+REMAP(
+    'n',
+    '<leader>hd',
+    ":DiffviewOpen HEAD~1..HEAD<CR>",
+    opts
+)
+
+--- copilot toggle
+REMAP(
+    'n',
+    '<c-p>',
+    ":CopilotChatToggle<CR>",
+    opts
+)
+
+--- autocomplete toggle
+REMAP(
+    'n',
+    '<leader>ac',
+    ":CmpToggle<CR>",
     opts
 )

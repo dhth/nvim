@@ -36,19 +36,19 @@ REMAP(
     opts
 )
 
-REMAP(
-    'n',
-    '[s',
-    "<cmd>lua require('dap').step_into()<CR>",
-    opts
-)
-
-REMAP(
-    'n',
-    ']s',
-    "<cmd>lua require('dap').step_over()<CR>",
-    opts
-)
+-- REMAP(
+--     'n',
+--     '[s',
+--     "<cmd>lua require('dap').step_into()<CR>",
+--     opts
+-- )
+--
+-- REMAP(
+--     'n',
+--     ']s',
+--     "<cmd>lua require('dap').step_over()<CR>",
+--     opts
+-- )
 
 REMAP(
     'n',
