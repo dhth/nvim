@@ -3,7 +3,7 @@ setlocal colorcolumn=80
 " nnoremap <buffer> <leader>ml :call wiki_foam#AddLinkToInternalUri()<CR>
 " nnoremap <buffer> <ENTER> 0f]<C-W>gf
 nnoremap <buffer> <silent> <ENTER> :call wiki_foam#EnterKeyActions(getline('.'))<cr>
-vnoremap <buffer> <silent> <ENTER> :lua require("dhth.wiki_helpers").toggle_visual_checklist()<CR>
+vnoremap <buffer> <silent> <ENTER> :lua require("custom.helpers.wiki").toggle_visual_checklist()<CR>
 vnoremap <buffer> <silent> aq :lua require("dhth.wiki_helpers").quotify_visual()<CR>
 nnoremap <buffer> <silent> <leader>st :lua require("dhth.wiki_helpers").search_for_tags()<CR>
 

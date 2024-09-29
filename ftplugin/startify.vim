@@ -1,1 +1,1 @@
-nnoremap <buffer> <leader><leader> :<cmd>lua require("dhth.git_helpers").git_commands()<CR>
+nnoremap <buffer> <leader><leader> :<cmd>lua require("custom.helpers.git").git_commands()<CR>
