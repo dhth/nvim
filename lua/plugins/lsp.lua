@@ -3,7 +3,6 @@ return {
         "neovim/nvim-lspconfig",
         version = "v1.0.0",
         config = function()
-            local util = require "lspconfig/util"
             local nvim_lsp = require "lspconfig"
 
             -- Use an on_attach function to only map the following keys
@@ -43,6 +42,12 @@ return {
                 buf_set_keymap(
                     "n",
                     "<leader>ff",
+                    "<cmd>lua vim.lsp.buf.definition()<CR>",
+                    opts
+                )
+                buf_set_keymap(
+                    "n",
+                    "df",
                     "<cmd>lua vim.lsp.buf.definition()<CR>",
                     opts
                 )
@@ -153,7 +158,7 @@ return {
                 buf_set_keymap(
                     "n",
                     "f<c-f>",
-                    '<cmd>lua require("custom.helpers.code").format_file()<CR>',
+                    '<cmd>lua require("custom.helpers.code.general").format_using_lsp()<CR>',
                     opts
                 )
             end
@@ -168,14 +173,14 @@ return {
                 flags = {
                     debounce_text_changes = 150,
                 },
-                root_dir = function(fname)
-                    local root_files = {
-                        "pyrightconfig.json",
-                    }
-                    return util.root_pattern(table.unpack(root_files))(fname)
-                        or util.find_git_ancestor(fname)
-                        or util.path.dirname(fname)
-                end,
+                -- root_dir = function(fname)
+                --     local root_files = {
+                --         "pyrightconfig.json",
+                --     }
+                --     return util.root_pattern(table.unpack(root_files))(fname)
+                --         or util.find_git_ancestor(fname)
+                --         or util.path.dirname(fname)
+                -- end,
                 settings = {
                     python = {
                         analysis = {
@@ -246,12 +251,6 @@ return {
             nvim_lsp.elmls.setup {
                 on_attach = on_attach,
             }
-
-            --- format buffer using lsp
-            NOREMAP_SILENT("n", "f<c-f>", function()
-                vim.lsp.buf.format { async = true }
-                print "formatted 🧹"
-            end)
         end,
     },
     {

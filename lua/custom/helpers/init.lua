@@ -1,0 +1,5 @@
+require "custom.helpers.code"
+require "custom.helpers.general"
+require "custom.helpers.git"
+require "custom.helpers.test"
+require "custom.helpers.wiki"

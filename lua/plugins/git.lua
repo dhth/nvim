@@ -9,7 +9,6 @@ return {
             REMAP("n", "<leader>gf", ":diffget //2<CR>", opts) -- used during merge conflicts
             REMAP("n", "<leader>gj", ":diffget //3<CR>", opts)
             REMAP("n", "<leader>ds", ":Gvdiffsplit! HEAD:%<CR>", opts)
-            REMAP("n", "<leader>ca", ":Git commit --amend<CR>", opts)
             REMAP("n", "<leader>gb", ":GBrowse<CR>", opts)
         end,
     },

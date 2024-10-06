@@ -30,6 +30,10 @@ NOREMAP_SILENT = function(mode, lhs, rhs)
     REMAP(mode, lhs, rhs, OPTS_NO_REMAP_SILENT)
 end
 
+BUF_NOREMAP_SILENT = function(mode, lhs, rhs)
+    vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, OPTS_NO_REMAP_SILENT)
+end
+
 SPLIT = function(inputstr, sep)
     if sep == nil then
         sep = "%s"

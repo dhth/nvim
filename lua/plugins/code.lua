@@ -17,17 +17,6 @@ return {
         config = true,
     },
     {
-        "junegunn/vim-easy-align",
-        event = "InsertEnter",
-        config = function()
-            -- Start interactive EasyAlign in visual mode (e.g. vipga)
-            REMAP("x", "ga", "<Plug>(EasyAlign)", OPTS_NO_REMAP_SILENT)
-
-            -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-            REMAP("n", "ga", "<Plug>(EasyAlign)", OPTS_NO_REMAP_SILENT)
-        end,
-    },
-    {
         "vim-scripts/ReplaceWithRegister",
         event = "InsertEnter",
     },
@@ -173,5 +162,23 @@ endif
     {
         "ferrine/md-img-paste.vim",
         event = "InsertEnter",
+    },
+    {
+        "echasnovski/mini.nvim",
+        event = "InsertEnter",
+        version = "*",
+        config = function()
+            require("mini.align").setup()
+        end,
+    },
+    {
+        "preservim/vim-markdown",
+        event = "InsertEnter",
+        dependencies = {
+            { "godlygeek/tabular" },
+        },
+        init = function()
+            vim.cmd [[let g:vim_markdown_folding_disabled = 1]]
+        end,
     },
 }

@@ -88,10 +88,10 @@ local function create_telescope_search(opts)
     local config
     config = {
         { "cargo build" },
+        { "cargo test" },
         { "cargo run" },
         { "cargo fmt --all" },
         { "cargo clippy" },
-        { "go test ." },
         { "cargo test" },
         { "cargo install --path ." },
     }

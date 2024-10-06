@@ -47,19 +47,25 @@ return {
         init = function()
             vim.g.barbar_auto_setup = false
         end,
-        opts = {
-            animation = false,
-            auto_hide = false,
-            tabpages = true,
-            clickable = false,
-            icons = {
-                buffer_index = true,
-                button = false,
-            },
-            semantic_letters = false,
-        },
         version = "^1.0.0",
         config = function()
+            require("barbar").setup {
+                animation = false,
+                auto_hide = false,
+                tabpages = true,
+                clickable = false,
+                icons = {
+                    buffer_index = true,
+                    button = false,
+                },
+                semantic_letters = false,
+            }
+
+            NOREMAP_SILENT(
+                "n",
+                "<leader>bo",
+                "<Cmd>BufferCloseAllButCurrent<CR>"
+            )
             NOREMAP_SILENT("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>")
             NOREMAP_SILENT("n", "<Tab>", "<Cmd>BufferNext<CR>")
             NOREMAP_SILENT("n", "<<", "<Cmd>BufferMovePrevious<CR>")

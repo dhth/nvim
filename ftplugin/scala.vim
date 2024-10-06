@@ -24,7 +24,6 @@ nnoremap <silent> <buffer> <leader>gi :lua vim.lsp.buf.implementation()<CR>
 " nnoremap <silent> <buffer> <leader>rr :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <buffer> M :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <buffer> <leader>rn :lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <buffer> f<c-f> :lua vim.lsp.buf.format({async=true})<CR>
 nnoremap <silent> <buffer> <leader>ca :lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> <buffer> [d :lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> <buffer> ]d :lua vim.diagnostic.goto_next()<CR>

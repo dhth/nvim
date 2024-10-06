@@ -19,13 +19,20 @@ return {
             invert_tabline = false,
             invert_intend_guides = false,
             inverse = true, -- invert background for search, diffs, statuslines and errors
-            contrast = "", -- can be "hard", "soft" or empty string
+            contrast = "hard", -- can be "hard", "soft" or empty string
             palette_overrides = {},
             overrides = {},
             dim_inactive = false,
             transparent_mode = false,
         },
         config = function()
+            -- local current_hour = os.date("*t").hour
+            -- if current_hour >= 10 and current_hour < 18 then
+            --     vim.o.background = "light"
+            -- else
+            --     vim.o.background = "dark"
+            -- end
+
             vim.o.background = "dark"
             vim.cmd [[colorscheme gruvbox]]
 

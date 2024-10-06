@@ -1,3 +1,5 @@
+NOREMAP_SILENT("n", "<esc>", "<NOP>")
+
 --- inserts a date using external command completion
 NOREMAP_SILENT("n", "<Leader>da", [[idate +%Y-%m-%d!!bash<CR>]])
 
@@ -58,4 +60,4 @@ NOREMAP_SILENT("n", "<c-x>", "<cmd>tabclose<CR>")
 NOREMAP_SILENT("v", "<C-s>", ":s/")
 
 --- exit out of a terminal buffer
-NOREMAP_SILENT('t', '<leader>q', [[<C-\><C-n>:bd!<CR>]])
+NOREMAP_SILENT("t", "<leader>q", [[<C-\><C-n>:bd!<CR>]])

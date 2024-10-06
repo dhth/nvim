@@ -74,7 +74,7 @@ let g:mdip_imgdir = 'assets'
 let g:mdip_imgname = 'img'
 
 " https://salferrarello.com/vim-close-all-buffers-except-the-current-one/
-command! BufOnly execute '%bdelete|edit #|normal `"'
+"command! BufOnly execute '%bdelete|edit #|normal `"'
 
 " auto clean fugitive buffers
 " from http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/

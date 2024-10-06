@@ -122,7 +122,7 @@ nnoremap <leader>je :e ~/.config/nvim/journal.md<cr>
 
 nnoremap <silent> <leader>mm :MaximizerToggle<cr>
 
-nnoremap <silent> <leader>bo :BufOnly<cr>
+"nnoremap <silent> <leader>bo :BufOnly<cr>
 
 nnoremap <silent> <leader>er :call helpers#Helpers()<cr>
 " nnoremap <silent> <leader>pp :call helpers#LCDToDir()<cr>
