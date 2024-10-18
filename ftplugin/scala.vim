@@ -14,7 +14,7 @@ set colorcolumn=0
 " setlocal foldexpr=nvim_treesitter#foldexpr()
 " nnoremap <silent> <buffer> <leader>db :normal Iprintln(A)
 
-nnoremap <silent> <buffer> <leader>rm :lua require("custom.helpers.code").scala_run(false)<CR>
+nnoremap <silent> <buffer> <leader>rm :lua require("custom.helpers.code.general").scala_run(true)<CR>
 
 " vimcript style bindings till I figure out why
 " nvim-metals' on_attach function is not working

@@ -123,7 +123,7 @@ endif
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             local harpoon = require "harpoon"
-            NOREMAP_SILENT("n", "<leader>aa", function()
+            NOREMAP_SILENT("n", "<leader>ha", function()
                 harpoon:list():add()
             end)
             NOREMAP_SILENT("n", "<leader>`", function()

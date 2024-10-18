@@ -111,8 +111,12 @@ end
 
 local predefined_cmds = {
     rust = {
+        "cargo check --all-targets",
+        "cargo build",
         "cargo run",
         "cargo test",
+        "cargo fmt --all",
+        "cargo clippy --all-targets",
     },
     go = {
         "go run .",

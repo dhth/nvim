@@ -46,7 +46,7 @@ function M.lsp_references()
         previewer = true,
         preview_title = false,
         layout_config = {
-            height = 0.9,
+            height = 0.6,
         },
         -- cache_picker = cache_picker_config(),
     }
@@ -620,7 +620,6 @@ M.search_document_symbols = function(symbol_type)
         symbols_to_search = { symbol_type }
     else
         prompt_title = "symbols"
-        symbols_to_search = { "function", "method", "class", "struct" }
     end
 
     local opts = theme {

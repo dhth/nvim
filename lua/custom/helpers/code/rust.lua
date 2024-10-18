@@ -87,12 +87,12 @@ local function create_telescope_search(opts)
     local file_type = vim.bo.filetype
     local config
     config = {
+        { "cargo check --all-targets" },
         { "cargo build" },
         { "cargo test" },
         { "cargo run" },
         { "cargo fmt --all" },
-        { "cargo clippy" },
-        { "cargo test" },
+        { "cargo clippy --all-targets" },
         { "cargo install --path ." },
     }
 

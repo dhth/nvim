@@ -130,12 +130,12 @@ return {
                     "<cmd>lua vim.lsp.buf.code_action()<CR>",
                     opts
                 )
-                buf_set_keymap(
-                    "n",
-                    "<leader>rr",
-                    "<cmd>lua vim.lsp.buf.references()<CR>",
-                    opts
-                )
+                -- buf_set_keymap(
+                --     "n",
+                --     "<leader>rr",
+                --     "<cmd>lua vim.lsp.buf.references()<CR>",
+                --     opts
+                -- )
                 buf_set_keymap(
                     "n",
                     "<space>e",
@@ -251,6 +251,10 @@ return {
             nvim_lsp.elmls.setup {
                 on_attach = on_attach,
             }
+
+            NOREMAP_SILENT("n", "<leader>hh", function()
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            end)
         end,
     },
     {

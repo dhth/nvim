@@ -36,11 +36,15 @@ end
 function M.scala_run_main_file(switch_to_pane)
     switch_to_pane = switch_to_pane or false
 
-    local mainFile = string.gsub(
-        (string.gsub(vim.fn.expand "%:r", "src/main/scala/", "")),
-        "/",
-        "."
-    )
+    local file_path = vim.fn.expand "%:r"
+    if not string.find(file_path, "src/main/scala/") then
+        print "Error: File path does not contain 'src/main/scala/'"
+        return
+    end
+
+    local mainFile =
+        string.gsub((string.gsub(file_path, ".*src/main/scala/", "")), "/", ".")
+
     vim.cmd('silent VimuxRunCommand("runMain ' .. mainFile .. '")')
     if switch_to_pane then
         vim.cmd "silent !tmux select-pane -t .+1 && tmux resize-pane -Z"
@@ -574,9 +578,14 @@ function M.show_definition()
             )
             vim.cmd "normal! zt"
             vim.cmd "normal! 10k"
+            vim.cmd "normal! 10j"
 
             if definition_match_id then
-                vim.fn.matchdelete(definition_match_id)
+                local success, _ =
+                    pcall(vim.fn.matchdelete, definition_match_id)
+                if success then
+                    definition_match_id = nil
+                end
             end
 
             definition_match_id = vim.fn.matchadd(

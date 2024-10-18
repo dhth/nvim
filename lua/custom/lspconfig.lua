@@ -10,16 +10,14 @@ function M.show_file_definition_path()
         function(err, result, _, _)
             if err ~= nil then
                 print("err from LSP: " .. err)
-                do
-                    return
-                end
+                return
             end
-            if result == nil then
+
+            if not result or vim.tbl_isempty(result) then
                 print "⛔️"
-                do
-                    return
-                end
+                return
             end
+
             local responseUri = result[1].uri
 
             local stripped_file_path = string.gsub(responseUri, "file://", "")
