@@ -1,7 +1,6 @@
 return {
     {
         "mcchrish/nnn.vim",
-        tag = "v3.6",
         init = function()
             vim.cmd [[
 " Disable default mappings

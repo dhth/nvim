@@ -57,7 +57,6 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        commit = "4a2d05e",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
@@ -123,7 +122,6 @@ return {
     },
     {
         "echasnovski/mini.indentscope",
-        version = "v0.14.0",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },

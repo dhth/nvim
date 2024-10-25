@@ -1,7 +1,6 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        version = "v1.0.0",
         config = function()
             local nvim_lsp = require "lspconfig"
 
