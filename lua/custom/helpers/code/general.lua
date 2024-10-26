@@ -5,6 +5,7 @@ local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 local git_helpers = require "custom.helpers.git"
 local theme = require("telescope.themes").get_ivy
+local ts_utils = require "nvim-treesitter.ts_utils"
 
 local M = {}
 
@@ -85,12 +86,12 @@ local function create_telescope_search(opts)
     local config
     if file_type == "scala" then
         config = {
-            { "run" },
-            { "docs/makeSite" },
             { "compile" },
             { "test" },
             { "compile;test" },
             { "test:compile" },
+            { "run" },
+            { "docs/makeSite" },
             { "reload;fbrdCompliance" },
             { "reload;fbrdCompliance;compile" },
             { "reload;fbrdCompliance;compile;test" },
@@ -132,8 +133,8 @@ local function create_telescope_search(opts)
                         else
                             vim.cmd(
                                 'silent VimuxRunCommand("'
-                                    .. selection.value[1]
-                                    .. '")'
+                                .. selection.value[1]
+                                .. '")'
                             )
                             vim.cmd "silent !tmux select-pane -t .+1 && tmux resize-pane -Z"
                         end
@@ -151,8 +152,8 @@ local function create_telescope_search(opts)
                         else
                             vim.cmd(
                                 'silent VimuxRunCommand("'
-                                    .. selection.value[1]
-                                    .. '")'
+                                .. selection.value[1]
+                                .. '")'
                             )
                         end
                     end
@@ -168,8 +169,8 @@ local function create_telescope_search(opts)
                         else
                             vim.cmd(
                                 'silent VimuxRunCommand("'
-                                    .. selection.value[1]
-                                    .. '")'
+                                .. selection.value[1]
+                                .. '")'
                             )
                             vim.cmd "silent !tmux resize-pane -Z"
                         end
@@ -199,7 +200,7 @@ function M.add_todo_comment()
         },
     }
     local config = {
-        { "ques", "QUES" },
+        { "ques",  "QUES" },
         { "fixit", "FIXIT" },
     }
 
@@ -353,7 +354,7 @@ function M.format_code_block()
             format_prg = "black - --quiet"
         elseif code_block_type == "scala" then
             format_prg =
-                "scalafmt --config .scalafmt.conf  --stdin --stdout --quiet"
+            "scalafmt --config .scalafmt.conf  --stdin --stdout --quiet"
         else
             print "Code block not supported"
             return
@@ -598,8 +599,72 @@ function M.show_definition()
     )
 end
 
+--- Adds a print statement for the word under the cursor.
+-- eg. running this when on "app_state" will add the following line
+-- ```rust
+-- let app_state = AppState {
+--     server_info,
+--     config,
+-- };
+-- println!("app_state: {:?}", app_state); // <- here
+-- ```
+function M.print_item()
+    local current_word = vim.fn.expand "<cword>"
+
+    local print_statement
+    local ft = vim.bo.filetype
+    if ft == "scala" then
+        print_statement =
+            string.format('println(s"%s: ${%s}")', current_word, current_word)
+    elseif ft == "rust" then
+        print_statement = string.format(
+            'println!("%s: {:?}", %s);',
+            current_word,
+            current_word
+        )
+    elseif ft == "go" then
+        print_statement = string.format(
+            'fmt.Printf("%s: %%s", %s)',
+            current_word,
+            current_word
+        )
+    else
+        print "unsupported file type"
+        return
+    end
+
+    local bufnr = vim.api.nvim_get_current_buf()
+    local cursor_node = ts_utils.get_node_at_cursor()
+
+    if not cursor_node then
+        print "no Treesitter parser found"
+        return
+    end
+
+    local parent_node = cursor_node:parent()
+
+    if not parent_node then
+        print "couldn't find the parent node"
+        return
+    end
+
+    local _, _, end_row, _ = parent_node:range()
+
+    local current_line = vim.api.nvim_get_current_line()
+    local current_indent = current_line:match "^%s*"
+
+    vim.api.nvim_buf_set_lines(
+        bufnr,
+        end_row + 1,
+        end_row + 1,
+        false,
+        { current_indent .. print_statement }
+    )
+end
+
 --- code helpers
 NOREMAP_SILENT("n", "<Leader><Leader>", M.show_commands)
+NOREMAP_SILENT("n", "M", M.show_commands)
 
 --- code helpers
 NOREMAP_SILENT("n", "t<c-j>", M.show_commands)
@@ -618,5 +683,6 @@ NOREMAP_SILENT("i", ";;", M.add_semicolon)
 NOREMAP_SILENT("n", ";;", M.add_semicolon)
 
 NOREMAP_SILENT("n", "L", M.show_definition)
+NOREMAP_SILENT("n", "<leader>db", M.print_item)
 
 return M

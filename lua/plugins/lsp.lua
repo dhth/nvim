@@ -7,26 +7,6 @@ return {
             -- Use an on_attach function to only map the following keys
             -- after the language server attaches to the current buffer
             local on_attach = function(_, bufnr)
-                local function progress_handler(_, result, ctx)
-                    local client_id = ctx.client_id
-                    local client_name = vim.lsp.get_client_by_id(client_id).name
-                    local value = result.value
-
-                    if value.kind == "begin" then
-                        print(
-                            client_name .. " started: " .. (value.title or "")
-                        )
-                    elseif value.kind == "end" then
-                        print(
-                            client_name
-                                .. " completed: "
-                                .. (value.message or "")
-                        )
-                    end
-                end
-
-                vim.lsp.handlers["$/progress"] = progress_handler
-
                 local function buf_set_keymap(...)
                     vim.api.nvim_buf_set_keymap(bufnr, ...)
                 end
@@ -88,12 +68,6 @@ return {
                 )
                 buf_set_keymap(
                     "n",
-                    "M",
-                    "<cmd>lua vim.lsp.buf.signature_help()<CR>",
-                    opts
-                )
-                buf_set_keymap(
-                    "n",
                     "<space>wa",
                     "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
                     opts
@@ -129,12 +103,6 @@ return {
                     "<cmd>lua vim.lsp.buf.code_action()<CR>",
                     opts
                 )
-                -- buf_set_keymap(
-                --     "n",
-                --     "<leader>rr",
-                --     "<cmd>lua vim.lsp.buf.references()<CR>",
-                --     opts
-                -- )
                 buf_set_keymap(
                     "n",
                     "<space>e",
@@ -172,14 +140,6 @@ return {
                 flags = {
                     debounce_text_changes = 150,
                 },
-                -- root_dir = function(fname)
-                --     local root_files = {
-                --         "pyrightconfig.json",
-                --     }
-                --     return util.root_pattern(table.unpack(root_files))(fname)
-                --         or util.find_git_ancestor(fname)
-                --         or util.path.dirname(fname)
-                -- end,
                 settings = {
                     python = {
                         analysis = {

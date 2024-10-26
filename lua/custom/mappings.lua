@@ -58,6 +58,3 @@ NOREMAP_SILENT("n", "<c-x>", "<cmd>tabclose<CR>")
 
 --- substitute for visual mode
 NOREMAP_SILENT("v", "<C-s>", ":s/")
-
---- exit out of a terminal buffer
-NOREMAP_SILENT("t", "<leader>q", [[<C-\><C-n>:bd!<CR>]])
