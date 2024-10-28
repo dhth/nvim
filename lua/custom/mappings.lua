@@ -28,9 +28,6 @@ NOREMAP_SILENT("n", "<Leader>dt", "<cmd>windo diffthis<CR>")
 --- copen
 NOREMAP_SILENT("n", "<Leader>co", "<cmd>copen<CR>")
 
--- move tab to the left
-NOREMAP_SILENT("n", "---", ":tabclose<CR>")
-
 -- go to last tab
 NOREMAP_SILENT("n", "99", ":tablast<CR>")
 
@@ -58,3 +55,9 @@ NOREMAP_SILENT("n", "<c-x>", "<cmd>tabclose<CR>")
 
 --- substitute for visual mode
 NOREMAP_SILENT("v", "<C-s>", ":s/")
+
+--- no highlight
+NOREMAP_SILENT("n", "--", ":noh<CR>")
+
+--- exit out of a terminal buffer
+NOREMAP_SILENT("t", "<c-e>", [[<C-\><C-n>:bd!<CR>]])

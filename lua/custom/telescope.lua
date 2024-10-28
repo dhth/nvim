@@ -54,6 +54,21 @@ function M.lsp_references()
     builtin.lsp_references(opts)
 end
 
+function M.lsp_implementations()
+    local opts = theme {
+        prompt_title = "~ implementations ~",
+        results_title = false,
+        show_line = false,
+        previewer = true,
+        preview_title = false,
+        layout_config = {
+            height = 0.6,
+        },
+    }
+
+    builtin.lsp_implementations(opts)
+end
+
 function M.edit_neovim()
     local opts = theme {
         prompt_title = "~ nvim ~",

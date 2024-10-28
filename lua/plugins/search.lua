@@ -154,13 +154,6 @@ return {
                     }
                 )
             end, map_opts)
-            REMAP("n", "<leader>ii", function()
-                require("telescope.builtin").lsp_implementations()
-            end, map_opts)
-            REMAP("n", "<leader>oo", function()
-                vim.cmd "split"
-                require("telescope.builtin").lsp_implementations()
-            end, map_opts)
             REMAP("n", "<leader>ss", function()
                 vim.cmd "Telescope persisted"
             end, map_opts)
@@ -227,6 +220,13 @@ return {
             REMAP("n", "<leader>rr", function()
                 telescope_custom.lsp_references()
             end, map_opts)
+            NOREMAP_SILENT("n", "<leader>ii", function()
+                telescope_custom.lsp_implementations()
+            end)
+            NOREMAP_SILENT("n", "<leader>oo", function()
+                vim.cmd "split"
+                telescope_custom.lsp_implementations()
+            end)
         end,
     },
     {

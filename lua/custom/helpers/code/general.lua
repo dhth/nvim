@@ -133,8 +133,8 @@ local function create_telescope_search(opts)
                         else
                             vim.cmd(
                                 'silent VimuxRunCommand("'
-                                .. selection.value[1]
-                                .. '")'
+                                    .. selection.value[1]
+                                    .. '")'
                             )
                             vim.cmd "silent !tmux select-pane -t .+1 && tmux resize-pane -Z"
                         end
@@ -152,8 +152,8 @@ local function create_telescope_search(opts)
                         else
                             vim.cmd(
                                 'silent VimuxRunCommand("'
-                                .. selection.value[1]
-                                .. '")'
+                                    .. selection.value[1]
+                                    .. '")'
                             )
                         end
                     end
@@ -169,8 +169,8 @@ local function create_telescope_search(opts)
                         else
                             vim.cmd(
                                 'silent VimuxRunCommand("'
-                                .. selection.value[1]
-                                .. '")'
+                                    .. selection.value[1]
+                                    .. '")'
                             )
                             vim.cmd "silent !tmux resize-pane -Z"
                         end
@@ -200,7 +200,7 @@ function M.add_todo_comment()
         },
     }
     local config = {
-        { "ques",  "QUES" },
+        { "ques", "QUES" },
         { "fixit", "FIXIT" },
     }
 
@@ -354,7 +354,7 @@ function M.format_code_block()
             format_prg = "black - --quiet"
         elseif code_block_type == "scala" then
             format_prg =
-            "scalafmt --config .scalafmt.conf  --stdin --stdout --quiet"
+                "scalafmt --config .scalafmt.conf  --stdin --stdout --quiet"
         else
             print "Code block not supported"
             return
@@ -572,7 +572,6 @@ function M.show_definition()
             end
 
             vim.api.nvim_win_set_buf(definition_win_id, bufnr)
-            vim.api.nvim_win_set_option(definition_win_id, "buflisted", false)
             vim.api.nvim_win_set_cursor(
                 definition_win_id,
                 { start_line + 1, 0 }
