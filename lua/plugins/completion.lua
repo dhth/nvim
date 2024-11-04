@@ -92,12 +92,6 @@ return {
                 },
             })
 
-            -- Setup lspconfig.
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            require("lspconfig")["pyright"].setup {
-                capabilities = capabilities,
-            }
-
             -- https://github.com/hrsh7th/nvim-cmp/issues/261#issuecomment-1860408641
             local function toggle_autocomplete()
                 local current_setting = cmp.get_config().completion.autocomplete

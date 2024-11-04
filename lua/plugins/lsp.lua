@@ -92,6 +92,12 @@ local function lsp_on_attach(_, bufnr)
     )
 end
 
+-- to not use LSP
+-- nvim --cmd "let g:lsp=v:false"
+if vim.g.lsp == false then
+    return {}
+end
+
 return {
     {
         "neovim/nvim-lspconfig",

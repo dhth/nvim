@@ -2,6 +2,7 @@ local M = {}
 
 function M.show_file_definition_path()
     local position_params = vim.lsp.util.make_position_params()
+    local file_type = vim.bo.filetype
 
     vim.lsp.buf_request(
         0,
@@ -18,7 +19,12 @@ function M.show_file_definition_path()
                 return
             end
 
-            local responseUri = result[1].uri
+            local responseUri
+            if file_type == "rust" then
+                responseUri = result[1].targetUri
+            else
+                responseUri = result[1].uri
+            end
 
             local stripped_file_path = string.gsub(responseUri, "file://", "")
             if stripped_file_path == vim.fn.expand "%:p" then
