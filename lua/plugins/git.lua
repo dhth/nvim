@@ -4,7 +4,7 @@ return {
         config = function()
             local opts = { noremap = true, silent = true }
 
-            REMAP("n", "<leader>gs", ":G<CR><C-W>K", opts)
+            REMAP("n", "<leader>gs", ":Git!<CR><C-W><C-O>", opts)
             -- REMAP('n', '<leader>dm', ':Gvdiffsplit! origin/main:%<CR>', opts)
             REMAP("n", "<leader>gf", ":diffget //2<CR>", opts) -- used during merge conflicts
             REMAP("n", "<leader>gj", ":diffget //3<CR>", opts)

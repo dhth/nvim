@@ -220,7 +220,7 @@ return {
             REMAP("n", "<leader>rr", function()
                 telescope_custom.lsp_references()
             end, map_opts)
-            NOREMAP_SILENT("n", "<leader>ii", function()
+            NOREMAP_SILENT("n", "<leader>i", function()
                 telescope_custom.lsp_implementations()
             end)
             NOREMAP_SILENT("n", "<leader>oo", function()

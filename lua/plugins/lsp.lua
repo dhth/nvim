@@ -10,22 +10,17 @@ local function lsp_on_attach(_, bufnr)
 
     local opts = { noremap = true, silent = true }
 
-    buf_set_keymap(
-        "n",
-        "<leader>ff",
-        "<cmd>lua vim.lsp.buf.definition()<CR>",
-        opts
-    )
+    buf_set_keymap("n", "F", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     buf_set_keymap("n", "df", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     buf_set_keymap(
         "n",
-        "<leader>jj",
+        "T",
         "<cmd>tab split | lua vim.lsp.buf.definition()<CR>",
         opts
     )
     buf_set_keymap(
         "n",
-        "<leader>vv",
+        "L",
         "<cmd>vsp | lua vim.lsp.buf.definition()<CR>",
         opts
     )

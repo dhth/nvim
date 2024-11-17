@@ -662,7 +662,7 @@ function M.print_item()
 end
 
 --- code helpers
-NOREMAP_SILENT("n", "<Leader><Leader>", M.show_commands)
+NOREMAP_SILENT("n", "<leader>ch", M.show_commands)
 NOREMAP_SILENT("n", "M", M.show_commands)
 
 --- code helpers
@@ -681,7 +681,7 @@ NOREMAP_SILENT("n", "<Leader>ru", M.run_line_as_command)
 NOREMAP_SILENT("i", ";;", M.add_semicolon)
 NOREMAP_SILENT("n", ";;", M.add_semicolon)
 
-NOREMAP_SILENT("n", "L", M.show_definition)
+-- NOREMAP_SILENT("n", "L", M.show_definition)
 NOREMAP_SILENT("n", "<leader>db", M.print_item)
 
 return M
