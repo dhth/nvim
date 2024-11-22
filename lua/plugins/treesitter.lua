@@ -15,6 +15,7 @@ return {
                     "json",
                     "yaml",
                     "toml",
+                    "terraform",
                     "css",
                 },
                 ignore_install = { "javascript", "html" },

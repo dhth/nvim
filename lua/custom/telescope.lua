@@ -46,7 +46,7 @@ function M.lsp_references()
         previewer = true,
         preview_title = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
         -- cache_picker = cache_picker_config(),
     }

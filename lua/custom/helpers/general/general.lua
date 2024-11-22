@@ -50,9 +50,10 @@ function M.run_shell_command()
         -- must be a Shift-v selection, decrement end_col by 1
         end_col = end_col - 1
     end
+    print("running...")
     vim.fn.jobstart(command, {
         stdout_buffered = true,
-        on_stdout = function(job_id, data, event_type)
+        on_stdout = function(_, data, _)
             table.remove(data, #data)
             vim.api.nvim_buf_set_text(
                 bufnr,
@@ -111,7 +112,7 @@ function M.replace_visual_selection_with_clipboard_after_command()
     vim.cmd.vnew()
     vim.fn.termopen(command, {
         stdout_buffered = true,
-        on_exit = function(job_id, exit_code, event_type)
+        on_exit = function(_, exit_code, _)
             if exit_code == 0 then
                 -- hopefully whatever command ran put the desired
                 -- output text into the clipboard
@@ -162,7 +163,7 @@ NOREMAP_SILENT("i", "[p", M.echo_buffer_path)
 NOREMAP_SILENT(
     "v",
     "r<c-r>",
-    "y<cmd>lua require('custom.helpers.general').run_shell_command()<CR>"
+    "y<cmd>lua require('custom.helpers.general.general').run_shell_command()<CR>"
 )
 
 --- Run visual selection in terminal
