@@ -7,6 +7,15 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "onsails/lspkind-nvim",
+            {
+                "uga-rosa/cmp-dictionary",
+                config = function()
+                    require("cmp_dictionary").setup {
+                        paths = { "/usr/share/dict/words" },
+                        exact_length = 4,
+                    }
+                end,
+            },
         },
         config = function()
             local cmp = require "cmp"
@@ -73,14 +82,20 @@ return {
 
             cmp.setup.filetype("markdown", {
                 sources = cmp.config.sources {
-                    {},
+                    { name = "dictionary", keyword_length = 4 },
                     { name = "vsnip" },
                     { name = "path" },
+                },
+            })
+            cmp.setup.filetype("copilot-chat", {
+                sources = cmp.config.sources {
+                    { name = "dictionary", keyword_length = 4 },
                 },
             })
 
             cmp.setup.filetype("gitcommit", {
                 sources = cmp.config.sources {
+                    { name = "dictionary", keyword_length = 4 },
                     { name = "vsnip" },
                     { name = "path" },
                 },

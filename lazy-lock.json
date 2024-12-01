@@ -4,6 +4,7 @@
   "avante.nvim": { "branch": "main", "commit": "57311bf8cd2f48729565d2351bcbf383b6a56907" },
   "barbar.nvim": { "branch": "master", "commit": "5c0abe2331837dcd3830f7429ddb9b8340c9fa93" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
+  "cmp-dictionary": { "branch": "main", "commit": "c5ffc6afb7f3a68da981ed9c56f3d9d8f3d907b7" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp-vsnip": { "branch": "main", "commit": "989a8a73c44e926199bfd05fa7a516d51f2d2752" },
