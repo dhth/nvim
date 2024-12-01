@@ -1,5 +1,3 @@
-local telescope = require "telescope"
-
 return {
     {
         "nvim-telescope/telescope.nvim",
@@ -65,7 +63,7 @@ return {
         },
 
         config = function(_, opts)
-            local telescope_custom = require "custom.telescope"
+            local telescope = require "telescope"
             local lga_actions = require "telescope-live-grep-args.actions"
 
             opts.extensions = {
@@ -102,7 +100,7 @@ return {
                         prompt_title = "~ buffers ~",
                         previewer = false,
                         results_title = false,
-                        layout_config = { height = 0.6 },
+                        layout_config = { height = 0.8 },
                     }
                 )
             end, map_opts)
@@ -127,7 +125,7 @@ return {
                 require("telescope.builtin").search_history(
                     require("telescope.themes").get_ivy {
                         results_title = false,
-                        layout_config = { height = 0.6 },
+                        layout_config = { height = 0.8 },
                     }
                 )
             end, map_opts)
@@ -157,9 +155,6 @@ return {
             REMAP("n", "<leader>ss", function()
                 vim.cmd "Telescope persisted"
             end, map_opts)
-            REMAP("n", "<leader>sm", function()
-                telescope_custom.search_document_symbols()
-            end, map_opts)
             REMAP("n", "<leader>sw", function()
                 require("telescope.builtin").grep_string(
                     require("telescope.themes").get_ivy {
@@ -173,60 +168,6 @@ return {
             REMAP("n", "<leader>si", function()
                 vim.cmd "Telescope lsp_implementations search=<c-r><c-w>"
             end, map_opts)
-
-            -- custom
-            REMAP("n", "<leader>w2", function()
-                telescope_custom.search_work_wiki()
-            end, map_opts)
-            REMAP("n", "<leader>ww", function()
-                telescope_custom.search_wiki()
-            end, map_opts)
-            REMAP("n", "<leader>tf", function()
-                telescope_custom.find_test_files()
-            end, map_opts)
-            REMAP("n", "<leader>lo", function()
-                telescope_custom.find_local_only_files()
-            end, map_opts)
-            REMAP("n", "<leader>sy", function()
-                telescope_custom.find_docker_compose_files()
-            end, map_opts)
-            REMAP("n", "<leader>dkf", function()
-                telescope_custom.find_dockerfiles()
-            end, map_opts)
-            REMAP("n", "<leader>te", function()
-                telescope_custom.telescope_pickers()
-            end, map_opts)
-            REMAP("n", "<leader>vc", function()
-                telescope_custom.grep_nvim()
-            end, map_opts)
-            REMAP("n", "<leader>cc", function()
-                telescope_custom.edit_neovim()
-            end, map_opts)
-            REMAP("n", "<leader>lt", function()
-                telescope_custom.search_linked_tests()
-            end, map_opts)
-            REMAP("n", "<leader>sf", function()
-                telescope_custom.nearby_file_browser()
-            end, map_opts)
-            REMAP("n", "<leader>gd", function()
-                telescope_custom.search_changed_files()
-            end, map_opts)
-            REMAP("n", "<leader>nf", function()
-                telescope_custom.create_new_file_at_location()
-            end, map_opts)
-            REMAP("n", "<leader>rf", function()
-                telescope_custom.search_related_files()
-            end, map_opts)
-            REMAP("n", "<leader>rr", function()
-                telescope_custom.lsp_references()
-            end, map_opts)
-            NOREMAP_SILENT("n", "<leader>i", function()
-                telescope_custom.lsp_implementations()
-            end)
-            NOREMAP_SILENT("n", "<leader>oo", function()
-                vim.cmd "split"
-                telescope_custom.lsp_implementations()
-            end)
         end,
     },
     {

@@ -62,7 +62,7 @@ function M.lsp_implementations()
         previewer = true,
         preview_title = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
     }
 
@@ -76,7 +76,7 @@ function M.edit_neovim()
         cwd = "~/.config/nvim",
         previewer = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
     }
 
@@ -91,7 +91,7 @@ function M.grep_nvim()
         cwd = "~/.config/nvim",
         previewer = true,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
     }
 
@@ -103,7 +103,7 @@ function M.grep_projects()
         prompt_title = "~ projects ~",
         results_title = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
     }
 
@@ -139,7 +139,7 @@ function M.grep_projects()
                         cwd = selection.value,
                         previewer = true,
                         layout_config = {
-                            height = 0.6,
+                            height = 0.8,
                         },
                     }
                     -- local args = {
@@ -169,7 +169,7 @@ function M.search_projects()
         results_title = false,
         previewer = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
     }
 
@@ -209,7 +209,7 @@ function M.search_projects()
                         cwd = selection.value,
                         previewer = false,
                         layout_config = {
-                            height = 0.6,
+                            height = 0.8,
                         },
                     }
                     return builtin.find_files(opts_for_find_files)
@@ -225,7 +225,7 @@ function M.lcd_to_dir()
         prompt_title = "~ change project ~",
         results_title = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
     }
 
@@ -307,7 +307,7 @@ function M.enter_file_path()
         results_title = false,
         previewer = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
         find_command = {
             "fd",
@@ -607,7 +607,7 @@ M.create_new_file_at_location = function()
         },
         previewer = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
         -- cache_picker = cache_picker_config(),
         attach_mappings = create_file_mapping,
@@ -645,7 +645,7 @@ M.search_document_symbols = function(symbol_type)
         symbols = symbols_to_search,
         preview_title = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
         -- cache_picker = cache_picker_config(),
     }
@@ -709,7 +709,7 @@ function M.open_dir_in_explorer()
         prompt_title = "~ open dir ~",
         results_title = false,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
     }
 
@@ -747,7 +747,7 @@ function M.diagnostics()
         preview_title = false,
         previewer = true,
         layout_config = {
-            height = 0.6,
+            height = 0.8,
         },
     }
 
@@ -765,5 +765,28 @@ NOREMAP_SILENT("n", "<leader>pp", M.lcd_to_dir)
 
 --- Open dir in explorer
 NOREMAP_SILENT("n", "<leader>dw", M.open_dir_in_explorer)
+
+NOREMAP_SILENT("n", "<leader>sm", M.search_document_symbols)
+
+NOREMAP_SILENT("n", "<leader>w2", M.search_work_wiki)
+NOREMAP_SILENT("n", "<leader>ww", M.search_wiki)
+NOREMAP_SILENT("n", "<leader>tf", M.find_test_files)
+NOREMAP_SILENT("n", "<leader>lo", M.find_local_only_files)
+NOREMAP_SILENT("n", "<leader>sy", M.find_docker_compose_files)
+NOREMAP_SILENT("n", "<leader>dkf", M.find_dockerfiles)
+NOREMAP_SILENT("n", "<leader>te", M.telescope_pickers)
+NOREMAP_SILENT("n", "<leader>vc", M.grep_nvim)
+NOREMAP_SILENT("n", "<leader>cc", M.edit_neovim)
+NOREMAP_SILENT("n", "<leader>lt", M.search_linked_tests)
+NOREMAP_SILENT("n", "<leader>sf", M.nearby_file_browser)
+NOREMAP_SILENT("n", "<leader>gd", M.search_changed_files)
+NOREMAP_SILENT("n", "<leader>nf", M.create_new_file_at_location)
+NOREMAP_SILENT("n", "<leader>rf", M.search_related_files)
+NOREMAP_SILENT("n", "<leader>rr", M.lsp_references)
+NOREMAP_SILENT("n", "<leader>i", M.lsp_implementations)
+NOREMAP_SILENT("n", "<leader>oo", function()
+    vim.cmd "split"
+    M.lsp_implementations()
+end)
 
 return M

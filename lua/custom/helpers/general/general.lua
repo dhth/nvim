@@ -50,7 +50,7 @@ function M.run_shell_command()
         -- must be a Shift-v selection, decrement end_col by 1
         end_col = end_col - 1
     end
-    print("running...")
+    print "running..."
     vim.fn.jobstart(command, {
         stdout_buffered = true,
         on_stdout = function(_, data, _)

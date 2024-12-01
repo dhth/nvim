@@ -1,3 +1,6 @@
+-- vim.bo.shiftwidth = 2
+-- vim.bo.tabstop = 2
+
 BUF_NOREMAP_SILENT('i', 'Í', '<space>=><space>')
 BUF_NOREMAP_SILENT('n', 'Í', 'a<space>=><space>')
 BUF_NOREMAP_SILENT('i', 'Å', '<space><-<space>')

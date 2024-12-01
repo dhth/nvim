@@ -91,6 +91,8 @@ local function create_telescope_search(opts)
             { "compile;test" },
             { "test:compile" },
             { "run" },
+            { "stage" },
+            { "dist" },
             { "docs/makeSite" },
             { "reload;fbrdCompliance" },
             { "reload;fbrdCompliance;compile" },
@@ -123,7 +125,7 @@ local function create_telescope_search(opts)
             },
             sorter = conf.generic_sorter(opts),
             attach_mappings = function(prompt_bufnr, _)
-                actions.select_default:replace(function()
+                actions.select_tab:replace(function()
                     actions.close(prompt_bufnr)
                     local selection = action_state.get_selected_entry()
 
@@ -142,7 +144,7 @@ local function create_telescope_search(opts)
                         vim.cmd(selection.value[2])
                     end
                 end)
-                actions.select_tab:replace(function()
+                actions.select_default:replace(function()
                     actions.close(prompt_bufnr)
                     local selection = action_state.get_selected_entry()
 
