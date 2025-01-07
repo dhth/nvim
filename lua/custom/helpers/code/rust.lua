@@ -42,7 +42,7 @@ local function run_and_show_clippy_results()
     local result = {}
     job:new({
         command = "cargo",
-        args = { "clippy" },
+        args = { "clippy", "--all-targets" },
         on_start = function()
             print "running cargo clippy..."
         end,

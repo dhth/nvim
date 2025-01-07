@@ -94,7 +94,7 @@ tnoremap <C-w>z <C-\><C-n><C-w>_
 
 " Move to end of line while in insert mode
 " <C-o> puts you in Normal mode for just one command
-inoremap aa <C-o>$
+"inoremap aa <C-o>$
 " gf if file does not exist, relative to current dir
 noremap <leader>grf :tabe %:h/<cfile><CR>
 noremap <leader>gcf :tabe <cfile><CR>
