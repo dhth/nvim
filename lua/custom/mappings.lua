@@ -61,3 +61,5 @@ NOREMAP_SILENT("n", "--", ":noh<CR>")
 
 --- exit out of a terminal buffer
 NOREMAP_SILENT("t", "<c-e>", [[<C-\><C-n>:bd!<CR>]])
+-- NOREMAP_SILENT("n", "<tab>", ":bnext<CR>")
+-- NOREMAP_SILENT("n", "<s-tab>", ":bprev<CR>")

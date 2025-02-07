@@ -78,7 +78,7 @@ let g:mdip_imgname = 'img'
 
 " auto clean fugitive buffers
 " from http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
-autocmd BufReadPost fugitive://* set bufhidden=delete
+"autocmd BufReadPost fugitive://* set bufhidden=delete
 
 set rtp+=/usr/local/opt/fzf
 

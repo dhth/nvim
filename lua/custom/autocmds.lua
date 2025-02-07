@@ -22,3 +22,9 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*Jenkinsfile*",
     command = "set ft=groovy",
 })
+
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitcommit",
+  command = "setlocal bufhidden=delete"
+})

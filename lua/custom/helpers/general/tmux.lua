@@ -160,6 +160,38 @@ function M.quickrun(num)
     }):sync()
 end
 
+function M.quickrun_popup(num)
+    local cmds
+    if not DOES_FILE_EXIST(CMDS_FILE) then
+        local ft = vim.bo.filetype
+        cmds = predefined_cmds[ft]
+    else
+        cmds = READ_FILE_LINES(CMDS_FILE)
+    end
+
+    if not cmds then
+        print "no commands"
+        return
+    end
+
+    local selected_cmd = cmds[num]
+
+    Job:new({
+        command = "tmux",
+        args = {
+            "display-popup",
+            "-h",
+            "60%",
+            "-w",
+            "100%",
+            "-y",
+            "50%",
+            "-S",
+            "fg=#928374",
+            selected_cmd },
+    }):start()
+end
+
 --- cmds
 NOREMAP_SILENT("n", ";;", M.cmds)
 
@@ -174,5 +206,12 @@ end
 NOREMAP_SILENT("n", "e<c-e>", function(i)
     M.quickrun(i)
 end)
+
+--- quickrun popup 1-4
+for i = 1, 4 do
+    NOREMAP_SILENT("n", "," .. i, function()
+        M.quickrun_popup(i)
+    end)
+end
 
 return M
