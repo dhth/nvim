@@ -118,48 +118,6 @@ endif
         end,
     },
     {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            local harpoon = require "harpoon"
-            NOREMAP_SILENT("n", "<leader>ha", function()
-                harpoon:list():add()
-            end)
-            NOREMAP_SILENT("n", "<leader>`", function()
-                harpoon.ui:toggle_quick_menu(harpoon:list())
-            end)
-            NOREMAP_SILENT("n", "<leader><tab>", function()
-                harpoon.ui:toggle_quick_menu(harpoon:list())
-            end)
-
-            NOREMAP_SILENT("n", "<leader>1", function()
-                harpoon:list():select(1)
-            end)
-            NOREMAP_SILENT("n", "<leader>2", function()
-                harpoon:list():select(2)
-            end)
-            NOREMAP_SILENT("n", "<leader>3", function()
-                harpoon:list():select(3)
-            end)
-            NOREMAP_SILENT("n", "<leader>4", function()
-                harpoon:list():select(4)
-            end)
-            NOREMAP_SILENT("n", "<leader>5", function()
-                harpoon:list():select(5)
-            end)
-            NOREMAP_SILENT("n", "<leader>6", function()
-                harpoon:list():select(6)
-            end)
-            NOREMAP_SILENT("n", "<C-[>", function()
-                harpoon:list():prev()
-            end)
-            NOREMAP_SILENT("n", "<C-]>", function()
-                harpoon:list():next()
-            end)
-        end,
-    },
-    {
         "ferrine/md-img-paste.vim",
         event = "InsertEnter",
     },

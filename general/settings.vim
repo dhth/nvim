@@ -39,7 +39,7 @@ set wildignore+=**/node_modules/**
 set clipboard+=unnamedplus
 set inccommand=nosplit                  " Show live highlighting during substitute in a split window
 set noshowmode
-"set scrolloff=12
+set scrolloff=8
 " scrolloff turned off since it messes with lightspeed.nvim/leap.nvim
 set completeopt=menu,menuone,noselect
 set foldcolumn=0                        " disables foldcolumn

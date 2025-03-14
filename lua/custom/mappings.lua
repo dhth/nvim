@@ -63,3 +63,9 @@ NOREMAP_SILENT("n", "--", ":noh<CR>")
 NOREMAP_SILENT("t", "<c-e>", [[<C-\><C-n>:bd!<CR>]])
 -- NOREMAP_SILENT("n", "<tab>", ":bnext<CR>")
 -- NOREMAP_SILENT("n", "<s-tab>", ":bprev<CR>")
+
+NOREMAP_SILENT("n", "<leader>d", '"_d')
+NOREMAP_SILENT("v", "<leader>d", '"_d')
+
+vim.api.nvim_set_keymap('n', 'j', 'v:count == 0 ? "gj" : "j"', { noremap = true, expr = true, silent = true })
+vim.api.nvim_set_keymap('n', 'k', 'v:count == 0 ? "gk" : "k"', { noremap = true, expr = true, silent = true })
