@@ -183,6 +183,11 @@ return {
                 on_attach = lsp_on_attach,
             }
 
+            -- GLEAM
+            nvim_lsp.gleam.setup {
+                on_attach = lsp_on_attach,
+            }
+
             NOREMAP_SILENT("n", "<leader>hh", function()
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end)
