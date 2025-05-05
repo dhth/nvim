@@ -19,6 +19,9 @@ return {
     {
         "vim-scripts/ReplaceWithRegister",
         event = "InsertEnter",
+        keys = {
+            { "<leader>gr", "<Plug>ReplaceWithRegisterOperator", desc = "ReplaceWithRegisterOperator" },
+        },
     },
     {
         "machakann/vim-highlightedyank",
