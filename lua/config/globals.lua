@@ -82,7 +82,7 @@ ENDSWITH = function(str, suffix)
 end
 
 RANDOMCHARS = function(length)
-    local charset = "0123456789abcdefghijklmnopqrstuvwxyz"
+    local charset = "abcdefghijklmnopqrstuvwxyz"
     local randomString = ""
     math.randomseed(os.time())
     for _ = 1, length do

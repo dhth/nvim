@@ -20,7 +20,11 @@ return {
         "vim-scripts/ReplaceWithRegister",
         event = "InsertEnter",
         keys = {
-            { "<leader>gr", "<Plug>ReplaceWithRegisterOperator", desc = "ReplaceWithRegisterOperator" },
+            {
+                "er",
+                "<Plug>ReplaceWithRegisterOperator",
+                desc = "ReplaceWithRegisterOperator",
+            },
         },
     },
     {

@@ -15,9 +15,12 @@ return {
             NOREMAP_SILENT("n", "<c-p>", ":CopilotChatToggle<CR>")
 
             NOREMAP_SILENT("n", "<c-q>", function()
-                local input = vim.fn.input("Quick Chat: ")
+                local input = vim.fn.input "Quick Chat: "
                 if input ~= "" then
-                    require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+                    require("CopilotChat").ask(
+                        input,
+                        { selection = require("CopilotChat.select").buffer }
+                    )
                 end
             end)
         end,

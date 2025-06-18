@@ -188,7 +188,8 @@ function M.quickrun_popup(num)
             "50%",
             "-S",
             "fg=#928374",
-            selected_cmd },
+            selected_cmd,
+        },
     }):start()
 end
 

@@ -80,8 +80,11 @@ return {
             )
 
             for i = 1, 9 do
-                NOREMAP_SILENT("n", "<leader>" .. i,
-                    "<Cmd>BufferGoto " .. i .. "<CR>")
+                NOREMAP_SILENT(
+                    "n",
+                    "<leader>" .. i,
+                    "<Cmd>BufferGoto " .. i .. "<CR>"
+                )
             end
             -- https://github.com/romgrk/barbar.nvim?tab=readme-ov-file#highlighting
         end,

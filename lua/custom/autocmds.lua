@@ -23,8 +23,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     command = "set ft=groovy",
 })
 
-
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "gitcommit",
-  command = "setlocal bufhidden=delete"
+    pattern = "gitcommit",
+    command = "setlocal bufhidden=delete",
 })

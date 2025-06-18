@@ -10,11 +10,10 @@ return {
             -- else
             --     vim.o.background = "dark"
             -- end
-            require("gruvbox").setup({
-                contrast = "",  -- can be "hard", "soft" or empty string
-            })
-
             vim.o.background = "dark"
+            require("gruvbox").setup {
+                contrast = "", -- can be "hard", "soft" or empty string
+            }
             vim.cmd [[colorscheme gruvbox]]
 
             vim.api.nvim_exec(

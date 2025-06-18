@@ -1,9 +1,6 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = {
-            "folke/neodev.nvim",
-        },
         config = function()
             require("nvim-treesitter.configs").setup {
                 ensure_installed = {
@@ -11,12 +8,14 @@ return {
                     "elm",
                     "gleam",
                     "go",
+                    "haskell",
                     "json",
                     "lua",
                     "python",
                     "rust",
                     "scala",
                     "terraform",
+                    "typescript",
                     "toml",
                     "yaml",
                 },

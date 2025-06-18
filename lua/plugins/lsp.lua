@@ -1,4 +1,6 @@
-local function lsp_on_attach(_, bufnr)
+--- @param client vim.lsp.Client
+--- @param bufnr integer
+local function lsp_on_attach(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
@@ -85,6 +87,15 @@ local function lsp_on_attach(_, bufnr)
         '<cmd>lua require("custom.helpers.code.general").format_using_lsp()<CR>',
         opts
     )
+
+    if client.server_capabilities.documentFormattingProvider then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format { async = false }
+            end,
+        })
+    end
 end
 
 -- to not use LSP
@@ -94,6 +105,15 @@ if vim.g.lsp == false then
 end
 
 return {
+    {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+            library = {
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            },
+        },
+    },
     {
         "neovim/nvim-lspconfig",
         config = function()
@@ -106,30 +126,36 @@ return {
                 virtual_text = false,
             }
 
-            -- PYTHON
-            nvim_lsp.pyright.setup {
+            -- C
+            nvim_lsp.ccls.setup {
                 on_attach = lsp_on_attach,
-                flags = {
-                    debounce_text_changes = 150,
-                },
+            }
+
+            -- ELM
+            nvim_lsp.elmls.setup {
+                on_attach = lsp_on_attach,
+            }
+
+            -- GO
+            nvim_lsp.gopls.setup {
+                on_attach = lsp_on_attach,
                 settings = {
-                    python = {
-                        analysis = {
-                            diagnosticSeverityOverrides = {
-                                reportUnusedVariable = false,
-                            },
-                        },
+                    gopls = {
+                        gofumpt = true,
                     },
                 },
             }
 
-            -- SCALA
-            -- require("lspconfig").metals.setup {
-            --     on_attach = on_attach,
-            -- }
+            -- GLEAM
+            nvim_lsp.gleam.setup {
+                on_attach = lsp_on_attach,
+            }
 
-            -- C
-            nvim_lsp.ccls.setup {
+            -- HASKELL
+            vim.lsp.config("hls", {
+                filetypes = { "haskell", "lhaskell", "cabal" },
+            })
+            nvim_lsp.hls.setup {
                 on_attach = lsp_on_attach,
             }
 
@@ -151,6 +177,23 @@ return {
                 },
             }
 
+            -- PYTHON
+            nvim_lsp.pyright.setup {
+                on_attach = lsp_on_attach,
+                flags = {
+                    debounce_text_changes = 150,
+                },
+                settings = {
+                    python = {
+                        analysis = {
+                            diagnosticSeverityOverrides = {
+                                reportUnusedVariable = false,
+                            },
+                        },
+                    },
+                },
+            }
+
             -- RUST
             nvim_lsp.rust_analyzer.setup {
                 on_attach = lsp_on_attach,
@@ -163,28 +206,18 @@ return {
                 },
             }
 
-            -- GO
-            nvim_lsp.gopls.setup {
-                on_attach = lsp_on_attach,
-                settings = {
-                    gopls = {
-                        gofumpt = true,
-                    },
-                },
-            }
+            -- SCALA
+            -- nvim_lsp.metals.setup {
+            --     on_attach = lsp_on_attach,
+            -- }
 
             -- TERRAFORM
             nvim_lsp.terraformls.setup {
                 on_attach = lsp_on_attach,
             }
 
-            -- ELM
-            nvim_lsp.elmls.setup {
-                on_attach = lsp_on_attach,
-            }
-
-            -- GLEAM
-            nvim_lsp.gleam.setup {
+            -- TYPESCRIPT
+            nvim_lsp.ts_ls.setup {
                 on_attach = lsp_on_attach,
             }
 
@@ -206,9 +239,9 @@ return {
         opts = function()
             local metals_config = require("metals").bare_config()
 
-            metals_config.settings = {
-                showImplicitArguments = true,
-            }
+            -- metals_config.settings = {
+            --     showImplicitArguments = true,
+            -- }
 
             -- "off" will enable LSP progress notifications by Metals; handle them via a receiver like fidget.nvim
             -- "on" will enable the custom Metals status extension and you *have* to have
