@@ -92,7 +92,9 @@ local function lsp_on_attach(client, bufnr)
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
             callback = function()
-                vim.lsp.buf.format { async = false }
+                if vim.api.nvim_buf_line_count(bufnr) < 500 then
+                    vim.lsp.buf.format { async = false }
+                end
             end,
         })
     end
@@ -178,6 +180,11 @@ return {
             }
 
             -- PYTHON
+            -- nvim_lsp.ty.setup {
+            --     on_attach = lsp_on_attach,
+            -- }
+            -- vim.lsp.enable('ty')
+
             nvim_lsp.pyright.setup {
                 on_attach = lsp_on_attach,
                 flags = {
@@ -220,6 +227,11 @@ return {
             nvim_lsp.ts_ls.setup {
                 on_attach = lsp_on_attach,
             }
+
+            -- ZIG
+            -- nvim_lsp.zls.setup {
+            --     on_attach = lsp_on_attach,
+            -- }
 
             NOREMAP_SILENT("n", "<leader>hh", function()
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
