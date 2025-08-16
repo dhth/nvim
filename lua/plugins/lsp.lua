@@ -174,23 +174,23 @@ return {
             vim.lsp.enable "lua_ls"
 
             -- PYTHON
-            vim.lsp.enable "ty"
+            -- vim.lsp.enable "ty"
 
-            -- vim.lsp.config('pyright', {
-            --     flags = {
-            --         debounce_text_changes = 150,
-            --     },
-            --     settings = {
-            --         python = {
-            --             analysis = {
-            --                 diagnosticSeverityOverrides = {
-            --                     reportUnusedVariable = false,
-            --                 },
-            --             },
-            --         },
-            --     },
-            -- })
-            -- vim.lsp.enable('pyright')
+            vim.lsp.config("pyright", {
+                flags = {
+                    debounce_text_changes = 150,
+                },
+                settings = {
+                    python = {
+                        analysis = {
+                            diagnosticSeverityOverrides = {
+                                reportUnusedVariable = false,
+                            },
+                        },
+                    },
+                },
+            })
+            vim.lsp.enable "pyright"
 
             -- RUST
             vim.lsp.config("rust_analyzer", {
@@ -205,7 +205,7 @@ return {
             vim.lsp.enable "rust_analyzer"
 
             -- SCALA
-            vim.lsp.enable "metals"
+            -- vim.lsp.enable "metals"
 
             -- TERRAFORM
             vim.lsp.enable "terraformls"
@@ -225,71 +225,130 @@ return {
             end)
         end,
     },
-    -- {
-    --     "scalameta/nvim-metals",
-    --     dependencies = {
-    --         "nvim-lua/plenary.nvim",
-    --         {
-    --             "j-hui/fidget.nvim",
-    --             opts = {},
-    --         },
-    --     },
-    --     ft = { "scala", "sbt" },
-    --     opts = function()
-    --         local metals_config = require("metals").bare_config()
-    --
-    --         -- metals_config.settings = {
-    --         --     showImplicitArguments = true,
-    --         -- }
-    --
-    --         -- "off" will enable LSP progress notifications by Metals; handle them via a receiver like fidget.nvim
-    --         -- "on" will enable the custom Metals status extension and you *have* to have
-    --         -- a have settings to capture this in your statusline or else you'll not see
-    --         -- any messages from metals
-    --         metals_config.init_options.statusBarProvider = "off"
-    --
-    --         -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
-    --         metals_config.capabilities =
-    --             require("cmp_nvim_lsp").default_capabilities()
-    --
-    --         metals_config.on_attach = function(client, bufnr)
-    --             lsp_on_attach(client, bufnr)
-    --             local function buf_set_keymap(...)
-    --                 vim.api.nvim_buf_set_keymap(bufnr, ...)
-    --             end
-    --             local opts = { noremap = true, silent = true }
-    --
-    --             -- all workspace errors
-    --             buf_set_keymap(
-    --                 "n",
-    --                 "<leader>ae",
-    --                 [[<cmd>lua vim.diagnostic.setqflist({ severity = "E" })<CR>]],
-    --                 opts
-    --             )
-    --
-    --             -- all workspace warnings
-    --             buf_set_keymap(
-    --                 "n",
-    --                 "<leader>aw",
-    --                 [[<cmd>lua vim.diagnostic.setqflist({ severity = "W" })<CR>]],
-    --                 opts
-    --             )
-    --         end
-    --
-    --         return metals_config
-    --     end,
-    --     config = function(self, metals_config)
-    --         local nvim_metals_group =
-    --             vim.api.nvim_create_augroup("nvim-metals", { clear = true })
-    --         vim.api.nvim_create_autocmd("FileType", {
-    --             pattern = self.ft,
-    --             callback = function()
-    --                 require("metals").initialize_or_attach(metals_config)
-    --             end,
-    --             group = nvim_metals_group,
-    --         })
-    --     end,
-    -- },
+    {
+        "scalameta/nvim-metals",
+        dependencies = {
+            {
+                "j-hui/fidget.nvim",
+                opts = {},
+            },
+        },
+        ft = { "scala", "sbt" },
+        opts = function()
+            local metals_config = require("metals").bare_config()
+
+            metals_config.settings = {
+                startMcpServer = true,
+                -- defaultBspToBuildTool = true,
+            }
+
+            -- "off" will enable LSP progress notifications by Metals; handle them via a receiver like fidget.nvim
+            -- "on" will enable the custom Metals status extension and you *have* to have
+            -- a have settings to capture this in your statusline or else you'll not see
+            -- any messages from metals
+            metals_config.init_options.statusBarProvider = "off"
+
+            -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
+            metals_config.capabilities =
+                require("cmp_nvim_lsp").default_capabilities()
+
+            metals_config.on_attach = function(client, bufnr)
+                -- lsp_on_attach(client, bufnr)
+                local function buf_set_keymap(...)
+                    vim.api.nvim_buf_set_keymap(bufnr, ...)
+                end
+                local opts = { noremap = true, silent = true }
+
+
+
+                buf_set_keymap("n", "F", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+                buf_set_keymap("n", "df", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+                buf_set_keymap(
+                    "n",
+                    "T",
+                    "<cmd>tab split | lua vim.lsp.buf.definition()<CR>",
+                    opts
+                )
+                buf_set_keymap(
+                    "n",
+                    "L",
+                    "<cmd>vsp | lua vim.lsp.buf.definition()<CR>",
+                    opts
+                )
+                buf_set_keymap(
+                    "n",
+                    "<leader>de",
+                    "<cmd>lua vim.lsp.buf.declaration()<CR>",
+                    opts
+                )
+                buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+                buf_set_keymap(
+                    "n",
+                    "X",
+                    '<cmd>lua require("custom.lspconfig").show_file_definition_path()<CR>',
+                    opts
+                )
+                buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+
+                buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+                --- using lspsaga
+                buf_set_keymap(
+                    "n",
+                    "<space>ca",
+                    "<cmd>lua vim.lsp.buf.code_action()<CR>",
+                    opts
+                )
+                buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts) -- turn float=true if not using lsp_lines
+                buf_set_keymap(
+                    "n",
+                    "f<c-f>",
+                    '<cmd>lua require("custom.helpers.code.general").format_using_lsp()<CR>',
+                    opts)
+
+
+
+                -- all workspace errors
+                buf_set_keymap(
+                    "n",
+                    "<leader>ae",
+                    [[<cmd>lua vim.diagnostic.setqflist({ severity = "E" })<CR>]],
+                    opts
+                )
+
+                -- all workspace warnings
+                buf_set_keymap(
+                    "n",
+                    "<leader>aw",
+                    [[<cmd>lua vim.diagnostic.setqflist({ severity = "W" })<CR>]],
+                    opts
+                )
+
+                if client.server_capabilities.documentFormattingProvider then
+                    vim.api.nvim_create_autocmd("BufWritePre", {
+                        buffer = bufnr,
+                        callback = function()
+                            if vim.api.nvim_buf_line_count(bufnr) < 500 then
+                                vim.lsp.buf.format { async = false }
+                            end
+                        end,
+                    })
+                end
+            end
+
+            return metals_config
+        end,
+        config = function(self, metals_config)
+            local nvim_metals_group =
+                vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = self.ft,
+                callback = function()
+                    require("metals").initialize_or_attach(metals_config)
+                end,
+                group = nvim_metals_group,
+            })
+        end,
+    },
     {
         "j-hui/fidget.nvim",
         dependencies = {
