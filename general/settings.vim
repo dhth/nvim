@@ -41,7 +41,7 @@ set inccommand=nosplit                  " Show live highlighting during substitu
 set noshowmode
 set scrolloff=8
 " scrolloff turned off since it messes with lightspeed.nvim/leap.nvim
-set completeopt=menu,menuone,noselect
+set completeopt=menuone,noselect,noinsert
 set foldcolumn=0                        " disables foldcolumn
 " set numberwidth=1                       " default is 4
 set fillchars+=vert:\                   " removes the thin line between buffers
