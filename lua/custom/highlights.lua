@@ -14,3 +14,16 @@ vim.cmd [[highlight CursorLineNr guibg=#282828]]
 -- vim.cmd [[highlight TabLine guibg=#1b1b1b guifg=#a89984]]
 -- vim.cmd [[highlight TabLineSel guibg=#1b1b1b guifg=#fabd2f]]
 -- vim.cmd [[highlight StatusLine guibg=#a89984 guifg=#282828]]
+
+
+-- go template and helm
+vim.filetype.add({
+    extension = {
+        gotmpl = 'gotmpl',
+    },
+    pattern = {
+        [".*/templates/.*%.tpl"] = "helm",
+        [".*/templates/.*%.ya?ml"] = "helm",
+        ["helmfile.*%.ya?ml"] = "helm",
+    },
+})

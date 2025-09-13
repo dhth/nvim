@@ -208,7 +208,11 @@ return {
             -- vim.lsp.enable "metals"
 
             -- TERRAFORM
-            vim.lsp.enable "terraformls"
+            -- vim.lsp.enable "terraformls"
+            vim.lsp.config['tofu_ls'] = {
+                filetypes = { 'terraform', 'terraform-vars' },
+            }
+            vim.lsp.enable('tofu_ls')
 
             -- TYPESCRIPT
             vim.lsp.enable "ts_ls"
@@ -238,8 +242,8 @@ return {
             local metals_config = require("metals").bare_config()
 
             metals_config.settings = {
-                startMcpServer = true,
-                -- defaultBspToBuildTool = true,
+                -- startMcpServer = true,
+                defaultBspToBuildTool = true,
             }
 
             -- "off" will enable LSP progress notifications by Metals; handle them via a receiver like fidget.nvim
