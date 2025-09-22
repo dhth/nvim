@@ -148,5 +148,5 @@ endif
     },
     {
         "catgoose/nvim-colorizer.lua",
-    }
+    },
 }

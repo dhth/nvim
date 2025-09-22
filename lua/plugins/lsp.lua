@@ -209,10 +209,10 @@ return {
 
             -- TERRAFORM
             -- vim.lsp.enable "terraformls"
-            vim.lsp.config['tofu_ls'] = {
-                filetypes = { 'terraform', 'terraform-vars' },
+            vim.lsp.config["tofu_ls"] = {
+                filetypes = { "terraform", "terraform-vars" },
             }
-            vim.lsp.enable('tofu_ls')
+            vim.lsp.enable "tofu_ls"
 
             -- TYPESCRIPT
             vim.lsp.enable "ts_ls"
@@ -263,10 +263,18 @@ return {
                 end
                 local opts = { noremap = true, silent = true }
 
-
-
-                buf_set_keymap("n", "F", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-                buf_set_keymap("n", "df", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+                buf_set_keymap(
+                    "n",
+                    "F",
+                    "<cmd>lua vim.lsp.buf.definition()<CR>",
+                    opts
+                )
+                buf_set_keymap(
+                    "n",
+                    "df",
+                    "<cmd>lua vim.lsp.buf.definition()<CR>",
+                    opts
+                )
                 buf_set_keymap(
                     "n",
                     "T",
@@ -285,16 +293,31 @@ return {
                     "<cmd>lua vim.lsp.buf.declaration()<CR>",
                     opts
                 )
-                buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+                buf_set_keymap(
+                    "n",
+                    "K",
+                    "<cmd>lua vim.lsp.buf.hover()<CR>",
+                    opts
+                )
                 buf_set_keymap(
                     "n",
                     "X",
                     '<cmd>lua require("custom.lspconfig").show_file_definition_path()<CR>',
                     opts
                 )
-                buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+                buf_set_keymap(
+                    "n",
+                    "gi",
+                    "<cmd>lua vim.lsp.buf.implementation()<CR>",
+                    opts
+                )
 
-                buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+                buf_set_keymap(
+                    "n",
+                    "<space>rn",
+                    "<cmd>lua vim.lsp.buf.rename()<CR>",
+                    opts
+                )
                 --- using lspsaga
                 buf_set_keymap(
                     "n",
@@ -302,14 +325,18 @@ return {
                     "<cmd>lua vim.lsp.buf.code_action()<CR>",
                     opts
                 )
-                buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts) -- turn float=true if not using lsp_lines
+                buf_set_keymap(
+                    "n",
+                    "]d",
+                    "<cmd>lua vim.diagnostic.goto_next()<CR>",
+                    opts
+                ) -- turn float=true if not using lsp_lines
                 buf_set_keymap(
                     "n",
                     "f<c-f>",
                     '<cmd>lua require("custom.helpers.code.general").format_using_lsp()<CR>',
-                    opts)
-
-
+                    opts
+                )
 
                 -- all workspace errors
                 buf_set_keymap(

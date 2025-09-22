@@ -37,7 +37,7 @@ return {
             },
         },
         config = function()
-            require("codecompanion").setup({
+            require("codecompanion").setup {
                 strategies = {
                     chat = {
                         name = "copilot",
@@ -48,7 +48,7 @@ return {
                         model = "claude-sonnet-4",
                     },
                 },
-            })
+            }
 
             --- toggle
             NOREMAP_SILENT("n", "<c-p>", ":CodeCompanionChat Toggle<CR>")
