@@ -132,8 +132,8 @@ return {
 
             -- C
             vim.lsp.enable "ccls"
-            -- ELM
 
+            -- ELM
             vim.lsp.enable "elmls"
 
             -- GO

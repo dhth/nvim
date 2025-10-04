@@ -513,9 +513,11 @@ function M.search_linked_tests()
 end
 
 function M.search_changed_files()
-    local opts = {
+    local opts = theme {
         prompt_title = "~ changed files ~",
+        results_title = false,
         previewer = false,
+        preview_title = false,
         find_command = {
             "git",
             "--no-pager",

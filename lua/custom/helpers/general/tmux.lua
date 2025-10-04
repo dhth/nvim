@@ -204,9 +204,9 @@ for i = 1, 4 do
 end
 
 --- quickrun(1)
-NOREMAP_SILENT("n", "e<c-e>", function(i)
-    M.quickrun(i)
-end)
+-- NOREMAP_SILENT("n", "e<c-e>", function(i)
+--     M.quickrun(i)
+-- end)
 
 --- quickrun popup 1-4
 for i = 1, 4 do

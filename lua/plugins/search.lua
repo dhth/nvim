@@ -69,14 +69,14 @@ return {
 
             opts.extensions = {
                 fzf = {
-                    fuzzy = true, -- false will only do exact matching
+                    fuzzy = true,                   -- false will only do exact matching
                     override_generic_sorter = true, -- override the generic sorter
-                    override_file_sorter = true, -- override the file sorter
-                    case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+                    override_file_sorter = true,    -- override the file sorter
+                    case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                 },
                 live_grep_args = {
                     auto_quoting = false, -- enable/disable auto-quoting
-                    mappings = { -- extend mappings
+                    mappings = {          -- extend mappings
                         i = {
                             ["<C-g>"] = lga_actions.quote_prompt {
                                 postfix = " --iglob ",
@@ -179,4 +179,26 @@ return {
             },
         },
     },
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            bigfile = { enabled = false },
+            dashboard = { enabled = false },
+            explorer = { enabled = false },
+            indent = { enabled = false },
+            input = { enabled = false },
+            picker = { enabled = true },
+            notifier = { enabled = false },
+            quickfile = { enabled = false },
+            scope = { enabled = false },
+            scroll = { enabled = false },
+            statuscolumn = { enabled = false },
+            words = { enabled = false },
+        },
+    }
 }
