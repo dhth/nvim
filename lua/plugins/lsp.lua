@@ -92,16 +92,16 @@ local function lsp_on_attach(args)
         opts
     )
 
-    if client.server_capabilities.documentFormattingProvider then
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-                if vim.api.nvim_buf_line_count(bufnr) < 500 then
-                    vim.lsp.buf.format { async = false }
-                end
-            end,
-        })
-    end
+    -- if client.server_capabilities.documentFormattingProvider then
+    --     vim.api.nvim_create_autocmd("BufWritePre", {
+    --         buffer = bufnr,
+    --         callback = function()
+    --             if vim.api.nvim_buf_line_count(bufnr) < 500 then
+    --                 vim.lsp.buf.format { async = false }
+    --             end
+    --         end,
+    --     })
+    -- end
 end
 
 -- to not use LSP
@@ -354,16 +354,16 @@ return {
                     opts
                 )
 
-                if client.server_capabilities.documentFormattingProvider then
-                    vim.api.nvim_create_autocmd("BufWritePre", {
-                        buffer = bufnr,
-                        callback = function()
-                            if vim.api.nvim_buf_line_count(bufnr) < 500 then
-                                vim.lsp.buf.format { async = false }
-                            end
-                        end,
-                    })
-                end
+                -- if client.server_capabilities.documentFormattingProvider then
+                --     vim.api.nvim_create_autocmd("BufWritePre", {
+                --         buffer = bufnr,
+                --         callback = function()
+                --             if vim.api.nvim_buf_line_count(bufnr) < 500 then
+                --                 vim.lsp.buf.format { async = false }
+                --             end
+                --         end,
+                --     })
+                -- end
             end
 
             return metals_config

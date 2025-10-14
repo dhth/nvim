@@ -770,8 +770,10 @@ NOREMAP_SILENT("n", "<leader>dw", M.open_dir_in_explorer)
 
 NOREMAP_SILENT("n", "<leader>sm", M.search_document_symbols)
 
-NOREMAP_SILENT("n", "<leader>w2", M.search_work_wiki)
-NOREMAP_SILENT("n", "<leader>ww", M.search_wiki)
+NOREMAP_SILENT("n", "<leader>dg", M.diagnostics)
+
+-- NOREMAP_SILENT("n", "<leader>w2", M.search_work_wiki)
+-- NOREMAP_SILENT("n", "<leader>ww", M.search_wiki)
 NOREMAP_SILENT("n", "<leader>tf", M.find_test_files)
 NOREMAP_SILENT("n", "<leader>lo", M.find_local_only_files)
 NOREMAP_SILENT("n", "<leader>sy", M.find_docker_compose_files)
