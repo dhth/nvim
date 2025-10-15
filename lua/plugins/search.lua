@@ -69,14 +69,14 @@ return {
 
             opts.extensions = {
                 fzf = {
-                    fuzzy = true,                   -- false will only do exact matching
+                    fuzzy = true, -- false will only do exact matching
                     override_generic_sorter = true, -- override the generic sorter
-                    override_file_sorter = true,    -- override the file sorter
-                    case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+                    override_file_sorter = true, -- override the file sorter
+                    case_mode = "smart_case", -- or "ignore_case" or "respect_case"
                 },
                 live_grep_args = {
                     auto_quoting = false, -- enable/disable auto-quoting
-                    mappings = {          -- extend mappings
+                    mappings = { -- extend mappings
                         i = {
                             ["<C-g>"] = lga_actions.quote_prompt {
                                 postfix = " --iglob ",
@@ -200,5 +200,5 @@ return {
             statuscolumn = { enabled = false },
             words = { enabled = false },
         },
-    }
+    },
 }
