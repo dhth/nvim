@@ -37,9 +37,9 @@ nnoremap } <c-i>
 nnoremap <silent> <Leader>> :vertical resize +5<CR>
 nnoremap <silent> <Leader>< :vertical resize -5<CR>
 
-nnoremap <leader>q :q<CR>
-nnoremap <leader>xx :bdelete<CR>
-nnoremap <leader>w :w<CR>
+nnoremap <silent> <leader>q :q<CR>
+nnoremap <silent> <leader>xx :bdelete<CR>
+nnoremap <silent> <leader>w :silent w<CR>
 
 noremap <leader>fn :echo @%<CR>
 noremap <silent> <leader>cf :silent !echo -n % \| pbcopy<CR>
