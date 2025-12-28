@@ -124,18 +124,18 @@ return {
             }
         end,
     },
-    {
-        "echasnovski/mini.indentscope",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-        opts = {
-            {
-                mappings = {
-                    goto_top = "[[",
-                    goto_bottom = "]]",
-                },
-            },
-        },
-    },
+    -- {
+    --     "echasnovski/mini.indentscope",
+    --     dependencies = {
+    --         "nvim-treesitter/nvim-treesitter",
+    --     },
+    --     opts = {
+    --         {
+    --             mappings = {
+    --                 goto_top = "[[",
+    --                 goto_bottom = "]]",
+    --             },
+    --         },
+    --     },
+    -- },
 }

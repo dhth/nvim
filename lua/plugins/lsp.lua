@@ -174,23 +174,29 @@ return {
             vim.lsp.enable "lua_ls"
 
             -- PYTHON
-            -- vim.lsp.enable "ty"
-
-            vim.lsp.config("pyright", {
-                flags = {
-                    debounce_text_changes = 150,
-                },
+            vim.lsp.config("ty", {
                 settings = {
-                    python = {
-                        analysis = {
-                            diagnosticSeverityOverrides = {
-                                reportUnusedVariable = false,
-                            },
-                        },
-                    },
+                    ty = {},
                 },
             })
-            vim.lsp.enable "pyright"
+
+            vim.lsp.enable "ty"
+
+            -- vim.lsp.config("pyright", {
+            --     flags = {
+            --         debounce_text_changes = 150,
+            --     },
+            --     settings = {
+            --         python = {
+            --             analysis = {
+            --                 diagnosticSeverityOverrides = {
+            --                     reportUnusedVariable = false,
+            --                 },
+            --             },
+            --         },
+            --     },
+            -- })
+            -- vim.lsp.enable "pyright"
 
             -- RUST
             vim.lsp.config("rust_analyzer", {
@@ -226,6 +232,10 @@ return {
 
             NOREMAP_SILENT("n", "<leader>hh", function()
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            end)
+            NOREMAP_SILENT("n", "r<c-e>", function()
+                vim.cmd [[LspRestart]]
+                print "restarting..."
             end)
         end,
     },
