@@ -108,7 +108,7 @@ function M.grep_projects()
     }
 
     local config =
-        vim.fn.systemlist 'fd . --max-depth=1 "$HOME/.config" $PROJECTS_DIR $WORK_DIR'
+        vim.fn.systemlist 'fd . --max-depth=1 "$HOME/.config" $PROJECTS_DIR $WORK_DIR $WORK_DIR_2'
 
     pickers
         .new(opts, {
@@ -174,7 +174,7 @@ function M.search_projects()
     }
 
     local config =
-        vim.fn.systemlist "fd . --max-depth=1 $PROJECTS_DIR $WORK_DIR $CONFIG_DIR $MAC_CONFIG_DIR"
+        vim.fn.systemlist "fd . --max-depth=1 $PROJECTS_DIR $WORK_DIR $WORK_DIR_2 $CONFIG_DIR $MAC_CONFIG_DIR"
 
     pickers
         .new(opts, {
@@ -230,7 +230,7 @@ function M.lcd_to_dir()
     }
 
     local config =
-        vim.fn.systemlist 'fd . -t d --max-depth=1 "$HOME/.config" $PROJECTS_DIR $WORK_DIR'
+        vim.fn.systemlist 'fd . -t d --max-depth=1 "$HOME/.config" $PROJECTS_DIR $WORK_DIR $WORK_DIR_2'
 
     pickers
         .new(opts, {

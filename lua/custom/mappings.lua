@@ -66,6 +66,12 @@ NOREMAP_SILENT("t", "<c-e>", [[<C-\><C-n>:bd!<CR>]])
 
 NOREMAP_SILENT("n", "<leader>d", '"_d')
 NOREMAP_SILENT("v", "<leader>d", '"_d')
+NOREMAP_SILENT("n", "<leader>js", ":set ft=json<CR>")
+NOREMAP_SILENT(
+    "n",
+    "<leader>gi",
+    ":vsplit .git/info/exclude | setlocal bufhidden=wipe<CR>"
+)
 
 vim.api.nvim_set_keymap(
     "n",

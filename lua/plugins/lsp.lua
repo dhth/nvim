@@ -223,7 +223,8 @@ return {
             vim.lsp.enable "tofu_ls"
 
             -- TYPESCRIPT
-            vim.lsp.enable "ts_ls"
+            -- vim.lsp.enable "ts_ls"
+            vim.lsp.enable "tsgo"
 
             -- ZIG
             vim.lsp.enable "zls"

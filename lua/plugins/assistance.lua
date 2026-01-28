@@ -1,27 +1,27 @@
 return {
     {
-        "folke/sidekick.nvim",
-        dependencies = {},
-        opts = {},
+        "zbirenbaum/copilot.lua",
+        event = "InsertEnter",
+        opts = {
+            suggestion = {
+                enabled = true,
+                auto_trigger = false,
+                keymap = {
+                    accept = "<Right>",
+                    dismiss = "<C-]>",
+                },
+            },
+            nes = {
+                enabled = false,
+            },
+        },
         keys = {
             {
-                "<C-p>",
+                "<leader>ac",
                 function()
-                    require("sidekick.cli").toggle {
-                        name = "codex",
-                        focus = true,
-                    }
+                    require("copilot.suggestion").toggle_auto_trigger()
                 end,
-                desc = "Sidekick Codex Toggle",
-                mode = { "n", "v" },
-            },
-            {
-                "<leader>ap",
-                function()
-                    require("sidekick.cli").prompt()
-                end,
-                desc = "Sidekick Ask Prompt",
-                mode = { "n", "v" },
+                desc = "Toggle Copilot Auto Trigger",
             },
         },
     },
