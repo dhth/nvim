@@ -153,9 +153,6 @@ return {
                     }
                 )
             end, map_opts)
-            REMAP("n", "<leader>ss", function()
-                vim.cmd "Telescope persisted"
-            end, map_opts)
             REMAP("n", "<leader>sw", function()
                 require("telescope.builtin").grep_string(
                     require("telescope.themes").get_ivy {
@@ -187,14 +184,14 @@ return {
             -- your configuration comes here
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
-            bigfile = { enabled = false },
+            bigfile = { enabled = true },
             dashboard = { enabled = false },
             explorer = { enabled = false },
             indent = { enabled = false },
             input = { enabled = false },
             picker = { enabled = true },
             notifier = { enabled = false },
-            quickfile = { enabled = false },
+            quickfile = { enabled = true },
             scope = { enabled = false },
             scroll = { enabled = false },
             statuscolumn = { enabled = false },
