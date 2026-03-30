@@ -130,7 +130,7 @@ return {
                 virtual_text = false,
             }
 
-            vim.lsp.set_log_level(vim.lsp.log_levels.ERROR)
+            vim.lsp.log.set_level("ERROR")
 
             -- C
             vim.lsp.enable "ccls"
