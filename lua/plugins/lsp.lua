@@ -83,8 +83,8 @@ local function lsp_on_attach(args)
         opts
     )
     --- using lspsaga
-    buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts) -- turn float=true if not using lsp_lines
-    buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts) -- turn float=true if not using lsp_lines
+    buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.jump{count=-1, float=true}<CR>", opts)
+    buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.jump{count=1, float=true}<CR>", opts)
     buf_set_keymap(
         "n",
         "f<c-f>",

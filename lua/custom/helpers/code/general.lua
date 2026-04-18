@@ -5,8 +5,6 @@ local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 local git_helpers = require "custom.helpers.git"
 local theme = require("telescope.themes").get_ivy
-local ts_utils = require "nvim-treesitter.ts_utils"
-
 local M = {}
 
 function M.format_using_lsp()
@@ -635,7 +633,11 @@ function M.print_item()
     end
 
     local bufnr = vim.api.nvim_get_current_buf()
-    local cursor_node = ts_utils.get_node_at_cursor()
+    local cursor_node = vim.treesitter.get_node {
+        bufnr = bufnr,
+        pos = vim.api.nvim_win_get_cursor(0),
+        ignore_injections = false,
+    }
 
     if not cursor_node then
         print "no Treesitter parser found"
