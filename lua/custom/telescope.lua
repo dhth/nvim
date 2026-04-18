@@ -83,6 +83,32 @@ function M.edit_neovim()
     builtin.find_files(opts)
 end
 
+function M.search_files_with_prompt()
+    local query = vim.fn.input "> "
+
+    if query == "" then
+        return
+    end
+
+    local opts = theme {
+        find_command = {
+            "fd",
+            "-ipH",
+            "-t=f",
+            "-t=l",
+        },
+        default_text = query,
+        prompt_title = "~ search files ~",
+        results_title = false,
+        previewer = false,
+        layout_config = {
+            height = 0.6,
+        },
+    }
+
+    builtin.find_files(opts)
+end
+
 function M.grep_nvim()
     local opts = theme {
         prompt_title = "~ grep ~/.config/nvim ~",
@@ -781,6 +807,7 @@ NOREMAP_SILENT("n", "<leader>dkf", M.find_dockerfiles)
 NOREMAP_SILENT("n", "<leader>te", M.telescope_pickers)
 NOREMAP_SILENT("n", "<leader>vc", M.grep_nvim)
 NOREMAP_SILENT("n", "<leader>cc", M.edit_neovim)
+NOREMAP_SILENT("n", "<leader>fs", M.search_files_with_prompt)
 NOREMAP_SILENT("n", "<leader>lt", M.search_linked_tests)
 NOREMAP_SILENT("n", "<leader>sf", M.nearby_file_browser)
 NOREMAP_SILENT("n", "<leader>gd", M.search_changed_files)
