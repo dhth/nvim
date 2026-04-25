@@ -246,6 +246,19 @@ function M.search_projects()
         :find()
 end
 
+function M.treesitter_symbols()
+    local opts = theme {
+        prompt_title = "~ symbols ~",
+        results_title = false,
+        previewer = true,
+        layout_config = {
+            height = 0.6,
+        },
+    }
+
+    builtin.treesitter(opts)
+end
+
 function M.lcd_to_dir()
     local opts = theme {
         prompt_title = "~ change project ~",
@@ -810,6 +823,7 @@ NOREMAP_SILENT("n", "<leader>cc", M.edit_neovim)
 NOREMAP_SILENT("n", "<c-f>", M.search_files_with_prompt)
 NOREMAP_SILENT("n", "<leader>lt", M.search_linked_tests)
 NOREMAP_SILENT("n", "<leader>sf", M.nearby_file_browser)
+NOREMAP_SILENT("n", "<leader>ts", M.treesitter_symbols)
 NOREMAP_SILENT("n", "<leader>gd", M.search_changed_files)
 NOREMAP_SILENT("n", "<leader>nf", M.create_new_file_at_location)
 NOREMAP_SILENT("n", "<leader>rf", M.search_related_files)
