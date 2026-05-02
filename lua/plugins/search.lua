@@ -139,7 +139,7 @@ return {
                     }
                 )
             end, map_opts)
-            REMAP("n", "<leader>fs", function()
+            REMAP("n", "<C-f>", function()
                 require("telescope.builtin").find_files(
                     require("telescope.themes").get_ivy {
                         find_command = { "fd", "-ipH", "-t=f", "-t=l" }, -- l=symlinks
