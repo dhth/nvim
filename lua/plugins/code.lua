@@ -96,39 +96,6 @@ let g:test#transformation = 'docker'
         end,
     },
     {
-        "mbbill/undotree",
-        event = "InsertEnter",
-        dependencies = {
-            { "vim-test/vim-test" },
-        },
-        config = function()
-            vim.cmd [[
-if has("persistent_undo")
-   let target_path = expand('~/.undodir')
-
-    " create the directory and any parent directories
-    " if the location does not exist.
-    if !isdirectory(target_path)
-        call mkdir(target_path, "p", 0700)
-    endif
-
-    let &undodir=target_path
-    set undofile
-endif
-]]
-            REMAP(
-                "n",
-                "<leader>uu",
-                ":UndotreeToggle<CR>",
-                OPTS_NO_REMAP_SILENT
-            )
-        end,
-    },
-    {
-        "ferrine/md-img-paste.vim",
-        event = "InsertEnter",
-    },
-    {
         "echasnovski/mini.nvim",
         event = "InsertEnter",
         version = "*",
