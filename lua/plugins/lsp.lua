@@ -83,8 +83,18 @@ local function lsp_on_attach(args)
         opts
     )
     --- using lspsaga
-    buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.jump{count=-1, float=true}<CR>", opts)
-    buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.jump{count=1, float=true}<CR>", opts)
+    buf_set_keymap(
+        "n",
+        "[d",
+        "<cmd>lua vim.diagnostic.jump{count=-1, float=true}<CR>",
+        opts
+    )
+    buf_set_keymap(
+        "n",
+        "]d",
+        "<cmd>lua vim.diagnostic.jump{count=1, float=true}<CR>",
+        opts
+    )
     buf_set_keymap(
         "n",
         "f<c-f>",
@@ -130,7 +140,7 @@ return {
                 virtual_text = false,
             }
 
-            vim.lsp.log.set_level("ERROR")
+            vim.lsp.log.set_level "ERROR"
 
             -- C
             vim.lsp.enable "ccls"

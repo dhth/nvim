@@ -33,11 +33,17 @@ return {
         lazy = false,
         config = function()
             vim.api.nvim_create_user_command("TSInstallManaged", function()
-                require("nvim-treesitter").install(managed_parsers, { summary = true })
+                require("nvim-treesitter").install(
+                    managed_parsers,
+                    { summary = true }
+                )
             end, {})
 
             vim.api.nvim_create_user_command("TSUpdateManaged", function()
-                require("nvim-treesitter").update(managed_parsers, { summary = true })
+                require("nvim-treesitter").update(
+                    managed_parsers,
+                    { summary = true }
+                )
             end, {})
 
             vim.api.nvim_create_user_command("TSListInstalled", function()
@@ -45,8 +51,10 @@ return {
                 vim.print(installed)
             end, {})
 
-            local group =
-                vim.api.nvim_create_augroup("treesitter_highlighting", { clear = true })
+            local group = vim.api.nvim_create_augroup(
+                "treesitter_highlighting",
+                { clear = true }
+            )
 
             vim.api.nvim_create_autocmd("FileType", {
                 group = group,
