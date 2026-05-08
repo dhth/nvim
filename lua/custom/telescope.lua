@@ -551,23 +551,42 @@ function M.search_linked_tests()
     builtin.find_files(opts)
 end
 
-function M.search_changed_files()
+local function search_files_for_command(prompt_title, command)
     local opts = theme {
-        prompt_title = "~ changed files ~",
+        prompt_title = prompt_title,
         results_title = false,
         previewer = false,
         preview_title = false,
-        find_command = {
-            "git",
-            "--no-pager",
-            "diff",
-            "--name-only",
-            "--diff-filter=ACMRT",
-            "HEAD",
-        },
+        find_command = command,
     }
 
     builtin.find_files(opts)
+end
+
+function M.search_changed_files()
+    search_files_for_command("~ changed files ~", {
+        "git",
+        "--no-pager",
+        "diff",
+        "--name-only",
+        "--diff-filter=ACMRT",
+        "HEAD",
+    })
+end
+
+function M.search_head_commit_files()
+    -- diff-tree gives paths changed by HEAD directly, unlike git show which formats commit output.
+    -- We intentionally do not support cases where only 1 commit exists, to keep things simple.
+    search_files_for_command("~ HEAD commit files ~", {
+        "git",
+        "diff-tree",
+        "--no-commit-id",
+        "--name-only",
+        "-r",
+        "-M",
+        "--diff-filter=AMR",
+        "HEAD",
+    })
 end
 
 function M.files_to_quickfix()
@@ -825,6 +844,7 @@ NOREMAP_SILENT("n", "<leader>lt", M.search_linked_tests)
 NOREMAP_SILENT("n", "<leader>sf", M.nearby_file_browser)
 NOREMAP_SILENT("n", "<leader>ts", M.treesitter_symbols)
 NOREMAP_SILENT("n", "<leader>gd", M.search_changed_files)
+NOREMAP_SILENT("n", "<leader>hf", M.search_head_commit_files)
 NOREMAP_SILENT("n", "<leader>nf", M.create_new_file_at_location)
 NOREMAP_SILENT("n", "<leader>rf", M.search_related_files)
 NOREMAP_SILENT("n", "<leader>rr", M.lsp_references)
