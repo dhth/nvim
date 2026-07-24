@@ -1,12 +1,12 @@
 setlocal colorcolumn=80
 setlocal nowrap
 setlocal syntax=OFF
-nnoremap <buffer> <silent> <ENTER> :call wiki_foam#EnterKeyActions(getline('.'))<cr>
+" nnoremap <buffer> <silent> <ENTER> :call wiki_foam#EnterKeyActions(getline('.'))<cr>
 vnoremap <buffer> <silent> <ENTER> :lua require("custom.helpers.wiki").toggle_visual_checklist()<CR>
 vnoremap <buffer> <silent> aq :lua require("custom.helpers.wiki").quotify_visual()<CR>
 nnoremap <buffer> <silent> <leader>st :lua require("custom.helpers.wiki").search_for_tags()<CR>
 
-nnoremap <buffer> <silent> <leader><ENTER> :call wiki_foam#GoToFileInNewTab(getline('.'))<cr>
+" nnoremap <buffer> <silent> <leader><ENTER> :call wiki_foam#GoToFileInNewTab(getline('.'))<cr>
 nnoremap <buffer> <leader>/ :Toc<CR>
 nnoremap <buffer> <leader>tf :TableFormat<CR>
 " nnoremap <buffer> <leader>- o<esc>I- 
@@ -15,25 +15,25 @@ nnoremap <buffer> <leader>x o<esc>I- [ ]
 set tw=80
 
 nnoremap <buffer> <silent> <leader>oo :call wiki#OpenFileAndEnterText(expand("%:h")."/".expand("<cfile>"), expand("<cfile>"))<cr>
-nnoremap <buffer> <silent> <leader>cfl :call wiki_foam#CreateFileLink()<cr>
-nnoremap <buffer> <silent> <leader>cdl :call wiki_foam#CreateFolderLink()<cr>
+" nnoremap <buffer> <silent> <leader>cfl :call wiki_foam#CreateFileLink()<cr>
+" nnoremap <buffer> <silent> <leader>cdl :call wiki_foam#CreateFolderLink()<cr>
 
 nnoremap <buffer> <leader>ctr :call wiki#CreateBookTrackerRow()<cr>
 
 nnoremap <buffer> <silent> <leader>al :call wiki#AddMarkdownLink()<cr>
-nnoremap <buffer> <silent> <leader>cl :call wiki_foam#CreateLinkToAnotherFile()<cr>
-inoremap <buffer> <silent> [[ <Esc>:call wiki_foam#CreateLinkToAnotherFile()<cr>
+" nnoremap <buffer> <silent> <leader>cl :call wiki_foam#CreateLinkToAnotherFile()<cr>
+" inoremap <buffer> <silent> [[ <Esc>:call wiki_foam#CreateLinkToAnotherFile()<cr>
 
 nnoremap <buffer> <silent> <leader>ce :call wiki#CreateDateFileLink()<cr>
 nnoremap <buffer> <silent> <leader>aq :call wiki#AddQuestion()<cr>
-nnoremap <buffer> <silent> <leader>bl :call wiki_foam#GetBacklinks()<cr>
-nnoremap <buffer> <silent> [[ :call wiki_foam#GetBacklinks()<cr>
-nnoremap <buffer> <silent> <leader>le :call wiki_foam#AddQuestion()<cr>
-nnoremap <buffer> <silent> <leader>te :call wiki_foam#AddQuestion()<cr>
+" nnoremap <buffer> <silent> <leader>bl :call wiki_foam#GetBacklinks()<cr>
+" nnoremap <buffer> <silent> [[ :call wiki_foam#GetBacklinks()<cr>
+" nnoremap <buffer> <silent> <leader>le :call wiki_foam#AddQuestion()<cr>
+" nnoremap <buffer> <silent> <leader>te :call wiki_foam#AddQuestion()<cr>
 
-nnoremap <silent> <leader>he :call wiki_foam#Helpers()<cr>
+" nnoremap <silent> <leader>he :call wiki_foam#Helpers()<cr>
 
-nnoremap <silent> <leader>ow :call wiki_foam#OpenCurrentWikiPageInBrowser()<cr>
+" nnoremap <silent> <leader>ow :call wiki_foam#OpenCurrentWikiPageInBrowser()<cr>
 
 nnoremap <buffer> <leader>mr :call ft#markdown#ToggleMarkdownRender()<cr>
 
@@ -44,7 +44,7 @@ vnoremap <buffer> <silent> cl :lua require("custom.helpers.wiki").add_visual_che
 vnoremap <buffer> <silent> ml :lua require("custom.helpers.wiki").add_visual_list()<CR>
 
 nnoremap <silent><leader>ad :call helpers#AddDate()<cr>
-inoremap <buffer> <silent> [t <Esc>:call wiki_foam#AddFoamLinkToTodaysLog()<cr>
+" inoremap <buffer> <silent> [t <Esc>:call wiki_foam#AddFoamLinkToTodaysLog()<cr>
 
 nnoremap <buffer> <silent> <leader>sl :lua require("custom.helpers.wiki").open_current_pages_webview()<CR>
 
