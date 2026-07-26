@@ -4,13 +4,18 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            -- local current_hour = os.date("*t").hour
-            -- if current_hour >= 10 and current_hour < 18 then
-            --     vim.o.background = "light"
-            -- else
-            --     vim.o.background = "dark"
-            -- end
-            vim.o.background = "dark"
+            local background_by_theme = {
+                ["gruvbox-dark-hard"] = "dark",
+                ["gruvbox-light-hard"] = "light",
+            }
+            local state_file = vim.fn.expand "~/.local/state/dotfiles/theme"
+            local theme = "gruvbox-dark-hard"
+
+            if vim.fn.filereadable(state_file) == 1 then
+                theme = vim.fn.readfile(state_file, "", 1)[1] or theme
+            end
+
+            vim.o.background = background_by_theme[theme] or "dark"
             require("gruvbox").setup {
                 contrast = "hard", -- can be "hard", "soft" or empty string
             }
