@@ -522,82 +522,6 @@ function M.add_semicolon()
     vim.cmd "stopinsert"
 end
 
-local definition_win_id = nil
-local definition_match_id = nil
-
-function M.show_definition()
-    local params = vim.lsp.util.make_position_params()
-    local current_win = vim.api.nvim_get_current_win()
-
-    vim.lsp.buf_request(
-        0,
-        "textDocument/definition",
-        params,
-        function(err, result, _, _)
-            if err then
-                print("Error: " .. err.message)
-                return
-            end
-
-            if not result or vim.tbl_isempty(result) then
-                print "Definition not found"
-                return
-            end
-
-            -- Handle the case where result is a list of locations or a single location
-            local location = result[1]
-            if type(result) == "table" and result.targetUri then
-                location = result
-            end
-
-            if not location or not location.targetUri then
-                print "Invalid location or targetUri"
-                return
-            end
-
-            local uri = location.targetUri
-            local bufnr = vim.uri_to_bufnr(uri)
-            vim.fn.bufload(bufnr)
-            local start_line = location.targetRange.start.line
-
-            -- Create or reuse the buffer on the right-hand side
-            if
-                definition_win_id
-                and vim.api.nvim_win_is_valid(definition_win_id)
-            then
-                vim.api.nvim_set_current_win(definition_win_id)
-            else
-                vim.cmd "vsplit"
-                definition_win_id = vim.api.nvim_get_current_win()
-            end
-
-            vim.api.nvim_win_set_buf(definition_win_id, bufnr)
-            vim.api.nvim_win_set_cursor(
-                definition_win_id,
-                { start_line + 1, 0 }
-            )
-            vim.cmd "normal! zt"
-            vim.cmd "normal! 10k"
-            vim.cmd "normal! 10j"
-
-            if definition_match_id then
-                local success, _ =
-                    pcall(vim.fn.matchdelete, definition_match_id)
-                if success then
-                    definition_match_id = nil
-                end
-            end
-
-            definition_match_id = vim.fn.matchadd(
-                "DefinitionHighlight",
-                "\\%" .. (start_line + 1) .. "l"
-            )
-
-            vim.api.nvim_set_current_win(current_win)
-        end
-    )
-end
-
 --- Adds a print statement for the word under the cursor.
 -- eg. running this when on "app_state" will add the following line
 -- ```rust
@@ -685,7 +609,6 @@ NOREMAP_SILENT("n", "<Leader>ru", M.run_line_as_command)
 NOREMAP_SILENT("i", ";;", M.add_semicolon)
 NOREMAP_SILENT("n", ";;", M.add_semicolon)
 
--- NOREMAP_SILENT("n", "L", M.show_definition)
 NOREMAP_SILENT("n", "<leader>db", M.print_item)
 
 return M
