@@ -1,5 +1,4 @@
 setlocal colorcolumn=80
-setlocal nowrap
 setlocal syntax=OFF
 " nnoremap <buffer> <silent> <ENTER> :call wiki_foam#EnterKeyActions(getline('.'))<cr>
 vnoremap <buffer> <silent> <ENTER> :lua require("custom.helpers.wiki").toggle_visual_checklist()<CR>
